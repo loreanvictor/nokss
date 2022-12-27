@@ -1,0 +1,20 @@
+:root {
+  --background-color: #f5f5f5;
+  --text-color: #111111;
+
+  --primary-color: #4B56D2;
+  --primary-text: #fff;
+
+  --button-border-radius: 5px;
+  --button-padding: 8px 16px;
+  --button-min-width: 128px;
+
+  --button-disabled-background: #bdbdbd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #100F0F;
+    --text-color: #fafafa;
+  }
+}

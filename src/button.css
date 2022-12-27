@@ -1,0 +1,21 @@
+button {
+  background: var(--primary-color);
+  color: var(--primary-text);
+
+  border: none;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  min-width: var(--button-min-width);
+
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: var(--button-disabled-background);
+  cursor: not-allowed;
+}
