@@ -2,7 +2,7 @@
 :root {
   --button-secondary-brightness: 3;
   --button-secondary-border-brightness: 1.5;
-  --button-secondary-hover-brightness: 3.5;
+  --button-secondary-hover-brightness: 4;
   --button-secondary-active-opacity: 0.85;
 }
 
@@ -10,7 +10,7 @@
   :root {
     --button-secondary-brightness: 0.95;
     --button-secondary-border-brightness: 0.88;
-    --button-secondary-hover-brightness: 0.97;
+    --button-secondary-hover-brightness: 0.98;
     --button-secondary-active-opacity: 0.65;
   }
 }
