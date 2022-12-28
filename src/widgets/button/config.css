@@ -1,5 +1,6 @@
 :root {
   --button-border-radius: 5px;
-  --button-padding: 6px 12px;
   --button-min-width: 96px;
+  --button-height: 32px;
+  --button-padding: 0px 8px;
 }

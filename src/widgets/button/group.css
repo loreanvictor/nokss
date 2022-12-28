@@ -1,0 +1,47 @@
+
+:root {
+  --button-secondary-brightness: 3;
+  --button-secondary-border-brightness: 1.5;
+  --button-secondary-hover-brightness: 3.5;
+  --button-secondary-active-opacity: 0.85;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --button-secondary-brightness: 0.95;
+    --button-secondary-border-brightness: 0.88;
+    --button-secondary-hover-brightness: 0.97;
+    --button-secondary-active-opacity: 0.65;
+  }
+}
+
+menu {
+  padding: 0;
+}
+
+menu[role="group"],
+menu[aria-orientation="horizontal"],
+[role="menu"][aria-oriented="horizontal"] {
+  &>button:not(:last-child),
+  &>[role="button"]:not(:last-child),
+  &>[type="button"]:not(:last-child),
+  &>[type="submit"]:not(:last-child) {
+    background: var(--background-color);
+    color: var(--text-color);
+    filter: brightness(var(--button-secondary-brightness));
+  
+    &:before {
+      border-color: var(--background-color);
+      filter: brightness(var(--button-secondary-border-brightness));
+    }
+  
+    &:hover,
+    &:focus {
+      filter: brightness(var(--button-secondary-hover-brightness));
+    }
+  
+    &:active {
+      opacity: var(--button-secondary-active-opacity);
+    }  
+  }  
+}

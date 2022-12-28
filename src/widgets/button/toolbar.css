@@ -1,0 +1,64 @@
+
+:root {
+  --toolbar-spacer-gap: 16px;
+  --toolbar-spacer-margin: 4px;
+  --toolbar-spacer-thickness: 1px;
+  --toolbar-spacer-brightness: 3;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --toolbar-spacer-brightness: 0.8;
+  }
+}
+
+[role="toolbar"] {
+  &>button,
+  &>[role="button"],
+  &>[type="button"],
+  &>[type="submit"] {
+    min-width: var(--button-height);
+    background: var(--background-color);
+    color: var(--text-color);
+    filter: brightness(var(--button-secondary-brightness));
+  
+    &:before {
+      border-color: var(--background-color);
+      filter: brightness(var(--button-secondary-border-brightness));
+    }
+  
+    &:hover,
+    &:focus {
+      filter: brightness(var(--button-secondary-hover-brightness));
+    }
+  
+    &:active {
+      opacity: var(--button-secondary-active-opacity);
+    }  
+  }
+
+  &>hr {
+    display: inline-block;
+    width: var(--toolbar-spacer-thickness);
+    height: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
+    vertical-align: middle;
+    margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2);
+    margin-top: calc(var(--toolbar-spacer-margin) -4px);
+    border: none;
+    background: var(--background-color);
+    filter: brightness(var(--toolbar-spacer-brightness));
+  }
+
+  &[aria-orientation="vertical"] {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    width: var(--button-height);
+
+    &>hr {
+      width: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
+      height: var(--toolbar-spacer-thickness);
+      margin: calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2) var(--toolbar-spacer-margin);
+    }
+  }
+}

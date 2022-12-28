@@ -1,5 +1,5 @@
-body>main[small] {
-  max-width: 480px;
+main {
+  max-width: 896px;
   margin: 32px auto;
   background: inherit;
 }

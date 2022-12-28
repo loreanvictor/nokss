@@ -2,16 +2,18 @@
   --button-disabled-opacity: 0.35;
 }
 
-button:disabled {
+button:disabled,
+[role="button"]:disabled,
+[type="button"]:disabled,
+[type="submit"]:disabled {
   opacity: var(--button-disabled-opacity);
   border: none;
   background: var(--background-color);
   color: var(--text-color);
   cursor: not-allowed;
   filter: invert(1);
-}
 
-button:disabled:before {
-  display: none;
+  &:before {
+    display: none;
+  }
 }
-

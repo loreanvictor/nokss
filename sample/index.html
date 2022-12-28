@@ -2,16 +2,54 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./index.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/graphis/font/graphis.css"/>
+  <style>
+    [role="toolbar"] i {
+      font-family: graphis;
+      font-weight: bold;
+      font-style: normal;
+    }
+  </style>
 </head>
 <body>
   <main small>
-    🚀 This is test!
-    <button disabled>Disabled</button>
-    <button>Halo!</button>
-
-    <menu>
+    <h1>🚀 This is test!</h1>
+    <p>
+      <b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+    <menu role="group" align="right">
       <button>First</button>
       <button>Second</button>
     </menu>
+    <br>
+    <p>
+      This is how a button looks like: <button>Halo!</button>
+    </p>
+    <p>
+      This is how a disabled button looks like: <button disabled>Disabled</button>
+    </p>
+    This is how a toolbar would look like:
+    <menu role="toolbar" align="right">
+      <button>Do something</button>
+      <button><i>🔍</i></button>
+      <button><i>➤</i></button>
+      <button><i>❤</i></button>
+      <hr/>
+      <button><i>🏠</i></button>
+      <button><i>🗑</i></button>
+    </menu>
+    <div flex>
+      <p>On the right you can see how a vertical toolbar. Also here is some lorem ipsum to fill the space:
+        Curabitur at sollicitudin felis, rutrum efficitur nisl. Phasellus eleifend lacus sodales ipsum sodales, quis tincidunt lacus ultrices. Pellentesque cursus lorem et suscipit rutrum. Nullam blandit lacus nec accumsan imperdiet. Fusce in nisl sed felis auctor porttitor laoreet quis sapien. Donec facilisis velit ut nulla efficitur sagittis. Etiam congue odio ut purus sollicitudin, sed fringilla ante eleifend. Curabitur a consectetur turpis.
+      </p>
+      <hr fill spacer/>
+      <menu role="toolbar" aria-orientation="vertical">
+        <button><i>🔍</i></button>
+        <button><i>➤</i></button>
+        <hr/>
+        <button><i>❤</i></button>
+      </menu>
+    </div>
   </main>
 </body>

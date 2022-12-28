@@ -1,0 +1,11 @@
+div[flex] {
+  display: flex;
+}
+
+div[flex]>hr[fill] {
+  opacity: 0;
+}
+
+div[flex]>hr[spacer] {
+  min-width: 32px;
+}
