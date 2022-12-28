@@ -1,4 +1,4 @@
-body>section[small] {
+body>main[small] {
   max-width: 480px;
   margin: 32px auto;
   background: inherit;

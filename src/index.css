@@ -3,5 +3,5 @@
 @import './theme.css';
 @import './font.css';
 @import './body.css';
-@import './button.css';
+@import './button/index.css';
 @import './section.css';
