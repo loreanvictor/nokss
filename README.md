@@ -13,3 +13,8 @@ Enough CSS
 ```css
 @import 'https://unpkg.com/nokss@0.0.3/dist/nokss.css';
 ```
+Or
+```html
+<link rel="stylesheet"
+  href="https://unpkg.com/nokss@0.0.3/dist/nokss.css" />
+```
