@@ -1,6 +1,6 @@
 
 :root {
-  --toolbar-spacer-gap: 16px;
+  --toolbar-spacer-gap: 32px;
   --toolbar-spacer-margin: 4px;
   --toolbar-spacer-thickness: 1px;
   --toolbar-spacer-brightness: 3;
@@ -13,6 +13,15 @@
 }
 
 [role="toolbar"] {
+  margin: 0;
+  display: flex;
+  gap: 0px;
+
+  &[align="right"],
+  &[align="bottom"] {
+    justify-content: flex-end;
+  }
+
   &>button,
   &>[role="button"],
   &>[type="button"],
@@ -34,7 +43,7 @@
   
     &:active {
       opacity: var(--button-secondary-active-opacity);
-    }  
+    }
   }
 
   &>hr {
@@ -43,22 +52,94 @@
     height: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
     vertical-align: middle;
     margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2);
-    margin-top: calc(var(--toolbar-spacer-margin) -4px);
+    margin-top: var(--toolbar-spacer-margin);
     border: none;
     background: var(--background-color);
     filter: brightness(var(--toolbar-spacer-brightness));
   }
 
+  &:not([aria-orientation="vertical"]) {
+    &>button,
+    &>[role="button"],
+    &>[type="button"],
+    &>[type="submit"] {
+      &:not(:first-child, :last-child) {
+        border-radius: 0;
+        &:before {
+          border-radius: 0;
+          border-left: none;
+        }
+      }
+
+      &:first-child:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &:before {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      &:last-child:not(:first-child) {
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+        &:before {
+          border-left: none;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+  }
+
   &[aria-orientation="vertical"] {
     display: inline-flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0px;
     width: var(--button-height);
 
     &>hr {
       width: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
       height: var(--toolbar-spacer-thickness);
       margin: calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2) var(--toolbar-spacer-margin);
+    }
+
+    &>button,
+    &>[role="button"],
+    &>[type="button"],
+    &>[type="submit"] {
+      &:not(:first-child, :last-child) {
+        border-radius: 0;
+        &:before {
+          border-radius: 0;
+          border-top: none;
+        }
+      }
+
+      &:first-child:not(:last-child) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &:before {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+
+      &:last-child:not(:first-child) {
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        &:before {
+          border-top: none;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
     }
   }
 }

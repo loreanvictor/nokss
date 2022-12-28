@@ -14,7 +14,10 @@
 </head>
 <body>
   <main small>
-    <h1>🚀 This is test!</h1>
+    <picture>
+      <source srcset="https://raw.githubusercontent.com/loreanvictor/nokss/main/logo-dark.svg#gh-dark-mode-only" media="(prefers-color-scheme: dark)">
+      <img src="https://raw.githubusercontent.com/loreanvictor/nokss/main/logo-light.svg#gh-light-mode-only" height="48px">
+    </picture>
     <p>
       <b>Lorem Ipsum</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </p>
@@ -22,7 +25,7 @@
       <button>First</button>
       <button>Second</button>
     </menu>
-    <br>
+    <h1>🚀 This is test!</h1>
     <p>
       This is how a button looks like: <button>Halo!</button>
     </p>
@@ -31,24 +34,35 @@
     </p>
     This is how a toolbar would look like:
     <menu role="toolbar" align="right">
-      <button>Do something</button>
-      <button><i>🔍</i></button>
-      <button><i>➤</i></button>
-      <button><i>❤</i></button>
+      <menu role="toolbar">
+        <button>Do something</button>
+        <button><i>🔍</i></button>
+        <button><i>➤</i></button>
+        <button><i>❤</i></button>
+      </menu>
       <hr/>
-      <button><i>🏠</i></button>
-      <button><i>🗑</i></button>
+      <menu role="toolbar">
+        <button><i>🏠</i></button>
+        <button><i>🗑</i></button>
+      </menu>
     </menu>
+    <br>
     <div flex>
       <p>On the right you can see how a vertical toolbar. Also here is some lorem ipsum to fill the space:
         Curabitur at sollicitudin felis, rutrum efficitur nisl. Phasellus eleifend lacus sodales ipsum sodales, quis tincidunt lacus ultrices. Pellentesque cursus lorem et suscipit rutrum. Nullam blandit lacus nec accumsan imperdiet. Fusce in nisl sed felis auctor porttitor laoreet quis sapien. Donec facilisis velit ut nulla efficitur sagittis. Etiam congue odio ut purus sollicitudin, sed fringilla ante eleifend. Curabitur a consectetur turpis.
       </p>
       <hr fill spacer/>
       <menu role="toolbar" aria-orientation="vertical">
-        <button><i>🔍</i></button>
-        <button><i>➤</i></button>
+        <menu role="toolbar" aria-orientation="vertical">
+          <button><i>🔍</i></button>
+          <button><i>➤</i></button>
+          <button><i>❤</i></button>
+        </menu>
         <hr/>
-        <button><i>❤</i></button>
+        <menu role="toolbar" aria-orientation="vertical">
+          <button><i>🔍</i></button>
+          <button><i>➤</i></button>
+        </menu>
       </menu>
     </div>
   </main>

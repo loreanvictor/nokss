@@ -1,14 +1,14 @@
 :root {
-  --background-color: #FEFBF6;
+  --background-color: #FFFDF9;
   --text-color: #393E46;
 
-  --primary-color: #2192FF;
-  --primary-text: #fff;
+  --primary-color: #1F6FEB;
+  --primary-text-color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #100F0F;
-    --text-color: #FEFCF3;
+    --background-color: #0D1118;
+    --text-color: #FFFCF3;
   }
 }
