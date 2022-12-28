@@ -1,0 +1,20 @@
+:root {
+  --hr-thickness: 1px;
+  --hr-brightness: 2.6;
+  --hr-spacing: 48px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --hr-brightness: 0.8;
+  }
+}
+
+hr {
+  border: none;
+  background: none;
+  height: var(--hr-thickness);
+  background: var(--background-color);
+  filter: brightness(var(--hr-brightness));
+  margin: calc((var(--hr-spacing) - var(--hr-thickness)) / 2) 0;
+}

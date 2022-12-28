@@ -15,7 +15,7 @@ jobs:
           node-version: '16'
 
       - name: Fix README for NPM
-        run: sed -i.tmp -e '9d' README.md && rm README.md.tmp
+        run: sed -i.tmp -e '1d' README.md && rm README.md.tmp
       
       - name: Publish
         uses: JS-DevTools/npm-publish@v1

@@ -3,14 +3,9 @@
   --toolbar-spacer-gap: 32px;
   --toolbar-spacer-margin: 4px;
   --toolbar-spacer-thickness: 1px;
-  --toolbar-spacer-brightness: 3;
+  --toolbar-spacer-brightness: var(--hr-brightness);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --toolbar-spacer-brightness: 0.8;
-  }
-}
 
 [role="toolbar"] {
   margin: 0;
