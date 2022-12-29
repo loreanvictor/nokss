@@ -4,10 +4,16 @@
 
 </div>
 
-<img src="logo-dark.svg#gh-dark-mode-only" height="96px"/>
-<img src="logo-light.svg#gh-light-mode-only" height="96px"/>
+<div align="center">
 
-Enough CSS to get started
+<img src="logo-dark.svg#gh-dark-mode-only" height="64px"/>
+<img src="logo-light.svg#gh-light-mode-only" height="64px"/>
+
+<sub>Enough CSS to get started</sub>
+
+<br>
+
+</div>
 
 ```css
 /* import in your CSS files */
