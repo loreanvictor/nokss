@@ -6,12 +6,12 @@
 
 <div align="center">
 
-<img src="logo-dark.svg#gh-dark-mode-only" height="96px"/>
-<img src="logo-light.svg#gh-light-mode-only" height="96px"/>
+<img src="logo-dark.svg#gh-dark-mode-only" height="64px"/>
+<img src="logo-light.svg#gh-light-mode-only" height="64px"/>
 
-Enough CSS to get started
+<sub>Enough CSS to get started</sub>
 
-<br><br>
+<br>
 
 </div>
 
