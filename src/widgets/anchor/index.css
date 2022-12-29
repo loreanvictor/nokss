@@ -1,0 +1,8 @@
+a:not([role]) {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:not([role]):hover {
+  text-decoration: underline;
+}

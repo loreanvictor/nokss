@@ -1,8 +1,12 @@
+:root {
+  --primary-color: #FD841F;
+}
+
 pre code {
   display: block;
   padding: 16px;
   background: #000;
-  border-radius: 3px;
+  border-radius: 8px;
   position: relative;
 }
 
