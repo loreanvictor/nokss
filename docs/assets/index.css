@@ -1,0 +1,37 @@
+pre code {
+  display: block;
+  padding: 16px;
+  background: #000;
+  border-radius: 3px;
+  position: relative;
+}
+
+pre code:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 3px;
+  left: 0; right: 0; top: 0; bottom: 0;
+  border: 1px solid var(--background-color);
+  filter: brightness(2);
+}
+
+.material-icons {
+  font-size: 16px;
+}
+
+pre {
+  position: relative;
+}
+
+pre menu {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  opacity: 0;
+  transition: opacity .15s;
+}
+
+pre:hover menu {
+  opacity: 1;
+}

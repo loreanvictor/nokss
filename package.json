@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sample": "vite sample",
-    "build": "postcss -o ./dist/nokss.css ./src/index.css",
+    "docs": "vite dist & chokidar \"./src/**/*.css\" -c \"npm run build:package\" --initial & chokidar \"./docs/**/*.html\" \"./docs/**/*.js\" \"./docs/**/*.css\" -c \"npm run build:docs\" --initial",
+    "build": "npm run build:package && npm run build:docs",
+    "build:docs": "node docs/scripts/build.mjs",
+    "build:package": "postcss -o ./dist/nokss.css ./src/index.css",
     "prepack": "npm run build"
   },
   "files": [
@@ -28,8 +31,14 @@
   },
   "homepage": "https://github.com/loreanvictor/nokss#readme",
   "devDependencies": {
+    "chokidar-cli": "^3.0.0",
     "cssnano": "^5.1.14",
+    "fs-extra": "^11.1.0",
+    "highlightjs": "^9.16.2",
+    "marked": "^4.2.5",
     "modern-normalize": "^1.1.0",
+    "nunjucks": "^3.2.3",
+    "nunjucks-markdown": "^2.0.1",
     "postcss": "^8.4.20",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
