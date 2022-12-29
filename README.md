@@ -4,18 +4,17 @@
 
 </div>
 
-<img src="logo-dark.svg#gh-dark-mode-only" height="48px"/>
-<img src="logo-light.svg#gh-light-mode-only" height="48px"/>
+<img src="logo-dark.svg#gh-dark-mode-only" height="96px"/>
+<img src="logo-light.svg#gh-light-mode-only" height="96px"/>
 
-_Enough CSS_
-<sup>to get started</sup>
-
+Enough CSS to get started
 
 ```css
+/* import in your CSS files */
 @import 'https://unpkg.com/nokss@0.0.3/dist/nokss.css';
 ```
-Or
 ```html
+<!-- or link in your HTML head -->
 <link rel="stylesheet"
   href="https://unpkg.com/nokss@0.0.3/dist/nokss.css" />
 ```
