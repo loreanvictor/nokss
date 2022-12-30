@@ -48,4 +48,33 @@ Buttons in a toolbar have no primary and are styled differently:
   </menu>
 </div>
 
+<br>
+
+Buttons in a tablist will be styled as tabs:
+
+```html
+<nav role="tablist">
+  <button aria-selected="true">First</button>
+  <button>Second</button>
+  <button>Third</button>
+</nav>
+```
+
+<div role="presentation">
+  <nav role="tablist">
+    <button aria-selected="true">First</button>
+    <button>Second</button>
+    <button>Third</button>
+  </nav>
+
+  <script>
+    document.scripts[document.scripts.length - 1].parentNode.querySelectorAll('nav[role="tablist"] button').forEach(button => {
+      button.addEventListener('click', () => {
+        button.parentNode.querySelectorAll('button').forEach(btn => btn.setAttribute('aria-selected', false))
+        button.setAttribute('aria-selected', true)
+      })
+    })
+  </script>
+</div>
+
 <br><br>
