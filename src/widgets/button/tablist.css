@@ -21,43 +21,18 @@
     &:hover,
     &:focus {
       filter: brightness(var(--button-secondary-hover-brightness));
-
-      &:before {
-        filter: brightness(1);
-      }
     }
 
-    &:active {
-      opacity: var(--button-primary-active-opacity);
+    &:active, &[aria-selected="true"] {
       background: var(--primary-color);
       color: var(--primary-text-color);
       filter: brightness(1);
-    }
-
-    &[aria-selected="true"] {
-      background: var(--primary-color);
-      color: var(--primary-text-color);
-      filter: brightness(1);
+      transition: none;
 
       &:before {
         border-color: var(--primary-color);
         filter: brightness(var(--button-primary-border-brightness));
-      }
-
-      &:hover, &:focus {
-        filter: brightness(var(--button-primary-hover-brightness));
-
-        &:before {
-          filter: brightness(1);
-        }
-      }
-    
-      &:active {
-        opacity: var(--button-primary-active-opacity);
-
-        &:before {
-          filter: brightness(1);
-        }
+        transition: none;
       }
     }
 
