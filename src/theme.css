@@ -4,6 +4,9 @@
 
   --primary-color: #1F6FEB;
   --primary-text-color: #fff;
+
+  --roundness: 5px;
+  --spacing: 8px;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,7 +1,6 @@
-
 :root {
-  --toolbar-spacer-gap: 32px;
-  --toolbar-spacer-margin: 4px;
+  --toolbar-spacer-gap: calc(var(--spacing) * 4);
+  --toolbar-spacer-margin: calc(var(--spacing) / 2);
   --toolbar-spacer-thickness: 1px;
   --toolbar-spacer-brightness: var(--hr-brightness);
 }

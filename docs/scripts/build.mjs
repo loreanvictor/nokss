@@ -12,13 +12,13 @@ export async function build() {
   await copy('./docs/assets/', './dist/assets/')
 
 
-  const env = nunjucks.configure()
+  const env = nunjucks.configure('docs/')
   markdown.register(env, marked)
   marked.setOptions({
     highlight: (code) => highlight.highlightAuto(code).value,
   })
 
-  nunjucks.render('./docs/index.html', (err, html) => {
+  nunjucks.render('index.html', (err, html) => {
     if (err) {
       console.error(err)
     } else {

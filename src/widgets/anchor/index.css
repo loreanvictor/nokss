@@ -6,3 +6,9 @@ a:not([role]) {
 a:not([role]):hover {
   text-decoration: underline;
 }
+
+@media (prefers-color-scheme: dark) {
+  a:not([role]) {
+    filter: brightness(1.3);
+  }
+}

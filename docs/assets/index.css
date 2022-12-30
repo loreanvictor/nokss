@@ -1,29 +1,9 @@
-:root {
-  --primary-color: #FD841F;
-  --primary-text-color: #000;
-}
-
 pre code {
-  display: block;
-  padding: 16px;
   background: #000;
-  border-radius: 8px;
-  position: relative;
-  font-size: 0.9em;
   color: white;
 }
 
 pre code * { color: white }
-
-pre code:before {
-  content: '';
-  display: block;
-  position: absolute;
-  border-radius: 3px;
-  left: 0; right: 0; top: 0; bottom: 0;
-  border: 1px solid var(--background-color);
-  filter: brightness(2);
-}
 
 .material-icons {
   font-size: 16px;
@@ -45,11 +25,8 @@ pre:hover menu {
   opacity: 1;
 }
 
-.demo {
-  --primary-color: #1F6FEB;
-  --primary-text-color: #fff;
-
-  border: 1px solid rgba(128 128, 128, 0.25);
+[role="presentation"] {
+  border: 1px solid rgba(128, 128, 128, 0.25);
   border-radius: 8px;
   padding: 8px;
 }

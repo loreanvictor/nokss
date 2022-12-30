@@ -1,0 +1,15 @@
+:root {
+  --code-padding: calc(var(--spacing) * 2);
+  --code-border-radius: calc(var(--roundness) / 2);
+  --code-font-size: 0.9em;
+}
+
+pre code {
+  display: block;
+  padding: var(--code-padding);
+  border-radius: var(--code-border-radius);
+  position: relative;
+  font-size: var(--code-font-size);
+  color: white;
+  overflow-x: auto;
+}

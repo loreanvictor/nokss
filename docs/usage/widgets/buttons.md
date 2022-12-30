@@ -6,7 +6,7 @@ Buttons are primary styled by default:
 <button>Click me</button>
 ```
 
-<div class="demo">
+<div role="presentation">
   <button>Click me</button>
 </div>
 
@@ -21,7 +21,7 @@ If buttons are grouped, only the last one is styled primary, the rest will have 
 </menu>
 ```
 
-<div class="demo">
+<div role="presentation">
   <menu role="group">
     <button>Secondary</button>
     <button>Primary</button>
@@ -34,16 +34,18 @@ Buttons in a toolbar have no primary and are styled differently:
 
 ```html
 <menu role="toolbar">
-  <button>A</button>
-  <button>B</button>
+  <button>✏️</button>
+  <button>❤️</button>
   <button>Longer</button>
 </menu>
 ```
 
-<div class="demo">
+<div role="presentation">
   <menu role="toolbar">
-    <button>A</button>
-    <button>B</button>
+    <button>✏️</button>
+    <button>❤️</button>
     <button>Longer</button>
   </menu>
 </div>
+
+<br><br>

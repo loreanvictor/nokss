@@ -1,7 +1,7 @@
 :root {
   --hr-thickness: 1px;
   --hr-brightness: 2.6;
-  --hr-spacing: 48px;
+  --hr-spacing: calc(var(--spacing) * 6);
 }
 
 @media (prefers-color-scheme: light) {
