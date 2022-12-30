@@ -30,6 +30,4 @@ To use **nokss**, simply include this line in your CSS:
 
 And thats it! You don't need to use any classes or special attributes. **nokss** determines the styling for various elements based on the semantics of HTML itself, using HTML tags, ARIA roles, etc. This also means the [more semantic your HTML is](https://web.dev/learn/html/semantic-html/), the more you'll get out of **nokss**.
 
-For other installation options, and more details on how to use **nokss**, [read the docs](https://loreanvictor.github.io/nokss/).
-
-<br><br>
+> For other installation options, and more details on how to use **nokss**, [read the docs](https://loreanvictor.github.io/nokss/).
