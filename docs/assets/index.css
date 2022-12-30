@@ -47,3 +47,9 @@ h1:hover menu, h2:hover menu, h3:hover menu, h4:hover menu, h5:hover menu, h6:ho
   border-radius: 8px;
   padding: 8px;
 }
+
+.page-break {
+  content: ' ';
+  opacity: 0;
+  height: 20vh;
+}

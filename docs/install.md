@@ -13,4 +13,4 @@ Or link in your HTML:
   href="https://unpkg.com/nokss/dist/nokss.css" />
 ```
 
-<br><br>
+<hr class="page-break" />

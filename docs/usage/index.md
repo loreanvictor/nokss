@@ -21,6 +21,6 @@ elements to determine how to style them:
   ```
   ☝️ This will result in a vertical toolbar.
 
-<br><br>
+<hr class="page-break" />
 
 {% markdown "usage/widgets/buttons.md" %}

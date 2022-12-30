@@ -77,4 +77,4 @@ Buttons in a tablist will be styled as tabs:
   </script>
 </div>
 
-<br><br>
+<hr class="page-break" />
