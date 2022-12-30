@@ -28,7 +28,7 @@ To use **nokss**, simply include this line in your CSS:
 @import 'https://unpkg.com/nokss/dist/nokss.css';
 ```
 
-And thats it! You don't need to use any classes or special attributes. **nokss** determines the styling for various elements based on the semantics of HTML itself, using HTML tags, ARIA roles, etc. This also means the more semantic your HTML is (e.g. the more you avoid using `<div>`s for everything and instead use sensible elements such as `<button>`, `<nav>`, `<menu>`, etc.), the more you'll get out of **nokss**.
+And thats it! Write your HTML and **nokss** takes care of styling. The more semantic your HTML is, i.e. the more you use elements such as `<button>`, `<menu>`, `<aside>`, instead of just using `<div>`s everywhere, and the more you assign correct ARIA roles and attributes to them, the more **nokss** can do for you.
 
 <br>
 
