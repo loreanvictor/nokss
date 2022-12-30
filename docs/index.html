@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nokss</title>
     <link rel="stylesheet" href="./nokss.css" />
 
@@ -16,6 +17,12 @@
   <body>
     <main>
       {% include "./header.html" %}
+      <br/><br/>
+      {% markdown "docs/install.md" %}
+      <br/><br/>
+      {% markdown "docs/usage.md" %}
+
+      <br><br>
     </main>
   </body>
 </html>
