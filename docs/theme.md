@@ -68,18 +68,18 @@
     <button value="#FFB100,#000"><span class="color-mark" style="background: #FFB100"></span></button>
   </menu>
   <hr/>
-  <menu role="radiogroup" data-key="light:--background-color,light:--text-color,dark:--background-color,dark:--text-color">
+  <menu role="radiogroup" data-key="light:--background-color,light:--text-color,dark:--background-color,dark:--text-color,dark:--button-secondary-brightness,dark:--button-secondary-border-brightness,light:--button-secondary-brightness,light:--button-secondary-border-brightness">
     <button value="#FFFDF9,#393E46,#0D1118,#FFFCF3">
       <span class="color-mark light" style="background: #FFFDF9"></span>
       <span class="color-mark dark" style="background: #0D1118"></span>
     </button>
-    <button value="#fff,#000,#111,#fff">
+    <button value="#fff,#000,#080808,#fff">
       <span class="color-mark light" style="background: #fff"></span>
-      <span class="color-mark dark" style="background: #000"></span>
+      <span class="color-mark dark" style="background: #080808"></span>
     </button>
-    <button value="#F3EFE0,#222222,#222222,#F3EFE0">
-      <span class="color-mark light" style="background: #E5E5CB"></span>
-      <span class="color-mark dark" style="background: #F3EFE0"></span>
+    <button value="#F3EFE0,#222222,#222222,#F3EFE0,1.5,1,0.9,1">
+      <span class="color-mark light" style="background: #F3EFE0"></span>
+      <span class="color-mark dark" style="background: #222222"></span>
     </button>
   </menu>
 </menu>
@@ -104,8 +104,17 @@
       const light = wrap.conditionText === '(prefers-color-scheme: light)'
       const rule = (dark || light) ? wrap.cssRules[0] : wrap
       const target = dark ? constructed.dark : light ? constructed.light : constructed.all
-      for (const prop of rule.style) {
-        target[prop] = rule.styleMap.get(prop)[0].trim()
+      if (rule.styleMap) {
+        for (const prop of rule.style) {
+          target[prop] = rule.styleMap.get(prop)[0].trim()
+        }
+      } else if (rule.style.cssText) {
+        rule.style.cssText.split(';').forEach(def => {
+          const [prop, value] = def.split(':')
+          if (prop && value) {
+            target[prop.trim()] = value.trim()
+          }
+        })
       }
     }
   }
@@ -127,10 +136,8 @@ ${Object.entries(constructed.dark).map(([prop, value]) => `    ${prop}: ${value}
   }
 }`
 
-    code.innerHTML = hljs.highlight('css', style.textContent).value
+    code.innerHTML = hljs.highlight(style.textContent, { language: 'css' }).value
   }
-
-  adopt()
 
   code.setAttribute('contenteditable', true)
   code.addEventListener('input', adopt)
@@ -139,28 +146,33 @@ ${Object.entries(constructed.dark).map(([prop, value]) => `    ${prop}: ${value}
   const backup = code.textContent
   menu.setAttribute('aria-orientation', 'vertical')
   menu.appendChild(html`<button class=material-icons onclick=${() => {
-    code.innerHTML = hljs.highlight('css', backup).value
+    code.innerHTML = hljs.highlight(backup, { language: 'css' }).value
     style.innerHTML = backup
     parent.querySelectorAll('[role="radiogroup"] button[aria-selected="true"]').forEach(btn => btn.setAttribute('aria-selected', false))
     adopt()
   }}>restore</button>`)
 
   parent.querySelectorAll('[role="radiogroup"]').forEach(group => {
-    const keys = group.dataset.key.split(',')
-    const key = group.dataset.key
     group.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => {
+      const keys = (btn.dataset.key ?? group.dataset.key).split(',')
       const values = btn.value.split(',')
       keys.forEach((key, index) => {
         const split = key.split(':')
         const prop = split.length > 1 ? split[1] : split[0]
         const target = split.length > 1 ? constructed[split[0]] : constructed.all
 
-        target[prop] = values[index]
+        if (values[index]) {
+          target[prop] = values[index]
+        } else {
+          delete target[prop]
+        }
       })
 
       apply()
     }))
   })
+
+  adopt()
 </script>
 
 </section>
