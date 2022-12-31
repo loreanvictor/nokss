@@ -126,6 +126,10 @@ the library from NPM and then load the locally installed version:</p>
   filter: brightness(calc(1/var(--button-secondary-brightness)));
 }
 
+.color-mark.bg {
+  border-radius: 3px;
+}
+
 :is(:active, [aria-selected="true"])>.color-mark {
   filter: brightness(1);
 }
@@ -150,25 +154,30 @@ the library from NPM and then load the locally installed version:</p>
     <button class="material-symbols-outlined" value="16px">circle</button>
   </menu>
   <hr/>
-  <menu role="radiogroup" data-key="--primary-color,--primary-text-color">
+  <menu role="radiogroup" data-key="--primary-color,--primary-text-color,light:--primary-color,light:--primary-text-color,dark:--primary-color,dark:--primary-text-color">
+    <button value="#4267B2,#fff"><span class="color-mark" style="background: #4267B2"></span></button>
     <button value="#1F6FEB,#fff"><span class="color-mark" style="background: #1F6FEB"></span></button>
-    <button value="#3D8361,#fff"><span class="color-mark" style="background: #3D8361"></span></button>
-    <button value="#E0144C,#ff"><span class="color-mark" style="background: #E0144C"></span></button>
-    <button value="#FFB100,#000"><span class="color-mark" style="background: #FFB100"></span></button>
+    <button value="#1DB954,#000"><span class="color-mark" style="background: #1DB954"></span></button>
+    <button value="#FF9900,#000"><span class="color-mark" style="background: #FF9900"></span></button>
+    <button value="#FF5A5F,#fff"><span class="color-mark" style="background: #FF5A5F"></span></button>
+    <button value=",,#833AB4,#fff,#E1306C,#fff">
+      <span class="color-mark light" style="background: #833AB4"></span>
+      <span class="color-mark dark" style="background: #E1306C"></span>
+    </button>
   </menu>
   <hr/>
   <menu role="radiogroup" data-key="light:--background-color,light:--text-color,dark:--background-color,dark:--text-color,dark:--button-secondary-brightness,dark:--button-secondary-border-brightness,light:--button-secondary-brightness,light:--button-secondary-border-brightness">
     <button value="#FFFDF9,#393E46,#0D1118,#FFFCF3">
-      <span class="color-mark light" style="background: #FFFDF9"></span>
-      <span class="color-mark dark" style="background: #0D1118"></span>
+      <span class="color-mark light bg" style="background: #FFFDF9"></span>
+      <span class="color-mark dark bg" style="background: #0D1118"></span>
     </button>
     <button value="#fff,#000,#080808,#fff">
-      <span class="color-mark light" style="background: #fff"></span>
-      <span class="color-mark dark" style="background: #080808"></span>
+      <span class="color-mark light bg" style="background: #fff"></span>
+      <span class="color-mark dark bg" style="background: #080808"></span>
     </button>
     <button value="#F3EFE0,#222222,#222222,#F3EFE0,1.5,1,0.9,1">
-      <span class="color-mark light" style="background: #F3EFE0"></span>
-      <span class="color-mark dark" style="background: #222222"></span>
+      <span class="color-mark light bg" style="background: #F3EFE0"></span>
+      <span class="color-mark dark bg" style="background: #222222"></span>
     </button>
   </menu>
 </menu>
