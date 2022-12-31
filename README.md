@@ -20,8 +20,6 @@
 
 **nokss** is a drop-in stylesheet that works out of the box. Instead of relying on CSS classes, **nokss** uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use **nokss** without needing to change your HTML at all.
 
-**nokss** is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.
-
 To use **nokss**, simply include this line in your CSS:
 
 ```css
