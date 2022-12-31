@@ -1,3 +1,5 @@
+<section>
+
 # Usage
 
 **nokss** works out of the box and styles elements based on their semantics rather than classes or attributes. You don't
@@ -21,6 +23,6 @@ elements to determine how to style them:
   ```
   ☝️ This will result in a vertical toolbar.
 
-<hr class="page-break" />
-
 {% markdown "usage/widgets/buttons.md" %}
+
+</section>

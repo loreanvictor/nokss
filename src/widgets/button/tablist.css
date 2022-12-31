@@ -13,6 +13,10 @@
     color: var(--text-color);
     filter: brightness(var(--button-secondary-brightness));
   
+    @media (hover: none) {
+      transition: none;
+    }
+
     &:before {
       border-color: var(--background-color);
       filter: brightness(var(--button-secondary-border-brightness));
@@ -26,7 +30,7 @@
     &:active, &[aria-selected="true"] {
       background: var(--primary-color);
       color: var(--primary-text-color);
-      filter: brightness(1);
+      filter: none;
       transition: none;
 
       &:before {

@@ -1,3 +1,5 @@
+<section>
+
 ## Buttons
 
 Buttons are primary styled by default:
@@ -66,15 +68,6 @@ Buttons in a tablist will be styled as tabs:
     <button>Second</button>
     <button>Third</button>
   </nav>
-
-  <script>
-    document.scripts[document.scripts.length - 1].parentNode.querySelectorAll('nav[role="tablist"] button').forEach(button => {
-      button.addEventListener('click', () => {
-        button.parentNode.querySelectorAll('button').forEach(btn => btn.setAttribute('aria-selected', false))
-        button.setAttribute('aria-selected', true)
-      })
-    })
-  </script>
 </div>
 
-<hr class="page-break" />
+</section>

@@ -1,0 +1,37 @@
+:root {
+  --heading-weight: calc(var(--font-weight) * 4/3);
+  --heading-1-size: calc(var(--font-size) * 1.75);
+  --heading-2-size: calc(var(--font-size) * 1.6);
+  --heading-3-size: calc(var(--font-size) * 1.45);
+  --heading-4-size: calc(var(--font-size) * 1.35);
+  --heading-5-size: calc(var(--font-size) * 1.25);
+  --heading-6-size: calc(var(--font-size) * 1.15);
+  --heading-spacing: calc(var(--spacing) * 4);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--heading-weight);
+  margin: var(--heading-spacing) 0;
+  position: relative;
+}
+
+h1 { font-size: var(--heading-1-size) }
+h2 { font-size: var(--heading-2-size) }
+h3 { font-size: var(--heading-3-size) }
+h4 { font-size: var(--heading-3-size) }
+h5 { font-size: var(--heading-3-size) }
+h6 { font-size: var(--heading-3-size) }
+
+
+:is(h1, h2, h3, h4, h5, h6) [role="toolbar"] {
+  position: absolute;
+  top: -4px;
+  left: -40px;
+  padding-right: 8px;
+  opacity: 0;
+  transition: opacity .15s;
+}
+
+:is(h1, h2, h3, h4, h5, h6):hover [role="toolbar"] {
+  opacity: 1;
+}

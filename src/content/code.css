@@ -13,3 +13,19 @@ pre code {
   color: white;
   overflow-x: auto;
 }
+
+pre {
+  position: relative;
+}
+
+pre [role="toolbar"] {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  opacity: 0;
+  transition: opacity .15s;
+}
+
+pre:hover [role="toolbar"] {
+  opacity: 1;
+}

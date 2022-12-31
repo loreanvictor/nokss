@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sample": "vite sample",
-    "docs": "vite dist & chokidar \"./src/**/*.css\" -c \"npm run build:package\" --initial & chokidar \"./docs/**/*.html\" \"./docs/**/*.js\" \"./docs/**/*.css\" \"./docs/**/*.md\" -c \"npm run build:docs\" --initial",
+    "docs": "vite dist --host & chokidar \"./src/**/*.css\" -c \"npm run build:package\" --initial & chokidar \"./docs/**/*.html\" \"./docs/**/*.js\" \"./docs/**/*.css\" \"./docs/**/*.md\" -c \"npm run build:docs\" --initial",
     "build": "npm run build:package && npm run build:docs",
     "build:docs": "node docs/scripts/build.mjs",
     "build:package": "postcss -o ./dist/nokss.css ./src/index.css",

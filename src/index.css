@@ -1,8 +1,8 @@
 @import '../node_modules/modern-normalize/modern-normalize.css';
 
 @import './theme.css';
-@import './font.css';
-@import './body.css';
+@import './typography.css';
+@import './general.css';
 @import './widgets';
 @import './structure';
 @import './content';

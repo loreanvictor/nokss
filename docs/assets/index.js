@@ -47,5 +47,16 @@ const addHeaderLinks = () => {
 }
 
 
+const addTablistBehavior = () => {
+  document.querySelectorAll('[role="tablist"] button').forEach(button => {
+    button.addEventListener('click', () => {
+      button.parentNode.querySelectorAll('button').forEach(btn => btn.setAttribute('aria-selected', false))
+      button.setAttribute('aria-selected', true)
+    })
+  })
+}
+
+
 addCopyButtons()
 addHeaderLinks()
+addTablistBehavior()

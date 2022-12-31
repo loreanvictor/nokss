@@ -1,0 +1,11 @@
+:root {
+  --section-spacing: calc(var(--spacing) * 16);
+}
+
+section {
+  margin: var(--section-spacing) 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

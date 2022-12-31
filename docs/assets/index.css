@@ -1,3 +1,7 @@
+:root {
+  --section-spacing: 25vh;
+}
+
 pre code {
   background: #000;
   color: white;
@@ -9,47 +13,8 @@ pre code * { color: white }
   font-size: 16px;
 }
 
-pre {
-  position: relative;
-}
-
-pre menu {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  opacity: 0;
-  transition: opacity .15s;
-}
-
-pre:hover menu {
-  opacity: 1;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  position: relative;
-}
-
-h1 menu, h2 menu, h3 menu, h4 menu, h5 menu, h6 menu {
-  position: absolute;
-  top: -4px;
-  left: -40px;
-  padding-right: 8px;
-  opacity: 0;
-  transition: opacity .15s;
-}
-
-h1:hover menu, h2:hover menu, h3:hover menu, h4:hover menu, h5:hover menu, h6:hover menu {
-  opacity: 1;
-}
-
 [role="presentation"] {
   border: 1px solid rgba(128, 128, 128, 0.25);
   border-radius: 8px;
   padding: 8px;
-}
-
-.page-break {
-  content: ' ';
-  opacity: 0;
-  height: 20vh;
 }
