@@ -48,7 +48,9 @@ const addHeaderLinks = () => {
 
 
 const addTablistBehavior = () => {
-  document.querySelectorAll('[role="tablist"] button').forEach(button => {
+  document.querySelectorAll(
+    ':is([role="tablist"], [role="radiogroup"])>:is(button, [role="tab"], [role="radio")]'
+  ).forEach(button => {
     button.addEventListener('click', () => {
       button.parentNode.querySelectorAll('button').forEach(btn => btn.setAttribute('aria-selected', false))
       button.setAttribute('aria-selected', true)
