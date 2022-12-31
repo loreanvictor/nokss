@@ -1,4 +1,4 @@
-[role="tablist"] {
+[role="tablist"], [role="radiogroup"] {
   margin: 0;
   display: flex;
   gap: 0px;
@@ -8,7 +8,8 @@
   }
 
   &>button,
-  &>[role="tab"] {
+  &>[role="tab"],
+  &>[role="radio"] {
     background: var(--background-color);
     color: var(--text-color);
     filter: brightness(var(--button-secondary-brightness));
@@ -69,5 +70,12 @@
         border-bottom-left-radius: 0;
       }
     }
+  }
+}
+
+[role="radiogroup"] {
+  &>button,
+  &>[role="radio"] {
+    min-width: var(--button-height);
   }
 }

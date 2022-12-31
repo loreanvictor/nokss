@@ -12,6 +12,7 @@ pre code {
   font-size: var(--code-font-size);
   color: white;
   overflow-x: auto;
+  outline: none;
 }
 
 pre {

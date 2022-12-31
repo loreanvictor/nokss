@@ -9,7 +9,8 @@ pre code {
 
 pre code * { color: white }
 
-.material-icons {
+.material-icons,
+.material-symbols-outlined {
   font-size: 16px;
 }
 

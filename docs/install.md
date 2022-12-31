@@ -1,4 +1,4 @@
-<section>
+<section id="installation">
 
 # Installation
 
@@ -36,7 +36,7 @@ npm install nokss
 <script type="module" defer>
   import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/es/highlight.min.js';
 
-  const parent = document.scripts[document.scripts.length - 1].parentNode
+  const parent = document.querySelector('#installation')
   const [css, html] = Array.from(parent.querySelectorAll('code'))
 
   const cdns = {
