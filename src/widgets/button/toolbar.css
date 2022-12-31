@@ -43,6 +43,7 @@
   &>hr {
     display: inline-block;
     width: var(--toolbar-spacer-thickness);
+    min-width: var(--toolbar-spacer-thickness);
     height: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
     vertical-align: middle;
     margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2);
