@@ -8,8 +8,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://unpkg.com/graphis/font/graphis.css">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
 
     <link rel="stylesheet" href="./assets/index.css" />
     <script src="./assets/index.js" type="module" defer></script>
@@ -262,12 +263,12 @@ ${Object.entries(constructed.dark).map(([prop, value]) => `    ${prop}: ${value}
   const menu = parent.querySelector('pre>menu')
   const backup = code.textContent
   menu.setAttribute('aria-orientation', 'vertical')
-  menu.appendChild(html`<button class=material-icons onclick=${() => {
+  menu.appendChild(html`<button class=icon onclick=${() => {
     code.innerHTML = hljs.highlight(backup, { language: 'css' }).value
     style.innerHTML = backup
     parent.querySelectorAll('[role="radiogroup"] button[aria-selected="true"]').forEach(btn => btn.setAttribute('aria-selected', false))
     adopt()
-  }}>restore</button>`)
+  }}>⟲</button>`)
 
   parent.querySelectorAll('[role="radiogroup"]').forEach(group => {
     group.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => {
