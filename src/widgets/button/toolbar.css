@@ -5,8 +5,7 @@
   --toolbar-spacer-expression: var(--hr-expression);
 }
 
-
-[role="toolbar"] {
+[role="toolbar"], [role="tablist"], [role="radiogroup"] {
   margin: 0;
   display: flex;
   gap: 0px;
@@ -17,126 +16,139 @@
   &[align="bottom"] {
     justify-content: flex-end;
   }
+}
 
-  &>button,
-  &>[role="button"],
-  &>[type="button"],
-  &>[type="submit"] {
-    /* min-width: var(--button-height); */
-    background: var(--background-color);
-    color: var(--text-color);
-    filter: brightness(var(--interactable-brightness));
-  
+[role="toolbar"]>:is(button, [role="button"], [type="button"], [type="sumbit"]),
+[role="tablist"]>:is(button, [role="tab"]),
+[role="radiogroup"]>:is(button, [role="radio"]) {
+  background: var(--background-color);
+  color: var(--text-color);
+  filter: brightness(var(--interactable-brightness));
+
+  @media (hover: none) {
+    transition: none;
+  }
+
+  &:before {
+    border-color: var(--text-color);
+    opacity: var(--border-expression);
+  }
+
+  &:hover,
+  &:focus {
+    filter: brightness(var(--hover-brightness));
+  }
+}
+
+[role="toolbar"]>:is(button, [role="button"], [type="button"], [type="sumbit"]):active {
+  opacity: var(--button-secondary-active-opacity);
+}
+
+:is(
+  [role="tablist"]>:is(button, [role="tab"]),
+  [role="radiogroup"]>:is(button, [role="radio"])
+):is(:active, [aria-selected="true"]) {
+  background: var(--primary-color);
+  color: var(--primary-text-color);
+  filter: none;
+  transition: none;
+
+  &:before {
+    border-color: var(--primary-color);
+    filter: brightness(var(--button-primary-border-brightness));
+    transition: none;
+  }
+}
+
+:is([role="toolbar"], [role="radiogroup"])>hr {
+  display: inline-block;
+  width: var(--toolbar-spacer-thickness);
+  min-width: var(--toolbar-spacer-thickness);
+  height: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
+  vertical-align: middle;
+  margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2);
+  margin-top: var(--toolbar-spacer-margin);
+  border: none;
+  background: var(--text-color);
+  opacity: var(--toolbar-spacer-expression);
+}
+
+[role="toolbar"]:not([aria-orientation="vertical"])>:is(button, [role="button"], [type="button"], [type="sumbit"]),
+[role="tablist"]>:is(button, [role="tab"]),
+[role="radiogroup"]:not([aria-orientation="vertical"])>:is(button, [role="radio"]) {
+  &:not(:first-child, :last-child) {
+    border-radius: 0;
     &:before {
-      border-color: var(--text-color);
-      opacity: var(--border-expression);
-    }
-  
-    &:hover,
-    &:focus {
-      filter: brightness(var(--hover-brightness));
-    }
-  
-    &:active {
-      opacity: var(--button-secondary-active-opacity);
+      border-radius: 0;
+      border-left: none;
     }
   }
+
+  &:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:before {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &:last-child:not(:first-child) {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:before {
+      border-left: none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+:is([role="toolbar"], [role="radiogroup"])[aria-orientation="vertical"] {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0px;
+  width: var(--button-height);
 
   &>hr {
-    display: inline-block;
-    width: var(--toolbar-spacer-thickness);
-    min-width: var(--toolbar-spacer-thickness);
-    height: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
-    vertical-align: middle;
-    margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2);
-    margin-top: var(--toolbar-spacer-margin);
-    border: none;
-    background: var(--text-color);
-    opacity: var(--toolbar-spacer-expression);
+    width: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
+    height: var(--toolbar-spacer-thickness);
+    margin: calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2) var(--toolbar-spacer-margin);
   }
+}
 
-  &:not([aria-orientation="vertical"]) {
-    &>button,
-    &>[role="button"],
-    &>[type="button"],
-    &>[type="submit"] {
-      &:not(:first-child, :last-child) {
-        border-radius: 0;
-        &:before {
-          border-radius: 0;
-          border-left: none;
-        }
-      }
-
-      &:first-child:not(:last-child) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-
-        &:before {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-      }
-
-      &:last-child:not(:first-child) {
-        border-left: none;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-
-        &:before {
-          border-left: none;
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-      }
+[role="toolbar"][aria-orientation="vertical"]>:is(button, [role="button"], [type="button"], [type="sumbit"]),
+[role="radiogroup"][aria-orientation="vertical"]>:is(button, [role="radio"]) {
+  &:not(:first-child, :last-child) {
+    border-radius: 0;
+    &:before {
+      border-radius: 0;
+      border-top: none;
     }
   }
 
-  &[aria-orientation="vertical"] {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 0px;
-    width: var(--button-height);
+  &:first-child:not(:last-child) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
-    &>hr {
-      width: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
-      height: var(--toolbar-spacer-thickness);
-      margin: calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2) var(--toolbar-spacer-margin);
+    &:before {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
     }
+  }
 
-    &>button,
-    &>[role="button"],
-    &>[type="button"],
-    &>[type="submit"] {
-      &:not(:first-child, :last-child) {
-        border-radius: 0;
-        &:before {
-          border-radius: 0;
-          border-top: none;
-        }
-      }
+  &:last-child:not(:first-child) {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
-      &:first-child:not(:last-child) {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-
-        &:before {
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-      }
-
-      &:last-child:not(:first-child) {
-        border-top: none;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-
-        &:before {
-          border-top: none;
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
-        }
-      }
+    &:before {
+      border-top: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 }

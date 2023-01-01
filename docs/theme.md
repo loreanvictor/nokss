@@ -2,80 +2,8 @@
 
 # Theming
 
-**nokss** exposes CSS variables for customizing the look and feel of the stylesheet. You can use these variables to create your own themes. You can change the main theme values in the code below and see their effects on the page:
-
-```css
-:root {
-  --primary-color: #1F6FEB;
-  --primary-text-color: #fff;
-  --roundness: 5px;
-  --spacing: 8px;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background-color: #FFFDF9;
-    --text-color: #393E46;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #0D1118;
-    --text-color: #FFFCF3;
-  }
-}
-```
-
-<style>
-.color-mark {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  border: 1px solid rgba(128, 128, 128, .25);
-  filter: brightness(calc(1/var(--interactable-brightness)));
-}
-
-.color-mark.bg {
-  border-radius: 3px;
-}
-
-.corner-mark {
-  content: ' ';
-  border: 1px solid var(--text-color);
-  width: 1em;
-  height: 1em;
-}
-
-.corner-mark.sharp {
-  border-radius: 1px;
-}
-
-.corner-mark.round {
-  border-radius: 5px;
-}
-
-.corner-mark.circle {
-  border-radius: 16px;
-}
-
-:is(:active, [aria-selected="true"])>.color-mark {
-  filter: brightness(1);
-}
-
-@media (prefers-color-scheme: light) {
-  .color-mark.dark {
-    display: none;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .color-mark.light {
-    display: none;
-  }
-}
-</style>
+**nokss** exposes CSS variables for customizing the look and feel of your pages. 
+Change the main theme values in the code below and see their effects on the page:
 
 <menu role="toolbar">
   <menu role="radiogroup" data-key="--roundness">
@@ -124,109 +52,47 @@
   </menu>
 </menu>
 
-<br>
+<div class="theme-preview">
+
+```css
+:root {
+  --primary-color: #1F6FEB;
+  --primary-text-color: #fff;
+  --roundness: 5px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #FFFDF9;
+    --text-color: #393E46;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #0D1118;
+    --text-color: #FFFCF3;
+  }
+}
+```
 
 <div role="presentation">
-<h3>Lorem ipsum</h3>
+  <h3>Lorem ipsum</h3>
 
-dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-<menu role="group" align="right">
-  <button>Finibus</button>
-  <button>Bonorum</button>
-</menu>
+  <menu role="group" align="right">
+    <button>Finibus</button>
+    <button>Bonorum</button>
+  </menu>
+</div>
 
 </div>
 
 <style id="target">
 </style>
 
-<script type="module" defer>
-  import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/es/highlight.min.js'
-  import { html } from 'https://esm.sh/rehtm'
-
-  const parent = document.querySelector('#theming')
-  const code = parent.querySelector('code')
-  const style = parent.querySelector('style#target')
-
-  const constructed = { all: {}, light: {}, dark: {} }
-
-  const adopt = () => {
-    style.innerHTML = code.textContent
-    for (const wrap of style.sheet.cssRules) {
-      const dark = wrap.conditionText === '(prefers-color-scheme: dark)'
-      const light = wrap.conditionText === '(prefers-color-scheme: light)'
-      const rule = (dark || light) ? wrap.cssRules[0] : wrap
-      const target = dark ? constructed.dark : light ? constructed.light : constructed.all
-      if (rule.styleMap) {
-        for (const prop of rule.style) {
-          target[prop] = rule.styleMap.get(prop)[0].trim()
-        }
-      } else if (rule.style.cssText) {
-        rule.style.cssText.split(';').forEach(def => {
-          const [prop, value] = def.split(':')
-          if (prop && value) {
-            target[prop.trim()] = value.trim()
-          }
-        })
-      }
-    }
-  }
-
-  const apply = () => {
-    style.textContent = `:root {
-${Object.entries(constructed.all).map(([prop, value]) => `  ${prop}: ${value};`).join('\n')}
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-${Object.entries(constructed.light).map(([prop, value]) => `    ${prop}: ${value};`).join('\n')}
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-${Object.entries(constructed.dark).map(([prop, value]) => `    ${prop}: ${value};`).join('\n')}
-  }
-}`
-
-    code.innerHTML = hljs.highlight(style.textContent, { language: 'css' }).value
-  }
-
-  code.setAttribute('contenteditable', true)
-  code.addEventListener('input', adopt)
-
-  const menu = parent.querySelector('pre>menu')
-  const backup = code.textContent
-  menu.setAttribute('aria-orientation', 'vertical')
-  menu.appendChild(html`<button class=icon aria-label=reset onclick=${() => {
-    code.innerHTML = hljs.highlight(backup, { language: 'css' }).value
-    style.innerHTML = backup
-    parent.querySelectorAll('[role="radiogroup"] button[aria-selected="true"]').forEach(btn => btn.setAttribute('aria-selected', false))
-    adopt()
-  }}>⟲</button>`)
-
-  parent.querySelectorAll('[role="radiogroup"]').forEach(group => {
-    group.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => {
-      const keys = (btn.dataset.key ?? group.dataset.key).split(';')
-      const values = btn.value.split(';')
-      keys.forEach((key, index) => {
-        const split = key.split(':')
-        const prop = split.length > 1 ? split[1] : split[0]
-        const target = split.length > 1 ? constructed[split[0]] : constructed.all
-
-        if (values[index]) {
-          target[prop] = values[index]
-        } else {
-          delete target[prop]
-        }
-      })
-
-      apply()
-    }))
-  })
-
-  adopt()
-</script>
+<link rel="stylesheet" href="assets/theme.css" />
+<script type="module" defer src="assets/theme.js"></script>
 
 </section>
