@@ -36,16 +36,16 @@ Buttons in a toolbar have no primary and are styled differently:
 
 ```html
 <menu role="toolbar">
-  <button>✏️</button>
-  <button>❤️</button>
+  <button aria-label="edit">✏️</button>
+  <button aria-label="like">❤️</button>
   <button>Longer</button>
 </menu>
 ```
 
 <div role="presentation">
   <menu role="toolbar">
-    <button>✏️</button>
-    <button>❤️</button>
+    <button aria-label="edit">✏️</button>
+    <button aria-label="like">❤️</button>
     <button>Longer</button>
   </menu>
 </div>

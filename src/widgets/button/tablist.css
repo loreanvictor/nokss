@@ -78,6 +78,6 @@
 [role="radiogroup"] {
   &>button,
   &>[role="radio"] {
-    min-width: var(--button-height);
+    /* min-width: var(--button-height); */
   }
 }

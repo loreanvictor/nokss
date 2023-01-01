@@ -22,7 +22,7 @@
   &>[role="button"],
   &>[type="button"],
   &>[type="submit"] {
-    min-width: var(--button-height);
+    /* min-width: var(--button-height); */
     background: var(--background-color);
     color: var(--text-color);
     filter: brightness(var(--interactable-brightness));

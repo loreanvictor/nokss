@@ -24,7 +24,7 @@ const addCopyButtons = () => {
 
     pre.append(html`
       <menu role=toolbar align=right>
-        <button ref=${btn} class=icon onclick=${copy}>📑</button>
+        <button ref=${btn} class=icon onclick=${copy} aria-label=copy>📑</button>
       </menu>
     `)
   })
@@ -42,7 +42,13 @@ const addHeaderLinks = () => {
       setTimeout(() => btn.current.textContent = '🔗', 2000)
     }
 
-    h.append(html`<menu role=toolbar><button ref=${btn} onclick=${copyLink} class=icon>🔗</button></menu>`)
+    h.append(html`
+      <menu role=toolbar>
+        <button ref=${btn} onclick=${copyLink} aria-label="copy link" class=icon>
+          🔗
+        </button>
+      </menu>
+    `)
   })
 }
 

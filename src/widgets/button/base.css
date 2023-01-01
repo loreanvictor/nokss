@@ -51,5 +51,9 @@ button, [role="button"], [type="button"], [type="submit"] {
   &:active {
     opacity: var(--button-primary-active-opacity);
   }
+
+  &[aria-label] {
+    min-width: var(--button-height);
+  }
 }
 
