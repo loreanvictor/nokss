@@ -184,6 +184,61 @@ Change the main theme values in the code below and see their effects on the page
 <link rel="stylesheet" href="assets/theme.css" />
 <script type="module" defer src="assets/theme.js"></script>
 
+<p><br><br></p>
+<p>The following are the main CSS variables determining styling of various elements:</p>
+<ul>
+<li><p><strong>Primary Color</strong> <br>The primary color for highlighted text and actions. Also comes with <em>primary text color</em>,
+which is the color of the text that is to be used on backgrounds with primary color.</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1F6FEB</span>;
+  <span class="hljs-attribute">--primary-text-color</span>: <span class="hljs-number">#fff</span>;
+}
+</code></pre>
+<br>
+</li>
+<li><p><strong>Background &amp; Text</strong> <br>Determine the background and text color of the content. Since these values are typically
+dependent on color scheme, make sure to use <code>prefers-color-scheme</code> media query to maintain dark mode support.</p>
+<pre><code class="language-css">@<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#FFFDF9</span>;
+    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#393E46</span>;
+  }
+}
+
+@<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#0D1118</span>;
+    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#FFFCF3</span>;
+  }
+}
+</code></pre>
+<br>
+</li>
+<li><p><strong>Borders</strong> <br>Border expression determines how visible borders are, <code>0</code> being invisible and <code>1</code> being fully visible.
+Roundness determines roundness of corners of various elements. Different elements will calculate their border radius
+using this global variable.</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">5px</span>;
+  <span class="hljs-attribute">--border-expression</span>: <span class="hljs-number">0.05</span>;
+}
+</code></pre>
+<br>
+</li>
+<li><p><strong>Interaction</strong> <br>Interactive elements are highlighted related to the background, with further highlight on hover. The following values determine this effect, with <code>1</code> meaning no highlighting at all, <code>0</code> being black.</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--interactable-brightness</span>: <span class="hljs-number">1.25</span>;
+  <span class="hljs-attribute">--hover-brightness</span>: <span class="hljs-number">1.35</span>;
+}
+</code></pre>
+<br></li>
+<li><p><strong>Spacing</strong> <br>Spacing of various elements is generally determined by the spacing variable. This particular variable can be a bit tricky to modify, so I would recommend overriding specific spacing values of different elements instead of the global one.</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--spacing</span>: <span class="hljs-number">8px</span>;
+}
+</code></pre>
+<br></li>
+</ul>
+<p>Besides these global values, each element also relies on its own specific variables, which are by default calculated from these global values, and can be overriden for customizing the look of individual elements.</p>
 </section>
       <section>
 
