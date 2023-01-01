@@ -18,13 +18,13 @@ const addCopyButtons = () => {
     const copy = () => {
       select(pre.querySelector('code'))
       document.execCommand('copy')
-      btn.current.textContent = 'done'
-      setTimeout(() => btn.current.textContent = 'content_copy', 2000)
+      btn.current.textContent = '✔'
+      setTimeout(() => btn.current.textContent = '📑', 2000)
     }
 
     pre.append(html`
       <menu role=toolbar align=right>
-        <button ref=${btn} class=material-icons onclick=${copy}>content_copy</button>
+        <button ref=${btn} class=icon onclick=${copy}>📑</button>
       </menu>
     `)
   })
@@ -38,11 +38,11 @@ const addHeaderLinks = () => {
 
     const copyLink = () => {
       copy(location.protocol + '//' + location.host + location.pathname + '#' + id)
-      btn.current.textContent = 'done'
-      setTimeout(() => btn.current.textContent = 'link', 2000)
+      btn.current.textContent = '✔'
+      setTimeout(() => btn.current.textContent = '🔗', 2000)
     }
 
-    h.append(html`<menu role=toolbar><button ref=${btn} onclick=${copyLink} class=material-icons>link</button></menu>`)
+    h.append(html`<menu role=toolbar><button ref=${btn} onclick=${copyLink} class=icon>🔗</button></menu>`)
   })
 }
 

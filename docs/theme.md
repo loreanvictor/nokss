@@ -174,12 +174,12 @@ ${Object.entries(constructed.dark).map(([prop, value]) => `    ${prop}: ${value}
   const menu = parent.querySelector('pre>menu')
   const backup = code.textContent
   menu.setAttribute('aria-orientation', 'vertical')
-  menu.appendChild(html`<button class=material-icons onclick=${() => {
+  menu.appendChild(html`<button class=icon onclick=${() => {
     code.innerHTML = hljs.highlight(backup, { language: 'css' }).value
     style.innerHTML = backup
     parent.querySelectorAll('[role="radiogroup"] button[aria-selected="true"]').forEach(btn => btn.setAttribute('aria-selected', false))
     adopt()
-  }}>restore</button>`)
+  }}>⟲</button>`)
 
   parent.querySelectorAll('[role="radiogroup"]').forEach(group => {
     group.querySelectorAll('button').forEach(btn => btn.addEventListener('click', () => {

@@ -9,9 +9,10 @@ pre code {
 
 pre code * { color: white }
 
-.material-icons,
-.material-symbols-outlined {
+.icon {
+  font-family: 'graphis', sans-serif;
   font-size: 16px;
+  font-weight: bold;
 }
 
 [role="presentation"] {
