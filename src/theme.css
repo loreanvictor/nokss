@@ -1,7 +1,4 @@
 :root {
-  --background-color: #FFFDF9;
-  --text-color: #393E46;
-
   --primary-color: #1F6FEB;
   --primary-text-color: #fff;
 
@@ -9,9 +6,24 @@
   --spacing: 8px;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #FFFDF9;
+    --text-color: #393E46;
+
+    --border-expression: 0.15;
+    --interactable-brightness: 0.96;
+    --hover-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1/4);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #0D1118;
     --text-color: #FFFCF3;
+
+    --border-expression: 0.03;
+    --interactable-brightness: 2.25;
+    --hover-brightness: calc(var(--interactable-brightness) * 4/3);
   }
 }

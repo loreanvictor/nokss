@@ -1,16 +1,10 @@
 
 :root {
-  --button-secondary-brightness: 2.25;
-  --button-secondary-border-brightness: calc(var(--button-secondary-brightness) * 2/3);
-  --button-secondary-hover-brightness: calc(var(--button-secondary-brightness) * 4/3);
   --button-secondary-active-opacity: 0.85;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --button-secondary-brightness: 0.96;
-    --button-secondary-border-brightness: calc(1 - (1 - var(--button-secondary-brightness)) * 5/3);
-    --button-secondary-hover-brightness: calc(1 - (1 - var(--button-secondary-brightness)) * 1/4);
     --button-secondary-active-opacity: 0.65;
   }
 }
@@ -28,16 +22,16 @@ menu[aria-orientation="horizontal"],
   &>[type="submit"]:not(:last-child) {
     background: var(--background-color);
     color: var(--text-color);
-    filter: brightness(var(--button-secondary-brightness));
+    filter: brightness(var(--interactable-brightness));
   
     &:before {
-      border-color: var(--background-color);
-      filter: brightness(var(--button-secondary-border-brightness));
+      border-color: var(--text-color);
+      opacity: var(--border-expression);
     }
   
     &:hover,
     &:focus {
-      filter: brightness(var(--button-secondary-hover-brightness));
+      filter: brightness(var(--hover-brightness));
     }
   
     &:active {

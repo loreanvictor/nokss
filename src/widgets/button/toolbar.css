@@ -1,8 +1,8 @@
 :root {
   --toolbar-spacer-gap: calc(var(--spacing) * 4);
   --toolbar-spacer-margin: calc(var(--spacing) / 2);
-  --toolbar-spacer-thickness: 1px;
-  --toolbar-spacer-brightness: var(--hr-brightness);
+  --toolbar-spacer-thickness: var(--hr-thickness);
+  --toolbar-spacer-expression: var(--hr-expression);
 }
 
 
@@ -25,16 +25,16 @@
     min-width: var(--button-height);
     background: var(--background-color);
     color: var(--text-color);
-    filter: brightness(var(--button-secondary-brightness));
+    filter: brightness(var(--interactable-brightness));
   
     &:before {
-      border-color: var(--background-color);
-      filter: brightness(var(--button-secondary-border-brightness));
+      border-color: var(--text-color);
+      opacity: var(--border-expression);
     }
   
     &:hover,
     &:focus {
-      filter: brightness(var(--button-secondary-hover-brightness));
+      filter: brightness(var(--hover-brightness));
     }
   
     &:active {
@@ -51,8 +51,8 @@
     margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2);
     margin-top: var(--toolbar-spacer-margin);
     border: none;
-    background: var(--background-color);
-    filter: brightness(var(--toolbar-spacer-brightness));
+    background: var(--text-color);
+    opacity: var(--toolbar-spacer-expression);
   }
 
   &:not([aria-orientation="vertical"]) {

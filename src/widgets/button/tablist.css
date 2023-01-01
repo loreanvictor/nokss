@@ -14,20 +14,20 @@
   &>[role="radio"] {
     background: var(--background-color);
     color: var(--text-color);
-    filter: brightness(var(--button-secondary-brightness));
+    filter: brightness(var(--interactable-brightness));
   
     @media (hover: none) {
       transition: none;
     }
 
     &:before {
-      border-color: var(--background-color);
-      filter: brightness(var(--button-secondary-border-brightness));
+      border-color: var(--text-color);
+      opacity: var(--border-expression);
     }
   
     &:hover,
     &:focus {
-      filter: brightness(var(--button-secondary-hover-brightness));
+      filter: brightness(var(--hover-brightness));
     }
 
     &:active, &[aria-selected="true"] {

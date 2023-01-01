@@ -1,20 +1,14 @@
 :root {
   --hr-thickness: 1px;
-  --hr-brightness: 2.6;
+  --hr-expression: calc(1 - (1 - var(--border-expression)) * .9);
   --hr-spacing: calc(var(--spacing) * 6);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --hr-brightness: 0.8;
-  }
 }
 
 hr {
   border: none;
   background: none;
   height: var(--hr-thickness);
-  background: var(--background-color);
-  filter: brightness(var(--hr-brightness));
+  background: var(--text-color);
+  opacity: var(--hr-expression);
   margin: calc((var(--hr-spacing) - var(--hr-thickness)) / 2) 0;
 }
