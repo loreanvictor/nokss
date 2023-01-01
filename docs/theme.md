@@ -95,4 +95,71 @@ Change the main theme values in the code below and see their effects on the page
 <link rel="stylesheet" href="assets/theme.css" />
 <script type="module" defer src="assets/theme.js"></script>
 
+<br><br>
+
+The following are the main CSS variables determining styling of various elements:
+
+- **Primary Color** \
+  The primary color for highlighted text and actions. Also comes with _primary text color_,
+  which is the color of the text that is to be used on backgrounds with primary color.
+  ```css
+  :root {
+    --primary-color: #1F6FEB;
+    --primary-text-color: #fff;
+  }
+  ```
+  <br>
+
+- **Background & Text** \
+  Determine the background and text color of the content. Since these values are typically
+  dependent on color scheme, make sure to use `prefers-color-scheme` media query to maintain dark mode support.
+  ```css
+  @media (prefers-color-scheme: light) {
+    :root {
+      --background-color: #FFFDF9;
+      --text-color: #393E46;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #0D1118;
+      --text-color: #FFFCF3;
+    }
+  }
+  ```
+  <br>
+
+- **Borders** \
+  Border expression determines how visible borders are, `0` being invisible and `1` being fully visible.
+  Roundness determines roundness of corners of various elements. Different elements will calculate their border radius
+  using this global variable.
+  ```css
+  :root {
+    --roundness: 5px;
+    --border-expression: 0.05;
+  }
+  ```
+  <br>
+
+- **Interaction** \
+  Interactive elements are highlighted related to the background, with further highlight on hover. The following values determine this effect, with `1` meaning no highlighting at all, `0` being black.
+  ```css
+  :root {
+    --interactable-brightness: 1.25;
+    --hover-brightness: 1.35;
+  }
+  ```
+  <br>
+- **Spacing** \
+  Spacing of various elements is generally determined by the spacing variable. This particular variable can be a bit tricky to modify, so I would recommend overriding specific spacing values of different elements instead of the global one.
+  ```css
+  :root {
+    --spacing: 8px;
+  }
+  ```
+  <br>
+
+Besides these global values, each element also relies on its own specific variables, which are by default calculated from these global values, and can be overriden for customizing the look of individual elements.
+
 </section>
