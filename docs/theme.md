@@ -58,9 +58,9 @@
 }
 </style>
 
-<menu role="toolbar" align="right">
+<menu role="toolbar">
   <menu role="radiogroup" data-key="--roundness">
-    <button class="material-symbols-outlined" value="0px">square</button>
+    <button class="material-symbols-outlined" value="3px">square</button>
     <button class="material-icons" value="5px">rounded_corner</button>
     <button class="material-symbols-outlined" value="16px">circle</button>
   </menu>

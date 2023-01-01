@@ -10,6 +10,8 @@
   margin: 0;
   display: flex;
   gap: 0px;
+  max-width: 100%;
+  overflow: auto;
 
   &[align="right"],
   &[align="bottom"] {
@@ -137,4 +139,9 @@
       }
     }
   }
+}
+
+:is([role="toolbar"], [role="radiogroup"], [role="tablist"])
+:is([role="toolbar"], [role="radiogroup"], [role="tablist"]) {
+  overflow: unset;
 }

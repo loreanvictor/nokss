@@ -2,6 +2,8 @@
   margin: 0;
   display: flex;
   gap: 0px;
+  max-width: 100%;
+  overflow: auto;
 
   &[align="right"] {
     justify-content: flex-end;
