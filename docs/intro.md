@@ -5,7 +5,7 @@
 <div align="center">
   <picture>
     <source srcset="./assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="./assets/logo-light.svg" height="64px">
+    <img alt="logo" src="./assets/logo-light.svg" height="64px">
   </picture>
   <br>
   <sub>Enough CSS to get started</sub>

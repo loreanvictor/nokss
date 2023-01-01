@@ -44,10 +44,8 @@
   opacity: var(--button-secondary-active-opacity);
 }
 
-:is(
-  [role="tablist"]>:is(button, [role="tab"]),
-  [role="radiogroup"]>:is(button, [role="radio"])
-):is(:active, [aria-selected="true"]) {
+[role="tablist"]>:is(button, [role="tab"]):is(:active, [aria-selected="true"]),
+[role="radiogroup"]>:is(button, [role="radio"]):is(:active, [aria-checked="true"]) {
   background: var(--primary-color);
   color: var(--primary-text-color);
   filter: none;

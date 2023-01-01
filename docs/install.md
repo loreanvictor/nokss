@@ -17,10 +17,10 @@ Or link in your HTML:
 
 You can use other CDNs as well:
 
-<menu role="tablist" align="right">
-  <button data-cdn="unpkg" aria-selected="true">UNPKG</button>
-  <button data-cdn="jsdelivr">jsDelivr</button>
-  <button data-cdn="esm">esm.sh</button>
+<menu role="radiogroup" align="right">
+  <button role="radio" data-cdn="unpkg" aria-checked="true">UNPKG</button>
+  <button role="radio" data-cdn="jsdelivr">jsDelivr</button>
+  <button role="radio" data-cdn="esm">esm.sh</button>
 </menu>
 
 You can also self-host the stylesheet by downloading it. If you have a bundler that handles CSS imports, install
@@ -45,7 +45,7 @@ npm install nokss
     esm: 'https://esm.sh/nokss/dist/nokss.css',
   }
 
-  const menu = parent.querySelectorAll('[role="tablist"] button').forEach(btn => {
+  const menu = parent.querySelectorAll('[role="radiogroup"] button').forEach(btn => {
     btn.addEventListener('click', () => {
       css.innerHTML = hljs.highlight(`@import '${cdns[btn.dataset.cdn]}';`, {language: 'css'}).value
       html.innerHTML = hljs.highlight(`<link rel="stylesheet"\n\thref="${cdns[btn.dataset.cdn]}" />`, {language: 'html'}).value
