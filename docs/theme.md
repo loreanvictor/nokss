@@ -2,7 +2,7 @@
 
 # Theming
 
-**nokss** exposes CSS variables for customizing the look and feel of your pages. 
+_nokss_ exposes CSS variables for customizing the look and feel of your pages. 
 Change the main theme values in the code below and see their effects on the page:
 
 <menu role="toolbar">

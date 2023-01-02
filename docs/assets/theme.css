@@ -3,7 +3,6 @@
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  border: 1px solid var(--background-color);
   filter: brightness(calc(1/var(--interactable-brightness)));
 }
 
@@ -31,7 +30,7 @@
   height: 1em;
 }
 
-[aria-selected="true"] .corner-mark {
+[aria-checked="true"] .corner-mark {
   border-color: var(--primary-text-color);
 }
 

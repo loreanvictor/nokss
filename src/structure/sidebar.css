@@ -1,0 +1,61 @@
+:root {
+  --sidebar-padding: calc(var(--spacing) * 2);
+  --sidebar-margin: calc(var(--spacing) * 4);
+  --sidebar-width: calc(50vw - var(--main-content-max-width)/2 - var(--sidebar-margin));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sidebar-brightness: 1.25;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --sidebar-brightness: 0.98;
+  }
+}
+
+body>nav:first-child {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  padding: var(--sidebar-padding);
+  width: var(--sidebar-width);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: var(--background-color);
+    filter: brightness(var(--sidebar-brightness));
+  }
+
+  &>* {
+    position: relative;
+  }
+
+  transition: transform 0.3s;
+
+  &[aria-hidden="true"] {
+    transform: translateX(-100%);
+  }
+
+  @media (max-width: 1200px) {
+    width: 100%;
+    z-index: 100;
+    transform: translateX(-100%);
+  }
+
+  &[aria-hidden="false"] {
+    transform: translateX(-100%);
+    @media (max-width: 1200px) {
+      transform: translateX(0);
+    }
+  }
+}

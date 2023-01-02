@@ -21,7 +21,7 @@ jobs:
         run: npm run build
       
       - name: Zip the styles (for size check)
-        run: gzip -k dist/nokss.css
+        run: brotli -f dist/nokss.css -o dist/nokss.css.br
       
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

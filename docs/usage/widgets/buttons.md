@@ -42,7 +42,7 @@ Buttons with `aria-label` will be styled as icons:
   <button aria-label="send" class="icon">➤</button>
 </div>
 
-> **On Icon Fonts**
+> **Using Icon Fonts**
 >
 > Here, an icon font is being used for the icon to be displayed. However, using icon fonts MUST BE done with
 > a lot of care, as they mostly [cause accessibility issues](https://www.youtube.com/watch?v=9xXBYcWgCHA). Use an icon font

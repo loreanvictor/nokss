@@ -23,7 +23,7 @@ h5 { font-size: var(--heading-5-size) }
 h6 { font-size: var(--heading-6-size) }
 
 
-:is(h1, h2, h3, h4, h5, h6) [role="toolbar"] {
+:is(h1, h2, h3, h4, h5, h6)[id] [role="toolbar"] {
   position: absolute;
   top: -4px;
   left: -40px;
@@ -32,6 +32,6 @@ h6 { font-size: var(--heading-6-size) }
   transition: opacity .15s;
 }
 
-:is(h1, h2, h3, h4, h5, h6):hover [role="toolbar"] {
+:is(h1, h2, h3, h4, h5, h6)[id]:hover [role="toolbar"] {
   opacity: 1;
 }

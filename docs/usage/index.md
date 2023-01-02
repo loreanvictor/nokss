@@ -2,8 +2,7 @@
 
 # Usage
 
-**nokss** works out of the box and styles elements based on their semantics rather than classes or attributes. You don't
-need to use any classes (like `.btn` or `.container`) for styling your HTML. Instead, **nokss** relies on the semantics of HTML
+_nokss_ works out of the box and styles elements based on their semantics rather than CSS classes (like `.btn` or `.container`). Instead, _nokss_ relies on the semantics of HTML
 elements to determine how to style them:
 
 - [HTML tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) mainly determine how an element should be styled.

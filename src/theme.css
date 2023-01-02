@@ -13,7 +13,7 @@
 
     --border-expression: 0.15;
     --interactable-brightness: 0.96;
-    --hover-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1/4);
+    --hover-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1/10);
   }
 }
 
@@ -24,6 +24,6 @@
 
     --border-expression: 0.03;
     --interactable-brightness: 2.25;
-    --hover-brightness: calc(var(--interactable-brightness) * 4/3);
+    --hover-brightness: calc(var(--interactable-brightness) * 1.35);
   }
 }

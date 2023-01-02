@@ -13,7 +13,7 @@
 
 <div align="right">
 
-![GitHub file size in bytes on a specified ref (branch/commit/tag)](https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.gz?branch=gh-pages&color=black&label=%20&style=flat-square)
+![zipped size](https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square)
 ![npm](https://img.shields.io/npm/v/nokss?label=%20&style=flat-square)
 
 </div>
