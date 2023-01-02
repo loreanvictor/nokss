@@ -16,6 +16,11 @@
     <script src="./assets/index.js" type="module" defer></script>
   </head>
   <body>
+    <nav>
+      <p><br><br><br><br></p>
+<p><a href="#">Home</a> <br><a href="#installation">Installation</a> <br><a href="#theming">Theming</a> <br><a href="#usage">Usage</a> <br>&emsp;<a href="#buttons">Buttons</a></p>
+
+    </nav>
     <main>
       <section>
 
@@ -33,20 +38,20 @@
 
 <div align="right">
 
-<p>  <img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.gz?branch=gh-pages&color=black&label=%20&style=flat-square" alt="minzip size">
+<p>  <img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size">
   <img src="https://img.shields.io/npm/v/nokss?label=%20&style=flat-square" alt="npm"></p>
 </div>
 
-<p><strong>nokss</strong> is a drop-in stylesheet that works out of the box. Instead of reyling on CSS classes, <strong>nokss</strong> uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use <strong>nokss</strong> without needing to change your HTML at all.</p>
-<p><strong>nokss</strong> is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.</p>
+<p><em>nokss</em> is a drop-in stylesheet that works out of the box. Instead of reyling on CSS classes, <em>nokss</em> uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use <em>nokss</em> without needing to change your HTML at all.</p>
+<p><em>nokss</em> is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.</p>
 <p>Other features:</p>
 <ul>
-<li><strong>nokss</strong> is fully responsive.</li>
-<li><strong>nokss</strong> supports dark mode.</li>
-<li><strong>nokss</strong> is customizable through CSS variables.</li>
-<li><strong>nokss</strong> is pretty tiny.</li>
+<li>Fully responsive.</li>
+<li>Supports dark mode out of the box.</li>
+<li>Customizable through CSS variables.</li>
+<li>Its pretty tiny.</li>
 </ul>
-<p>Except a few specific elements, this document is styled with <strong>nokss</strong> itself, and acts as a preview. You can also change the theme in <a href="#theming">Theming</a> section to see how it would look with other themes.</p>
+<p>Except a few specific elements, this document is styled with <em>nokss</em> itself, and acts as a preview. You can also change the theme in <a href="#theming">Theming</a> section to see how it would look with other themes.</p>
 </section>
       <section id="installation">
 
@@ -95,7 +100,7 @@ the library from NPM and then load the locally installed version:</p>
       <section id="theming">
 
 <h1 id="theming">Theming</h1>
-<p><strong>nokss</strong> exposes CSS variables for customizing the look and feel of your pages. 
+<p><em>nokss</em> exposes CSS variables for customizing the look and feel of your pages. 
 Change the main theme values in the code below and see their effects on the page:</p>
 <menu role="toolbar">
   <menu role="radiogroup" data-key="--roundness">
@@ -251,8 +256,7 @@ using this global variable.</p>
       <section>
 
 <h1 id="usage">Usage</h1>
-<p><strong>nokss</strong> works out of the box and styles elements based on their semantics rather than classes or attributes. You don&#39;t
-need to use any classes (like <code>.btn</code> or <code>.container</code>) for styling your HTML. Instead, <strong>nokss</strong> relies on the semantics of HTML
+<p><em>nokss</em> works out of the box and styles elements based on their semantics rather than CSS classes (like <code>.btn</code> or <code>.container</code>). Instead, <em>nokss</em> relies on the semantics of HTML
 elements to determine how to style them:</p>
 <ul>
 <li><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML tags</a> mainly determine how an element should be styled.</p>
@@ -306,7 +310,7 @@ elements to determine how to style them:</p>
 </div>
 
 <blockquote>
-<p><strong>On Icon Fonts</strong></p>
+<p><strong>Using Icon Fonts</strong></p>
 <p>Here, an icon font is being used for the icon to be displayed. However, using icon fonts MUST BE done with
 a lot of care, as they mostly <a href="https://www.youtube.com/watch?v=9xXBYcWgCHA">cause accessibility issues</a>. Use an icon font
 that falls back to characters browsers can display naturally even if the font is not loaded (or is changed), without scrambling the layout.</p>
