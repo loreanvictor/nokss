@@ -42,10 +42,14 @@ Buttons with `aria-label` will be styled as icons:
   <button aria-label="send" class="icon">➤</button>
 </div>
 
+> **On Icon Fonts**
+>
 > Here, an icon font is being used for the icon to be displayed. However, using icon fonts MUST BE done with
 > a lot of care, as they mostly [cause accessibility issues](https://www.youtube.com/watch?v=9xXBYcWgCHA). Use an icon font
-> that falls back to characters the browsers can display naturally even if the font is not loaded (or is changed). For this example,
-> [graphis](https://graphis.ink) icon font is used, which uses emojis as fallbacks.
+> that falls back to characters browsers can display naturally even if the font is not loaded (or is changed), without scrambling the layout.
+>
+> For this example, and this document in general, [graphis icon font](https://graphis.ink) is used, which uses similar looking emojis as fallback.
+
 
 <br>
 
