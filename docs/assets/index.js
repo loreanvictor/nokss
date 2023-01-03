@@ -67,22 +67,23 @@ const addTablistBehavior = () => {
 
 
 const addTreeBehavior = () => {
-  document.querySelectorAll('[role="tree-item"][aria-expanded]').forEach(item => {
+  document.querySelectorAll('[role="treeitem"][aria-expanded]').forEach(item => {
     item.addEventListener('click', event => {
       const expanded = (event.target === item && item.getAttribute('aria-expanded') === 'true') ? false : true
       if (expanded) {
-        item.parentElement.querySelectorAll('[role="tree-item"][aria-expanded="true"]').forEach(
+        item.parentElement.querySelectorAll('[role="treeitem"][aria-expanded="true"]').forEach(
           i => i.setAttribute('aria-expanded', false)
         )
       }
       item.setAttribute('aria-expanded', expanded)
+      event.stopPropagation()
     })
   })
 
   document.querySelectorAll('[role="tree"]').forEach(tree => {
-    tree.querySelectorAll('[role="tree-item"]>*:first-child').forEach(item => {
+    tree.querySelectorAll('[role="treeitem"]>a:first-child').forEach(item => {
       item.addEventListener('click', () => {  
-        tree.querySelectorAll('[role="tree-item"][aria-selected="true"]').forEach(i => {
+        tree.querySelectorAll('[role="treeitem"][aria-selected="true"]').forEach(i => {
           i.setAttribute('aria-selected', false)
         })
         item.parentElement.setAttribute('aria-selected', true)
@@ -92,7 +93,17 @@ const addTreeBehavior = () => {
 }
 
 
+const addSwitchBehavior = () => {
+  document.querySelectorAll('[role="switch"]').forEach(sw => {
+    sw.addEventListener('click', () => {
+      sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true')
+    })
+  })
+}
+
+
 addCopyButtons()
 addHeaderLinks()
 addTablistBehavior()
 addTreeBehavior()
+addSwitchBehavior()

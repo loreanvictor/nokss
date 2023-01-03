@@ -3,6 +3,6 @@
 @import './theme.css';
 @import './typography.css';
 @import './general.css';
-@import './widgets';
-@import './structure';
+@import './control';
+@import './layout';
 @import './content';

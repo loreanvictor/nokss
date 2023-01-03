@@ -107,6 +107,7 @@
 
 :is([role="toolbar"], [role="radiogroup"])[aria-orientation="vertical"] {
   display: inline-flex;
+  flex-shrink: 0;
   flex-direction: column;
   gap: 0px;
   width: var(--button-height);

@@ -1,6 +1,5 @@
 
 :root {
-  --button-primary-border-brightness: 1.2;
   --button-primary-hover-brightness: 1.2;
   --button-primary-active-opacity: 0.85;
 }
@@ -8,6 +7,12 @@
 @media (prefers-color-scheme: light) {
   :root {
     --button-primary-border-brightness: 0.9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --button-primary-border-brightness: 1.2;
   }
 }
 

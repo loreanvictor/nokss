@@ -11,13 +11,13 @@
   <sub>Enough CSS to get started</sub>
 </div>
 
-<br>
+<br><br>
 
 <div align="right">
 
-  ![zipped size](https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square)
-  ![npm](https://img.shields.io/npm/v/nokss?label=%20&style=flat-square)
-  
+![zipped size](https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square)
+![npm](https://img.shields.io/npm/v/nokss?label=%20&style=flat-square)
+
 </div>
 
 _nokss_ is a drop-in stylesheet that works out of the box. Instead of reyling on CSS classes, _nokss_ uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use _nokss_ without needing to change your HTML at all.

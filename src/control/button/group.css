@@ -36,6 +36,6 @@ menu[aria-orientation="horizontal"],
   
     &:active {
       opacity: var(--button-secondary-active-opacity);
-    }  
+    }
   }  
 }

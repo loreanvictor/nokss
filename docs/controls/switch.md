@@ -1,0 +1,62 @@
+<section>
+
+# Switches
+
+Buttons with a `switch` role will act as a switch that can be turned on and off:
+
+```html
+<button role="switch" aria-checked="false">
+  <span>Inactive</span>
+  <span>Active</span>
+</button>
+```
+
+<div role="presentation">
+  <button role="switch" aria-checked="false">
+    <span>Inactive</span>
+    <span>Active</span>
+  </button>
+</div>
+
+A switch **MUST** have two child elements, the first one acting as the label for inactive state, the second one for the active state. They can be icons, or part of toolbars, etc.
+
+```html
+<menu role="toolbar">
+  <button aria-label="raise hand">🤚</button>
+  <button role="switch" aria-checked="false" aria-label="camera">
+    <span>🎦</span>
+    <span>🎥</span>
+  </button>
+  <button role="switch" aria-checked="true" aria-label="microphone">
+    <span>🎤</span>
+    <span>🎙</span>
+  </button>
+</menu>
+```
+
+<div role="presentation">
+  <menu role="toolbar">
+    <button aria-label="raise hand" class="icon">🤚</button>
+    <button role="switch" aria-checked="false" class="icon" aria-label="camera">
+      <span>🎦</span>
+      <span>🎥</span>
+    </button>
+    <button role="switch" aria-checked="true" class="icon" aria-label="microphone">
+      <span>🎤</span>
+      <span>🎙</span>
+    </button>
+  </menu>
+</div>
+
+> The behavior for tab lists needs to be added with JavaScript. Use `aria-checked="true"` to turn the switch on or off:
+> ```js
+> document.querySelectorAll('[role="switch"]').forEach(sw => {
+>   sw.addEventListener('click', () => {
+>     sw.setAttribute(
+>       'aria-checked',
+>       sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true'
+>     )
+>   }) 
+> })
+
+</section>

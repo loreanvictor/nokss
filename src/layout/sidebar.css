@@ -46,7 +46,7 @@ body>nav:first-child {
     transform: translateX(-100%);
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     width: 100%;
     z-index: 100;
     transform: translateX(-100%);

@@ -22,6 +22,4 @@ elements to determine how to style them:
   ```
   ☝️ This will result in a vertical toolbar.
 
-{% markdown "usage/widgets/buttons.md" %}
-
 </section>

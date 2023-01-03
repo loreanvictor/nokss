@@ -14,7 +14,7 @@
   padding: 0;
   list-style: none;
 
-  & [role="tree-item"] {
+  & [role="treeitem"] {
     min-height: var(--tree-expand-button-width);
     position: relative;
 
@@ -62,7 +62,7 @@
       transform: rotate(90deg);
     }
 
-    &[aria-expanded="false"] [role="tree-item"] {
+    &[aria-expanded="false"] [role="treeitem"] {
       display: none;
     }
 
@@ -72,7 +72,7 @@
       list-style: none;
     }
 
-    & [role="tree-item"]:before {
+    & [role="treeitem"]:after {
       content: ' ';
       left: calc(var(--tree-expand-button-width)/2 - var(--tree-indent) - 0.5px);
       top: 0;
