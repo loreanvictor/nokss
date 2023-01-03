@@ -13,29 +13,65 @@
     <script src="./assets/index.js" type="module" defer></script>
   </head>
   <body>
-    <nav aria-hidden="false">
-      <p><br><br><br><br></p>
+    <nav>
+      <p><br><br><br><br><br></p>
 <ul role="tree">
-  <li role="tree-item"><a href="#">Home</a></li>
-  <li role="tree-item"><a href="#installation">Installation</a></li>
-  <li role="tree-item"><a href="#theming">Theming</a></li>
-  <li role="tree-item" aria-expanded="false">
-    <a href="#usage">Usage</a>
+  <li role="treeitem"><a href="#">Home</a></li>
+  <li role="treeitem"><a href="#installation">Installation</a></li>
+  <li role="treeitem"><a href="#usage">Usage</a></li>
+  <li role="treeitem"><a href="#theming">Theming</a></li>
+
+<hr>
+<p>  <small>Components</small></p>
+  <li role="treeitem" aria-expanded="false">
+    <span>Controls</span>
     <ul role="group">
-      <li role="tree-item"><a href="#buttons">Buttons</a></li>
-      <li role="tree-item"><a href="#buttons">Toolbar</a></li>
-      <li role="tree-item"><a href="#buttons">Radio Group</a></li>
-      <li role="tree-item"><a href="#buttons">Switch</a></li>
+      <li role="treeitem"><a href="#buttons">Buttons</a></li>
+      <li role="treeitem"><a href="#toolbars">Toolbars</a></li>
+      <li role="treeitem"><a href="#tab-lists">Tab Lists</a></li>
+      <li role="treeitem"><a href="#switches">Switches</a></li>
     </ul>
   </li>
-  <li role="tree-item" aria-expanded="false">
-    <a href="#usage">Usage</a>
+
+  <li role="treeitem" aria-expanded="false">
+    <span>Inputs</span>
     <ul role="group">
-      <li role="tree-item"><a href="#buttons">Buttons</a></li>
-      <li role="tree-item"><a href="#buttons">Toolbar</a></li>
-      <li role="tree-item"><a href="#buttons">Radio Group</a></li>
-      <li role="tree-item"><a href="#buttons">Switch</a></li>
+      <li role="treeitem"><a href="#text-input">Text Input</a></li>
+      <li role="treeitem"><a href="#select">Select</a></li>
+      <li role="treeitem"><a href="#sliders">Sliders</a></li>
     </ul>
+  </li>
+
+  <li role="treeitem" aria-expanded="false">
+    <span>Layout</span>
+    <ul role="group">
+      <li role="treeitem"><a href="#main-content-sections">Main Content & Sections</a></li>
+      <li role="treeitem"><a href="#header-footer">Header & Footer</a></li>
+      <li role="treeitem"><a href="#sidebar">Sidebar</a></li>
+      <li role="treeitem"><a href="#trees">Trees</a></li>
+    </ul>
+  </li>
+
+  <li role="treeitem" aria-expanded="false">
+    <span>Content</span>
+    <ul role="group">
+      <li role="treeitem"><a href="#headings">Headings</a></li>
+      <li role="treeitem"><a href="#code-snippets">Code Snippets</a></li>
+      <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
+    </ul>
+  </li>
+
+<hr>
+<p>  <small>External Links</small></p>
+  <li role="treeitem">
+    <a href="https://github.com/loreanvictor/nokss" target="_blank">
+      GitHub
+    </a>
+  </li>
+  <li role="treeitem">
+    <a href="https://www.npmjs.com/package/nokss" target="_blank">
+      NPM
+    </a>
   </li>
 </ul>
 
@@ -53,12 +89,11 @@
   <sub>Enough CSS to get started</sub>
 </div>
 
-<br>
-
+<p><br><br></p>
 <div align="right">
 
-<p>  <img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size">
-  <img src="https://img.shields.io/npm/v/nokss?label=%20&style=flat-square" alt="npm"></p>
+<p><img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size">
+<img src="https://img.shields.io/npm/v/nokss?label=%20&style=flat-square" alt="npm"></p>
 </div>
 
 <p><em>nokss</em> is a drop-in stylesheet that works out of the box. Instead of reyling on CSS classes, <em>nokss</em> uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use <em>nokss</em> without needing to change your HTML at all.</p>
@@ -115,6 +150,29 @@ the library from NPM and then load the locally installed version:</p>
   })
 </script>
 
+</section>
+      <section>
+
+<h1 id="usage">Usage</h1>
+<p><em>nokss</em> works out of the box and styles elements based on their semantics rather than CSS classes (like <code>.btn</code> or <code>.container</code>). Instead, <em>nokss</em> relies on the semantics of HTML
+elements to determine how to style them:</p>
+<ul>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML tags</a> mainly determine how an element should be styled.</p>
+</li>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">ARIA roles</a> can be used to style elements with a different tag, or elements lacking a proper HTML tag:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<p>☝️ This anchor is styled like a button.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<p>☝️ This menu is styled like a toolbar.</p>
+</li>
+<li><p>HTML and <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">ARIA attributes</a> are used for further control over style of an element:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<p>☝️ This will result in a vertical toolbar.</p>
+</li>
+</ul>
 </section>
       <section id="theming">
 
@@ -274,29 +332,7 @@ using this global variable.</p>
 </section>
       <section>
 
-<h1 id="usage">Usage</h1>
-<p><em>nokss</em> works out of the box and styles elements based on their semantics rather than CSS classes (like <code>.btn</code> or <code>.container</code>). Instead, <em>nokss</em> relies on the semantics of HTML
-elements to determine how to style them:</p>
-<ul>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML tags</a> mainly determine how an element should be styled.</p>
-</li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">ARIA roles</a> can be used to style elements with a different tag, or elements lacking a proper HTML tag:</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-</code></pre>
-<p>☝️ This anchor is styled like a button.</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
-</code></pre>
-<p>☝️ This menu is styled like a toolbar.</p>
-</li>
-<li><p>HTML and <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">ARIA attributes</a> are used for further control over style of an element:</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
-</code></pre>
-<p>☝️ This will result in a vertical toolbar.</p>
-</li>
-</ul>
-<section>
-
-<h2 id="buttons">Buttons</h2>
+<h1 id="buttons">Buttons</h1>
 <p>Buttons are primary styled by default:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
@@ -306,7 +342,8 @@ elements to determine how to style them:</p>
 
 <br>
 
-<p>If buttons are grouped, only the last one is styled primary, the rest will have a secondary style:</p>
+<h2 id="button-groups">Button Groups</h2>
+<p>If buttons are grouped under a menu, only the last one is styled primary, the rest will have a secondary style:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -321,7 +358,30 @@ elements to determine how to style them:</p>
 
 <br>
 
-<p>Buttons with <code>aria-label</code> will be styled as icons:</p>
+<p>Use <code>align</code> attribute to align buttons in a menu to the left or right:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"right"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="group" align="right">
+    <button>Secondary</button>
+    <button>Primary</button>
+  </menu>
+</div>
+
+<blockquote>
+<p>Since <code>align</code> is unfortunately obsolete, for grouping menus you can use CSS with <code>text-align</code> instead:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: right"</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+</blockquote>
+<br>
+
+<h2 id="icon-buttons">Icon Buttons</h2>
+<p>Buttons with <code>aria-label</code> will be styled as icon buttons:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"send"</span>&gt;</span>➤<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
 <div role="presentation">
@@ -337,7 +397,38 @@ that falls back to characters browsers can display naturally even if the font is
 </blockquote>
 <br>
 
-<p>Buttons in a toolbar have no primary and are styled differently:</p>
+<h2 id="disabled-buttons">Disabled Buttons</h2>
+<p>Buttons having <code>disabled</code> attribute will be styled as disabled:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">disabled</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <button disabled>Disabled</button>
+</div>
+
+<br/>
+
+<h2 id="customization">Customization</h2>
+<p>In addition to <a href="#theming">generic CSS variables</a>, you can customize buttons via the following CSS variables, displayed with their default values:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--button-border-radius</span>: <span class="hljs-built_in">var</span>(--roundness);
+  <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-number">96px</span>;
+  <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">32px</span>;
+  <span class="hljs-attribute">--button-padding</span>: <span class="hljs-number">0px</span> <span class="hljs-built_in">var</span>(--spacing);
+}
+</code></pre>
+<p>Note that on smaller devices, buttons will be larger by default for better touchability:</p>
+<pre><code class="language-css">@<span class="hljs-keyword">media</span> (max-width: <span class="hljs-number">768px</span>) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">48px</span>;
+    <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-number">112px</span>;
+  }
+}
+</code></pre>
+</section>
+<section>
+
+<h1 id="toolbars">Toolbars</h1>
+<p>Use a toolbar (any element with <code>&quot;toolbar&quot;</code> role) to group some buttons together and display them like a toolbar:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"edit"</span>&gt;</span>✏️<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"like"</span>&gt;</span>❤️<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -354,7 +445,47 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
-<p>Buttons in a tablist will be styled as tabs:</p>
+<p>Toolbars can also be vertically oriented:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: flex; gap: var(--spacing)"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"done"</span>&gt;</span>✔<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"delete"</span>&gt;</span>🗑<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"share"</span>&gt;</span>↥<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <div style="display: flex;gap: var(--spacing)">
+    <menu role="toolbar" aria-orientation="vertical">
+      <button aria-label="done" class="icon">✔</button>
+      <button aria-label="delete" class="icon">🗑</button>
+      <button aria-label="share" class="icon">↥</button>
+    </menu>
+    <p>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur ...
+    </p>
+  </div>
+</div>
+
+<br>
+
+<h2 id="customization">Customization</h2>
+<p>In addition to <a href="#theming">generic CSS variables</a>, you can customize toolbars via the following CSS variables, displayed with their default values:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--toolbar-spacer-gap</span>: <span class="hljs-built_in">calc</span>(var(--spacing) * <span class="hljs-number">4</span>);
+  <span class="hljs-attribute">--toolbar-spacer-margin</span>: <span class="hljs-built_in">calc</span>(var(--spacing) / <span class="hljs-number">2</span>);
+  <span class="hljs-attribute">--toolbar-spacer-thickness</span>: <span class="hljs-built_in">var</span>(--hr-thickness);
+  <span class="hljs-attribute">--toolbar-spacer-expression</span>: <span class="hljs-built_in">var</span>(--hr-expression);
+}
+</code></pre>
+</section>
+<section>
+
+<h1 id="tab-lists">Tab Lists</h1>
+<p>Buttons in a tab list will be styled as tabs:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"true"</span>&gt;</span>First<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span>&gt;</span>Second<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -369,8 +500,77 @@ that falls back to characters browsers can display naturally even if the font is
   </nav>
 </div>
 
+<blockquote>
+<p>The behavior for tab lists needs to be added with JavaScript. Use <code>aria-selected=&quot;true&quot;</code> to mark a selected element:</p>
+<pre><code class="language-js"><span class="hljs-built_in">document</span>.querySelectorAll(
+  <span class="hljs-string">'[role="tablist"]&gt;:is(button, [role="tab"]]'</span>
+).forEach(<span class="hljs-function"><span class="hljs-params">button</span> =&gt;</span> {
+  button.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-comment">/* Make sure only one item is selected at a time */</span>
+    button.parentNode.querySelectorAll(<span class="hljs-string">'button'</span>).forEach
+      (<span class="hljs-function"><span class="hljs-params">btn</span> =&gt;</span> btn.setAttribute(<span class="hljs-string">'aria-selected'</span>, <span class="hljs-literal">false</span>)
+    )
+    button.setAttribute(<span class="hljs-string">'aria-selected'</span>, <span class="hljs-literal">true</span>)
+  })
+})
+</code></pre>
+</blockquote>
 </section>
+<section>
 
+<h1 id="switches">Switches</h1>
+<p>Buttons with a <code>switch</code> role will act as a switch that can be turned on and off:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Inactive<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Active<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <button role="switch" aria-checked="false">
+    <span>Inactive</span>
+    <span>Active</span>
+  </button>
+</div>
+
+<p>A switch <strong>MUST</strong> have two child elements, the first one acting as the label for inactive state, the second one for the active state. They can be icons, or part of toolbars, etc.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"raise hand"</span>&gt;</span>🤚<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"camera"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎦<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎥<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"microphone"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎤<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎙<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="toolbar">
+    <button aria-label="raise hand" class="icon">🤚</button>
+    <button role="switch" aria-checked="false" class="icon" aria-label="camera">
+      <span>🎦</span>
+      <span>🎥</span>
+    </button>
+    <button role="switch" aria-checked="true" class="icon" aria-label="microphone">
+      <span>🎤</span>
+      <span>🎙</span>
+    </button>
+  </menu>
+</div>
+
+<blockquote>
+<p>The behavior for tab lists needs to be added with JavaScript. Use <code>aria-checked=&quot;true&quot;</code> to turn the switch on or off:</p>
+<pre><code class="language-js"><span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'[role="switch"]'</span>).forEach(<span class="hljs-function"><span class="hljs-params">sw</span> =&gt;</span> {
+  sw.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    sw.setAttribute(
+      <span class="hljs-string">'aria-checked'</span>,
+      sw.getAttribute(<span class="hljs-string">'aria-checked'</span>) === <span class="hljs-string">'true'</span> ? <span class="hljs-string">'false'</span> : <span class="hljs-string">'true'</span>
+    )
+  }) 
+})
+</code></pre>
+</blockquote>
 </section>
       <br><br>
     </main>
