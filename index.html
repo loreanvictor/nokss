@@ -7,18 +7,37 @@
     <link rel="stylesheet" href="./nokss.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/graphis/font/graphis.css">
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
 
     <link rel="stylesheet" href="./assets/index.css" />
     <script src="./assets/index.js" type="module" defer></script>
   </head>
   <body>
-    <nav>
+    <nav aria-hidden="false">
       <p><br><br><br><br></p>
-<p><a href="#">Home</a> <br><a href="#installation">Installation</a> <br><a href="#theming">Theming</a> <br><a href="#usage">Usage</a> <br>&emsp;<a href="#buttons">Buttons</a></p>
+<ul role="tree">
+  <li role="tree-item"><a href="#">Home</a></li>
+  <li role="tree-item"><a href="#installation">Installation</a></li>
+  <li role="tree-item"><a href="#theming">Theming</a></li>
+  <li role="tree-item" aria-expanded="false">
+    <a href="#usage">Usage</a>
+    <ul role="group">
+      <li role="tree-item"><a href="#buttons">Buttons</a></li>
+      <li role="tree-item"><a href="#buttons">Toolbar</a></li>
+      <li role="tree-item"><a href="#buttons">Radio Group</a></li>
+      <li role="tree-item"><a href="#buttons">Switch</a></li>
+    </ul>
+  </li>
+  <li role="tree-item" aria-expanded="false">
+    <a href="#usage">Usage</a>
+    <ul role="group">
+      <li role="tree-item"><a href="#buttons">Buttons</a></li>
+      <li role="tree-item"><a href="#buttons">Toolbar</a></li>
+      <li role="tree-item"><a href="#buttons">Radio Group</a></li>
+      <li role="tree-item"><a href="#buttons">Switch</a></li>
+    </ul>
+  </li>
+</ul>
 
     </nav>
     <main>
@@ -110,7 +129,7 @@ Change the main theme values in the code below and see their effects on the page
     <button role="radio" value="5px" aria-label="round corners">
       <span class="corner-mark round"></span>
     </button>
-    <button role="radio" value="16px" aria-label="circular corners">
+    <button role="radio" value="32px" aria-label="circular corners">
       <span class="corner-mark circle"></span>
     </button>
   </menu>
