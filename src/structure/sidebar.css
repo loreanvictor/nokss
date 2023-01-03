@@ -53,7 +53,7 @@ body>nav:first-child {
   }
 
   &[aria-hidden="false"] {
-    transform: translateX(-100%);
+    transform: translateX(0);
     @media (max-width: 1200px) {
       transform: translateX(0);
     }

@@ -1,0 +1,85 @@
+:root {
+  --tree-expand-button-width: calc(var(--button-height) * 0.85);
+  --tree-indent: calc(var(--tree-expand-button-width) + var(--spacing));
+  --tree-border-expression: calc(1 - (1 - var(--border-expression)) * 0.9);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --tree-expand-button-width: var(--button-height);
+  }
+}
+
+[role="tree"] {
+  padding: 0;
+  list-style: none;
+
+  & [role="tree-item"] {
+    min-height: var(--tree-expand-button-width);
+    position: relative;
+
+    &>*:first-child {
+      display: inline-block;
+      color: var(--text-color);
+      min-height: var(--tree-expand-button-width);
+      line-height: var(--tree-expand-button-width);
+    }
+
+    &[aria-selected="true"]>*:first-child {
+      color: var(--primary-color);
+    }
+  }
+
+  & [aria-expanded] {
+    position: relative;
+    padding-left: var(--tree-indent);
+
+    &:before {
+      content: '►';
+      font-size: 0.7em;
+      position: absolute;
+      width: var(--tree-expand-button-width);
+      height: var(--tree-expand-button-width);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--roundness);
+      left: 0em;
+      top: 0px;
+      transform: rotate(0deg);
+      transition: filter .15s, background .15s;
+      background: transparent;
+      color: var(--text-color);
+      cursor: pointer;
+    }
+
+    &:hover:before {
+      background: var(--background-color);
+      filter: brightness(var(--hover-brightness));
+    }
+
+    &[aria-expanded="true"]:before {
+      transform: rotate(90deg);
+    }
+
+    &[aria-expanded="false"] [role="tree-item"] {
+      display: none;
+    }
+
+    & [role="group"] {
+      left: -0.5em;
+      padding: 0;
+      list-style: none;
+    }
+
+    & [role="tree-item"]:before {
+      content: ' ';
+      left: calc(var(--tree-expand-button-width)/2 - var(--tree-indent) - 0.5px);
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      opacity: var(--tree-border-expression);
+      border-left: 1px solid var(--text-color);
+    }
+  }
+}

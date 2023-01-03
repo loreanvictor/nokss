@@ -66,6 +66,33 @@ const addTablistBehavior = () => {
 }
 
 
+const addTreeBehavior = () => {
+  document.querySelectorAll('[role="tree-item"][aria-expanded]').forEach(item => {
+    item.addEventListener('click', event => {
+      const expanded = (event.target === item && item.getAttribute('aria-expanded') === 'true') ? false : true
+      if (expanded) {
+        item.parentElement.querySelectorAll('[role="tree-item"][aria-expanded="true"]').forEach(
+          i => i.setAttribute('aria-expanded', false)
+        )
+      }
+      item.setAttribute('aria-expanded', expanded)
+    })
+  })
+
+  document.querySelectorAll('[role="tree"]').forEach(tree => {
+    tree.querySelectorAll('[role="tree-item"]>*:first-child').forEach(item => {
+      item.addEventListener('click', () => {  
+        tree.querySelectorAll('[role="tree-item"][aria-selected="true"]').forEach(i => {
+          i.setAttribute('aria-selected', false)
+        })
+        item.parentElement.setAttribute('aria-selected', true)
+      })
+    })
+  })
+}
+
+
 addCopyButtons()
 addHeaderLinks()
 addTablistBehavior()
+addTreeBehavior()
