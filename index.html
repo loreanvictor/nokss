@@ -572,7 +572,6 @@ that falls back to characters browsers can display naturally even if the font is
 
 <p>A switch <strong>MUST</strong> have two child elements, the first one acting as the label for inactive state, the second one for the active state. They can be icons, or part of toolbars, etc.</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"raise hand"</span>&gt;</span>🤚<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"camera"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎦<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎥<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -581,11 +580,14 @@ that falls back to characters browsers can display naturally even if the font is
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎤<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎙<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"raise hand"</span>&gt;</span>🤚<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"end call"</span> <span class="hljs-attr">aria-description</span>=<span class="hljs-string">"dangerously end call"</span>&gt;</span>
+    📵
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
 </code></pre>
 <div role="presentation">
   <menu role="toolbar">
-    <button aria-label="raise hand" class="icon">🤚</button>
     <button role="switch" aria-checked="false" class="icon" aria-label="camera">
       <span>🎦</span>
       <span>🎥</span>
@@ -593,6 +595,10 @@ that falls back to characters browsers can display naturally even if the font is
     <button role="switch" aria-checked="true" class="icon" aria-label="microphone">
       <span>🎤</span>
       <span>🎙</span>
+    </button>
+    <button aria-label="raise hand" class="icon">🤚</button>
+    <button aria-label="end call" aria-description="dangerously end call" class="icon">
+      📵
     </button>
   </menu>
 </div>
