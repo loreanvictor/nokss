@@ -22,7 +22,6 @@ A switch **MUST** have two child elements, the first one acting as the label for
 
 ```html
 <menu role="toolbar">
-  <button aria-label="raise hand">🤚</button>
   <button role="switch" aria-checked="false" aria-label="camera">
     <span>🎦</span>
     <span>🎥</span>
@@ -31,12 +30,15 @@ A switch **MUST** have two child elements, the first one acting as the label for
     <span>🎤</span>
     <span>🎙</span>
   </button>
+  <button aria-label="raise hand">🤚</button>
+  <button aria-label="end call" aria-description="dangerously end call">
+    📵
+  </button>
 </menu>
 ```
 
 <div role="presentation">
   <menu role="toolbar">
-    <button aria-label="raise hand" class="icon">🤚</button>
     <button role="switch" aria-checked="false" class="icon" aria-label="camera">
       <span>🎦</span>
       <span>🎥</span>
@@ -44,6 +46,10 @@ A switch **MUST** have two child elements, the first one acting as the label for
     <button role="switch" aria-checked="true" class="icon" aria-label="microphone">
       <span>🎤</span>
       <span>🎙</span>
+    </button>
+    <button aria-label="raise hand" class="icon">🤚</button>
+    <button aria-label="end call" aria-description="dangerously end call" class="icon">
+      📵
     </button>
   </menu>
 </div>
