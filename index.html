@@ -60,19 +60,6 @@
       <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
     </ul>
   </li>
-
-<hr>
-<p>  <small>External Links</small></p>
-  <li role="treeitem">
-    <a href="https://github.com/loreanvictor/nokss" target="_blank">
-      GitHub
-    </a>
-  </li>
-  <li role="treeitem">
-    <a href="https://www.npmjs.com/package/nokss" target="_blank">
-      NPM
-    </a>
-  </li>
 </ul>
 
     </nav>
@@ -92,8 +79,7 @@
 <p><br><br></p>
 <div align="right">
 
-<p><img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size">
-<img src="https://img.shields.io/npm/v/nokss?label=%20&style=flat-square" alt="npm"></p>
+<p><img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size"></p>
 </div>
 
 <p><em>nokss</em> is a drop-in stylesheet that works out of the box. Instead of reyling on CSS classes, <em>nokss</em> uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use <em>nokss</em> without needing to change your HTML at all.</p>
@@ -603,8 +589,29 @@ that falls back to characters browsers can display naturally even if the font is
   </menu>
 </div>
 
+<br>
+
+<p>Switches can also denote dangerous states by adding an <code>aria-description</code> attribute starting with <code>&quot;danger&quot;</code> (or <code>&quot;Danger&quot;</code>):</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span>
+  <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>
+  <span class="hljs-attr">aria-description</span>=<span class="hljs-string">"danger: turns on expert mode."</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Expert Mode: Off<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Expert Mode: On<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <button role="switch"
+    aria-checked="false"
+    aria-description="danger: turns on expert mode.">
+    <span>Expert Mode: Off</span>
+    <span>Expert Mode: On</span>
+  </button>
+</div>
+
+<br>
+
 <blockquote>
-<p>The behavior for tab lists needs to be added with JavaScript. Use <code>aria-checked=&quot;true&quot;</code> to turn the switch on or off:</p>
+<p>The behavior of switches needs to be added with JavaScript. Use <code>aria-checked=&quot;true&quot;</code> to turn the switch on or off:</p>
 <pre><code class="language-js"><span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'[role="switch"]'</span>).forEach(<span class="hljs-function"><span class="hljs-params">sw</span> =&gt;</span> {
   sw.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
     sw.setAttribute(
@@ -618,5 +625,29 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
       <br><br>
     </main>
+    <footer>
+      <div style="display: flex; align-items: center">
+
+  <button role="switch" aria-checked="false" aria-label="collapse sidebar">
+    <span class="icon">❌</span>
+    <span class="icon">⩧</span>
+  </button>
+
+  <div align="right" style="flex-grow: 1">
+    <a href="https://github.com/loreanvictor/nokss" target="_blank">
+      GitHub
+    </a>
+    |
+    <a href="https://www.npmjs.com/package/nokss" target="_blank">
+      NPM
+    </a>
+  </div>
+  <img alt="npm" src="https://img.shields.io/npm/v/nokss?label=%20&style=flat-square" />
+</div>
+
+<link rel="stylesheet" href="assets/footer.css" />
+<script type="module" defer src="assets/footer.js"></script>
+
+    </footer>
   </body>
 </html>
