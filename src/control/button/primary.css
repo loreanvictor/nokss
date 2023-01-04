@@ -48,6 +48,15 @@ button, [role="button"], [type="button"], [type="submit"] {
     filter: brightness(var(--button-primary-border-brightness));
     transition: background 0.1s, filter 0.15s;
   }
+
+  &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+    background: var(--danger-color);
+    color: var(--danger-text-color);
+
+    &:before {
+      border-color: var(--danger-color);
+    }
+  }
   
   &:hover, &:focus {
     filter: brightness(var(--button-primary-hover-brightness));

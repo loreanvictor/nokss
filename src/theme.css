@@ -1,6 +1,8 @@
 :root {
   --primary-color: #1F6FEB;
   --primary-text-color: #fff;
+  --danger-color: #FF2626;
+  --danger-text-color: #fff;
 
   --roundness: 5px;
   --spacing: 8px;

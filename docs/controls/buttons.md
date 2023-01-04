@@ -93,6 +93,40 @@ Buttons having `disabled` attribute will be styled as disabled:
 
 <br/>
 
+## Dangerous Buttons
+
+Denote a dangerous action by starting `aria-description` of the button with `"danger"` (or `"Danger"`):
+
+```html
+<button aria-description="dangerously removes the file">Remove</button>
+```
+
+<div role="presentation">
+  <button aria-description="dangerously removes the file">
+    Remove
+  </button>
+</div>
+
+```html
+<menu role="group">
+  <button aria-description="Danger: deletes the draft">
+    Delete Draft
+  </button>
+  <button>Publish</button>
+</menu>
+```
+
+<div role="presentation">
+  <menu role="group">
+    <button aria-description="Danger: deletes the draft">
+      Delete Draft
+    </button>
+    <button>Publish</button>
+  </menu>
+</div>
+
+<br>
+
 ## Customization
 
 In addition to [generic CSS variables](#theming), you can customize buttons via the following CSS variables, displayed with their default values:

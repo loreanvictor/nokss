@@ -7,7 +7,7 @@
 
 @media (max-width: 768px) {
   :root {
-    --button-height: 48px;
+    --button-height: 40px;
     --button-min-width: 112px;
   }
 }

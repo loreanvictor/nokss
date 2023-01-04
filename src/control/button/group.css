@@ -29,6 +29,10 @@ menu[aria-orientation="horizontal"],
       opacity: var(--border-expression);
     }
   
+    &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+      color: var(--danger-color);
+    }
+
     &:hover,
     &:focus {
       filter: brightness(var(--hover-brightness));

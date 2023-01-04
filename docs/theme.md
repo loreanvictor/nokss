@@ -66,6 +66,8 @@ Change the main theme values in the code below and see their effects on the page
 :root {
   --primary-color: #1F6FEB;
   --primary-text-color: #fff;
+  --danger-color: #FF2626;
+  --danger-text-color: #fff;
   --roundness: 5px;
 }
 
@@ -134,6 +136,16 @@ The following are the main CSS variables determining styling of various elements
       --background-color: #0D1118;
       --text-color: #FFFCF3;
     }
+  }
+  ```
+  <br>
+
+- **Danger Color** \
+  Danger color denotes elements that have potentially harmful (and irreversible) effects, or states of error. _Danger text color_ is the  color of text that is to be used on backgrounds with danger color.
+  ```css
+  :root {
+    --danger-color: #FF2626;
+    --danger-text-color: #fff;
   }
   ```
   <br>
