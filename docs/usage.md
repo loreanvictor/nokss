@@ -2,8 +2,7 @@
 
 # Usage
 
-_nokss_ works out of the box and styles elements based on their semantics rather than CSS classes (like `.btn` or `.container`). Instead, _nokss_ relies on the semantics of HTML
-elements to determine how to style them:
+_nokss_ works out of the box and styles elements based on their semantics. Instead of using CSS classes (like `.btn` or `.container`), _nokss_ relies on the semantics of HTML elements to determine how to style them:
 
 - [HTML tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) mainly determine how an element should be styled.
 - [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) can be used to style elements with a different tag, or elements lacking a proper HTML tag:

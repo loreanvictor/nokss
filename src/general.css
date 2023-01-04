@@ -1,8 +1,3 @@
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: var(--background-color);
 }
