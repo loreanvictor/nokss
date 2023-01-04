@@ -48,19 +48,4 @@
       <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
     </ul>
   </li>
-
-  ---
-
-  <small>External Links</small>
-
-  <li role="treeitem">
-    <a href="https://github.com/loreanvictor/nokss" target="_blank">
-      GitHub
-    </a>
-  </li>
-  <li role="treeitem">
-    <a href="https://www.npmjs.com/package/nokss" target="_blank">
-      NPM
-    </a>
-  </li>
 </ul>

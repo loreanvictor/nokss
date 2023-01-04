@@ -1,6 +1,6 @@
 {
   "name": "nokss",
-  "version": "0.0.16",
+  "version": "0.1.0",
   "description": "enough css",
   "main": "dist/nokss.css",
   "scripts": {

@@ -54,7 +54,31 @@ A switch **MUST** have two child elements, the first one acting as the label for
   </menu>
 </div>
 
-> The behavior for tab lists needs to be added with JavaScript. Use `aria-checked="true"` to turn the switch on or off:
+<br>
+
+Switches can also denote dangerous states by adding an `aria-description` attribute starting with `"danger"` (or `"Danger"`):
+
+```html
+<button role="switch"
+  aria-checked="false"
+  aria-description="danger: turns on expert mode.">
+  <span>Expert Mode: Off</span>
+  <span>Expert Mode: On</span>
+</button>
+```
+
+<div role="presentation">
+  <button role="switch"
+    aria-checked="false"
+    aria-description="danger: turns on expert mode.">
+    <span>Expert Mode: Off</span>
+    <span>Expert Mode: On</span>
+  </button>
+</div>
+
+<br>
+
+> The behavior of switches needs to be added with JavaScript. Use `aria-checked="true"` to turn the switch on or off:
 > ```js
 > document.querySelectorAll('[role="switch"]').forEach(sw => {
 >   sw.addEventListener('click', () => {

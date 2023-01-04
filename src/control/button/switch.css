@@ -8,6 +8,13 @@ button[role="switch"] {
     opacity: var(--border-expression);
   }
 
+  &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+    color: var(--danger-color);
+    & * {
+      color: var(--danger-color);
+    }
+  }
+
   &:hover,
   &:focus {
     filter: brightness(var(--hover-brightness));
@@ -29,6 +36,19 @@ button[role="switch"] {
     &:before {
       border-color: var(--primary-color);
       filter: brightness(var(--button-primary-border-brightness));
+    }
+
+    &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+      background: var(--danger-color);
+      color: var(--danger-text-color);
+
+      & * {
+        color: var(--danger-text-color);
+      }
+
+      &:before {
+        border-color: var(--danger-color);
+      }
     }
 
     &:hover, &:focus {

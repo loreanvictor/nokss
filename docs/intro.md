@@ -16,7 +16,6 @@
 <div align="right">
 
 ![zipped size](https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square)
-![npm](https://img.shields.io/npm/v/nokss?label=%20&style=flat-square)
 
 </div>
 

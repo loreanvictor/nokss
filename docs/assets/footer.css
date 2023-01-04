@@ -1,0 +1,8 @@
+footer a:not([role]) {
+  color: var(--text-color);
+  margin: 0 var(--spacing);
+}
+
+footer img {
+  vertical-align: middle;
+}

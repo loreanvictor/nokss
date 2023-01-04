@@ -1,0 +1,43 @@
+:root {
+  --footer-blur: 16px;
+  --footer-brightness: var(--sidebar-brightness);
+  --footer-background: var(--background-color);
+  --footer-background-opacity: 0.65;
+  --footer-padding: var(--spacing) calc(2 * var(--spacing));
+}
+
+body>footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  backdrop-filter: blur(var(--footer-blur));
+  -webkit-backdrop-filter: blur(var(--footer-blur));
+  padding: var(--footer-padding);
+  z-index: 101;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: var(--footer-background);
+    filter: brightness(var(--footer-brightness));
+    opacity: var(--footer-background-opacity);
+    z-index: -1;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-top: 1px solid var(--text-color);
+    opacity: var(--border-expression);
+    z-index: -1;
+  }
+}
