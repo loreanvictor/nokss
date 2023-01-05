@@ -72,16 +72,17 @@
 <style>
   #banner {
     position: absolute;
-    width: var(--main-content-max-width);
+    max-width: var(--main-content-max-width);
     height: calc(var(--main-content-max-width) * 2/3);
     top: calc(var(--spacing) * 4);
-    opacity: calc(var(--border-expression) * 2);
+    opacity: calc(max(var(--border-expression), 0.06) * 2);
     z-index: 0;
+    overflow: hidden;
   }
 
   @media (prefers-color-scheme: dark) {
     #banner {
-      opacity: calc(var(--border-expression) * 6);
+      opacity: calc(max(var(--border-expression), 0.02) * 6);
     }
   }
 
@@ -93,7 +94,7 @@
     border-radius: 4px;
     display: inline-block;
     animation-name: dotrotation;
-    animation-duration: 2s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
   }
 
@@ -101,8 +102,26 @@
     0% {
       transform: translateY(0px) scale(1);
     }
+    10% {
+      transform: translateY(-18px) scale(2);
+    }
+    20% {
+      transform: translateY(0px) scale(1);
+    }
+    40% {
+      transform: translateY(0px) scale(1);
+    }
     50% {
-      transform: translateY(-12px) scale(2);
+      transform: translateX(-18px) scale(2);
+    }
+    60% {
+      transform: translateX(0px) scale(1.5);
+    }
+    70% {
+      transform: translateX(18px) scale(2);
+    }
+    80% {
+      transform: translateY(0px) scale(1);
     }
     100% {
       transform: translateY(0px) scale(1);
@@ -120,24 +139,29 @@ import { html } from 'https://esm.sh/rehtm'
 const NUM = 720
 
 const host = document.querySelector('#banner')
-const width = Math.floor(host.clientWidth / 18)
-const height = 15
+
+for (let i = 0; i < NUM; i++) {
+  host.append(html`<div class=dot></div>`)
+}
+
+const width = Math.floor(host.getBoundingClientRect().width / 18)
+const height = Math.floor(host.getBoundingClientRect().height / 36)
 const dist = (x, y) => Math.sqrt((x - width / 2) * (x - width / 2) + (y - height / 2) * (y - height / 2))
 const maxdist = dist(width, height)
 
-let step = 0
-let dir = 1
-for (let i = 0; i < NUM; i++) {
+host.querySelectorAll('.dot').forEach((dot, i) => {
   const x = i % width
   const y = Math.floor(i / width)
-  const delay = dist(x, y) * 400
-  const opacity = 1 - dist(x,y)/maxdist
+  const delay = dist(x, y) * 200
+  const opacity = 1 - dist(x,y) / maxdist
 
-  host.append(html`<div class=dot style=${`animation-delay: ${delay}ms;opacity: ${opacity}`}></div>`)
-}
+  dot.style.animationDelay = `${delay}ms`
+  dot.style.opacity = opacity
+})
+
 </script>
 
-<div align="center">
+<div align="center" style="position: relative">
   <picture>
     <source srcset="./assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
     <img alt="logo" src="./assets/logo-light.svg" height="64px">
