@@ -67,6 +67,76 @@
       <section>
 
 <p><br><br><br><br></p>
+<div id="banner"></div>
+
+<style>
+  #banner {
+    position: absolute;
+    width: var(--main-content-max-width);
+    height: calc(var(--main-content-max-width) * 2/3);
+    top: calc(var(--spacing) * 4);
+    opacity: calc(var(--border-expression) * 2);
+    z-index: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    #banner {
+      opacity: calc(var(--border-expression) * 6);
+    }
+  }
+
+  #banner .dot {
+    width: 2px;
+    height: 2px;
+    background: var(--text-color);
+    margin: 8px;
+    border-radius: 4px;
+    display: inline-block;
+    animation-name: dotrotation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes dotrotation {
+    0% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-12px) scale(2);
+    }
+    100% {
+      transform: translateY(0px) scale(1);
+    }
+  }
+
+  p {
+    position: relative;
+  }
+</style>
+
+<script type="module" defer>
+import { html } from 'https://esm.sh/rehtm'
+
+const NUM = 720
+
+const host = document.querySelector('#banner')
+const width = Math.floor(host.clientWidth / 18)
+const height = 15
+const dist = (x, y) => Math.sqrt((x - width / 2) * (x - width / 2) + (y - height / 2) * (y - height / 2))
+const maxdist = dist(width, height)
+
+let step = 0
+let dir = 1
+for (let i = 0; i < NUM; i++) {
+  const x = i % width
+  const y = Math.floor(i / width)
+  const delay = dist(x, y) * 400
+  const opacity = 1 - dist(x,y)/maxdist
+
+  host.append(html`<div class=dot style=${`animation-delay: ${delay}ms;opacity: ${opacity}`}></div>`)
+}
+</script>
+
 <div align="center">
   <picture>
     <source srcset="./assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
