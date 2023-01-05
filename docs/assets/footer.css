@@ -1,4 +1,5 @@
 footer a:not([role]) {
+  font-size: 0.8em;
   color: var(--text-color);
   margin: 0 var(--spacing);
 }
