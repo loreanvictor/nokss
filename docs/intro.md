@@ -4,7 +4,7 @@
 
 {% include 'banner.html' %}
 
-<div align="center">
+<div align="center" style="position: relative">
   <picture>
     <source srcset="./assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
     <img alt="logo" src="./assets/logo-light.svg" height="64px">
