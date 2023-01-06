@@ -37,3 +37,49 @@ And thats it! Write your HTML and **nokss** takes care of styling. The more sema
 ---
 
 <br>
+
+# Contribution
+
+You need [node](https://nodejs.org/en/), [NPM](https://www.npmjs.com) to start and [git](https://git-scm.com) to start.
+
+```bash
+# clone the code
+git clone git@github.com:loreanvictor/minicomp.git
+```
+```bash
+# install stuff
+npm i
+```
+
+Make sure all checks are successful on your PRs. This includes all successful builds, and abiding all [the linting rules](https://github.com/loreanvictor/nokss/blob/main/.stylelintrc.json). The code is written in CSS, using [PostCSS](https://postcss.org) for bundling, vendor prefixing, minification, etc (see [this](https://github.com/loreanvictor/nokss/blob/main/postcss.config.js) for a comprehensive list of plugins), and [Stylelint](https://stylelint.io) for linting. Subsequently, an IDE integration for Stylelint would make your life much easier (for example, [VSCode](https://code.visualstudio.com) has [this nice Stylelint plugin](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)), but you could also use the following commands:
+
+
+```bash
+# run the linter
+npm run lint
+```
+```bash
+# build the CSS package
+npm run build:package
+```
+```bash
+# build the docs
+npm run build:docs
+```
+```bash
+# run linter and build everything
+npm test
+```
+
+You can preview the effects of your modifications either in the docs, or in the sample playground located in `/sample` folder. You can run these via the following commands:
+
+```bash
+# preview the docs
+npm run docs
+```
+```bash
+# preview the playground
+npm run sample
+```
+
+<br><br>
