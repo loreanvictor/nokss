@@ -1,4 +1,3 @@
-
 :root {
   --button-secondary-active-opacity: 0.85;
 }
@@ -16,19 +15,19 @@ menu {
 menu[role="group"],
 menu[aria-orientation="horizontal"],
 [role="menu"][aria-oriented="horizontal"] {
-  &>button:not(:last-child),
-  &>[role="button"]:not(:last-child),
-  &>[type="button"]:not(:last-child),
-  &>[type="submit"]:not(:last-child) {
+  & > button:not(:last-child),
+  & > [role="button"]:not(:last-child),
+  & > [type="button"]:not(:last-child),
+  & > [type="submit"]:not(:last-child) {
     background: var(--background-color);
     color: var(--text-color);
     filter: brightness(var(--interactable-brightness));
-  
-    &:before {
+
+    &::before {
       border-color: var(--text-color);
       opacity: var(--border-expression);
     }
-  
+
     &:is([aria-description^="danger"], [aria-description^="Danger"]) {
       color: var(--danger-color);
     }
@@ -37,9 +36,9 @@ menu[aria-orientation="horizontal"],
     &:focus {
       filter: brightness(var(--hover-brightness));
     }
-  
+
     &:active {
       opacity: var(--button-secondary-active-opacity);
     }
-  }  
+  }
 }

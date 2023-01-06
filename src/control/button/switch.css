@@ -3,13 +3,14 @@ button[role="switch"] {
   color: var(--text-color);
   filter: brightness(var(--interactable-brightness));
 
-  &:before {
+  &::before {
     border-color: var(--text-color);
     opacity: var(--border-expression);
   }
 
   &:is([aria-description^="danger"], [aria-description^="Danger"]) {
     color: var(--danger-color);
+
     & * {
       color: var(--danger-color);
     }
@@ -33,7 +34,7 @@ button[role="switch"] {
       color: var(--primary-text-color);
     }
 
-    &:before {
+    &::before {
       border-color: var(--primary-color);
       filter: brightness(var(--button-primary-border-brightness));
     }
@@ -46,12 +47,13 @@ button[role="switch"] {
         color: var(--danger-text-color);
       }
 
-      &:before {
+      &::before {
         border-color: var(--danger-color);
       }
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       filter: brightness(var(--button-primary-hover-brightness));
     }
 

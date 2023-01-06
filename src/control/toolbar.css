@@ -5,22 +5,24 @@
   --toolbar-spacer-expression: var(--hr-expression);
 }
 
-[role="toolbar"], [role="tablist"], [role="radiogroup"] {
+[role='toolbar'],
+[role='tablist'],
+[role='radiogroup'] {
   margin: 0;
   display: flex;
-  gap: 0px;
+  gap: 0;
   max-width: 100%;
   overflow: auto;
 
-  &[align="right"],
-  &[align="bottom"] {
+  &[align='right'],
+  &[align='bottom'] {
     justify-content: flex-end;
   }
 }
 
-[role="toolbar"]>:is(button, [role="button"], [type="button"], [type="sumbit"]),
-[role="tablist"]>:is(button, [role="tab"]),
-[role="radiogroup"]>:is(button, [role="radio"]) {
+[role='toolbar'] > :is(button, [role='button'], [type='button'], [type='sumbit"']),
+[role='tablist'] > :is(button, [role='tab']),
+[role='radiogroup'] > :is(button, [role='radio']) {
   background: var(--background-color);
   color: var(--text-color);
   filter: brightness(var(--interactable-brightness));
@@ -29,12 +31,12 @@
     transition: none;
   }
 
-  &:before {
+  &::before {
     border-color: var(--text-color);
     opacity: var(--border-expression);
   }
 
-  &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+  &:is([aria-description^='danger'], [aria-description^='Danger']) {
     color: var(--danger-color);
   }
 
@@ -44,25 +46,25 @@
   }
 }
 
-[role="toolbar"]>:is(button, [role="button"], [type="button"], [type="sumbit"]):active {
+[role='toolbar'] > :is(button, [role='button'], [type='button'], [type='sumbit']):active {
   opacity: var(--button-secondary-active-opacity);
 }
 
-[role="tablist"]>:is(button, [role="tab"]):is(:active, [aria-selected="true"]),
-[role="radiogroup"]>:is(button, [role="radio"]):is(:active, [aria-checked="true"]) {
+[role='tablist'] > :is(button, [role='tab']):is(:active, [aria-selected='true']),
+[role='radiogroup'] > :is(button, [role='radio']):is(:active, [aria-checked='true']) {
   background: var(--primary-color);
   color: var(--primary-text-color);
   filter: none;
   transition: none;
 
-  &:before {
+  &::before {
     border-color: var(--primary-color);
     filter: brightness(var(--button-primary-border-brightness));
     transition: none;
   }
 }
 
-:is([role="toolbar"], [role="radiogroup"])>hr {
+:is([role='toolbar'], [role='radiogroup']) > hr {
   display: inline-block;
   width: var(--toolbar-spacer-thickness);
   min-width: var(--toolbar-spacer-thickness);
@@ -75,12 +77,13 @@
   opacity: var(--toolbar-spacer-expression);
 }
 
-[role="toolbar"]:not([aria-orientation="vertical"])>:is(button, [role="button"], [type="button"], [type="sumbit"]),
-[role="tablist"]>:is(button, [role="tab"]),
-[role="radiogroup"]:not([aria-orientation="vertical"])>:is(button, [role="radio"]) {
+[role='toolbar']:not([aria-orientation='vertical']) > :is(button, [role='button'], [type='button'], [type='sumbit']),
+[role='tablist'] > :is(button, [role='tab']),
+[role='radiogroup']:not([aria-orientation='vertical']) > :is(button, [role='radio']) {
   &:not(:first-child, :last-child) {
     border-radius: 0;
-    &:before {
+
+    &::before {
       border-radius: 0;
       border-left: none;
     }
@@ -90,7 +93,7 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
-    &:before {
+    &::before {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -101,7 +104,7 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 
-    &:before {
+    &::before {
       border-left: none;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -109,25 +112,26 @@
   }
 }
 
-:is([role="toolbar"], [role="radiogroup"])[aria-orientation="vertical"] {
+:is([role='toolbar'], [role='radiogroup'])[aria-orientation='vertical'] {
   display: inline-flex;
   flex-shrink: 0;
   flex-direction: column;
-  gap: 0px;
+  gap: 0;
   width: var(--button-height);
 
-  &>hr {
+  & > hr {
     width: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
     height: var(--toolbar-spacer-thickness);
     margin: calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2) var(--toolbar-spacer-margin);
   }
 }
 
-[role="toolbar"][aria-orientation="vertical"]>:is(button, [role="button"], [type="button"], [type="sumbit"]),
-[role="radiogroup"][aria-orientation="vertical"]>:is(button, [role="radio"]) {
+[role='toolbar'][aria-orientation='vertical'] > :is(button, [role='button'], [type='button'], [type='sumbit']),
+[role='radiogroup'][aria-orientation='vertical'] > :is(button, [role='radio']) {
   &:not(:first-child, :last-child) {
     border-radius: 0;
-    &:before {
+
+    &::before {
       border-radius: 0;
       border-top: none;
     }
@@ -137,7 +141,7 @@
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 
-    &:before {
+    &::before {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -148,7 +152,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
-    &:before {
+    &::before {
       border-top: none;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
@@ -156,7 +160,10 @@
   }
 }
 
-:is([role="toolbar"], [role="radiogroup"], [role="tablist"])
-:is([role="toolbar"], [role="radiogroup"], [role="tablist"]) {
+:is(
+[role='toolbar'],
+[role='radiogroup'],
+[role='tablist']
+) :is([role='toolbar'], [role='radiogroup'], [role='tablist']) {
   overflow: unset;
 }

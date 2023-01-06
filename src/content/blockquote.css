@@ -9,13 +9,16 @@ blockquote {
   padding: var(--blockquote-padding);
   position: relative;
 
-  &>:first-child { margin-top: 0; }
-  &>* { position: relative; }
+  & > :first-child { margin-top: 0; }
+  & > * { position: relative; }
 
-  &:before {
+  &::before {
     content: ' ';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: var(--primary-color);
     opacity: var(--blockquote-background-expression);
     border-radius: var(--roundness);

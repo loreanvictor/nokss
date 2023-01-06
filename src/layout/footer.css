@@ -6,17 +6,16 @@
   --footer-padding: var(--spacing) calc(2 * var(--spacing));
 }
 
-body>footer {
+body > footer {
   position: fixed;
   width: 100%;
   left: 0;
   bottom: 0;
   backdrop-filter: blur(var(--footer-blur));
-  -webkit-backdrop-filter: blur(var(--footer-blur));
   padding: var(--footer-padding);
   z-index: 101;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -29,7 +28,7 @@ body>footer {
     z-index: -1;
   }
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     width: 100%;

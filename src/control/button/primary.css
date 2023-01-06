@@ -1,4 +1,3 @@
-
 :root {
   --button-primary-hover-brightness: 1.2;
   --button-primary-active-opacity: 0.85;
@@ -16,7 +15,10 @@
   }
 }
 
-button, [role="button"], [type="button"], [type="submit"] {
+button,
+[role='button'],
+[type='button'],
+[type='submit'] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -27,21 +29,19 @@ button, [role="button"], [type="button"], [type="submit"] {
   text-align: center;
   background: var(--primary-color);
   color: var(--primary-text-color);
-
   border: none;
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
-
   cursor: pointer;
   filter: brightness(1);
   transition: opacity 0.15s, filter 0.15s, background 0.1s;
 
-  &:before {
+  &::before {
     position: absolute;
-    left: 0px;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
     content: '';
     border: 1px solid var(--primary-color);
     border-radius: var(--button-border-radius);
@@ -49,16 +49,17 @@ button, [role="button"], [type="button"], [type="submit"] {
     transition: background 0.1s, filter 0.15s;
   }
 
-  &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+  &:is([aria-description^='danger'], [aria-description^='Danger']) {
     background: var(--danger-color);
     color: var(--danger-text-color);
 
-    &:before {
+    &::before {
       border-color: var(--danger-color);
     }
   }
-  
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     filter: brightness(var(--button-primary-hover-brightness));
     outline: none;
   }
@@ -71,4 +72,3 @@ button, [role="button"], [type="button"], [type="submit"] {
     min-width: var(--button-height);
   }
 }
-

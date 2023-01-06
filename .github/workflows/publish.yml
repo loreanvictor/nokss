@@ -17,6 +17,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run tests
+        run: npm test
+
       - name: Fix README for NPM
         run: sed -i.tmp -e '5d' README.md && rm README.md.tmp
       

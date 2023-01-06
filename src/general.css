@@ -2,7 +2,7 @@ body {
   background-color: var(--background-color);
 }
 
-body, * {
+body,
+* {
   color: var(--text-color);
 }
-

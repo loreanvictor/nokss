@@ -19,14 +19,14 @@ pre {
   position: relative;
 }
 
-pre [role="toolbar"] {
+pre [role='toolbar'] {
   position: absolute;
   top: 12px;
   right: 12px;
   opacity: 0;
-  transition: opacity .15s;
+  transition: opacity 0.15s;
 }
 
-pre:hover [role="toolbar"] {
+pre:hover [role='toolbar'] {
   opacity: 1;
 }

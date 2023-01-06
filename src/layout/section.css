@@ -10,20 +10,19 @@ section {
     margin-top: 0;
   }
 
-  &>:is(h1, h2, h3, h4, h5, h6)[id]:first-child {
-    & [role="toolbar"] {
+  & > :is(h1, h2, h3, h4, h5, h6)[id]:first-child {
+    & [role='toolbar'] {
       top: calc(-4px + var(--section-header-offset));
     }
-  
-    &:before {
+
+    &::before {
       content: ' ';
       display: block;
       position: relative;
-      pointer-event: none;
+      pointer-events: none;
       width: 0;
       height: var(--section-header-offset);
       margin-top: calc(-1 * var(--section-header-offset));
     }
   }
 }
-

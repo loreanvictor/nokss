@@ -9,29 +9,33 @@
   --heading-spacing: calc(var(--spacing) * 4);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--heading-weight);
   margin: var(--heading-spacing) 0;
   position: relative;
 }
 
-h1 { font-size: var(--heading-1-size) }
-h2 { font-size: var(--heading-2-size) }
-h3 { font-size: var(--heading-3-size) }
-h4 { font-size: var(--heading-4-size) }
-h5 { font-size: var(--heading-5-size) }
-h6 { font-size: var(--heading-6-size) }
+h1 { font-size: var(--heading-1-size); }
+h2 { font-size: var(--heading-2-size); }
+h3 { font-size: var(--heading-3-size); }
+h4 { font-size: var(--heading-4-size); }
+h5 { font-size: var(--heading-5-size); }
+h6 { font-size: var(--heading-6-size); }
 
-
-:is(h1, h2, h3, h4, h5, h6)[id] [role="toolbar"] {
+:is(h1, h2, h3, h4, h5, h6)[id] [role='toolbar'] {
   position: absolute;
   top: -4px;
   left: -40px;
   padding-right: 8px;
   opacity: 0;
-  transition: opacity .15s;
+  transition: opacity 0.15s;
 }
 
-:is(h1, h2, h3, h4, h5, h6)[id]:hover [role="toolbar"] {
+:is(h1, h2, h3, h4, h5, h6)[id]:hover [role='toolbar'] {
   opacity: 1;
 }

@@ -13,7 +13,7 @@ button:disabled,
   cursor: not-allowed;
   filter: invert(1);
 
-  &:before {
+  &::before {
     display: none;
   }
 }
