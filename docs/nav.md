@@ -25,8 +25,7 @@
     <span>Inputs</span>
     <ul role="group">
       <li role="treeitem"><a href="#text-input">Text Input</a></li>
-      <li role="treeitem"><a href="#select">Select</a></li>
-      <li role="treeitem"><a href="#sliders">Sliders</a></li>
+      <li role="treeitem"><a href="#range-input">Range Input</a></li>
     </ul>
   </li>
 

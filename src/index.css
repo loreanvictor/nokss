@@ -3,5 +3,6 @@
 @import './typography.css';
 @import './general.css';
 @import './control';
+@import './input';
 @import './layout';
 @import './content';

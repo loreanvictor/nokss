@@ -1,0 +1,76 @@
+:root {
+  --range-input-height: 2px;
+  --range-input-thumb-width: var(--button-height);
+  --range-input-thumb-height: calc(var(--button-height) * 2 / 3);
+  --range-input-thumb-border-radius: calc(var(--roundness) * 1.5);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --range-input-empty-track-brightness: 0.85;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --range-input-empty-track-brightness: 3;
+  }
+}
+
+input[type='range'] {
+  width: 100%;
+  background-color: transparent;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background: var(--background-color);
+    filter: brightness(var(--range-input-empty-track-brightness));
+    border-radius: var(--range-input-height);
+    width: 100%;
+    height: var(--range-input-height);
+    cursor: pointer;
+    position: relative;
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: calc(var(--range-input-thumb-height) / -2 + 1px);
+    filter: brightness(calc(1/var(--range-input-empty-track-brightness)));
+    width: var(--range-input-thumb-width);
+    height: var(--range-input-thumb-height);
+    background: var(--primary-color);
+    border: none;
+    border-radius: var(--range-input-thumb-border-radius);
+    cursor: pointer;
+    appearance: none;
+    content: ':::';
+  }
+
+  &::-moz-range-track {
+    background: var(--background-color);
+    filter: brightness(var(--range-input-empty-track-brightness));
+    border-radius: var(--range-input-height);
+    width: 100%;
+    height: var(--range-input-height);
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: var(--range-input-thumb-width);
+    height: var(--range-input-thumb-height);
+    filter: brightness(1);
+    background: var(--primary-color);
+    border-radius: var(--range-input-thumb-border-radius);
+    border: none;
+    cursor: pointer;
+  }
+
+  &::-moz-range-progress {
+    filter: brightness(1);
+    background: var(--primary-color);
+    height: var(--range-input-height);
+  }
+}
