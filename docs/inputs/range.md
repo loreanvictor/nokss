@@ -3,14 +3,36 @@
 # Range Input
 
 Range inputs (`<input type="range">`) are styled according to the theme. Note that not all browsers expose the same
-styling options for range inputs, so the appearance may vary (currently best result is in Firefox).
+styling options for range inputs, so the appearance may vary.
 
 ```html
-<input type='range' min='0' max='100' />
+<input type='range' aria-label='some range'/>
 ```
 
 <div role="presentation">
-  <input type='range' min='0' max='100' />
+  <input type='range' aria-label='some range' />
+</div>
+
+<br>
+
+Range inputs can also be used in a toolbar:
+
+```html
+<menu role="toolbar">
+  <button>A</button>
+  <button>B</button>
+  <input type='range' aria-label='some range'/>
+  <button>C</button>
+</menu>
+```
+
+<div role="presentation">
+  <menu role="toolbar">
+    <button>A</button>
+    <button>B</button>
+    <input type='range' aria-label='some range'/>
+    <button>C</button>
+  </menu>
 </div>
 
 <br>
@@ -42,7 +64,8 @@ input[type='range'] {
 ```
 
 <div role="presentation">
-  <input type='range' style='--range-input-thumb-width: 1.25rem; --range-input-thumb-height: 1.25rem; --roundness: 1.25rem' />
+  <input type='range' aria-label='some range'
+    style='--range-input-thumb-width: 1.25rem; --range-input-thumb-height: 1.25rem; --roundness: 1.25rem' />
 </div>
 
 </section>
