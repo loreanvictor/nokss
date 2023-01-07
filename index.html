@@ -738,11 +738,30 @@ that falls back to characters browsers can display naturally even if the font is
 
 <h1 id="range-input">Range Input</h1>
 <p>Range inputs (<code>&lt;input type=&quot;range&quot;&gt;</code>) are styled according to the theme. Note that not all browsers expose the same
-styling options for range inputs, so the appearance may vary (currently best result is in Firefox).</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'range'</span> <span class="hljs-attr">min</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">max</span>=<span class="hljs-string">'100'</span> /&gt;</span>
+styling options for range inputs, so the appearance may vary.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'range'</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">'some range'</span>/&gt;</span>
 </code></pre>
 <div role="presentation">
-  <input type='range' min='0' max='100' />
+  <input type='range' aria-label='some range' />
+</div>
+
+<br>
+
+<p>Range inputs can also be used in a toolbar:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'range'</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">'some range'</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>C<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="toolbar">
+    <button>A</button>
+    <button>B</button>
+    <input type='range' aria-label='some range'/>
+    <button>C</button>
+  </menu>
 </div>
 
 <br>
@@ -767,7 +786,8 @@ styling options for range inputs, so the appearance may vary (currently best res
 }
 </code></pre>
 <div role="presentation">
-  <input type='range' style='--range-input-thumb-width: 1.25rem; --range-input-thumb-height: 1.25rem; --roundness: 1.25rem' />
+  <input type='range' aria-label='some range'
+    style='--range-input-thumb-width: 1.25rem; --range-input-thumb-height: 1.25rem; --roundness: 1.25rem' />
 </div>
 
 </section>
