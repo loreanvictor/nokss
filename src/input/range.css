@@ -1,19 +1,14 @@
 :root {
-  --range-input-height: 2px;
+  --range-input-track-height: 2px;
   --range-input-thumb-width: var(--button-height);
   --range-input-thumb-height: calc(var(--button-height) * 2 / 3);
-  --range-input-thumb-border-radius: calc(var(--roundness) * 1.5);
+  --range-input-margin: calc(var(--range-input-thumb-height) + var(--spacing)) 0;
+  --range-input-empty-track-inversion: 0.12;
 }
 
-@media (prefers-color-scheme: light) {
+@supports (-moz-appearance: none) {
   :root {
-    --range-input-empty-track-brightness: 0.85;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --range-input-empty-track-brightness: 3;
+    --range-input-margin: calc(var(--range-input-thumb-height) / 2 + var(--spacing)) 0;
   }
 }
 
@@ -21,56 +16,67 @@ input[type='range'] {
   width: 100%;
   background-color: transparent;
   appearance: none;
-
-  &:focus {
-    outline: none;
-  }
+  margin: var(--range-input-margin);
 
   &::-webkit-slider-runnable-track {
     background: var(--background-color);
-    filter: brightness(var(--range-input-empty-track-brightness));
-    border-radius: var(--range-input-height);
+    filter: invert(var(--range-input-empty-track-inversion));
+    border-radius: var(--roundness);
     width: 100%;
-    height: var(--range-input-height);
+    height: var(--range-input-track-height);
     cursor: pointer;
     position: relative;
   }
 
   &::-webkit-slider-thumb {
     margin-top: calc(var(--range-input-thumb-height) / -2 + 1px);
-    filter: brightness(calc(1/var(--range-input-empty-track-brightness)));
+    filter: invert(0) brightness(1.05);
     width: var(--range-input-thumb-width);
     height: var(--range-input-thumb-height);
-    background: var(--primary-color);
+    background: var(--text-color);
     border: none;
-    border-radius: var(--range-input-thumb-border-radius);
+    border-radius: var(--roundness);
     cursor: pointer;
     appearance: none;
-    content: ':::';
+    transition: background 0.15s;
   }
 
   &::-moz-range-track {
     background: var(--background-color);
-    filter: brightness(var(--range-input-empty-track-brightness));
-    border-radius: var(--range-input-height);
+    filter: invert(var(--range-input-empty-track-inversion));
+    border-radius: var(--roundness);
     width: 100%;
-    height: var(--range-input-height);
+    height: var(--range-input-track-height);
     cursor: pointer;
   }
 
   &::-moz-range-thumb {
     width: var(--range-input-thumb-width);
     height: var(--range-input-thumb-height);
-    filter: brightness(1);
-    background: var(--primary-color);
-    border-radius: var(--range-input-thumb-border-radius);
+    filter: invert(0) brightness(1.05);
+    background: var(--text-color);
+    border-radius: var(--roundness);
     border: none;
     cursor: pointer;
+    transition: background 0.15s;
   }
 
   &::-moz-range-progress {
-    filter: brightness(1);
+    filter: invert(0);
     background: var(--primary-color);
-    height: var(--range-input-height);
+    height: var(--range-input-track-height);
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    &::-webkit-slider-thumb {
+      background: var(--primary-color);
+    }
+
+    &::-moz-range-thumb {
+      background: var(--primary-color);
+    }
   }
 }

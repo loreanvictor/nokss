@@ -3,9 +3,9 @@
 }
 
 button:disabled,
-[role="button"]:disabled,
-[type="button"]:disabled,
-[type="submit"]:disabled {
+[role='button']:disabled,
+[type='button']:disabled,
+[type='submit']:disabled {
   opacity: var(--button-disabled-opacity);
   border: none;
   background: var(--background-color);

@@ -129,10 +129,9 @@ Denote a dangerous action by starting `aria-description` of the button with `"da
 
 ## Customization
 
-In addition to [generic CSS variables](#theming), you can customize buttons via the following CSS variables, displayed with their default values:
+In addition to [global CSS variables](#theming), you can further customize buttons via the following CSS variables, displayed with their default values:
 ```css
 :root {
-  --button-border-radius: var(--roundness);
   --button-min-width: 96px;
   --button-height: 32px;
   --button-padding: 0px var(--spacing);
@@ -147,5 +146,26 @@ Note that on smaller devices, buttons will be larger by default for better touch
   }
 }
 ```
+
+<br>
+
+For example, you can create a slimmer rounded button by setting the following variables:
+
+```css
+button {
+  --button-height: 24px;
+  --roundness: 24px;
+}
+```
+
+<div role="presentation">
+  <style>
+  .slim-round-btn {
+    --button-height: 24px;
+    --roundness: 24px;
+  }
+  </style>
+  <button class="slim-round-btn">Click ME!</button>
+</div>
 
 </section>

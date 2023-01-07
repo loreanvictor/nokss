@@ -1,5 +1,4 @@
 :root {
-  --button-border-radius: var(--roundness);
   --button-min-width: 96px;
   --button-height: 32px;
   --button-padding: 0 var(--spacing);

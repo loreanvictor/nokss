@@ -23,38 +23,24 @@ body > nav:first-child {
   bottom: 0;
   overflow: auto;
   background: var(--background-color);
+  filter: brightness(var(--sidebar-brightness));
   padding: var(--sidebar-padding);
   width: var(--sidebar-width);
 
   & > * {
-    position: relative;
-  }
-
-  &::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: var(--sidebar-width);
-    background: var(--background-color);
-    filter: brightness(var(--sidebar-brightness));
+    filter: brightness(calc(1/var(--sidebar-brightness)));
   }
 
   transition: transform 0.3s;
 
   &[aria-hidden='true'] {
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% - 2 * var(--button-height)));
   }
 
   @media (max-width: 1024px) {
-    width: 100%;
+    width: calc(100% - 2 * var(--button-height));
     z-index: 100;
-    transform: translateX(-100%);
-
-    &::before {
-      width: 100%;
-    }
+    transform: translateX(calc(-100% - 2 * var(--button-height)));
   }
 
   &[aria-hidden='false'] {

@@ -1,8 +1,6 @@
 :root {
   --toolbar-spacer-gap: calc(var(--spacing) * 4);
   --toolbar-spacer-margin: calc(var(--spacing) / 2);
-  --toolbar-spacer-thickness: var(--hr-thickness);
-  --toolbar-spacer-expression: var(--hr-expression);
 }
 
 [role='toolbar'],
@@ -66,15 +64,15 @@
 
 :is([role='toolbar'], [role='radiogroup']) > hr {
   display: inline-block;
-  width: var(--toolbar-spacer-thickness);
-  min-width: var(--toolbar-spacer-thickness);
+  width: var(--hr-thickness);
+  min-width: var(--hr-thickness);
   height: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
   vertical-align: middle;
-  margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2);
+  margin: var(--toolbar-spacer-margin) calc((var(--toolbar-spacer-gap) - var(--hr-thickness)) / 2);
   margin-top: var(--toolbar-spacer-margin);
   border: none;
   background: var(--text-color);
-  opacity: var(--toolbar-spacer-expression);
+  opacity: var(--hr-expression);
 }
 
 [role='toolbar']:not([aria-orientation='vertical']) > :is(button, [role='button'], [type='button'], [type='sumbit']),
@@ -121,8 +119,8 @@
 
   & > hr {
     width: calc(var(--button-height) - var(--toolbar-spacer-margin) * 2);
-    height: var(--toolbar-spacer-thickness);
-    margin: calc((var(--toolbar-spacer-gap) - var(--toolbar-spacer-thickness)) / 2) var(--toolbar-spacer-margin);
+    height: var(--hr-thickness);
+    margin: calc((var(--toolbar-spacer-gap) - var(--hr-thickness)) / 2) var(--toolbar-spacer-margin);
   }
 }
 

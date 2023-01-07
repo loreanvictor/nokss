@@ -1,4 +1,4 @@
-button[role="switch"] {
+button[role='switch'] {
   background: var(--background-color);
   color: var(--text-color);
   filter: brightness(var(--interactable-brightness));
@@ -8,7 +8,7 @@ button[role="switch"] {
     opacity: var(--border-expression);
   }
 
-  &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+  &:is([aria-description^='danger'], [aria-description^='Danger']) {
     color: var(--danger-color);
 
     & * {
@@ -25,7 +25,7 @@ button[role="switch"] {
     opacity: var(--button-secondary-active-opacity);
   }
 
-  &[aria-checked="true"] {
+  &[aria-checked='true'] {
     background: var(--primary-color);
     color: var(--primary-text-color);
     filter: brightness(var(--button-primary-brightness));
@@ -39,7 +39,7 @@ button[role="switch"] {
       filter: brightness(var(--button-primary-border-brightness));
     }
 
-    &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+    &:is([aria-description^='danger'], [aria-description^='Danger']) {
       background: var(--danger-color);
       color: var(--danger-text-color);
 
@@ -62,11 +62,11 @@ button[role="switch"] {
     }
   }
 
-  &:is(:not([aria-checked]), [aria-checked="false"]) *:last-child {
+  &:is(:not([aria-checked]), [aria-checked='false']) *:last-child {
     display: none;
   }
 
-  &[aria-checked="true"] *:first-child {
+  &[aria-checked='true'] *:first-child {
     display: none;
   }
 }

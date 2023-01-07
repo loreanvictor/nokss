@@ -54,14 +54,12 @@ Toolbars can also be vertically oriented:
 
 ## Customization
 
-In addition to [generic CSS variables](#theming), you can customize toolbars via the following CSS variables, displayed with their default values:
+In addition to [global CSS variables](#theming), you can further customize toolbars via the following CSS variables, displayed with their default values:
 
 ```css
 :root {
   --toolbar-spacer-gap: calc(var(--spacing) * 4);
   --toolbar-spacer-margin: calc(var(--spacing) / 2);
-  --toolbar-spacer-thickness: var(--hr-thickness);
-  --toolbar-spacer-expression: var(--hr-expression);
 }
 ```
 

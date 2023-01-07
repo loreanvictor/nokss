@@ -1,11 +1,11 @@
 {
   "name": "nokss",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "enough css",
   "main": "dist/nokss.css",
   "scripts": {
     "test": "npm run lint && npm run build",
-    "lint": "stylelint src/**/*.css",
+    "lint": "stylelint src/*.css src/**/*.css src/**/**/*.css src/**/**/**/*.css",
     "sample": "vite sample",
     "docs": "vite dist --host & chokidar \"./src/**/*.css\" -c \"npm run build:package\" --initial & chokidar \"./docs/**/*.html\" \"./docs/**/*.js\" \"./docs/**/*.css\" \"./docs/**/*.md\" -c \"npm run build:docs\" --initial",
     "build": "npm run build:package && npm run build:docs",

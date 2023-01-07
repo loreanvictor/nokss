@@ -15,7 +15,7 @@ export async function build() {
   const env = nunjucks.configure('docs/')
   markdown.register(env, marked)
   marked.setOptions({
-    highlight: (code) => highlight.highlightAuto(code).value,
+    highlight: (code) => highlight.highlightAuto(code, ['css', 'html', 'js']).value,
   })
 
   nunjucks.render('index.html', (err, html) => {

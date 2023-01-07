@@ -30,7 +30,7 @@ button,
   background: var(--primary-color);
   color: var(--primary-text-color);
   border: none;
-  border-radius: var(--button-border-radius);
+  border-radius: var(--roundness);
   padding: var(--button-padding);
   cursor: pointer;
   filter: brightness(1);
@@ -44,7 +44,7 @@ button,
     right: 0;
     content: '';
     border: 1px solid var(--primary-color);
-    border-radius: var(--button-border-radius);
+    border-radius: var(--roundness);
     filter: brightness(var(--button-primary-border-brightness));
     transition: background 0.1s, filter 0.15s;
   }

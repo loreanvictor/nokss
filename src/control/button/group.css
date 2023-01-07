@@ -12,13 +12,13 @@ menu {
   padding: 0;
 }
 
-menu[role="group"],
-menu[aria-orientation="horizontal"],
-[role="menu"][aria-oriented="horizontal"] {
+menu[role='group'],
+menu[aria-orientation='horizontal'],
+[role='menu'][aria-oriented='horizontal'] {
   & > button:not(:last-child),
-  & > [role="button"]:not(:last-child),
-  & > [type="button"]:not(:last-child),
-  & > [type="submit"]:not(:last-child) {
+  & > [role='button']:not(:last-child),
+  & > [type='button']:not(:last-child),
+  & > [type='submit']:not(:last-child) {
     background: var(--background-color);
     color: var(--text-color);
     filter: brightness(var(--interactable-brightness));
@@ -28,7 +28,7 @@ menu[aria-orientation="horizontal"],
       opacity: var(--border-expression);
     }
 
-    &:is([aria-description^="danger"], [aria-description^="Danger"]) {
+    &:is([aria-description^='danger'], [aria-description^='Danger']) {
       color: var(--danger-color);
     }
 
