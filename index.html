@@ -62,6 +62,8 @@
   </li>
 </ul>
 
+<p><br><br><br><br><br></p>
+
     </nav>
     <main>
       <section>
@@ -195,8 +197,8 @@ host.querySelectorAll('.dot').forEach((dot, i) => {
 <pre><code class="language-css">@<span class="hljs-keyword">import</span> <span class="hljs-string">'https://unpkg.com/nokss/dist/nokss.css'</span>;
 </code></pre>
 <p>Or link in your HTML:</p>
-<pre><code class="language-html">&lt;link <span class="hljs-attribute">rel</span>=<span class="hljs-string">"stylesheet"</span>
-    <span class="hljs-attribute">href</span>=<span class="hljs-string">"https://unpkg.com/nokss/dist/nokss.css"</span> /&gt;
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>
+    <span class="hljs-attr">href</span>=<span class="hljs-string">"https://unpkg.com/nokss/dist/nokss.css"</span> /&gt;</span>
 </code></pre>
 <p>You can use other CDNs as well:</p>
 <menu role="radiogroup" align="right">
@@ -207,7 +209,7 @@ host.querySelectorAll('.dot').forEach((dot, i) => {
 
 <p>You can also self-host the stylesheet by downloading it. If you have a bundler that handles CSS imports, install
 the library from NPM and then load the locally installed version:</p>
-<pre><code class="language-bash">npm <span class="hljs-keyword">install</span> nokss
+<pre><code class="language-bash">npm install nokss
 </code></pre>
 <pre><code class="language-css">@<span class="hljs-keyword">import</span> <span class="hljs-string">'node_modules/nokss/dist/nokss.css'</span>;
 </code></pre>
@@ -526,9 +528,8 @@ that falls back to characters browsers can display naturally even if the font is
 <br>
 
 <h2 id="customization">Customization</h2>
-<p>In addition to <a href="#theming">generic CSS variables</a>, you can customize buttons via the following CSS variables, displayed with their default values:</p>
+<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize buttons via the following CSS variables, displayed with their default values:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--button-border-radius</span>: <span class="hljs-built_in">var</span>(--roundness);
   <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-number">96px</span>;
   <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">32px</span>;
   <span class="hljs-attribute">--button-padding</span>: <span class="hljs-number">0px</span> <span class="hljs-built_in">var</span>(--spacing);
@@ -542,6 +543,24 @@ that falls back to characters browsers can display naturally even if the font is
   }
 }
 </code></pre>
+<br>
+
+<p>For example, you can create a slimmer rounded button by setting the following variables:</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">button</span> {
+  <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">24px</span>;
+  <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">24px</span>;
+}
+</code></pre>
+<div role="presentation">
+  <style>
+  .slim-round-btn {
+    --button-height: 24px;
+    --roundness: 24px;
+  }
+  </style>
+  <button class="slim-round-btn">Click ME!</button>
+</div>
+
 </section>
 <section>
 
@@ -591,12 +610,10 @@ that falls back to characters browsers can display naturally even if the font is
 <br>
 
 <h2 id="customization">Customization</h2>
-<p>In addition to <a href="#theming">generic CSS variables</a>, you can customize toolbars via the following CSS variables, displayed with their default values:</p>
+<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize toolbars via the following CSS variables, displayed with their default values:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--toolbar-spacer-gap</span>: <span class="hljs-built_in">calc</span>(var(--spacing) * <span class="hljs-number">4</span>);
   <span class="hljs-attribute">--toolbar-spacer-margin</span>: <span class="hljs-built_in">calc</span>(var(--spacing) / <span class="hljs-number">2</span>);
-  <span class="hljs-attribute">--toolbar-spacer-thickness</span>: <span class="hljs-built_in">var</span>(--hr-thickness);
-  <span class="hljs-attribute">--toolbar-spacer-expression</span>: <span class="hljs-built_in">var</span>(--hr-expression);
 }
 </code></pre>
 </section>
@@ -623,7 +640,7 @@ that falls back to characters browsers can display naturally even if the font is
 <pre><code class="language-js"><span class="hljs-built_in">document</span>.querySelectorAll(
   <span class="hljs-string">'[role="tablist"]&gt;:is(button, [role="tab"]]'</span>
 ).forEach(<span class="hljs-function"><span class="hljs-params">button</span> =&gt;</span> {
-  button.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  button.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
     <span class="hljs-comment">/* Make sure only one item is selected at a time */</span>
     button.parentNode.querySelectorAll(<span class="hljs-string">'button'</span>).forEach
       (<span class="hljs-function"><span class="hljs-params">btn</span> =&gt;</span> btn.setAttribute(<span class="hljs-string">'aria-selected'</span>, <span class="hljs-literal">false</span>)
@@ -707,7 +724,7 @@ that falls back to characters browsers can display naturally even if the font is
 <blockquote>
 <p>The behavior of switches needs to be added with JavaScript. Use <code>aria-checked=&quot;true&quot;</code> to turn the switch on or off:</p>
 <pre><code class="language-js"><span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'[role="switch"]'</span>).forEach(<span class="hljs-function"><span class="hljs-params">sw</span> =&gt;</span> {
-  sw.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  sw.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
     sw.setAttribute(
       <span class="hljs-string">'aria-checked'</span>,
       sw.getAttribute(<span class="hljs-string">'aria-checked'</span>) === <span class="hljs-string">'true'</span> ? <span class="hljs-string">'false'</span> : <span class="hljs-string">'true'</span>
@@ -720,7 +737,38 @@ that falls back to characters browsers can display naturally even if the font is
       <section>
 
 <h1 id="range-input">Range Input</h1>
-<input type='range' min='0' max='100' />
+<p>Range inputs (<code>&lt;input type=&quot;range&quot;&gt;</code>) are styled according to the theme. Note that not all browsers expose the same
+styling options for range inputs, so the appearance may vary (currently best result is in Firefox).</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'range'</span> <span class="hljs-attr">min</span>=<span class="hljs-string">'0'</span> <span class="hljs-attr">max</span>=<span class="hljs-string">'100'</span> /&gt;</span>
+</code></pre>
+<div role="presentation">
+  <input type='range' min='0' max='100' />
+</div>
+
+<br>
+
+<h2 id="customization">Customization</h2>
+<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize range inputs via the following CSS variables, displayed with their default values:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--range-input-track-height</span>: <span class="hljs-number">2px</span>;
+  <span class="hljs-attribute">--range-input-thumb-width</span>: <span class="hljs-built_in">var</span>(--button-height);
+  <span class="hljs-attribute">--range-input-thumb-height</span>: <span class="hljs-built_in">calc</span>(var(--button-height) * <span class="hljs-number">2</span> / <span class="hljs-number">3</span>);
+  <span class="hljs-attribute">--range-input-margin</span>: <span class="hljs-built_in">calc</span>(var(--range-input-thumb-height) + <span class="hljs-built_in">var</span>(--spacing)) <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">--range-input-empty-track-inversion</span>: <span class="hljs-number">0.12</span>;
+}
+</code></pre>
+<br>
+
+<p>For example, you can create a range input with a smaller, round thumb by setting the following variables:</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type='range']</span> {
+  <span class="hljs-attribute">--range-input-thumb-width</span>: <span class="hljs-number">1.25rem</span>;
+  <span class="hljs-attribute">--range-input-thumb-height</span>: <span class="hljs-number">1.25rem</span>;
+  <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">1.25rem</span>;
+}
+</code></pre>
+<div role="presentation">
+  <input type='range' style='--range-input-thumb-width: 1.25rem; --range-input-thumb-height: 1.25rem; --roundness: 1.25rem' />
+</div>
 
 </section>
 

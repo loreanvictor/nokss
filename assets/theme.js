@@ -8,6 +8,10 @@ const style = parent.querySelector('style#target')
 const constructed = { all: {}, light: {}, dark: {} }
 
 const adopt = () => {
+  constructed.all = {}
+  constructed.light = {}
+  constructed.dark = {}
+
   style.innerHTML = code.textContent
   for (const wrap of style.sheet.cssRules) {
     const dark = wrap.conditionText === '(prefers-color-scheme: dark)'
