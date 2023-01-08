@@ -10,6 +10,11 @@
 
 menu {
   padding: 0;
+  margin: var(--spacing) 0;
+
+  &[aria-orientation='horizontal'] {
+    margin: 0 var(--spacing);
+  }
 }
 
 menu[role='group'],

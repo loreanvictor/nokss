@@ -1,0 +1,74 @@
+:root {
+  --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--button-height));
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --input-placeholder-expression: 0.4;
+    --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1.5);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --input-placeholder-expression: 0.15;
+    --input-background-brightness: var(--interactable-brightness);
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='tel'],
+input[type='url'],
+input[type='search'],
+textarea {
+  background: var(--background-color);
+  filter: brightness(var(--input-background-brightness));
+  width: 100%;
+  font-weight: inherit;
+  border: 1px solid var(--background-color);
+  height: var(--button-height);
+  padding: 0 var(--spacing);
+  border-radius: var(--roundness);
+  outline: none;
+  transition: filter 0.15s, border 0.15s;
+  margin: var(--spacing) 0;
+
+  &:is(textarea) {
+    min-height: var(--text-area-min-height);
+    resize: vertical;
+    padding: var(--spacing);
+  }
+
+  &::placeholder {
+    opacity: var(--input-placeholder-expression);
+    color: var(--text-color);
+  }
+
+  &:focus,
+  &:active {
+    color: var(--text-color);
+    border-color: var(--primary-color);
+    filter: brightness(1);
+  }
+
+  [role='toolbar']:not([aria-orientation='vertical']) > & {
+    margin: 0;
+
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      & + :is(button, [role='button'], [type='button'], [type='sumbit"'])::before {
+        border-left-style: solid;
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ Range inputs can also be used in a toolbar:
 
 ```html
 <menu role="toolbar">
-  <button aria-label="play/pause" role="switch">
+  <button aria-label="play/pause" role="switch" aria-checked="false">
     <span>▶</span>
     <span>║</span>
   </button>
@@ -32,7 +32,7 @@ Range inputs can also be used in a toolbar:
 
 <div role="presentation">
   <menu role="toolbar">
-    <button aria-label="play/pause" role="switch">
+    <button aria-label="play/pause" role="switch" aria-checked="false">
       <span class="icon">▶</span>
       <span class="icon">║</span>
     </button>
@@ -51,7 +51,7 @@ Support for vertical range inputs is a bit shaky across different browsers, whic
   <div class="--vertical-range-container">
     <input type="range" aria-label="volume"/>
   </div>
-  <button aria-label="mute" role="switch">
+  <button aria-label="mute" role="switch" aria-checked="false">
     <span>🔇</span>
   </button>
 </menu>
@@ -62,7 +62,7 @@ Support for vertical range inputs is a bit shaky across different browsers, whic
     <div class="--vertical-range-container">
       <input type='range' aria-label='volume'/>
     </div>
-    <button aria-label="mute" role="switch">
+    <button aria-label="mute" role="switch" aria-checked="false">
       <span class="icon">🔇</span>
     </button>
   </menu>

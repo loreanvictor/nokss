@@ -1,3 +1,4 @@
-input {
+input,
+textarea, {
   display: block;
 }

@@ -15,6 +15,18 @@
   }
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --vertical-range-track-brightness: calc(var(--interactable-brightness) * 0.8);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vertical-range-track-brightness: calc(var(--interactable-brightness) * 2);
+  }
+}
+
 input[type='range'] {
   width: 100%;
   background-color: transparent;
@@ -178,11 +190,11 @@ input[type='range'] {
 
       &::-webkit-slider-runnable-track {
         width: var(--track-length);
-        filter: brightness(calc(2 * var(--interactable-brightness)));
+        filter: brightness(var(--vertical-range-track-brightness));
       }
 
       &::-webkit-slider-thumb {
-        filter: brightness(calc(1 / (2 * var(--interactable-brightness))));
+        filter: brightness(calc(1 / var(--vertical-range-track-brightness)));
       }
 
       &::-moz-range-track {

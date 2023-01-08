@@ -31,6 +31,10 @@
     animation-name: dotrotation;
     animation-duration: 24s;
     animation-iteration-count: infinite;
+    animation-delay: 10s;
+    opacity: 0;
+
+    transition: opacity 1s;
   }
 
   @keyframes dotrotation {
@@ -69,26 +73,27 @@
 import { html } from 'https://esm.sh/rehtm'
 
 const NUM = 400
-
 const host = document.querySelector('#banner')
 
 for (let i = 0; i < NUM; i++) {
   host.append(html`<div class=dot></div>`)
 }
 
-const width = Math.floor(host.getBoundingClientRect().width / 32)
-const height = Math.floor(host.getBoundingClientRect().height / 64)
-const dist = (x, y) => Math.sqrt((x - width / 2) * (x - width / 2) + (y - height / 2) * (y - height / 2))
-const maxdist = (width/2 + 3 * height/2) / 4
+setTimeout(() => {
+  const width = Math.floor(host.getBoundingClientRect().width / 32)
+  const height = Math.floor(host.getBoundingClientRect().height / 64)
+  const dist = (x, y) => Math.sqrt((x - width / 2) * (x - width / 2) + (y - height / 2) * (y - height / 2))
+  const maxdist = (width/2 + 3 * height/2) / 4
 
-host.querySelectorAll('.dot').forEach((dot, i) => {
-  const x = i % width
-  const y = Math.floor(i / width)
-  const delay = dist(x, y) * 200 + 3000
-  const opacity = 1 - dist(x,y) / maxdist
+  host.querySelectorAll('.dot').forEach((dot, i) => {
+    const x = i % width
+    const y = Math.floor(i / width)
+    const delay = dist(x, y) * 200 + 3000
+    const opacity = 1 - dist(x,y) / maxdist
 
-  dot.style.animationDelay = `${delay}ms`
-  dot.style.opacity = opacity
-})
+    dot.style.animationDelay = `${delay}ms`
+    dot.style.opacity = opacity
+  })
+}, 200)
 
 </script>
