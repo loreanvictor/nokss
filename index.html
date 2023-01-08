@@ -542,7 +542,7 @@ that falls back to characters browsers can display naturally even if the font is
 }
 </code></pre>
 <p>Note that on smaller devices, buttons will be larger by default for better touchability:</p>
-<pre><code class="language-css">@<span class="hljs-keyword">media</span> (max-width: <span class="hljs-number">768px</span>) {
+<pre><code class="language-css">@<span class="hljs-keyword">media</span> (hover: none) and (pointer: coarse) {
   <span class="hljs-selector-pseudo">:root</span> {
     <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">48px</span>;
     <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-number">112px</span>;
