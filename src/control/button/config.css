@@ -4,7 +4,7 @@
   --button-padding: 0 var(--spacing);
 }
 
-@media (max-width: 768px) {
+@media (hover: none) and (pointer: coarse) {
   :root {
     --button-height: 40px;
     --button-min-width: 112px;

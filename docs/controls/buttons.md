@@ -139,7 +139,7 @@ In addition to [global CSS variables](#theming), you can further customize butto
 ```
 Note that on smaller devices, buttons will be larger by default for better touchability:
 ```css
-@media (max-width: 768px) {
+@media (hover: none) and (pointer: coarse) {
   :root {
     --button-height: 48px;
     --button-min-width: 112px;
