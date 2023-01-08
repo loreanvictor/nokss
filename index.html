@@ -37,7 +37,7 @@
   <li role="treeitem" aria-expanded="false">
     <span>Inputs</span>
     <ul role="group">
-      <li role="treeitem"><a href="#text-input">Text Input</a></li>
+      <li role="treeitem"><a href="#text-inputs">Text Inputs</a></li>
       <li role="treeitem"><a href="#range-input">Range Input</a></li>
     </ul>
   </li>
@@ -103,6 +103,10 @@
     animation-name: dotrotation;
     animation-duration: 24s;
     animation-iteration-count: infinite;
+    animation-delay: 10s;
+    opacity: 0;
+
+    transition: opacity 1s;
   }
 
   @keyframes dotrotation {
@@ -141,27 +145,28 @@
 import { html } from 'https://esm.sh/rehtm'
 
 const NUM = 400
-
 const host = document.querySelector('#banner')
 
 for (let i = 0; i < NUM; i++) {
   host.append(html`<div class=dot></div>`)
 }
 
-const width = Math.floor(host.getBoundingClientRect().width / 32)
-const height = Math.floor(host.getBoundingClientRect().height / 64)
-const dist = (x, y) => Math.sqrt((x - width / 2) * (x - width / 2) + (y - height / 2) * (y - height / 2))
-const maxdist = (width/2 + 3 * height/2) / 4
+setTimeout(() => {
+  const width = Math.floor(host.getBoundingClientRect().width / 32)
+  const height = Math.floor(host.getBoundingClientRect().height / 64)
+  const dist = (x, y) => Math.sqrt((x - width / 2) * (x - width / 2) + (y - height / 2) * (y - height / 2))
+  const maxdist = (width/2 + 3 * height/2) / 4
 
-host.querySelectorAll('.dot').forEach((dot, i) => {
-  const x = i % width
-  const y = Math.floor(i / width)
-  const delay = dist(x, y) * 200 + 3000
-  const opacity = 1 - dist(x,y) / maxdist
+  host.querySelectorAll('.dot').forEach((dot, i) => {
+    const x = i % width
+    const y = Math.floor(i / width)
+    const delay = dist(x, y) * 200 + 3000
+    const opacity = 1 - dist(x,y) / maxdist
 
-  dot.style.animationDelay = `${delay}ms`
-  dot.style.opacity = opacity
-})
+    dot.style.animationDelay = `${delay}ms`
+    dot.style.opacity = opacity
+  })
+}, 200)
 
 </script>
 
@@ -737,6 +742,79 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
       <section>
 
+<h1 id="text-inputs">Text Inputs</h1>
+<p>Textual inputs are automatically styled:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your email"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your password"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Forgot Password<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Login<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <input type="email" placeholder="your email"/>
+  <input type="password" placeholder="your password"/>
+  <menu role="group" align="end">
+    <button>Forgot Password</button>
+    <button>Login</button>
+  </menu>
+</div>
+
+<br>
+
+<p>So are text areas:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Write something ..."</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Save Draft<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Publish<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <textarea placeholder="Write something ..."></textarea>
+  <menu role="group" align="end">
+    <button>Save Draft</button>
+    <button>Publish</button>
+  </menu>
+</div>
+
+<br>
+
+<p>Text inputs can also be used inside horizontal toolbars:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Search something ..."</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"search"</span>&gt;</span>🔍<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="toolbar">
+    <input type="search" placeholder="Search something ..." />
+    <button aria-label="search" class="icon">🔍</button>
+  </menu>
+</div>
+
+<br>
+
+<h2 id="customization">Customization</h2>
+<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize text inputs via the following CSS variables, displayed with their default values:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--text-area-min-height</span>: <span class="hljs-built_in">calc</span>(2 * var(--spacing) + <span class="hljs-number">2</span> * <span class="hljs-built_in">var</span>(--button-height));
+}
+@<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--input-placeholder-expression</span>: <span class="hljs-number">0.4</span>;
+    <span class="hljs-attribute">--input-background-brightness</span>: <span class="hljs-built_in">calc</span>(1 - (1 - var(--interactable-brightness)) * <span class="hljs-number">1.5</span>);
+  }
+}
+@<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--input-placeholder-expression</span>: <span class="hljs-number">0.15</span>;
+    <span class="hljs-attribute">--input-background-brightness</span>: <span class="hljs-built_in">var</span>(--interactable-brightness);
+  }
+}
+</code></pre>
+</section>
+<section>
+
 <h1 id="range-input">Range Input</h1>
 <p>Range inputs (<code>&lt;input type=&quot;range&quot;&gt;</code>) are styled according to the theme. Note that not all browsers expose the same
 styling options for range inputs, so the appearance may vary.</p>
@@ -750,7 +828,7 @@ styling options for range inputs, so the appearance may vary.</p>
 
 <p>Range inputs can also be used in a toolbar:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"play/pause"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"play/pause"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>▶<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>║<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -762,7 +840,7 @@ styling options for range inputs, so the appearance may vary.</p>
 </code></pre>
 <div role="presentation">
   <menu role="toolbar">
-    <button aria-label="play/pause" role="switch">
+    <button aria-label="play/pause" role="switch" aria-checked="false">
       <span class="icon">▶</span>
       <span class="icon">║</span>
     </button>
@@ -779,7 +857,7 @@ styling options for range inputs, so the appearance may vary.</p>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"--vertical-range-container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"volume"</span>/&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"mute"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"mute"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🔇<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
@@ -789,7 +867,7 @@ styling options for range inputs, so the appearance may vary.</p>
     <div class="--vertical-range-container">
       <input type='range' aria-label='volume'/>
     </div>
-    <button aria-label="mute" role="switch">
+    <button aria-label="mute" role="switch" aria-checked="false">
       <span class="icon">🔇</span>
     </button>
   </menu>
