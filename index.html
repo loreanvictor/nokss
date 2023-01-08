@@ -803,12 +803,14 @@ that falls back to characters browsers can display naturally even if the font is
   <span class="hljs-selector-pseudo">:root</span> {
     <span class="hljs-attribute">--input-placeholder-expression</span>: <span class="hljs-number">0.4</span>;
     <span class="hljs-attribute">--input-background-brightness</span>: <span class="hljs-built_in">calc</span>(1 - (1 - var(--interactable-brightness)) * <span class="hljs-number">1.5</span>);
+    <span class="hljs-attribute">--input-background-brightness-focus-dropoff</span>: <span class="hljs-number">0.65</span>;
   }
 }
 @<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
   <span class="hljs-selector-pseudo">:root</span> {
     <span class="hljs-attribute">--input-placeholder-expression</span>: <span class="hljs-number">0.15</span>;
     <span class="hljs-attribute">--input-background-brightness</span>: <span class="hljs-built_in">var</span>(--interactable-brightness);
+    <span class="hljs-attribute">--input-background-brightness-focus-dropoff</span>: <span class="hljs-number">0.25</span>;
   }
 }
 </code></pre>
