@@ -55,6 +55,7 @@
   <li role="treeitem" aria-expanded="false">
     <span>Content</span>
     <ul role="group">
+      <li role="treeitem"><a href="#typography">Typography</a></li>
       <li role="treeitem"><a href="#headings">Headings</a></li>
       <li role="treeitem"><a href="#code-snippets">Code Snippets</a></li>
       <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
@@ -739,7 +740,7 @@ that falls back to characters browsers can display naturally even if the font is
 <h1 id="range-input">Range Input</h1>
 <p>Range inputs (<code>&lt;input type=&quot;range&quot;&gt;</code>) are styled according to the theme. Note that not all browsers expose the same
 styling options for range inputs, so the appearance may vary.</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'range'</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">'some range'</span>/&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"some range"</span>/&gt;</span>
 </code></pre>
 <div role="presentation">
   <input type='range' aria-label='some range' />
@@ -749,21 +750,56 @@ styling options for range inputs, so the appearance may vary.</p>
 
 <p>Range inputs can also be used in a toolbar:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'range'</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">'some range'</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>C<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"play/pause"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>▶<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>║<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"stop"</span>&gt;</span>▢<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"timeline"</span>
+    <span class="hljs-attr">style</span>=<span class="hljs-string">"--range-input-thumb-width: 16px"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Subtitle<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
 </code></pre>
 <div role="presentation">
   <menu role="toolbar">
-    <button>A</button>
-    <button>B</button>
-    <input type='range' aria-label='some range'/>
-    <button>C</button>
+    <button aria-label="play/pause" role="switch">
+      <span class="icon">▶</span>
+      <span class="icon">║</span>
+    </button>
+    <button aria-label="stop" class="icon">▢</button>
+    <input type='range' aria-label='timeline' style='--range-input-thumb-width: 16px'/>
+    <button>Subtitle</button>
   </menu>
 </div>
 
+<br>
+
+<p>Support for vertical range inputs is a bit shaky across different browsers, which means including range inputs in vertical toolbars requires a little bit of a work around:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"--vertical-range-container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"volume"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"mute"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🔇<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation" align="center">
+  <menu role="toolbar" aria-orientation='vertical'>
+    <div class="--vertical-range-container">
+      <input type='range' aria-label='volume'/>
+    </div>
+    <button aria-label="mute" role="switch">
+      <span class="icon">🔇</span>
+    </button>
+  </menu>
+</div>
+
+<p>The length of the track, in this case, is specified by <code>--track-length</code> CSS variable, which must be set on the container:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.--vertical-range-container</span> {
+  <span class="hljs-attribute">--track-length</span>: <span class="hljs-number">256px</span>;
+}
+</code></pre>
 <br>
 
 <h2 id="customization">Customization</h2>
