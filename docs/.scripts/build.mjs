@@ -9,7 +9,7 @@ import { writeFile } from 'fs/promises'
 export async function build() {
   await copy('./logo-dark.svg', './dist/assets/logo-dark.svg')
   await copy('./logo-light.svg', './dist/assets/logo-light.svg')
-  await copy('./docs/assets/', './dist/assets/')
+  await copy('./docs/.assets/', './dist/assets/')
 
 
   const env = nunjucks.configure('docs/')

@@ -62,11 +62,23 @@ button[role='switch'] {
     }
   }
 
-  &:is(:not([aria-checked]), [aria-checked='false']) *:last-child {
-    display: none;
+  &:is(:not([aria-checked]), [aria-checked='false']) {
+    & *:last-child {
+      display: none;
+    }
+
+    & *:first-child {
+      display: initial;
+    }
   }
 
-  &[aria-checked='true'] *:first-child {
-    display: none;
+  &:is([aria-checked='true']) {
+    & *:first-child {
+      display: none;
+    }
+
+    & *:last-child {
+      display: initial;
+    }
   }
 }

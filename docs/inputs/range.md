@@ -6,7 +6,7 @@ Range inputs (`<input type="range">`) are styled according to the theme. Note th
 styling options for range inputs, so the appearance may vary.
 
 ```html
-<input type='range' aria-label='some range'/>
+<input type="range" aria-label="some range"/>
 ```
 
 <div role="presentation">
@@ -19,21 +19,62 @@ Range inputs can also be used in a toolbar:
 
 ```html
 <menu role="toolbar">
-  <button>A</button>
-  <button>B</button>
-  <input type='range' aria-label='some range'/>
-  <button>C</button>
+  <button aria-label="play/pause" role="switch">
+    <span>▶</span>
+    <span>║</span>
+  </button>
+  <button aria-label="stop">▢</button>
+  <input type="range" aria-label="timeline"
+    style="--range-input-thumb-width: 16px"/>
+  <button>Subtitle</button>
 </menu>
 ```
 
 <div role="presentation">
   <menu role="toolbar">
-    <button>A</button>
-    <button>B</button>
-    <input type='range' aria-label='some range'/>
-    <button>C</button>
+    <button aria-label="play/pause" role="switch">
+      <span class="icon">▶</span>
+      <span class="icon">║</span>
+    </button>
+    <button aria-label="stop" class="icon">▢</button>
+    <input type='range' aria-label='timeline' style='--range-input-thumb-width: 16px'/>
+    <button>Subtitle</button>
   </menu>
 </div>
+
+<br>
+
+Support for vertical range inputs is a bit shaky across different browsers, which means including range inputs in vertical toolbars requires a little bit of a work around:
+
+```html
+<menu role="toolbar" aria-orientation="vertical">
+  <div class="--vertical-range-container">
+    <input type="range" aria-label="volume"/>
+  </div>
+  <button aria-label="mute" role="switch">
+    <span>🔇</span>
+  </button>
+</menu>
+```
+
+<div role="presentation" align="center">
+  <menu role="toolbar" aria-orientation='vertical'>
+    <div class="--vertical-range-container">
+      <input type='range' aria-label='volume'/>
+    </div>
+    <button aria-label="mute" role="switch">
+      <span class="icon">🔇</span>
+    </button>
+  </menu>
+</div>
+
+The length of the track, in this case, is specified by `--track-length` CSS variable, which must be set on the container:
+
+```css
+.--vertical-range-container {
+  --track-length: 256px;
+}
+```
 
 <br>
 

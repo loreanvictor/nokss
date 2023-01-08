@@ -34,13 +34,15 @@ body > nav:first-child {
   transition: transform 0.3s;
 
   &[aria-hidden='true'] {
-    transform: translateX(calc(-100% - 2 * var(--button-height)));
+    transform: translateX(-100%);
   }
 
   @media (max-width: 1024px) {
     width: calc(100% - 2 * var(--button-height));
     z-index: 100;
-    transform: translateX(calc(-100% - 2 * var(--button-height)));
+    transform: translateX(-100%);
+    box-shadow: 0 0 calc(2 * var(--button-height)) calc(3 * var(--button-height)) rgba(0 0 0 / 0%);
+    transition: transform 0.3s, box-shadow 0.3s;
   }
 
   &[aria-hidden='false'] {
@@ -48,6 +50,7 @@ body > nav:first-child {
 
     @media (max-width: 1200px) {
       transform: translateX(0);
+      box-shadow: 0 0 calc(2 * var(--button-height)) calc(3 * var(--button-height)) rgba(0 0 0 / 60%);
     }
   }
 }

@@ -14,4 +14,13 @@ if (window.matchMedia('(max-width: 1024px)').matches) {
       sidebar.setAttribute('aria-hidden', 'true')
     })
   })
+
+  document.addEventListener('click', event => {
+    if (sidebar.getAttribute('aria-hidden') === 'false'
+      && !sidebar.contains(event.target)
+      && !control.contains(event.target)) {
+      control.setAttribute('aria-checked', 'true')
+      sidebar.setAttribute('aria-hidden', 'true')
+    }
+  })
 }

@@ -1,11 +1,12 @@
 :root {
-  --heading-weight: calc(var(--font-weight) * 4/3);
-  --heading-1-size: calc(var(--font-size) * 1.75);
-  --heading-2-size: calc(var(--font-size) * 1.4);
-  --heading-3-size: calc(var(--font-size) * 1.25);
-  --heading-4-size: calc(var(--font-size) * 1.15);
-  --heading-5-size: calc(var(--font-size) * 1.1);
-  --heading-6-size: calc(var(--font-size) * 1.05);
+  --heading-weight: var(--font-weight);
+  --heading-small-weight: calc(var(--font-weight) * 4/3);
+  --heading-1-size: 2.6rem;
+  --heading-2-size: 2.4rem;
+  --heading-3-size: 2.2rem;
+  --heading-4-size: 2rem;
+  --heading-5-size: 1.8rem;
+  --heading-6-size: 1.6rem;
   --heading-spacing: calc(var(--spacing) * 4);
 }
 
@@ -15,9 +16,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: var(--heading-weight);
   margin: var(--heading-spacing) 0;
   position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--heading-weight);
+}
+
+h5,
+h6 {
+  font-weight: var(--heading-small-weight);
 }
 
 h1 { font-size: var(--heading-1-size); }

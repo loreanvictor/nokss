@@ -42,6 +42,7 @@
   <li role="treeitem" aria-expanded="false">
     <span>Content</span>
     <ul role="group">
+      <li role="treeitem"><a href="#typography">Typography</a></li>
       <li role="treeitem"><a href="#headings">Headings</a></li>
       <li role="treeitem"><a href="#code-snippets">Code Snippets</a></li>
       <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
