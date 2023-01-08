@@ -13,7 +13,7 @@ Change the main theme values in the code below and see their effects on the page
     <button role="radio" value="5px" aria-label="round corners">
       <span class="corner-mark round"></span>
     </button>
-    <button role="radio" value="16px" aria-label="circular corners">
+    <button role="radio" value="24px" aria-label="circular corners">
       <span class="corner-mark circle"></span>
     </button>
   </menu>
