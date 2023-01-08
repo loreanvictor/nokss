@@ -74,12 +74,14 @@ In addition to [global CSS variables](#theming), you can further customize text 
   :root {
     --input-placeholder-expression: 0.4;
     --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1.5);
+    --input-background-brightness-focus-dropoff: 0.65;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --input-placeholder-expression: 0.15;
     --input-background-brightness: var(--interactable-brightness);
+    --input-background-brightness-focus-dropoff: 0.25;
   }
 }
 ```

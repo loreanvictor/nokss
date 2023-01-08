@@ -5,14 +5,16 @@
 @media (prefers-color-scheme: light) {
   :root {
     --input-placeholder-expression: 0.4;
-    --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1.5);
+    --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 2.5);
+    --input-background-brightness-focus-dropoff: 0.65;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --input-placeholder-expression: 0.15;
-    --input-background-brightness: var(--interactable-brightness);
+    --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1.35);
+    --input-background-brightness-focus-dropoff: 0.25;
   }
 }
 
@@ -51,7 +53,13 @@ textarea {
   &:active {
     color: var(--text-color);
     border-color: var(--primary-color);
-    filter: brightness(1);
+    filter:
+      brightness(
+        calc(
+          1 - (1 - var(--input-background-brightness))
+          * var(--input-background-brightness-focus-dropoff)
+        )
+      );
   }
 
   [role='toolbar']:not([aria-orientation='vertical']) > & {
@@ -71,4 +79,8 @@ textarea {
       }
     }
   }
+}
+
+input[type='search'] {
+  appearance: none;
 }
