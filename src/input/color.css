@@ -1,0 +1,79 @@
+input[type='color'] {
+  display: inline-block;
+  position: relative;
+  width: var(--button-height);
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    filter: brightness(var(--hover-brightness));
+  }
+
+  &::-moz-color-swatch {
+    position: absolute;
+    top: calc(var(--spacing) / 2);
+    left: calc(var(--spacing) / 2);
+    right: calc(var(--spacing) / 2);
+    bottom: calc(var(--spacing) / 2);
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: calc(var(--roundness) - var(--spacing) / 2);
+    filter: brightness(calc(1 / var(--input-background-brightness)));
+  }
+
+  &::-webkit-color-swatch {
+    position: absolute;
+    top: calc(var(--spacing) / 2);
+    left: calc(var(--spacing) / 2);
+    right: calc(var(--spacing) / 2);
+    bottom: calc(var(--spacing) / 2);
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: calc(var(--roundness) - var(--spacing) / 2);
+    filter: brightness(calc(1 / var(--input-background-brightness)));
+  }
+
+  &:focus,
+  &:active {
+    &::-moz-color-swatch {
+      filter:
+        brightness(
+          calc(
+            1 / (1 - (1 - var(--input-background-brightness))
+            * var(--input-background-brightness-focus-dropoff))
+          )
+        );
+    }
+
+    &::-webkit-color-swatch {
+      filter:
+        brightness(
+          calc(
+            1 / (1 - (1 - var(--input-background-brightness))
+            * var(--input-background-brightness-focus-dropoff))
+          )
+        );
+    }
+  }
+
+  [role='toolbar'][aria-orientation='vertical'] > & {
+    margin: 0;
+
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      & + :is(button, [role='button'], [type='button'], [type='sumbit"'])::before {
+        border-top-style: solid;
+        border-top-width: 1px;
+      }
+    }
+  }
+}

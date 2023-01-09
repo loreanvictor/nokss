@@ -1,3 +1,6 @@
 @import './base.css';
-@import './text.css';
 @import './range.css';
+@import './color.css';
+@import './file.css';
+@import './date.css';
+@import './select.css';

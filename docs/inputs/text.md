@@ -1,6 +1,6 @@
 <section>
 
-# Text Inputs
+# Text Input
 
 Textual inputs are automatically styled:
 

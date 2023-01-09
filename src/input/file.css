@@ -1,0 +1,33 @@
+input[type='file'] {
+  --brightness: var(--interactable-brightness);
+
+  margin: var(--spacing) 0;
+  width: 100%;
+  padding: var(--spacing);
+  border: 2px dashed var(--background-color);
+  border-radius: var(--roundness);
+  filter: brightness(var(--brightness));
+  transition: filter 0.15s, border-color 0.15s;
+
+  &:focus {
+    --brightness: 1;
+
+    border-color: var(--primary-color);
+  }
+
+  &::file-selector-button {
+    border: none;
+    height: var(--button-height);
+    min-width: var(--button-min-width);
+    color: var(--primary-text-color);
+    background: var(--primary-color);
+    border-radius: var(--roundness);
+    transition: filter 0.15s;
+    cursor: pointer;
+    filter: brightness(calc(1 / var(--brightness)));
+
+    &:hover {
+      filter: brightness(calc(var(--button-primary-hover-brightness) / var(--brightness)));
+    }
+  }
+}
