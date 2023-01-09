@@ -37,8 +37,8 @@ Other input types are styled roughly similar to [text inputs](#text-input), and 
 
 <div role="presentation">
   <menu role="toolbar">
-    <input type="date" />
-    <input type="time" />
+    <input type="date" value="2023-01-08"/>
+    <input type="time" value="16:20"/>
   </menu>
 </div>
 
