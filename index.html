@@ -37,8 +37,9 @@
   <li role="treeitem" aria-expanded="false">
     <span>Inputs</span>
     <ul role="group">
-      <li role="treeitem"><a href="#text-inputs">Text Inputs</a></li>
+      <li role="treeitem"><a href="#text-input">Text Input</a></li>
       <li role="treeitem"><a href="#range-input">Range Input</a></li>
+      <li role="treeitem"><a href="#other-input-types">Other Input Types</a></li>
     </ul>
   </li>
 
@@ -742,7 +743,7 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
       <section>
 
-<h1 id="text-inputs">Text Inputs</h1>
+<h1 id="text-input">Text Input</h1>
 <p>Textual inputs are automatically styled:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your email"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your password"</span>/&gt;</span>
@@ -908,6 +909,79 @@ styling options for range inputs, so the appearance may vary.</p>
 
 </section>
 
+<section>
+
+<h1 id="other-input-types">Other Input Types</h1>
+<p>Other input types are styled roughly similar to <a href="#text-input">text inputs</a>, and can similarly be used in toolbars as well:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">select</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>To Be<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Or not to be<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#4223e9"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="toolbar">
+    <select>
+      <option>To Be</option>
+      <option>Or not to be</option>
+    </select>
+    <input type="color" />
+    <input type="color" value="#4223e9" />
+  </menu>
+</div>
+
+<br>
+
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"date"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"time"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="toolbar">
+    <input type="date" />
+    <input type="time" />
+  </menu>
+</div>
+
+<br>
+
+
+<p>Color inputs can also be used in vertical toolbars:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#FF7B54"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#FFB26B"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#FFD56F"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#939B62"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"pick"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>⌮<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="toolbar" aria-orientation="vertical">
+    <input type="color" value="#FF7B54" />
+    <input type="color" value="#FFB26B" />
+    <input type="color" value="#FFD56F" />
+    <input type="color" value="#939B62" />
+    <button aria-label="pick" class="icon">⌮</button>
+  </menu>
+</div>
+
+<br>
+
+<p>File inputs are also styled according to the theme:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> /&gt;</span>
+</code></pre>
+<div role="presentation">
+  <input type="file" />
+</div>
+
+<br>
+
+
+</section>
 
       <br><br>
     </main>
