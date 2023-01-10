@@ -87,6 +87,35 @@ select {
       }
     }
   }
+
+  &:is([required], [aria-required='true'], :required) {
+    &::placeholder {
+      opacity: calc(1 - (1 - var(--input-placeholder-expression)) * 0.75);
+      color: var(--primary-color);
+    }
+  }
+
+  &:is([aria-invalid='true'], :not(:placeholder-shown):invalid):not(:focus) {
+    border-color: var(--danger-color);
+    filter:
+      brightness(
+        calc(
+          1 - (1 - var(--input-background-brightness))
+          * var(--input-background-brightness-focus-dropoff)
+        )
+      );
+  }
+
+  &:disabled {
+    filter: invert(1);
+    opacity: var(--button-disabled-opacity);
+    border-color: var(--background-color);
+    cursor: not-allowed;
+
+    &::placeholder {
+      opacity: calc(1 - (1 - var(--input-placeholder-expression)) * 0.25);
+    }
+  }
 }
 
 input[type='search'] {

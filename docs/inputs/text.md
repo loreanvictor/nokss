@@ -62,6 +62,20 @@ Text inputs can also be used inside horizontal toolbars:
 
 <br>
 
+Different states of inputs are also styled accordingly:
+
+```html
+<input type="text" required placeholder="Required">
+<input type="text" aria-invalid="true" placeholder="Invalid"/>
+<input type="text" disabled placeholder="Disabled"/>
+```
+
+<div role="presentation">
+  <input type="text" required placeholder="Required">
+  <input type="text" aria-invalid="true" placeholder="Invalid"/>
+  <input type="text" disabled placeholder="Disabled"/>
+</div>
+
 ## Customization
 
 In addition to [global CSS variables](#theming), you can further customize text inputs via the following CSS variables, displayed with their default values:
