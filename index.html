@@ -857,8 +857,11 @@ that falls back to characters browsers can display naturally even if the font is
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"step2"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"step2"</span>&gt;</span>Step 2: Do that stuff<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"step3"</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"step3"</span>&gt;</span>Step 3: Everything is done.<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"step3"</span> <span class="hljs-attr">aria-invalid</span>=<span class="hljs-string">"true"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"step3"</span>&gt;</span>Step3: Also you MUST accept this.<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"final"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"step3"</span>&gt;</span>Everything is done.<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 </code></pre>
 <div role="presentation" id="checkbox-pres">
   <input type="checkbox" id="step1"/>
@@ -867,14 +870,17 @@ that falls back to characters browsers can display naturally even if the font is
   <input type="checkbox" id="step2"/>
   <label for="step2">Step 2: Do that stuff</label>
   <br>
-  <input type="checkbox" id="step3" />
-  <label for="step3">Step 3: Everything is done.</label>
+  <input type="checkbox" id="step3" aria-invalid="true"/>
+  <label for="step3">Step3: Also you MUST accept this.</label>
+  <br>
+  <input type="checkbox" id="final" />
+  <label for="step3">Everything is done.</label>
 </div>
 
 <script>
-  const all = document.querySelector('#checkbox-pres input#step3');
-  const checked = [false, false]
-  document.querySelectorAll('#checkbox-pres input:not(#step3)').forEach((ch, index) => {
+  const all = document.querySelector('#checkbox-pres input#final');
+  const checked = [false, false, false]
+  document.querySelectorAll('#checkbox-pres input:not(#final)').forEach((ch, index) => {
     ch.addEventListener('click', () => {
       checked[index] = ch.checked
       all.checked = checked.every(_ => _)
@@ -902,6 +908,7 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
+<blockquote>
 <p>Note that the behavior needs to be added in when using radio groups:</p>
 <pre><code class="language-js"><span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'[role="radiogroup"]'</span>).forEach(<span class="hljs-function"><span class="hljs-params">group</span> =&gt;</span> {
   group.querySelectorAll(<span class="hljs-string">'button, [role="radio"]'</span>).forEach(<span class="hljs-function"><span class="hljs-params">radio</span> =&gt;</span> {
@@ -912,6 +919,7 @@ that falls back to characters browsers can display naturally even if the font is
   })
 })
 </code></pre>
+</blockquote>
 </section>
 <section>
 
