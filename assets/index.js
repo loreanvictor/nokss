@@ -66,6 +66,18 @@ const addTablistBehavior = () => {
 }
 
 
+const addRadioGroupBehavior = () => {
+  document.querySelectorAll('[role="radiogroup"]').forEach(group => {
+    group.querySelectorAll('button, [role="radio"]').forEach(radio => {
+      radio.addEventListener('click', () => {
+        group.querySelectorAll('button, [role="radio"]').forEach(r => r.setAttribute('aria-checked', false))
+        radio.setAttribute('aria-checked', true)
+      })
+    })
+  })
+}
+
+
 const addTreeBehavior = () => {
   document.querySelectorAll('[role="treeitem"][aria-expanded]').forEach(item => {
     item.addEventListener('click', event => {
@@ -105,5 +117,6 @@ const addSwitchBehavior = () => {
 addCopyButtons()
 addHeaderLinks()
 addTablistBehavior()
+addRadioGroupBehavior()
 addTreeBehavior()
 addSwitchBehavior()
