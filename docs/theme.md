@@ -162,15 +162,6 @@ The following are the main CSS variables determining styling of various elements
   ```
   <br>
 
-- **Interaction** \
-  Interactive elements are highlighted related to the background, with further highlight on hover. The following values determine this effect, with `1` meaning no highlighting at all, `0` being black.
-  ```css
-  :root {
-    --interactable-brightness: 1.25;
-    --hover-brightness: 1.35;
-  }
-  ```
-  <br>
 - **Spacing** \
   Spacing of various elements is generally determined by the spacing variable. This particular variable can be a bit tricky to modify, so I would recommend overriding specific spacing values of different elements instead of the global one.
   ```css

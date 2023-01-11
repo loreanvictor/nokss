@@ -1,0 +1,4 @@
+:root {
+  --input-height: var(--interactable-size);
+  --input-disabled-opacity: var(--disabled-opacity);
+}

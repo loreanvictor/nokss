@@ -1,6 +1,6 @@
 <section>
 
-# Toolbars
+## Toolbars
 
 Use a toolbar (any element with `"toolbar"` role) to group some buttons together and display them like a toolbar:
 
@@ -52,7 +52,7 @@ Toolbars can also be vertically oriented:
 
 <br>
 
-## Customization
+### Customization
 
 In addition to [global CSS variables](#theming), you can further customize toolbars via the following CSS variables, displayed with their default values:
 

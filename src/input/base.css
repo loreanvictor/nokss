@@ -1,12 +1,12 @@
 :root {
-  --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--button-height));
+  --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--input-height));
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --input-placeholder-expression: 0.4;
-    --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 2.5);
-    --input-background-brightness-focus-dropoff: 0.65;
+    --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 2);
+    --input-background-brightness-focus-dropoff: 0.35;
   }
 }
 
@@ -38,7 +38,7 @@ select {
   width: 100%;
   font-weight: inherit;
   border: 1px solid var(--background-color);
-  height: var(--button-height);
+  height: var(--input-height);
   padding: 0 var(--spacing);
   border-radius: var(--roundness);
   outline: none;
@@ -108,7 +108,7 @@ select {
 
   &:disabled {
     filter: invert(1);
-    opacity: var(--button-disabled-opacity);
+    opacity: var(--input-disabled-opacity);
     border-color: var(--background-color);
     cursor: not-allowed;
 

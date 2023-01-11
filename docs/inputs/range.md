@@ -1,6 +1,6 @@
 <section>
 
-# Range Input
+## Range Input
 
 Range inputs (`<input type="range">`) are styled according to the theme. Note that not all browsers expose the same
 styling options for range inputs, so the appearance may vary.
@@ -78,7 +78,7 @@ The length of the track, in this case, is specified by `--track-length` CSS vari
 
 <br>
 
-## Customization
+### Customization
 
 In addition to [global CSS variables](#theming), you can further customize range inputs via the following CSS variables, displayed with their default values:
 

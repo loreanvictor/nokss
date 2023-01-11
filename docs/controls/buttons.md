@@ -1,6 +1,6 @@
 <section>
 
-# Buttons
+## Buttons
 
 Buttons are primary styled by default:
 
@@ -14,7 +14,7 @@ Buttons are primary styled by default:
 
 <br>
 
-## Button Groups
+### Button Groups
 
 If buttons are grouped under a menu, only the last one is styled primary, the rest will have a secondary style:
 
@@ -57,7 +57,7 @@ Use `align` attribute to align buttons in a menu to the left or right:
 
 <br>
 
-## Icon Buttons
+### Icon Buttons
 
 Buttons with `aria-label` will be styled as icon buttons:
 
@@ -79,7 +79,7 @@ Buttons with `aria-label` will be styled as icon buttons:
 
 <br>
 
-## Disabled Buttons
+### Disabled Buttons
 
 Buttons having `disabled` attribute will be styled as disabled:
 
@@ -93,7 +93,7 @@ Buttons having `disabled` attribute will be styled as disabled:
 
 <br/>
 
-## Dangerous Buttons
+### Dangerous Buttons
 
 Denote a dangerous action by starting `aria-description` of the button with `"danger"` (or `"Danger"`):
 
@@ -127,23 +127,14 @@ Denote a dangerous action by starting `aria-description` of the button with `"da
 
 <br>
 
-## Customization
+### Customization
 
 In addition to [global CSS variables](#theming), you can further customize buttons via the following CSS variables, displayed with their default values:
 ```css
 :root {
-  --button-min-width: 96px;
-  --button-height: 32px;
+  --button-height: var(--interactable-size);
+  --button-min-width: calc(var(--button-height) * 3);
   --button-padding: 0px var(--spacing);
-}
-```
-Note that on smaller devices, buttons will be larger by default for better touchability:
-```css
-@media (hover: none) and (pointer: coarse) {
-  :root {
-    --button-height: 48px;
-    --button-min-width: 112px;
-  }
 }
 ```
 
@@ -153,16 +144,16 @@ For example, you can create a slimmer rounded button by setting the following va
 
 ```css
 button {
-  --button-height: 24px;
-  --roundness: 24px;
+  --button-height: calc(var(--interactable-size) * 0.75);
+  --roundness: var(--button-height);
 }
 ```
 
 <div role="presentation">
   <style>
   .slim-round-btn {
-    --button-height: 24px;
-    --roundness: 24px;
+    --button-height: calc(var(--interactable-size) * 0.75);
+    --roundness: var(--button-height)
   }
   </style>
   <button class="slim-round-btn">Click ME!</button>

@@ -9,14 +9,14 @@
     max-width: var(--main-content-max-width);
     height: calc(var(--main-content-max-width) * 2/3);
     top: calc(var(--spacing) * 4);
-    opacity: calc(max(var(--border-expression), 0.06));
+    opacity: calc(max(var(--border-expression), 0.1));
     z-index: 0;
     overflow: hidden;
   }
 
   @media (prefers-color-scheme: dark) {
     #banner {
-      opacity: calc(max(var(--border-expression), 0.02) * 3);
+      opacity: calc(max(var(--border-expression), 0.05) * 3);
     }
   }
 

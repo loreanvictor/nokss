@@ -1,6 +1,6 @@
 <section>
 
-# Switches
+## Switches
 
 Buttons with a `switch` role will act as a switch that can be turned on and off:
 

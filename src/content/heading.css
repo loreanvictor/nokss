@@ -1,12 +1,12 @@
 :root {
   --heading-weight: var(--font-weight);
   --heading-small-weight: calc(var(--font-weight) * 4/3);
-  --heading-1-size: 2.6rem;
-  --heading-2-size: 2.4rem;
-  --heading-3-size: 2.2rem;
-  --heading-4-size: 2rem;
-  --heading-5-size: 1.8rem;
-  --heading-6-size: 1.6rem;
+  --heading-1-size: 2.986rem;
+  --heading-2-size: 2.488rem;
+  --heading-3-size: 2.074rem;
+  --heading-4-size: 1.728rem;
+  --heading-5-size: 1.44rem;
+  --heading-6-size: 1.2rem;
   --heading-spacing: calc(var(--spacing) * 4);
 }
 

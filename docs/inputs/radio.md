@@ -1,6 +1,6 @@
 <section>
 
-# Radio & Checkboxes
+## Radio & Checkboxes
 
 Radio inputs also pickup their styling from the theme:
 

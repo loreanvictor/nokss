@@ -1,7 +1,7 @@
 input[type='color'] {
   display: inline-block;
   position: relative;
-  width: var(--button-height);
+  width: var(--input-height);
   cursor: pointer;
   outline: none;
 

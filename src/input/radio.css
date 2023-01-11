@@ -1,5 +1,5 @@
 :root {
-  --radio-size: calc(var(--button-height) * 0.65);
+  --radio-size: calc(var(--input-height) * 0.65);
   --radio-check-size: calc(var(--radio-size) - var(--spacing));
 }
 

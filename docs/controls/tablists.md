@@ -1,6 +1,6 @@
 <section>
 
-# Tab Lists
+## Tab Lists
 
 Buttons in a tab list will be styled as tabs:
 

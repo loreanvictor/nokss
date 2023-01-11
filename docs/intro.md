@@ -21,16 +21,13 @@
 
 </div>
 
-_nokss_ is a drop-in stylesheet that works out of the box. Instead of relying on CSS classes, _nokss_ uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use _nokss_ without needing to change your HTML at all.
-
-_nokss_ is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.
+_nokss_ is a drop-in stylesheet that works out of the box. No need to use CSS classes: just write plain, semantic HTML, and _nokss_ will style it for you (as much as it can). _nokss_ is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.
 
 Other features:
 
 - Fully responsive.
 - Supports dark mode out of the box.
 - Customizable through CSS variables.
-- Its pretty tiny.
 
 Except a few specific elements, this document is styled with _nokss_ itself, and acts as a preview. You can also change the theme in [Theming](#theming) section to see how it would look with other themes.
 

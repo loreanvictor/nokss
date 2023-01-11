@@ -11,18 +11,28 @@
     sans-serif,
     'Apple Color Emoji',
     'Segoe UI Emoji';
-  --font-size: 1.5em;
+  --font-size: 1rem;
   --font-weight: 300;
 }
 
 html,
 body {
   font-family: var(--font-family);
-  line-height: var(--font-size);
+  line-height: calc(var(--font-size) * 1.5);
+  font-size: var(--font-size);
   font-weight: var(--font-weight);
 }
 
 b,
 strong {
   font-weight: 800;
+}
+
+mark {
+  background: none;
+  border-bottom: 0.25rem solid var(--primary-color);
+}
+
+small {
+  font-size: 0.833rem;
 }

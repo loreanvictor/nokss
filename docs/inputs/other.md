@@ -1,6 +1,6 @@
 <section>
 
-# Other Input Types
+## Other Input Types
 
 Other input types are styled roughly similar to [text inputs](#text-input), and can similarly be used in toolbars as well:
 

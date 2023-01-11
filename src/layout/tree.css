@@ -1,12 +1,12 @@
 :root {
-  --tree-expand-button-width: calc(var(--button-height) * 0.85);
+  --tree-expand-button-width: calc(var(--interactable-size) * 0.85);
   --tree-indent: calc(var(--tree-expand-button-width) + var(--spacing));
   --tree-border-expression: calc(1 - (1 - var(--border-expression)) * 0.9);
 }
 
 @media (max-width: 1024px) {
   :root {
-    --tree-expand-button-width: var(--button-height);
+    --tree-expand-button-width: var(--interactable-size);
   }
 }
 

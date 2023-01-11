@@ -1,12 +1,5 @@
 :root {
-  --button-min-width: 96px;
-  --button-height: 32px;
+  --button-height: var(--interactable-size);
+  --button-min-width: calc(var(--interactable-size) * 3);
   --button-padding: 0 var(--spacing);
-}
-
-@media (hover: none) and (pointer: coarse) {
-  :root {
-    --button-height: 40px;
-    --button-min-width: 112px;
-  }
 }

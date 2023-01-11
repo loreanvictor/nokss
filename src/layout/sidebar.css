@@ -2,6 +2,7 @@
   --sidebar-padding: calc(var(--spacing) * 2);
   --sidebar-margin: calc(var(--spacing) * 4);
   --sidebar-width: calc(50vw - var(--main-content-max-width)/2 - var(--sidebar-margin));
+  --sidebar-fullscreen-gap: calc(2 * var(--interactable-size));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,10 +39,10 @@ body > nav:first-child {
   }
 
   @media (max-width: 1024px) {
-    width: calc(100% - 2 * var(--button-height));
+    width: calc(100% - var(--sidebar-fullscreen-gap));
     z-index: 100;
     transform: translateX(-100%);
-    box-shadow: 0 0 calc(2 * var(--button-height)) calc(3 * var(--button-height)) rgba(0 0 0 / 0%);
+    box-shadow: 0 0 var(--sidebar-fullscreen-gap) calc(1.5 * var(--sidebar-fullscreen-gap)) rgba(0 0 0 / 0%);
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
@@ -50,7 +51,7 @@ body > nav:first-child {
 
     @media (max-width: 1200px) {
       transform: translateX(0);
-      box-shadow: 0 0 calc(2 * var(--button-height)) calc(3 * var(--button-height)) rgba(0 0 0 / 60%);
+      box-shadow: 0 0 var(--sidebar-fullscreen-gap) calc(1.5 * var(--sidebar-fullscreen-gap)) rgba(0 0 0 / 60%);
     }
   }
 }

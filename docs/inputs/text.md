@@ -1,6 +1,6 @@
 <section>
 
-# Text Input
+## Text Input
 
 Textual inputs are automatically styled:
 
@@ -76,13 +76,13 @@ Different states of inputs are also styled accordingly:
   <input type="text" disabled placeholder="Disabled"/>
 </div>
 
-## Customization
+### Customization
 
 In addition to [global CSS variables](#theming), you can further customize text inputs via the following CSS variables, displayed with their default values:
 
 ```css
 :root {
-  --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--button-height));
+  --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--interactable-size));
 }
 @media (prefers-color-scheme: light) {
   :root {

@@ -2,10 +2,10 @@
 
 # Usage
 
-_nokss_ works out of the box and styles elements based on their semantics. Instead of using CSS classes (like `.btn` or `.container`), _nokss_ relies on the semantics of HTML elements to determine how to style them:
+To use _nokss_, just [load the stylesheet](#installation). _nokss_ styles elements based on their semantics, so you don't have to worry about class names:
 
 - [HTML tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) mainly determine how an element should be styled.
-- [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) can be used to style elements with a different tag, or elements lacking a proper HTML tag:
+- [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) are used to identify components without a semantic HTML tag, or for cases where elements are commonly used in a role different than their tag:
   ```html
   <a role="button"> ... </a>
   ```
@@ -20,5 +20,14 @@ _nokss_ works out of the box and styles elements based on their semantics. Inste
   <menu role="toolbar" aria-orientation="vertical"> ... </menu>
   ```
   ☝️ This will result in a vertical toolbar.
+
+<br>
+
+You can find a comprehensive list of elements and components supported by _nokss_, how their usage looks like, and their respective customization options, in the following sections:
+
+- [Controls](#controls)
+- [Inputs](#inputs)
+- [Layout](#layout)
+- [Content](#content)
 
 </section>

@@ -2,8 +2,8 @@
 
 :root {
   --range-input-track-height: 2px;
-  --range-input-thumb-width: var(--button-height);
-  --range-input-thumb-height: calc(var(--button-height) * 2 / 3);
+  --range-input-thumb-width: var(--input-height);
+  --range-input-thumb-height: calc(var(--input-height) * 2 / 3);
   --range-input-margin: calc(var(--range-input-thumb-height) + var(--spacing)) 0;
   --range-input-margin-moz: calc(var(--range-input-thumb-height) / 2 + var(--spacing)) 0;
   --range-input-empty-track-inversion: 0.12;
@@ -170,7 +170,7 @@ input[type='range'] {
 
 [role='toolbar'][aria-orientation='vertical'] {
   & .--vertical-range-container {
-    --track-length: calc(var(--button-height) * 4);
+    --track-length: calc(var(--input-height) * 4);
 
     position: relative;
     overflow-x: hidden;
@@ -183,7 +183,7 @@ input[type='range'] {
       height: var(--track-length);
       transform: rotate(-90deg);
       margin: 0;
-      margin-left: calc((var(--track-length) - var(--button-height)) / -2);
+      margin-left: calc((var(--track-length) - var(--input-height)) / -2);
       padding: 0 calc(var(--spacing) * 2);
       border-radius: var(--roundness);
       overflow: hidden;

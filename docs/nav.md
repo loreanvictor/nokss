@@ -6,13 +6,15 @@
   <li role="treeitem"><a href="#installation">Installation</a></li>
   <li role="treeitem"><a href="#usage">Usage</a></li>
   <li role="treeitem"><a href="#theming">Theming</a></li>
+  <li role="treeitem"><a href="#typography">Typography</a></li>
+  <li role="treeitem"><a href="#interactions">Interactions</a></li>
 
   ---
 
   <small>Components</small>
 
   <li role="treeitem" aria-expanded="false">
-    <span>Controls</span>
+    <a href="#controls">Controls</a>
     <ul role="group">
       <li role="treeitem"><a href="#buttons">Buttons</a></li>
       <li role="treeitem"><a href="#toolbars">Toolbars</a></li>
@@ -22,7 +24,7 @@
   </li>
 
   <li role="treeitem" aria-expanded="false">
-    <span>Inputs</span>
+    <a href="#inputs">Inputs</a>
     <ul role="group">
       <li role="treeitem"><a href="#text-input">Text Input</a></li>
       <li role="treeitem"><a href="#radio--checkboxes">Radio & Checkboxes</a></li>
