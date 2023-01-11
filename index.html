@@ -23,11 +23,13 @@
   <li role="treeitem"><a href="#installation">Installation</a></li>
   <li role="treeitem"><a href="#usage">Usage</a></li>
   <li role="treeitem"><a href="#theming">Theming</a></li>
+  <li role="treeitem"><a href="#typography">Typography</a></li>
+  <li role="treeitem"><a href="#interactions">Interactions</a></li>
 
 <hr>
 <p>  <small>Components</small></p>
   <li role="treeitem" aria-expanded="false">
-    <span>Controls</span>
+    <a href="#controls">Controls</a>
     <ul role="group">
       <li role="treeitem"><a href="#buttons">Buttons</a></li>
       <li role="treeitem"><a href="#toolbars">Toolbars</a></li>
@@ -37,7 +39,7 @@
   </li>
 
   <li role="treeitem" aria-expanded="false">
-    <span>Inputs</span>
+    <a href="#inputs">Inputs</a>
     <ul role="group">
       <li role="treeitem"><a href="#text-input">Text Input</a></li>
       <li role="treeitem"><a href="#radio--checkboxes">Radio & Checkboxes</a></li>
@@ -85,14 +87,14 @@
     max-width: var(--main-content-max-width);
     height: calc(var(--main-content-max-width) * 2/3);
     top: calc(var(--spacing) * 4);
-    opacity: calc(max(var(--border-expression), 0.06));
+    opacity: calc(max(var(--border-expression), 0.1));
     z-index: 0;
     overflow: hidden;
   }
 
   @media (prefers-color-scheme: dark) {
     #banner {
-      opacity: calc(max(var(--border-expression), 0.02) * 3);
+      opacity: calc(max(var(--border-expression), 0.05) * 3);
     }
   }
 
@@ -189,14 +191,12 @@ setTimeout(() => {
 <p><img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size"></p>
 </div>
 
-<p><em>nokss</em> is a drop-in stylesheet that works out of the box. Instead of relying on CSS classes, <em>nokss</em> uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use <em>nokss</em> without needing to change your HTML at all.</p>
-<p><em>nokss</em> is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.</p>
+<p><em>nokss</em> is a drop-in stylesheet that works out of the box. No need to use CSS classes: just write plain, semantic HTML, and <em>nokss</em> will style it for you (as much as it can). <em>nokss</em> is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.</p>
 <p>Other features:</p>
 <ul>
 <li>Fully responsive.</li>
 <li>Supports dark mode out of the box.</li>
 <li>Customizable through CSS variables.</li>
-<li>Its pretty tiny.</li>
 </ul>
 <p>Except a few specific elements, this document is styled with <em>nokss</em> itself, and acts as a preview. You can also change the theme in <a href="#theming">Theming</a> section to see how it would look with other themes.</p>
 </section>
@@ -247,11 +247,11 @@ the library from NPM and then load the locally installed version:</p>
       <section>
 
 <h1 id="usage">Usage</h1>
-<p><em>nokss</em> works out of the box and styles elements based on their semantics. Instead of using CSS classes (like <code>.btn</code> or <code>.container</code>), <em>nokss</em> relies on the semantics of HTML elements to determine how to style them:</p>
+<p>To use <em>nokss</em>, just <a href="#installation">load the stylesheet</a>. <em>nokss</em> styles elements based on their semantics, so you don&#39;t have to worry about class names:</p>
 <ul>
 <li><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML tags</a> mainly determine how an element should be styled.</p>
 </li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">ARIA roles</a> can be used to style elements with a different tag, or elements lacking a proper HTML tag:</p>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">ARIA roles</a> are used to identify components without a semantic HTML tag, or for cases where elements are commonly used in a role different than their tag:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 </code></pre>
 <p>☝️ This anchor is styled like a button.</p>
@@ -264,6 +264,15 @@ the library from NPM and then load the locally installed version:</p>
 </code></pre>
 <p>☝️ This will result in a vertical toolbar.</p>
 </li>
+</ul>
+<br>
+
+<p>You can find a comprehensive list of elements and components supported by <em>nokss</em>, how their usage looks like, and their respective customization options, in the following sections:</p>
+<ul>
+<li><a href="#controls">Controls</a></li>
+<li><a href="#inputs">Inputs</a></li>
+<li><a href="#layout">Layout</a></li>
+<li><a href="#content">Content</a></li>
 </ul>
 </section>
       <section id="theming">
@@ -416,13 +425,6 @@ using this global variable.</p>
 </code></pre>
 <br>
 </li>
-<li><p><strong>Interaction</strong> <br>Interactive elements are highlighted related to the background, with further highlight on hover. The following values determine this effect, with <code>1</code> meaning no highlighting at all, <code>0</code> being black.</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--interactable-brightness</span>: <span class="hljs-number">1.25</span>;
-  <span class="hljs-attribute">--hover-brightness</span>: <span class="hljs-number">1.35</span>;
-}
-</code></pre>
-<br></li>
 <li><p><strong>Spacing</strong> <br>Spacing of various elements is generally determined by the spacing variable. This particular variable can be a bit tricky to modify, so I would recommend overriding specific spacing values of different elements instead of the global one.</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--spacing</span>: <span class="hljs-number">8px</span>;
@@ -434,7 +436,130 @@ using this global variable.</p>
 </section>
       <section>
 
-<h1 id="buttons">Buttons</h1>
+<h1 id="typography">Typography</h1>
+<p><em>nokss</em> defaults to a native font stack for performance, available in <code>--font-family</code> CSS variable:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--font-family</span>:
+    -apple-system,
+    blinkmacsystemfont,
+    <span class="hljs-string">'Segoe UI'</span>,
+    <span class="hljs-string">'Noto Sans'</span>,
+    helvetica,
+    arial,
+    sans-serif,
+    <span class="hljs-string">'Apple Color Emoji'</span>,
+    <span class="hljs-string">'Segoe UI Emoji'</span>;
+}
+</code></pre>
+<br>
+
+<p>Font size is based off of <code>rem</code> unit to support browser&#39;s default font size:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--font-size</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">--font-weight</span>: <span class="hljs-number">300</span>;
+  <span class="hljs-attribute">--line-height</span>: <span class="hljs-built_in">calc</span>(var(--font-size) * <span class="hljs-number">1.5</span>);
+}
+</code></pre>
+<br>
+
+<blockquote>
+<p>In most cases you don&#39;t need to use these variables, as <code>rem</code> unit is itself relative
+to font size of root.</p>
+</blockquote>
+<br>
+
+<div role="presentation" id="typopres">
+
+<div class="flex"><small>2.986 rem</small><h1>Heading 1</h1></div>
+<div class="flex"><small>2.488 rem</small><h2>Heading 2</h2></div>
+<div class="flex"><small>2.074 rem</small><h3>Heading 3</h3></div>
+<div class="flex"><small>1.728 rem</small><h4>Heading 4</h4></div>
+<div class="flex"><small>1.44 rem</small><h5>Heading 5</h5></div>
+<div class="flex"><small>1.2 rem</small><h6>Heading 6</h6></div>
+<div class="flex">
+  <small>1.0 rem</small>
+  <div>
+  But I must <b>explain</b> to you how <a>all</a> this mistaken idea of <i>denouncing</i> pleasure and <u>praising</u> pain was born and I will give you a complete <s>account</s> of the system, and expound the <mark>actual teachings of the great</mark> explorer of the truth, the <sub>master-builder</sub> of human <sup>happiness</sup>.
+  </div>
+</div>
+<div class="flex">
+  <small>0.833 rem</small>
+  <p>
+    <small>
+    No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+    </small>
+  </p>
+</div>
+
+</div>
+
+<style>
+#typopres .flex {
+  display: flex;
+  align-items: center;
+}
+
+#typopres .flex>small:first-child {
+  width: 4rem;
+  flex-shrink: 0;
+  opacity: calc(var(--border-expression) * 4);
+  text-align: right;
+  margin-right: 1em;
+}
+
+#typopres :is(h1, h2, h3, h4, h5, h6) {
+  margin: calc(2 * var(--spacing)) 0;
+}
+</style>
+
+</section>
+      <section>
+
+<h1 id="interactions">Interactions</h1>
+<p>The following CSS variables generally determine various interactive aspects of the design:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
+  <span class="hljs-attribute">--interactable-size</span>: <span class="hljs-number">32px</span>;
+  <span class="hljs-attribute">--disabled-opacity</span>: <span class="hljs-number">0.35</span>;
+}
+</code></pre>
+<p>On touch devices, a larger <code>--interactable-size</code> is used:</p>
+<pre><code class="language-css">@<span class="hljs-keyword">media</span> (hover: none) and (pointer: coarse) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--interactable-size</span>: <span class="hljs-number">40px</span>;
+  }
+}
+</code></pre>
+<p>Interactable elements are generally brighter than the background, with extra brightness for hover:</p>
+<pre><code class="language-css">@<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--interactable-brightness</span>: <span class="hljs-number">0.96</span>;
+    <span class="hljs-attribute">--hover-brightness</span>: <span class="hljs-built_in">calc</span>(1 - (1 - var(--interactable-brightness)) * <span class="hljs-number">1</span>/<span class="hljs-number">10</span>);
+  }
+}
+@<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
+  <span class="hljs-selector-pseudo">:root</span> {
+    <span class="hljs-attribute">--interactable-brightness</span>: <span class="hljs-number">2.25</span>;
+    <span class="hljs-attribute">--hover-brightness</span>: <span class="hljs-built_in">calc</span>(var(--interactable-brightness) * <span class="hljs-number">1.35</span>);
+  }
+}
+</code></pre>
+</section>
+      <section>
+
+<h1 id="controls">Controls</h1>
+<p>In the following sections you can find details on control elements (buttons, links, toolbars, etc.) that <em>nokss</em> supports,
+alongside example usage and customization guidelines for each.</p>
+<ul>
+<li><a href="#buttons">Buttons</a></li>
+<li><a href="#toolbars">Toolbars</a></li>
+<li><a href="#tab-lists">Tab Lists</a></li>
+<li><a href="#switches">Switches</a></li>
+</ul>
+</section>
+
+<section>
+
+<h2 id="buttons">Buttons</h2>
 <p>Buttons are primary styled by default:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
@@ -444,7 +569,7 @@ using this global variable.</p>
 
 <br>
 
-<h2 id="button-groups">Button Groups</h2>
+<h3 id="button-groups">Button Groups</h3>
 <p>If buttons are grouped under a menu, only the last one is styled primary, the rest will have a secondary style:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -482,7 +607,7 @@ using this global variable.</p>
 </blockquote>
 <br>
 
-<h2 id="icon-buttons">Icon Buttons</h2>
+<h3 id="icon-buttons">Icon Buttons</h3>
 <p>Buttons with <code>aria-label</code> will be styled as icon buttons:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"send"</span>&gt;</span>➤<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
@@ -499,7 +624,7 @@ that falls back to characters browsers can display naturally even if the font is
 </blockquote>
 <br>
 
-<h2 id="disabled-buttons">Disabled Buttons</h2>
+<h3 id="disabled-buttons">Disabled Buttons</h3>
 <p>Buttons having <code>disabled</code> attribute will be styled as disabled:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">disabled</span>&gt;</span>Disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
@@ -509,7 +634,7 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br/>
 
-<h2 id="dangerous-buttons">Dangerous Buttons</h2>
+<h3 id="dangerous-buttons">Dangerous Buttons</h3>
 <p>Denote a dangerous action by starting <code>aria-description</code> of the button with <code>&quot;danger&quot;</code> (or <code>&quot;Danger&quot;</code>):</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-description</span>=<span class="hljs-string">"dangerously removes the file"</span>&gt;</span>Remove<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
@@ -537,35 +662,27 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
-<h2 id="customization">Customization</h2>
+<h3 id="customization">Customization</h3>
 <p>In addition to <a href="#theming">global CSS variables</a>, you can further customize buttons via the following CSS variables, displayed with their default values:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-number">96px</span>;
-  <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">32px</span>;
+  <span class="hljs-attribute">--button-height</span>: <span class="hljs-built_in">var</span>(--interactable-size);
+  <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-built_in">calc</span>(var(--button-height) * <span class="hljs-number">3</span>);
   <span class="hljs-attribute">--button-padding</span>: <span class="hljs-number">0px</span> <span class="hljs-built_in">var</span>(--spacing);
-}
-</code></pre>
-<p>Note that on smaller devices, buttons will be larger by default for better touchability:</p>
-<pre><code class="language-css">@<span class="hljs-keyword">media</span> (hover: none) and (pointer: coarse) {
-  <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">48px</span>;
-    <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-number">112px</span>;
-  }
 }
 </code></pre>
 <br>
 
 <p>For example, you can create a slimmer rounded button by setting the following variables:</p>
 <pre><code class="language-css"><span class="hljs-selector-tag">button</span> {
-  <span class="hljs-attribute">--button-height</span>: <span class="hljs-number">24px</span>;
-  <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">24px</span>;
+  <span class="hljs-attribute">--button-height</span>: <span class="hljs-built_in">calc</span>(var(--interactable-size) * <span class="hljs-number">0.75</span>);
+  <span class="hljs-attribute">--roundness</span>: <span class="hljs-built_in">var</span>(--button-height);
 }
 </code></pre>
 <div role="presentation">
   <style>
   .slim-round-btn {
-    --button-height: 24px;
-    --roundness: 24px;
+    --button-height: calc(var(--interactable-size) * 0.75);
+    --roundness: var(--button-height)
   }
   </style>
   <button class="slim-round-btn">Click ME!</button>
@@ -574,7 +691,7 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
 <section>
 
-<h1 id="toolbars">Toolbars</h1>
+<h2 id="toolbars">Toolbars</h2>
 <p>Use a toolbar (any element with <code>&quot;toolbar&quot;</code> role) to group some buttons together and display them like a toolbar:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"edit"</span>&gt;</span>✏️<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -619,7 +736,7 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
-<h2 id="customization">Customization</h2>
+<h3 id="customization">Customization</h3>
 <p>In addition to <a href="#theming">global CSS variables</a>, you can further customize toolbars via the following CSS variables, displayed with their default values:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--toolbar-spacer-gap</span>: <span class="hljs-built_in">calc</span>(var(--spacing) * <span class="hljs-number">4</span>);
@@ -629,7 +746,7 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
 <section>
 
-<h1 id="tab-lists">Tab Lists</h1>
+<h2 id="tab-lists">Tab Lists</h2>
 <p>Buttons in a tab list will be styled as tabs:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"true"</span>&gt;</span>First<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -663,7 +780,7 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
 <section>
 
-<h1 id="switches">Switches</h1>
+<h2 id="switches">Switches</h2>
 <p>Buttons with a <code>switch</code> role will act as a switch that can be turned on and off:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Inactive<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -746,7 +863,20 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
       <section>
 
-<h1 id="text-input">Text Input</h1>
+<h1 id="inputs">Inputs</h1>
+<p>In the following sections you can find details on input elements (text, radio, range, etc.) that <em>nokss</em> supports,
+alongside example usage and customization guidelines for each.</p>
+<ul>
+<li><a href="#text-input">Text Input</a></li>
+<li><a href="#radio--checkboxes">Radio &amp; Checkboxes</a></li>
+<li><a href="#range-input">Range Input</a></li>
+<li><a href="#other-input-types">Other Input Types</a></li>
+</ul>
+</section>
+
+<section>
+
+<h2 id="text-input">Text Input</h2>
 <p>Textual inputs are automatically styled:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your email"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your password"</span>/&gt;</span>
@@ -809,10 +939,10 @@ that falls back to characters browsers can display naturally even if the font is
   <input type="text" disabled placeholder="Disabled"/>
 </div>
 
-<h2 id="customization">Customization</h2>
+<h3 id="customization">Customization</h3>
 <p>In addition to <a href="#theming">global CSS variables</a>, you can further customize text inputs via the following CSS variables, displayed with their default values:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--text-area-min-height</span>: <span class="hljs-built_in">calc</span>(2 * var(--spacing) + <span class="hljs-number">2</span> * <span class="hljs-built_in">var</span>(--button-height));
+  <span class="hljs-attribute">--text-area-min-height</span>: <span class="hljs-built_in">calc</span>(2 * var(--spacing) + <span class="hljs-number">2</span> * <span class="hljs-built_in">var</span>(--interactable-size));
 }
 @<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
   <span class="hljs-selector-pseudo">:root</span> {
@@ -832,7 +962,7 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
 <section>
 
-<h1 id="radio--checkboxes">Radio &amp; Checkboxes</h1>
+<h2 id="radio--checkboxes">Radio &amp; Checkboxes</h2>
 <p>Radio inputs also pickup their styling from the theme:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sauce"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mayo"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"mayo"</span>&gt;</span>Mayo<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
@@ -923,7 +1053,7 @@ that falls back to characters browsers can display naturally even if the font is
 </section>
 <section>
 
-<h1 id="range-input">Range Input</h1>
+<h2 id="range-input">Range Input</h2>
 <p>Range inputs (<code>&lt;input type=&quot;range&quot;&gt;</code>) are styled according to the theme. Note that not all browsers expose the same
 styling options for range inputs, so the appearance may vary.</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"some range"</span>/&gt;</span>
@@ -988,7 +1118,7 @@ styling options for range inputs, so the appearance may vary.</p>
 </code></pre>
 <br>
 
-<h2 id="customization">Customization</h2>
+<h3 id="customization">Customization</h3>
 <p>In addition to <a href="#theming">global CSS variables</a>, you can further customize range inputs via the following CSS variables, displayed with their default values:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--range-input-track-height</span>: <span class="hljs-number">2px</span>;
@@ -1016,7 +1146,7 @@ styling options for range inputs, so the appearance may vary.</p>
 
 <section>
 
-<h1 id="other-input-types">Other Input Types</h1>
+<h2 id="other-input-types">Other Input Types</h2>
 <p>Other input types are styled roughly similar to <a href="#text-input">text inputs</a>, and can similarly be used in toolbars as well:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">select</span>&gt;</span>
