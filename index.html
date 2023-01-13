@@ -45,6 +45,7 @@
       <li role="treeitem"><a href="#radio--checkboxes">Radio & Checkboxes</a></li>
       <li role="treeitem"><a href="#range-input">Range Input</a></li>
       <li role="treeitem"><a href="#other-input-types">Other Input Types</a></li>
+      <li role="treeitem"><a href="#input-utilities">Input Utilities</a></li>
     </ul>
   </li>
 
@@ -87,14 +88,14 @@
     max-width: var(--main-content-max-width);
     height: calc(var(--main-content-max-width) * 2/3);
     top: calc(var(--spacing) * 4);
-    opacity: calc(max(var(--border-expression), 0.1));
+    opacity: calc(max(var(--border-expression), 0.06));
     z-index: 0;
     overflow: hidden;
   }
 
   @media (prefers-color-scheme: dark) {
     #banner {
-      opacity: calc(max(var(--border-expression), 0.05) * 3);
+      opacity: calc(max(var(--border-expression), 0.03) * 3);
     }
   }
 
@@ -107,7 +108,7 @@
     border-radius: 0px;
     display: inline-block;
     animation-name: dotrotation;
-    animation-duration: 24s;
+    animation-duration: 48s;
     animation-iteration-count: infinite;
     animation-delay: 10s;
     opacity: 0;
@@ -117,28 +118,28 @@
 
   @keyframes dotrotation {
     0% { transform: translateY(0px) scale(1); }
-    2.5% { transform: translateY(-32px) scale(1.2); }
+    2.5% { transform: translateY(-24px) scale(1.2); }
     5% { transform: translateY(0px) scale(1); }
     10% { transform: translateY(0px) scale(1); }
-    12.5% { transform: translateY(-32px) scale(1.2); }
-    15% { transform: translateY(-16px) scale(1.1); }
-    17.5% { transform: translateY(-32px) scale(1.2); }
+    12.5% { transform: translateY(-24px) scale(1.2); }
+    15% { transform: translateY(-12px) scale(1.1); }
+    17.5% { transform: translateY(-24px) scale(1.2); }
     20% { transform: translateY(0px) scale(1); }
     25% { transform: translateY(0px) scale(1); }
-    27.5% { transform: translateY(-18px) scale(1.15); }
+    27.5% { transform: translateY(-16px) scale(1.15); }
     30% { transform: translateY(0px) scale(1); }
     35% { transform: translateY(0px) scale(1); transform-origin: center; }
     37.5% { transform: rotate(0deg) scale(1.2); transform-origin: 0px 36px; }
     50% { transform: rotate(180deg) scale(1); transform-origin: center; }
-    52.5% { transform: translateY(-16px) scale(1.2); }
+    52.5% { transform: translateY(-12px) scale(1.2); }
     55% { transform: translateY(0px) scale(1); tranform-origin: center; }
     60% { transform: translateY(0px) scale(1); tranform-origin: center; }
     65% { transform: rotate(0deg) scale(1.2); transform-origin: 0px 36px; }
     80% { transform: rotate(-180deg) scale(1); transform-origin: center; }
     85% { transform: translateY(0px) scale(1); }
-    87.5% { transform: translateY(-32px) scale(1.2); }
-    90% { transform: translateY(-16px) scale(1.1); }
-    92.5% { transform: translateY(-32px) scale(1.2); }
+    87.5% { transform: translateY(-24px) scale(1.2); }
+    90% { transform: translateY(-12px) scale(1.1); }
+    92.5% { transform: translateY(-24px) scale(1.2); }
     100% { transform: translateY(0px) scale(1); }
   }
 
@@ -166,7 +167,7 @@ setTimeout(() => {
   host.querySelectorAll('.dot').forEach((dot, i) => {
     const x = i % width
     const y = Math.floor(i / width)
-    const delay = dist(x, y) * 200 + 3000
+    const delay = dist(x, y) * 400 + 6000
     const opacity = 1 - dist(x,y) / maxdist
 
     dot.style.animationDelay = `${delay}ms`
@@ -297,38 +298,38 @@ Change the main theme values in the code below and see their effects on the page
     <button role="radio" value="var(--text-color);var(--background-color)" aria-label="monochrome">
       <span class="color-mark" style="background: var(--text-color)"></span>
     </button>
-    <button role="radio" value="#1F6FEB;#fff" aria-label="github blue">
-      <span class="color-mark" style="background: #1F6FEB"></span>
+    <button role="radio" value="#1f6feb;#fff" aria-label="github blue">
+      <span class="color-mark" style="background: #1f6feb"></span>
     </button>
-    <button role="radio" value="#1DB954;#000" aria-label="spotify green">
-      <span class="color-mark" style="background: #1DB954"></span>
+    <button role="radio" value="#1dB954;#000" aria-label="spotify green">
+      <span class="color-mark" style="background: #1dB954"></span>
     </button>
-    <button role="radio" value="#FF9900;#000" aria-label="amazon orange">
-      <span class="color-mark" style="background: #FF9900"></span>
+    <button role="radio" value="#ff9900;#000" aria-label="amazon orange">
+      <span class="color-mark" style="background: #ff9900"></span>
     </button>
-    <button role="radio" value="#FF5A5F;#fff" aria-label="airbnb red">
-      <span class="color-mark" style="background: #FF5A5F"></span>
+    <button role="radio" value="#ff5a5f;#fff" aria-label="airbnb red">
+      <span class="color-mark" style="background: #ff5a5f"></span>
     </button>
-    <button role="radio" value=";;#833AB4;#fff;#E1306C;#fff" aria-label="lyft pink">
-      <span class="color-mark light" style="background: #833AB4"></span>
-      <span class="color-mark dark" style="background: #E1306C"></span>
+    <button role="radio" value=";;#833ab4;#fff;#e1306c;#fff" aria-label="lyft pink">
+      <span class="color-mark light" style="background: #833ab4"></span>
+      <span class="color-mark dark" style="background: #e1306c"></span>
     </button>
   </menu>
   <hr/>
-  <menu role="radiogroup" data-key="light:--background-color;light:--text-color;dark:--background-color;dark:--text-color;light:--interactable-brightness;light:--border-expression;dark:--interactable-brightness;dark:--border-expression">
-    <button role="radio" value="#FFFDF9;#393E46;#0D1118;#FFFCF3" aria-label="midnight">
-      <span class="color-mark light bg" style="background: #FFFDF9"></span>
-      <span class="color-mark dark bg" style="background: #0D1118"></span>
+  <menu role="radiogroup" data-key="light:--background-color;light:--text-color;dark:--background-color;dark:--text-color;light:--interactable-brightness;light:--border-expression;dark:--interactable-brightness;dark:--border-expression;--input-idle-border-color">
+    <button role="radio" value="#fffdf9;#393e46;#0d1118;#fffcf3" aria-label="midnight">
+      <span class="color-mark light bg" style="background: #fffdf9"></span>
+      <span class="color-mark dark bg" style="background: #0d1118"></span>
     </button>
-    <button role="radio" value="#F3EFE0;#222222;#222222;#F3EFE0;;;1.25;.05" aria-label="printish">
-      <span class="color-mark light bg" style="background: #F3EFE0"></span>
+    <button role="radio" value="#f3efe0;#222222;#222222;#f3efe0;;;1.25;.05" aria-label="printish">
+      <span class="color-mark light bg" style="background: #f3efe0"></span>
       <span class="color-mark dark bg" style="background: #222222"></span>
     </button>
     <button role="radio" value="#f5f5f5;#000;#111;#fff;0.97;0;1.35;0" aria-label="classic">
       <span class="color-mark light bg" style="background: #f5f5f5"></span>
       <span class="color-mark dark bg" style="background: #111"></span>
     </button>
-    <button role="radio" value="#000;var(--primary-color, white);#000;var(--primary-color, white);1;1;1;1" aria-label="terminal">
+    <button role="radio" value="#000;var(--primary-color);#000;var(--primary-color);1;1;1;1;var(--text-color)" aria-label="terminal">
       <span class="color-mark light bg" style="background: #000"></span>
       <span class="color-mark dark bg" style="background: #000"></span>
     </button>
@@ -338,24 +339,22 @@ Change the main theme values in the code below and see their effects on the page
 <div class="theme-preview">
 
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1F6FEB</span>;
+  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1f6feb</span>;
   <span class="hljs-attribute">--primary-text-color</span>: <span class="hljs-number">#fff</span>;
-  <span class="hljs-attribute">--danger-color</span>: <span class="hljs-number">#FF2626</span>;
-  <span class="hljs-attribute">--danger-text-color</span>: <span class="hljs-number">#fff</span>;
   <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">5px</span>;
 }
 
 @<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
   <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#FFFDF9</span>;
-    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#393E46</span>;
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#fffdf9</span>;
+    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#393e46</span>;
   }
 }
 
 @<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
   <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#0D1118</span>;
-    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#FFFCF3</span>;
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#0d1118</span>;
+    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#fffcf3</span>;
   }
 }
 </code></pre>
@@ -383,7 +382,7 @@ Change the main theme values in the code below and see their effects on the page
 <li><p><strong>Primary Color</strong> <br>The primary color for highlighted text and actions. Also comes with <em>primary text color</em>,
 which is the color of the text that is to be used on backgrounds with primary color.</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1F6FEB</span>;
+  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1f6feb</span>;
   <span class="hljs-attribute">--primary-text-color</span>: <span class="hljs-number">#fff</span>;
 }
 </code></pre>
@@ -393,15 +392,15 @@ which is the color of the text that is to be used on backgrounds with primary co
 dependent on color scheme, make sure to use <code>prefers-color-scheme</code> media query to maintain dark mode support.</p>
 <pre><code class="language-css">@<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
   <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#FFFDF9</span>;
-    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#393E46</span>;
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#fffdf9</span>;
+    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#393e46</span>;
   }
 }
 
 @<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
   <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#0D1118</span>;
-    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#FFFCF3</span>;
+    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#0d1118</span>;
+    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#fffcf3</span>;
   }
 }
 </code></pre>
@@ -409,7 +408,7 @@ dependent on color scheme, make sure to use <code>prefers-color-scheme</code> me
 </li>
 <li><p><strong>Danger Color</strong> <br>Danger color denotes elements that have potentially harmful (and irreversible) effects, or states of error. <em>Danger text color</em> is the  color of text that is to be used on backgrounds with danger color.</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--danger-color</span>: <span class="hljs-number">#FF2626</span>;
+  <span class="hljs-attribute">--danger-color</span>: <span class="hljs-number">#ff2626</span>;
   <span class="hljs-attribute">--danger-text-color</span>: <span class="hljs-number">#fff</span>;
 }
 </code></pre>
@@ -871,6 +870,7 @@ alongside example usage and customization guidelines for each.</p>
 <li><a href="#radio--checkboxes">Radio &amp; Checkboxes</a></li>
 <li><a href="#range-input">Range Input</a></li>
 <li><a href="#other-input-types">Other Input Types</a></li>
+<li><a href="#input-utilities">Input Utilities</a></li>
 </ul>
 </section>
 
@@ -939,10 +939,20 @@ alongside example usage and customization guidelines for each.</p>
   <input type="text" disabled placeholder="Disabled"/>
 </div>
 
+<br>
+
+<blockquote>
+<p><strong>Invalid Inputs</strong></p>
+<p>You can always force invalid style for an input by setting the <code>aria-invalid</code> attribute to <code>true</code>. This is specifically useful for required inputs,
+which are not automatically styled as invalid when empty (since CSS cannot track whether the input is <em>touched</em> or not).</p>
+</blockquote>
+<br>
+
 <h3 id="customization">Customization</h3>
 <p>In addition to <a href="#theming">global CSS variables</a>, you can further customize text inputs via the following CSS variables, displayed with their default values:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--text-area-min-height</span>: <span class="hljs-built_in">calc</span>(2 * var(--spacing) + <span class="hljs-number">2</span> * <span class="hljs-built_in">var</span>(--interactable-size));
+  <span class="hljs-attribute">--input-idle-border-color</span>: <span class="hljs-built_in">var</span>(--background-color);
 }
 @<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
   <span class="hljs-selector-pseudo">:root</span> {
@@ -1004,7 +1014,7 @@ alongside example usage and customization guidelines for each.</p>
   <label for="step3">Step3: Also you MUST accept this.</label>
   <br>
   <input type="checkbox" id="final" />
-  <label for="step3">Everything is done.</label>
+  <label for="final">Everything is done.</label>
 </div>
 
 <script>
@@ -1217,7 +1227,171 @@ styling options for range inputs, so the appearance may vary.</p>
 
 
 </section>
+<section>
 
+<h2 id="input-utilities">Input Utilities</h2>
+<p>In addition to various inputs, <em>nokss</em> provides styling for some form utilities:</p>
+<br>
+
+<h3 id="field-sets">Field Sets</h3>
+<p>Use field sets to group some form controls together:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Login<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Email address"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Password"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Login<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <fieldset>
+    <legend>Login</legend>
+    <input type="email" placeholder="Email address" />
+    <input type="password" placeholder="Password" />
+    <menu role="group" align="end">
+      <button>Cancel</button>
+      <button>Login</button>
+    </menu>
+  </fieldset>
+</div>
+
+<br>
+
+<h3 id="labels">Labels</h3>
+<p>Use inputs within labels to bind them together:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  Phone Number: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"tel"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  Bio:<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  Account privacy:
+  <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radiogroup"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radio"</span>&gt;</span>Public<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radio"</span>&gt;</span>Private<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <label>
+    Name:
+    <input type="text" />
+  </label>
+  <label>
+    Phone Number:
+    <input type="tel" />
+  </label>
+  <label>
+    Bio:<br>
+    <textarea></textarea>
+  </label>
+  <label>
+    Account privacy:
+    <menu role="radiogroup">
+      <button role="radio">Public</button>
+      <button role="radio">Private</button>
+    </menu>
+  </label>
+</div>
+
+<br>
+
+<p>You can also disassociate labels and inputs:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Name:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"First name and last name ..."</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Phone Number:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"tel"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"+xx-xxx-xxxxxxx"</span> /&gt;</span>
+</code></pre>
+<div role="presentation">
+  <label>Name:</label>
+  <input type="text" placeholder="First name and last name ..." />
+  <label>Phone Number:</label>
+  <input type="tel" placeholder="+xx-xxx-xxxxxxx" pattern="\+49\d+"/>
+</div>
+
+<br>
+
+<blockquote>
+<p>For accessibility, you should always link labels and inputs, either by grouping them in the same label element,
+by linking them via <code>for</code> and <code>id</code> attributes, or by using the <code>aria-labelledby</code> attribute.</p>
+</blockquote>
+<br>
+
+<p>For checkboxes and radio inputs, make sure you wrap the content of the label inside another element (such as a <code>&lt;span/&gt;</code>):</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Remember me<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <label>
+    <input type="checkbox" />
+    <span>Remember me</span>
+  </label>
+</div>
+
+<br>
+
+<h3 id="status-messages">Status Messages</h3>
+<p>Use alert or status roles, or <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">ARIA live regions</a>,
+to notify the user about the status of the input (or give them some hints on how to complete it properly):</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Type something ..."</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"10"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>0/50<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<div role="presentation" id="stpres-1">
+  <textarea placeholder="Type something ..." maxlength="50" minlength="10"></textarea>
+  <div align="end" role="status">0/50</div>
+</div>
+
+<script>
+  const stpres = document.getElementById('stpres-1')
+  const textarea = stpres.querySelector('textarea')
+  const status = stpres.querySelector('[role="status"]')
+  textarea.addEventListener('input', () => {
+    status.textContent = textarea.value.length + '/' + textarea.maxLength;
+  })
+</script>
+
+<blockquote>
+<p>You need to add the behavior separately with JavaScript:</p>
+<pre><code class="language-js">textarea.addEventListener(<span class="hljs-string">'input'</span>, () =&gt; {
+  status.textContent = textarea.value.length + <span class="hljs-string">'/'</span> + textarea.maxLength;
+})
+</code></pre>
+</blockquote>
+<br>
+
+<p>Alerts (<code>role=&quot;alert&quot;</code>), or assertive ARIA live regions (<code>aria-live=&quot;assertive&quot;</code>) are only displayed when the
+input is not focused and is invalid:</p>
+<div role="presentation">
+  <label>Using alert:</label>
+  <input type="email" placeholder="Enter an email address" value="invalid@email."/>
+  <span role="alert">Enter a valid email address.</span>
+  <hr />
+  <label>Using status:</label>
+  <input type="email" placeholder="Enter an email address" value="invalid@email."/>
+  <span role="status">Enter a valid email address.</span>
+  <br>
+</div>
+
+<br>
+
+<p>You can also use status messages within labels:</p>
+<div role="presentation">
+  <label>
+    Email address:
+    <input type="email" placeholder="Enter an email address" />
+    <span role="status">Enter a valid email address.</span>
+  </label>
+</div>
+
+</section>
       <br><br>
     </main>
     <footer>

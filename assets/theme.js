@@ -62,6 +62,7 @@ menu.setAttribute('aria-orientation', 'vertical')
 menu.appendChild(html`<button class=icon aria-label=reset onclick=${() => {
   code.innerHTML = hljs.highlight(backup, { language: 'css' }).value
   style.innerHTML = backup
+  parent.querySelectorAll('[role="radiogroup"] button').forEach(btn => btn.removeAttribute('aria-checked'))
   adopt()
 }}>⟲</button>`)
 
