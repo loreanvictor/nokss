@@ -1,5 +1,6 @@
 :root {
   --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--input-height));
+  --input-idle-border-color: var(--background-color);
 }
 
 @media (prefers-color-scheme: light) {
@@ -37,7 +38,7 @@ select {
   filter: brightness(var(--input-background-brightness));
   width: 100%;
   font-weight: inherit;
-  border: 1px solid var(--background-color);
+  border: 1px solid var(--input-idle-border-color);
   height: var(--input-height);
   padding: 0 var(--spacing);
   border-radius: var(--roundness);
@@ -115,6 +116,21 @@ select {
     &::placeholder {
       opacity: calc(1 - (1 - var(--input-placeholder-expression)) * 0.25);
     }
+  }
+
+  &:not(:invalid):autofill {
+    background: var(--primary-color);
+    box-shadow: 0 0 0 var(--input-height) var(--primary-color) inset;
+    color: var(--primary-text-color);
+    -webkit-text-fill-color: var(--primary-text-color);
+    filter: brightness(1);
+  }
+
+  &:invalid:autofill {
+    background: var(--background-color);
+    box-shadow: 0 0 0 var(--input-height) var(--background-color) inset;
+    color: var(--text-color);
+    -webkit-text-fill-color: var(--text-color);
   }
 }
 

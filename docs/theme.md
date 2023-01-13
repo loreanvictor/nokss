@@ -22,38 +22,38 @@ Change the main theme values in the code below and see their effects on the page
     <button role="radio" value="var(--text-color);var(--background-color)" aria-label="monochrome">
       <span class="color-mark" style="background: var(--text-color)"></span>
     </button>
-    <button role="radio" value="#1F6FEB;#fff" aria-label="github blue">
-      <span class="color-mark" style="background: #1F6FEB"></span>
+    <button role="radio" value="#1f6feb;#fff" aria-label="github blue">
+      <span class="color-mark" style="background: #1f6feb"></span>
     </button>
-    <button role="radio" value="#1DB954;#000" aria-label="spotify green">
-      <span class="color-mark" style="background: #1DB954"></span>
+    <button role="radio" value="#1dB954;#000" aria-label="spotify green">
+      <span class="color-mark" style="background: #1dB954"></span>
     </button>
-    <button role="radio" value="#FF9900;#000" aria-label="amazon orange">
-      <span class="color-mark" style="background: #FF9900"></span>
+    <button role="radio" value="#ff9900;#000" aria-label="amazon orange">
+      <span class="color-mark" style="background: #ff9900"></span>
     </button>
-    <button role="radio" value="#FF5A5F;#fff" aria-label="airbnb red">
-      <span class="color-mark" style="background: #FF5A5F"></span>
+    <button role="radio" value="#ff5a5f;#fff" aria-label="airbnb red">
+      <span class="color-mark" style="background: #ff5a5f"></span>
     </button>
-    <button role="radio" value=";;#833AB4;#fff;#E1306C;#fff" aria-label="lyft pink">
-      <span class="color-mark light" style="background: #833AB4"></span>
-      <span class="color-mark dark" style="background: #E1306C"></span>
+    <button role="radio" value=";;#833ab4;#fff;#e1306c;#fff" aria-label="lyft pink">
+      <span class="color-mark light" style="background: #833ab4"></span>
+      <span class="color-mark dark" style="background: #e1306c"></span>
     </button>
   </menu>
   <hr/>
-  <menu role="radiogroup" data-key="light:--background-color;light:--text-color;dark:--background-color;dark:--text-color;light:--interactable-brightness;light:--border-expression;dark:--interactable-brightness;dark:--border-expression">
-    <button role="radio" value="#FFFDF9;#393E46;#0D1118;#FFFCF3" aria-label="midnight">
-      <span class="color-mark light bg" style="background: #FFFDF9"></span>
-      <span class="color-mark dark bg" style="background: #0D1118"></span>
+  <menu role="radiogroup" data-key="light:--background-color;light:--text-color;dark:--background-color;dark:--text-color;light:--interactable-brightness;light:--border-expression;dark:--interactable-brightness;dark:--border-expression;--input-idle-border-color">
+    <button role="radio" value="#fffdf9;#393e46;#0d1118;#fffcf3" aria-label="midnight">
+      <span class="color-mark light bg" style="background: #fffdf9"></span>
+      <span class="color-mark dark bg" style="background: #0d1118"></span>
     </button>
-    <button role="radio" value="#F3EFE0;#222222;#222222;#F3EFE0;;;1.25;.05" aria-label="printish">
-      <span class="color-mark light bg" style="background: #F3EFE0"></span>
+    <button role="radio" value="#f3efe0;#222222;#222222;#f3efe0;;;1.25;.05" aria-label="printish">
+      <span class="color-mark light bg" style="background: #f3efe0"></span>
       <span class="color-mark dark bg" style="background: #222222"></span>
     </button>
     <button role="radio" value="#f5f5f5;#000;#111;#fff;0.97;0;1.35;0" aria-label="classic">
       <span class="color-mark light bg" style="background: #f5f5f5"></span>
       <span class="color-mark dark bg" style="background: #111"></span>
     </button>
-    <button role="radio" value="#000;var(--primary-color, white);#000;var(--primary-color, white);1;1;1;1" aria-label="terminal">
+    <button role="radio" value="#000;var(--primary-color);#000;var(--primary-color);1;1;1;1;var(--text-color)" aria-label="terminal">
       <span class="color-mark light bg" style="background: #000"></span>
       <span class="color-mark dark bg" style="background: #000"></span>
     </button>
@@ -64,24 +64,22 @@ Change the main theme values in the code below and see their effects on the page
 
 ```css
 :root {
-  --primary-color: #1F6FEB;
+  --primary-color: #1f6feb;
   --primary-text-color: #fff;
-  --danger-color: #FF2626;
-  --danger-text-color: #fff;
   --roundness: 5px;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background-color: #FFFDF9;
-    --text-color: #393E46;
+    --background-color: #fffdf9;
+    --text-color: #393e46;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #0D1118;
-    --text-color: #FFFCF3;
+    --background-color: #0d1118;
+    --text-color: #fffcf3;
   }
 }
 ```
@@ -114,7 +112,7 @@ The following are the main CSS variables determining styling of various elements
   which is the color of the text that is to be used on backgrounds with primary color.
   ```css
   :root {
-    --primary-color: #1F6FEB;
+    --primary-color: #1f6feb;
     --primary-text-color: #fff;
   }
   ```
@@ -126,15 +124,15 @@ The following are the main CSS variables determining styling of various elements
   ```css
   @media (prefers-color-scheme: light) {
     :root {
-      --background-color: #FFFDF9;
-      --text-color: #393E46;
+      --background-color: #fffdf9;
+      --text-color: #393e46;
     }
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background-color: #0D1118;
-      --text-color: #FFFCF3;
+      --background-color: #0d1118;
+      --text-color: #fffcf3;
     }
   }
   ```
@@ -144,7 +142,7 @@ The following are the main CSS variables determining styling of various elements
   Danger color denotes elements that have potentially harmful (and irreversible) effects, or states of error. _Danger text color_ is the  color of text that is to be used on backgrounds with danger color.
   ```css
   :root {
-    --danger-color: #FF2626;
+    --danger-color: #ff2626;
     --danger-text-color: #fff;
   }
   ```

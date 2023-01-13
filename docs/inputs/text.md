@@ -76,6 +76,15 @@ Different states of inputs are also styled accordingly:
   <input type="text" disabled placeholder="Disabled"/>
 </div>
 
+<br>
+
+> **Invalid Inputs**
+>
+> You can always force invalid style for an input by setting the `aria-invalid` attribute to `true`. This is specifically useful for required inputs,
+> which are not automatically styled as invalid when empty (since CSS cannot track whether the input is _touched_ or not).
+
+<br>
+
 ### Customization
 
 In addition to [global CSS variables](#theming), you can further customize text inputs via the following CSS variables, displayed with their default values:
@@ -83,6 +92,7 @@ In addition to [global CSS variables](#theming), you can further customize text 
 ```css
 :root {
   --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--interactable-size));
+  --input-idle-border-color: var(--background-color);
 }
 @media (prefers-color-scheme: light) {
   :root {

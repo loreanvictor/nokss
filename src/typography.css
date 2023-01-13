@@ -12,6 +12,7 @@
     'Apple Color Emoji',
     'Segoe UI Emoji';
   --font-size: 1rem;
+  --small-font-size: 0.833rem;
   --font-weight: 300;
 }
 
@@ -34,5 +35,5 @@ mark {
 }
 
 small {
-  font-size: 0.833rem;
+  font-size: var(--small-font-size);
 }

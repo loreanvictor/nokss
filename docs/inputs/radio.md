@@ -49,7 +49,7 @@ As do checkboxes:
   <label for="step3">Step3: Also you MUST accept this.</label>
   <br>
   <input type="checkbox" id="final" />
-  <label for="step3">Everything is done.</label>
+  <label for="final">Everything is done.</label>
 </div>
 
 <script>

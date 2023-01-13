@@ -9,6 +9,7 @@ alongside example usage and customization guidelines for each.
 - [Radio & Checkboxes](#radio--checkboxes)
 - [Range Input](#range-input)
 - [Other Input Types](#other-input-types)
+- [Input Utilities](#input-utilities)
 
 </section>
 
@@ -16,3 +17,4 @@ alongside example usage and customization guidelines for each.
 {% markdown 'inputs/radio.md' %}
 {% markdown 'inputs/range.md' %}
 {% markdown 'inputs/other.md' %}
+{% markdown 'inputs/util.md' %}

@@ -1,0 +1,37 @@
+fieldset {
+  border-radius: var(--roundness);
+  border: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--roundness);
+    border: 1px solid var(--text-color);
+    opacity: var(--border-expression);
+    transition: border 0.15s, opacity 0.15s;
+  }
+
+  &:focus-within::before {
+    border-color: var(--primary-color);
+    opacity: calc(1 - (1 - var(--border-expression)) * 0.75);
+  }
+
+  & > legend {
+    color: var(--text-color);
+    background: var(--background-color);
+    font-size: var(--small-font-size);
+    padding: 0 var(--spacing);
+    position: relative;
+    z-index: 1;
+    transition: color 0.15s;
+  }
+
+  &:focus-within > legend {
+    color: var(--primary-color);
+  }
+}

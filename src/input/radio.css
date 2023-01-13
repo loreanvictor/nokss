@@ -95,4 +95,9 @@ input[type='checkbox'] {
       clip-path: polygon(0 36.45%, 0 60.45%, 50% 60.45%, 100% 60.45%, 100% 36.45%, 50% 36.45%);
     }
   }
+
+  & + label {
+    cursor: pointer;
+    display: initial;
+  }
 }

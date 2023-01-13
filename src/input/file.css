@@ -4,7 +4,7 @@ input[type='file'] {
   margin: var(--spacing) 0;
   width: 100%;
   padding: var(--spacing);
-  border: 2px dashed var(--background-color);
+  border: 2px dashed var(--input-idle-border-color);
   border-radius: var(--roundness);
   filter: brightness(var(--brightness));
   transition: filter 0.15s, border-color 0.15s;

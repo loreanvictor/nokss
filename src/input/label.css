@@ -1,0 +1,50 @@
+:root {
+  --labeled-input-width: 80%;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --labeled-input-width: 65%;
+  }
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing);
+  flex-flow: row wrap;
+  transition: color 0.15s;
+
+  &:focus-within {
+    color: var(--primary-color);
+  }
+
+  & > :is(input[type='checkbox'], input[type='radio']):first-child + *:last-child {
+    flex-grow: 1;
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='tel'],
+input[type='url'],
+input[type='search'],
+input[type='color'],
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='week'],
+input[type='month'],
+textarea,
+select {
+  label > &:not(br + &) {
+    width: var(--labeled-input-width);
+  }
+
+  label > br + & {
+    margin-top: 0;
+  }
+}

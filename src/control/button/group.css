@@ -46,4 +46,8 @@ menu[aria-orientation='horizontal'],
       opacity: var(--button-secondary-active-opacity);
     }
   }
+
+  &:is([align='right'], [align='end']) {
+    text-align: right;
+  }
 }
