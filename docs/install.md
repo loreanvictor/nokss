@@ -5,14 +5,14 @@
 Import in your CSS:
 
 ```css
-@import 'https://unpkg.com/nokss/dist/nokss.css';
+@import 'https://unpkg.com/nokss';
 ```
 
 Or link in your HTML:
 
 ```html
 <link rel="stylesheet"
-    href="https://unpkg.com/nokss/dist/nokss.css" />
+    href="https://unpkg.com/nokss" />
 ```
 
 You can use other CDNs as well:
@@ -40,7 +40,7 @@ npm install nokss
   const [css, html] = Array.from(parent.querySelectorAll('code'))
 
   const cdns = {
-    unpkg: 'https://unpkg.com/nokss/dist/nokss.css',
+    unpkg: 'https://unpkg.com/nokss',
     jsdelivr: 'https://cdn.jsdelivr.net/npm/nokss/dist/nokss.css',
     esm: 'https://esm.sh/nokss/dist/nokss.css',
   }
