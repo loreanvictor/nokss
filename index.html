@@ -16,7 +16,7 @@
     <script src="./assets/index.js" type="module" defer></script>
   </head>
   <body>
-    <nav>
+    <nav aria-hidden="true">
       <p><br><br><br><br><br></p>
 <ul role="tree">
   <li role="treeitem"><a href="#">Home</a></li>
@@ -74,23 +74,60 @@
 
     </nav>
     <main>
-      <section>
+      <section id="intro">
 
-<p><br><br><br><br></p>
-<div align="center" style="position: relative">
-  <picture>
-    <source srcset="./assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
-    <img alt="logo" src="./assets/logo-light.svg" height="64px">
-  </picture>
+<style>
+  section#intro {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    justify-content: center;
+  }
+</style>
+<script>
+  if (window.innerWidth > 1024) {
+    let initial = true
+    const listener = () => {
+      if (scrollY > window.innerHeight * 0.85) {
+        if (initial) {
+          initial = false
+          document.querySelector('body>nav:first-child').setAttribute('aria-hidden', false)
+          document.querySelector('body>footer [role="switch"]').setAttribute('aria-checked', false)
+          document.removeEventListener('scroll', listener)
+        }
+      }
+    }
+
+    document.addEventListener('scroll', listener)
+  }
+</script>
+
+<div>
+
+  <div align="center" style="position: relative">
+    <picture>
+      <source srcset="./assets/logo-dark.svg" media="(prefers-color-scheme: dark)">
+      <img alt="logo" src="./assets/logo-light.svg" height="64px">
+    </picture>
+    <br>
+    <sub>Enough CSS to get started</sub>
+  </div>
+
   <br>
-  <sub>Enough CSS to get started</sub>
+
+<pre><code class="language-css"><span class="hljs-comment">/** in your CSS **/</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'https://unpkg.com/nokss'</span>;
+</code></pre>
+  <div align="right">
+
+<p>  <img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size"></p>
+  </div>
+
 </div>
 
-<p><br><br></p>
-<div align="right">
+</section>
 
-<p><img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size"></p>
-</div>
+<section>
 
 <p><em>nokss</em> is a drop-in stylesheet that works out of the box. No need to use CSS classes: just write plain, semantic HTML, and <em>nokss</em> will style it for you (as much as it can). <em>nokss</em> is designed for prototyping, blogs, articles, small projects, and as a starting point for more invloved applications.</p>
 <ul>
@@ -104,11 +141,11 @@
 
 <h1 id="installation">Installation</h1>
 <p>Import in your CSS:</p>
-<pre><code class="language-css">@<span class="hljs-keyword">import</span> <span class="hljs-string">'https://unpkg.com/nokss/dist/nokss.css'</span>;
+<pre><code class="language-css">@<span class="hljs-keyword">import</span> <span class="hljs-string">'https://unpkg.com/nokss'</span>;
 </code></pre>
 <p>Or link in your HTML:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>
-    <span class="hljs-attr">href</span>=<span class="hljs-string">"https://unpkg.com/nokss/dist/nokss.css"</span> /&gt;</span>
+    <span class="hljs-attr">href</span>=<span class="hljs-string">"https://unpkg.com/nokss"</span> /&gt;</span>
 </code></pre>
 <p>You can use other CDNs as well:</p>
 <menu role="radiogroup" align="right">
@@ -130,7 +167,7 @@ the library from NPM and then load the locally installed version:</p>
   const [css, html] = Array.from(parent.querySelectorAll('code'))
 
   const cdns = {
-    unpkg: 'https://unpkg.com/nokss/dist/nokss.css',
+    unpkg: 'https://unpkg.com/nokss',
     jsdelivr: 'https://cdn.jsdelivr.net/npm/nokss/dist/nokss.css',
     esm: 'https://esm.sh/nokss/dist/nokss.css',
   }
@@ -1326,7 +1363,7 @@ input is not focused and is invalid:</p>
     <footer>
       <div style="display: flex; align-items: center">
 
-  <button role="switch" aria-checked="false" aria-label="collapse sidebar">
+  <button role="switch" aria-checked="true" aria-label="collapse sidebar">
     <span class="icon">❌</span>
     <span class="icon">⩧</span>
   </button>
