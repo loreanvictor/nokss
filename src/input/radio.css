@@ -8,10 +8,10 @@ input[type='checkbox'] {
   display: inline-block;
   cursor: pointer;
   appearance: none;
-  vertical-align: calc(var(--radio-size) / -6 - var(--spacing) / 2);
   background: var(--background-color);
   width: var(--radio-size);
   height: var(--radio-size);
+  vertical-align: calc(var(--radio-size) / -4.75 + var(--spacing) / -2);
   margin: calc(var(--spacing) / 2);
   margin-left: 0;
   border-radius: var(--roundness);

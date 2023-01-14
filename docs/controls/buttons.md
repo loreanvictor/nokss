@@ -6,13 +6,23 @@ Use `<button>`, `<a role="button">` or `<input type="submit">` to create buttons
 
 ```html
 <button>Button</button>
-<a role="button">Anchor</a>
-<input type="submit" value="Submit" />
 ```
 
 <div role="presentation">
   <button>Button</button>
+</div>
+
+```html
+<a role="button">Anchor</a>
+```
+<div role="presentation">
   <a role="button">Anchor</a>
+</div>
+
+```html
+<input type="submit" value="Submit" />
+```
+<div role="presentation">
   <input type="submit" value="Submit" />
 </div>
 
