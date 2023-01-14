@@ -19,3 +19,7 @@ pre code * { color: white; }
   border-radius: 8px;
   padding: 8px;
 }
+
+body > nav:first-child {
+  font-size: var(--small-font-size);
+}

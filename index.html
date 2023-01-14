@@ -27,7 +27,7 @@
   <li role="treeitem"><a href="#interactions">Interactions</a></li>
 
 <hr>
-<p>  <small>Components</small></p>
+<p>  <b>Components</b></p>
   <li role="treeitem" aria-expanded="false">
     <a href="#controls">Controls</a>
     <ul role="group">
@@ -108,12 +108,13 @@
     border-radius: 0px;
     display: inline-block;
     animation-name: dotrotation;
-    animation-duration: 48s;
+    animation-duration: 36s;
     animation-iteration-count: infinite;
     animation-delay: 10s;
+    animation-timing-function: ease-in-out;
     opacity: 0;
 
-    transition: opacity 1s;
+    transition: all 4s;
   }
 
   @keyframes dotrotation {
@@ -167,7 +168,7 @@ setTimeout(() => {
   host.querySelectorAll('.dot').forEach((dot, i) => {
     const x = i % width
     const y = Math.floor(i / width)
-    const delay = dist(x, y) * 400 + 6000
+    const delay = dist(x, y) * 300 + 6000
     const opacity = 1 - dist(x,y) / maxdist
 
     dot.style.animationDelay = `${delay}ms`
@@ -192,12 +193,11 @@ setTimeout(() => {
 <p><img src="https://img.shields.io/github/size/loreanvictor/nokss/nokss.css.br?branch=gh-pages&color=black&label=%20&style=flat-square" alt="zipped size"></p>
 </div>
 
-<p><em>nokss</em> is a drop-in stylesheet that works out of the box. No need to use CSS classes: just write plain, semantic HTML, and <em>nokss</em> will style it for you (as much as it can). <em>nokss</em> is designed for prototyping, blogs, articles, small projects, etc. Basically any use case where semantic HTML is enough for distinguishing various elements. It can be further extended for more complex use cases, however that is not a top priority for this project.</p>
-<p>Other features:</p>
+<p><em>nokss</em> is a drop-in stylesheet that works out of the box. No need to use CSS classes: just write plain, semantic HTML, and <em>nokss</em> will style it for you (as much as it can). <em>nokss</em> is designed for prototyping, blogs, articles, small projects, and as a starting point for more invloved applications.</p>
 <ul>
-<li>Fully responsive.</li>
+<li>Its fully responsive.</li>
 <li>Supports dark mode out of the box.</li>
-<li>Customizable through CSS variables.</li>
+<li>Extensive theming and customization via CSS variables.</li>
 </ul>
 <p>Except a few specific elements, this document is styled with <em>nokss</em> itself, and acts as a preview. You can also change the theme in <a href="#theming">Theming</a> section to see how it would look with other themes.</p>
 </section>
@@ -248,24 +248,34 @@ the library from NPM and then load the locally installed version:</p>
       <section>
 
 <h1 id="usage">Usage</h1>
-<p>To use <em>nokss</em>, just <a href="#installation">load the stylesheet</a>. <em>nokss</em> styles elements based on their semantics, so you don&#39;t have to worry about class names:</p>
-<ul>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML tags</a> mainly determine how an element should be styled.</p>
-</li>
-<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">ARIA roles</a> are used to identify components without a semantic HTML tag, or for cases where elements are commonly used in a role different than their tag:</p>
+<p>Just <a href="#installation">load the stylesheet</a>. <em>nokss</em> styles elements based on their semantics, so you don&#39;t have to worry about class names.
+The more semantic and accessible your markup is, the more <em>nokss</em> will be able to do for you.</p>
+<p>Semantics are mainly dictated by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML tags</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles">ARIA roles</a>, with  HTML and <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">ARIA attributes</a> providing further context. Structural conventions are used for context about more complex semantics:</p>
+<br>
+
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 </code></pre>
 <p>☝️ This anchor is styled like a button.</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+<br>
+
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
 </code></pre>
-<p>☝️ This menu is styled like a toolbar.</p>
-</li>
-<li><p>HTML and <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes">ARIA attributes</a> are used for further control over style of an element:</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span> ... <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+<p>☝️ This menu is styled as a vertical toolbar.</p>
+<br>
+
+
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span>&gt;</span>Please enter a valid email<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 </code></pre>
-<p>☝️ This will result in a vertical toolbar.</p>
-</li>
-</ul>
+<p>☝️ The <code>&lt;span/&gt;</code> is treated as the error message for the input.</p>
+<br>
+
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Off<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>On<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p>☝️ The first <code>&lt;span/&gt;</code> is shown in <strong>off</strong> state, the second in <strong>on</strong> state.</p>
 <br>
 
 <p>You can find a comprehensive list of elements and components supported by <em>nokss</em>, how their usage looks like, and their respective customization options, in the following sections:</p>
@@ -339,8 +349,8 @@ Change the main theme values in the code below and see their effects on the page
 <div class="theme-preview">
 
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1f6feb</span>;
   <span class="hljs-attribute">--primary-text-color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1f6feb</span>;
   <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">5px</span>;
 }
 
@@ -559,17 +569,21 @@ alongside example usage and customization guidelines for each.</p>
 <section>
 
 <h2 id="buttons">Buttons</h2>
-<p>Buttons are primary styled by default:</p>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<p>Use <code>&lt;button&gt;</code>, <code>&lt;a role=&quot;button&quot;&gt;</code> or <code>&lt;input type=&quot;submit&quot;&gt;</code> to create buttons:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span>&gt;</span>Anchor<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Submit"</span> /&gt;</span>
 </code></pre>
 <div role="presentation">
-  <button>Click me</button>
+  <button>Button</button>
+  <a role="button">Anchor</a>
+  <input type="submit" value="Submit" />
 </div>
 
 <br>
 
 <h3 id="button-groups">Button Groups</h3>
-<p>If buttons are grouped under a menu, only the last one is styled primary, the rest will have a secondary style:</p>
+<p>Group buttons to give all but the last one a <em>secondary</em> actions style:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -607,7 +621,7 @@ alongside example usage and customization guidelines for each.</p>
 <br>
 
 <h3 id="icon-buttons">Icon Buttons</h3>
-<p>Buttons with <code>aria-label</code> will be styled as icon buttons:</p>
+<p>Use <code>aria-label</code> to style buttons as icon buttons:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"send"</span>&gt;</span>➤<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </code></pre>
 <div role="presentation">
@@ -662,7 +676,7 @@ that falls back to characters browsers can display naturally even if the font is
 <br>
 
 <h3 id="customization">Customization</h3>
-<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize buttons via the following CSS variables, displayed with their default values:</p>
+<p>Tweak <a href="#theming">global CSS variables</a> for customizing buttons. If you need further customization, you can use following CSS variables:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--button-height</span>: <span class="hljs-built_in">var</span>(--interactable-size);
   <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-built_in">calc</span>(var(--button-height) * <span class="hljs-number">3</span>);
@@ -691,7 +705,7 @@ that falls back to characters browsers can display naturally even if the font is
 <section>
 
 <h2 id="toolbars">Toolbars</h2>
-<p>Use a toolbar (any element with <code>&quot;toolbar&quot;</code> role) to group some buttons together and display them like a toolbar:</p>
+<p>Use <code>role=&quot;toolbar&quot;</code> to group some buttons together and display them like a toolbar:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"edit"</span>&gt;</span>✏️<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"like"</span>&gt;</span>❤️<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -708,7 +722,7 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
-<p>Toolbars can also be vertically oriented:</p>
+<p>Use <code>aria-orientation=&quot;vertical&quot;</code> to display a vertical toolbar:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: flex; gap: var(--spacing)"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"done"</span>&gt;</span>✔<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -736,7 +750,7 @@ that falls back to characters browsers can display naturally even if the font is
 <br>
 
 <h3 id="customization">Customization</h3>
-<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize toolbars via the following CSS variables, displayed with their default values:</p>
+<p>Tweak <a href="#theming">global CSS variables</a> for customizing toolbars. If you need further customization, you can use following CSS variables::</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--toolbar-spacer-gap</span>: <span class="hljs-built_in">calc</span>(var(--spacing) * <span class="hljs-number">4</span>);
   <span class="hljs-attribute">--toolbar-spacer-margin</span>: <span class="hljs-built_in">calc</span>(var(--spacing) / <span class="hljs-number">2</span>);
@@ -746,7 +760,7 @@ that falls back to characters browsers can display naturally even if the font is
 <section>
 
 <h2 id="tab-lists">Tab Lists</h2>
-<p>Buttons in a tab list will be styled as tabs:</p>
+<p>Use <code>role=&quot;tablist&quot;</code> to create tab lists:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"true"</span>&gt;</span>First<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span>&gt;</span>Second<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -780,7 +794,7 @@ that falls back to characters browsers can display naturally even if the font is
 <section>
 
 <h2 id="switches">Switches</h2>
-<p>Buttons with a <code>switch</code> role will act as a switch that can be turned on and off:</p>
+<p>Use <code>role=&quot;switch&quot;</code> on buttons to turn them into switches that can be turned on or off:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Inactive<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Active<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -793,7 +807,9 @@ that falls back to characters browsers can display naturally even if the font is
   </button>
 </div>
 
-<p>A switch <strong>MUST</strong> have two child elements, the first one acting as the label for inactive state, the second one for the active state. They can be icons, or part of toolbars, etc.</p>
+<br>
+
+<p>A switch must have either one or two child elements, the first one acting as the label for inactive state, the second one for the active state.</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"camera"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>🎦<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -877,7 +893,7 @@ alongside example usage and customization guidelines for each.</p>
 <section>
 
 <h2 id="text-input">Text Input</h2>
-<p>Textual inputs are automatically styled:</p>
+<p>Use the <code>input</code> tag (with proper type) to create styled inputs:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your email"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"your password"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
@@ -896,7 +912,7 @@ alongside example usage and customization guidelines for each.</p>
 
 <br>
 
-<p>So are text areas:</p>
+<p>Use <code>textarea</code> tag for larger inputs:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Write something ..."</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Save Draft<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -913,7 +929,7 @@ alongside example usage and customization guidelines for each.</p>
 
 <br>
 
-<p>Text inputs can also be used inside horizontal toolbars:</p>
+<p>You can use inputs inside horizontal toolbars:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Search something ..."</span> /&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"search"</span>&gt;</span>🔍<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -928,7 +944,7 @@ alongside example usage and customization guidelines for each.</p>
 
 <br>
 
-<p>Different states of inputs are also styled accordingly:</p>
+<p>Use attributes and ARIA attributes to determine state of the input:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">required</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Required"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">aria-invalid</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Invalid"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Disabled"</span>/&gt;</span>
@@ -949,7 +965,7 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 <br>
 
 <h3 id="customization">Customization</h3>
-<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize text inputs via the following CSS variables, displayed with their default values:</p>
+<p>Tweak <a href="#theming">global CSS variables</a> for customizing inputs. If you need further customization, you can use following CSS variables:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--text-area-min-height</span>: <span class="hljs-built_in">calc</span>(2 * var(--spacing) + <span class="hljs-number">2</span> * <span class="hljs-built_in">var</span>(--interactable-size));
   <span class="hljs-attribute">--input-idle-border-color</span>: <span class="hljs-built_in">var</span>(--background-color);
@@ -973,7 +989,7 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 <section>
 
 <h2 id="radio--checkboxes">Radio &amp; Checkboxes</h2>
-<p>Radio inputs also pickup their styling from the theme:</p>
+<p>Use <code>&lt;input type=&quot;radio&quot;&gt;</code> when users have to pick a choice:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sauce"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mayo"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"mayo"</span>&gt;</span>Mayo<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
@@ -990,7 +1006,7 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 
 <br>
 
-<p>As do checkboxes:</p>
+<p>Use <code>&lt;input type=&quot;checkbox&quot;&gt;</code> when users can independently select and deselect some chocies:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"step1"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"step1"</span>&gt;</span>Step 1: Do these stuff<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
@@ -1031,7 +1047,7 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 
 <br>
 
-<p>You can also use buttons and radio groups instead of radio inputs:</p>
+<p>Use <code>role=&quot;radiogroup&quot;</code> instead of radio inputs for a different style:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radiogroup"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radio"</span>&gt;</span>Alliance<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radio"</span>&gt;</span>Horde<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -1064,8 +1080,7 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 <section>
 
 <h2 id="range-input">Range Input</h2>
-<p>Range inputs (<code>&lt;input type=&quot;range&quot;&gt;</code>) are styled according to the theme. Note that not all browsers expose the same
-styling options for range inputs, so the appearance may vary.</p>
+<p>Use <code>&lt;input type=&quot;range&quot;&gt;</code>) to create ranges and sliders:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"some range"</span>/&gt;</span>
 </code></pre>
 <div role="presentation">
@@ -1074,7 +1089,14 @@ styling options for range inputs, so the appearance may vary.</p>
 
 <br>
 
-<p>Range inputs can also be used in a toolbar:</p>
+<blockquote>
+<p><strong>Range Input Support</strong></p>
+<p>Browsers behave differently in how they allow customization of range inputs. This means
+that the appearance of your range inputs will vary from browser to browser.</p>
+</blockquote>
+<br>
+
+<p>You can use range inputs can in toolbars:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"play/pause"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span> <span class="hljs-attr">aria-checked</span>=<span class="hljs-string">"false"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>▶<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -1100,7 +1122,7 @@ styling options for range inputs, so the appearance may vary.</p>
 
 <br>
 
-<p>Support for vertical range inputs is a bit shaky across different browsers, which means including range inputs in vertical toolbars requires a little bit of a work around:</p>
+<p>Using range inputs in vertical toolbars requires a little bit of a work around:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"--vertical-range-container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"volume"</span>/&gt;</span>
@@ -1129,7 +1151,7 @@ styling options for range inputs, so the appearance may vary.</p>
 <br>
 
 <h3 id="customization">Customization</h3>
-<p>In addition to <a href="#theming">global CSS variables</a>, you can further customize range inputs via the following CSS variables, displayed with their default values:</p>
+<p>Tweak <a href="#theming">global CSS variables</a> for customizing range inputs. If you need further customization, you can use following CSS variables:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
   <span class="hljs-attribute">--range-input-track-height</span>: <span class="hljs-number">2px</span>;
   <span class="hljs-attribute">--range-input-thumb-width</span>: <span class="hljs-built_in">var</span>(--button-height);
@@ -1195,7 +1217,7 @@ styling options for range inputs, so the appearance may vary.</p>
 <br>
 
 
-<p>Color inputs can also be used in vertical toolbars:</p>
+<p>You can use color inputs can in vertical toolbars as well:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#FF7B54"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"primary color"</span>/&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"#FFB26B"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"secodnary color"</span>/&gt;</span>
@@ -1216,7 +1238,7 @@ styling options for range inputs, so the appearance may vary.</p>
 
 <br>
 
-<p>File inputs are also styled according to the theme:</p>
+<p>Use <code>&lt;input type=&quot;file&quot;&gt;</code> for uploading files:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"profile picture"</span>/&gt;</span>
 </code></pre>
 <div role="presentation">
@@ -1230,7 +1252,7 @@ styling options for range inputs, so the appearance may vary.</p>
 <section>
 
 <h2 id="input-utilities">Input Utilities</h2>
-<p>In addition to various inputs, <em>nokss</em> provides styling for some form utilities:</p>
+<p><em>nokss</em> provides styling for following form utilities as well:</p>
 <br>
 
 <h3 id="field-sets">Field Sets</h3>
