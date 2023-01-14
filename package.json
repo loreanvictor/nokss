@@ -1,8 +1,9 @@
 {
   "name": "nokss",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "enough css",
-  "main": "dist/nokss.css",
+  "unpkg": "/dist/nokss.css",
+  "main": "/dist/nokss.css",
   "scripts": {
     "test": "npm run lint && npm run build",
     "lint": "stylelint src/*.css src/**/*.css src/**/**/*.css src/**/**/**/*.css",
