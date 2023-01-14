@@ -18,15 +18,13 @@
 
 </div>
 
-**nokss** is a drop-in stylesheet that works out of the box. Instead of relying on CSS classes, **nokss** uses the semantics of HTML itself to figure out how to style various elements: a button is styled like a button, a link like a link, etc. This means you can use **nokss** without needing to change your HTML at all.
+**nokss** is a drop-in stylesheet that works out of the box. No need to use CSS classes: just write plain, semantic HTML, and nokss will style it for you (as much as it can). **nokss** is designed for prototyping, blogs, articles, small projects, and as a starting point for more invloved applications.
 
 To use **nokss**, simply include this line in your CSS:
 
 ```css
 @import 'https://unpkg.com/nokss/dist/nokss.css';
 ```
-
-And thats it! Write your HTML and **nokss** takes care of styling. The more semantic your HTML is, i.e. the more you use elements such as `<button>`, `<menu>`, `<aside>`, instead of just using `<div>`s everywhere, and the more you assign correct ARIA roles and attributes to them, the more **nokss** can do for you.
 
 <br>
 
