@@ -23,7 +23,7 @@
 To use **nokss**, simply include this line in your CSS:
 
 ```css
-@import 'https://unpkg.com/nokss/dist/nokss.css';
+@import 'https://unpkg.com/nokss';
 ```
 
 <br>
