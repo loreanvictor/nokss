@@ -45,7 +45,7 @@ Other input types are styled roughly similar to [text inputs](#text-input), and 
 <br>
 
 
-Color inputs can also be used in vertical toolbars:
+You can use color inputs can in vertical toolbars as well:
 
 ```html
 <menu role="toolbar" aria-orientation="vertical">
@@ -69,7 +69,7 @@ Color inputs can also be used in vertical toolbars:
 
 <br>
 
-File inputs are also styled according to the theme:
+Use `<input type="file">` for uploading files:
 
 ```html
 <input type="file" aria-label="profile picture"/>

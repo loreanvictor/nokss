@@ -29,12 +29,13 @@
     border-radius: 0px;
     display: inline-block;
     animation-name: dotrotation;
-    animation-duration: 48s;
+    animation-duration: 36s;
     animation-iteration-count: infinite;
     animation-delay: 10s;
+    animation-timing-function: ease-in-out;
     opacity: 0;
 
-    transition: opacity 1s;
+    transition: all 4s;
   }
 
   @keyframes dotrotation {
@@ -88,7 +89,7 @@ setTimeout(() => {
   host.querySelectorAll('.dot').forEach((dot, i) => {
     const x = i % width
     const y = Math.floor(i / width)
-    const delay = dist(x, y) * 400 + 6000
+    const delay = dist(x, y) * 300 + 6000
     const opacity = 1 - dist(x,y) / maxdist
 
     dot.style.animationDelay = `${delay}ms`

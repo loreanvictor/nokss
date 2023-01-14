@@ -2,7 +2,7 @@
 
 ## Switches
 
-Buttons with a `switch` role will act as a switch that can be turned on and off:
+Use `role="switch"` on buttons to turn them into switches that can be turned on or off:
 
 ```html
 <button role="switch" aria-checked="false">
@@ -18,7 +18,9 @@ Buttons with a `switch` role will act as a switch that can be turned on and off:
   </button>
 </div>
 
-A switch **MUST** have two child elements, the first one acting as the label for inactive state, the second one for the active state. They can be icons, or part of toolbars, etc.
+<br>
+
+A switch must have either one or two child elements, the first one acting as the label for inactive state, the second one for the active state.
 
 ```html
 <menu role="toolbar">

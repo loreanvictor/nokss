@@ -2,7 +2,7 @@
 
 ## Text Input
 
-Textual inputs are automatically styled:
+Use the `input` tag (with proper type) to create styled inputs:
 
 ```html
 <input type="email" placeholder="your email"/>
@@ -24,7 +24,7 @@ Textual inputs are automatically styled:
 
 <br>
 
-So are text areas:
+Use `textarea` tag for larger inputs:
 
 ```html
 <textarea placeholder="Write something ..."></textarea>
@@ -44,7 +44,7 @@ So are text areas:
 
 <br>
 
-Text inputs can also be used inside horizontal toolbars:
+You can use inputs inside horizontal toolbars:
 
 ```html
 <menu role="toolbar">
@@ -62,7 +62,7 @@ Text inputs can also be used inside horizontal toolbars:
 
 <br>
 
-Different states of inputs are also styled accordingly:
+Use attributes and ARIA attributes to determine state of the input:
 
 ```html
 <input type="text" required placeholder="Required">
@@ -87,7 +87,7 @@ Different states of inputs are also styled accordingly:
 
 ### Customization
 
-In addition to [global CSS variables](#theming), you can further customize text inputs via the following CSS variables, displayed with their default values:
+Tweak [global CSS variables](#theming) for customizing inputs. If you need further customization, you can use following CSS variables:
 
 ```css
 :root {

@@ -2,8 +2,7 @@
 
 ## Range Input
 
-Range inputs (`<input type="range">`) are styled according to the theme. Note that not all browsers expose the same
-styling options for range inputs, so the appearance may vary.
+Use `<input type="range">`) to create ranges and sliders:
 
 ```html
 <input type="range" aria-label="some range"/>
@@ -15,7 +14,14 @@ styling options for range inputs, so the appearance may vary.
 
 <br>
 
-Range inputs can also be used in a toolbar:
+> **Range Input Support**
+>
+> Browsers behave differently in how they allow customization of range inputs. This means
+> that the appearance of your range inputs will vary from browser to browser.
+
+<br>
+
+You can use range inputs can in toolbars:
 
 ```html
 <menu role="toolbar">
@@ -44,7 +50,7 @@ Range inputs can also be used in a toolbar:
 
 <br>
 
-Support for vertical range inputs is a bit shaky across different browsers, which means including range inputs in vertical toolbars requires a little bit of a work around:
+Using range inputs in vertical toolbars requires a little bit of a work around:
 
 ```html
 <menu role="toolbar" aria-orientation="vertical">
@@ -80,7 +86,7 @@ The length of the track, in this case, is specified by `--track-length` CSS vari
 
 ### Customization
 
-In addition to [global CSS variables](#theming), you can further customize range inputs via the following CSS variables, displayed with their default values:
+Tweak [global CSS variables](#theming) for customizing range inputs. If you need further customization, you can use following CSS variables:
 
 ```css
 :root {

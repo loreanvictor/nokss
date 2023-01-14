@@ -2,7 +2,7 @@
 
 ## Tab Lists
 
-Buttons in a tab list will be styled as tabs:
+Use `role="tablist"` to create tab lists:
 
 ```html
 <nav role="tablist">

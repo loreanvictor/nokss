@@ -2,7 +2,7 @@
 
 ## Toolbars
 
-Use a toolbar (any element with `"toolbar"` role) to group some buttons together and display them like a toolbar:
+Use `role="toolbar"` to group some buttons together and display them like a toolbar:
 
 ```html
 <menu role="toolbar">
@@ -22,7 +22,7 @@ Use a toolbar (any element with `"toolbar"` role) to group some buttons together
 
 <br>
 
-Toolbars can also be vertically oriented:
+Use `aria-orientation="vertical"` to display a vertical toolbar:
 
 ```html
 <div style="display: flex; gap: var(--spacing)">
@@ -54,7 +54,7 @@ Toolbars can also be vertically oriented:
 
 ### Customization
 
-In addition to [global CSS variables](#theming), you can further customize toolbars via the following CSS variables, displayed with their default values:
+Tweak [global CSS variables](#theming) for customizing toolbars. If you need further customization, you can use following CSS variables::
 
 ```css
 :root {

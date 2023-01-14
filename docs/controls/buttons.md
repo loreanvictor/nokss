@@ -2,21 +2,25 @@
 
 ## Buttons
 
-Buttons are primary styled by default:
+Use `<button>`, `<a role="button">` or `<input type="submit">` to create buttons:
 
 ```html
-<button>Click me</button>
+<button>Button</button>
+<a role="button">Anchor</a>
+<input type="submit" value="Submit" />
 ```
 
 <div role="presentation">
-  <button>Click me</button>
+  <button>Button</button>
+  <a role="button">Anchor</a>
+  <input type="submit" value="Submit" />
 </div>
 
 <br>
 
 ### Button Groups
 
-If buttons are grouped under a menu, only the last one is styled primary, the rest will have a secondary style:
+Group buttons to give all but the last one a _secondary_ actions style:
 
 ```html
 <menu role="group">
@@ -59,7 +63,7 @@ Use `align` attribute to align buttons in a menu to the left or right:
 
 ### Icon Buttons
 
-Buttons with `aria-label` will be styled as icon buttons:
+Use `aria-label` to style buttons as icon buttons:
 
 ```html
 <button aria-label="send">➤</button>
@@ -129,7 +133,7 @@ Denote a dangerous action by starting `aria-description` of the button with `"da
 
 ### Customization
 
-In addition to [global CSS variables](#theming), you can further customize buttons via the following CSS variables, displayed with their default values:
+Tweak [global CSS variables](#theming) for customizing buttons. If you need further customization, you can use following CSS variables:
 ```css
 :root {
   --button-height: var(--interactable-size);

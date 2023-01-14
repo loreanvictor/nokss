@@ -64,8 +64,8 @@ Change the main theme values in the code below and see their effects on the page
 
 ```css
 :root {
-  --primary-color: #1f6feb;
   --primary-text-color: #fff;
+  --primary-color: #1f6feb;
   --roundness: 5px;
 }
 

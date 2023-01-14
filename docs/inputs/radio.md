@@ -2,7 +2,7 @@
 
 ## Radio & Checkboxes
 
-Radio inputs also pickup their styling from the theme:
+Use `<input type="radio">` when users have to pick a choice:
 
 ```html
 <input type="radio" name="sauce" id="mayo"/>
@@ -22,7 +22,7 @@ Radio inputs also pickup their styling from the theme:
 
 <br>
 
-As do checkboxes:
+Use `<input type="checkbox">` when users can independently select and deselect some chocies:
 
 ```html
 <input type="checkbox" id="step1"/>
@@ -66,7 +66,7 @@ As do checkboxes:
 
 <br>
 
-You can also use buttons and radio groups instead of radio inputs:
+Use `role="radiogroup"` instead of radio inputs for a different style:
 
 ```html
 <menu role="radiogroup">

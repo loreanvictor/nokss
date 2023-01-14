@@ -11,7 +11,7 @@
 
   ---
 
-  <small>Components</small>
+  <b>Components</b>
 
   <li role="treeitem" aria-expanded="false">
     <a href="#controls">Controls</a>

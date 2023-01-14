@@ -2,24 +2,44 @@
 
 # Usage
 
-To use _nokss_, just [load the stylesheet](#installation). _nokss_ styles elements based on their semantics, so you don't have to worry about class names:
+Just [load the stylesheet](#installation). _nokss_ styles elements based on their semantics, so you don't have to worry about class names.
+The more semantic and accessible your markup is, the more _nokss_ will be able to do for you.
 
-- [HTML tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) mainly determine how an element should be styled.
-- [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) are used to identify components without a semantic HTML tag, or for cases where elements are commonly used in a role different than their tag:
-  ```html
-  <a role="button"> ... </a>
-  ```
-  ☝️ This anchor is styled like a button.
-  ```html
-  <menu role="toolbar"> ... </menu>
-  ```
-  ☝️ This menu is styled like a toolbar.
+Semantics are mainly dictated by [HTML tags](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles), with  HTML and [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) providing further context. Structural conventions are used for context about more complex semantics:
 
-- HTML and [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) are used for further control over style of an element:
-  ```html
-  <menu role="toolbar" aria-orientation="vertical"> ... </menu>
-  ```
-  ☝️ This will result in a vertical toolbar.
+
+<br>
+
+```html
+<a role="button"> ... </a>
+```
+☝️ This anchor is styled like a button.
+
+<br>
+
+```html
+<menu role="toolbar" aria-orientation="vertical">...</menu>
+```
+☝️ This menu is styled as a vertical toolbar.
+
+<br>
+
+
+```html
+<input type="email" />
+<span role="alert">Please enter a valid email</span>
+```
+☝️ The `<span/>` is treated as the error message for the input.
+
+<br>
+
+```html
+<button role="switch">
+  <span>Off</span>
+  <span>On</span>
+</button>
+```
+☝️ The first `<span/>` is shown in **off** state, the second in **on** state.
 
 <br>
 

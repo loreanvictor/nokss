@@ -2,7 +2,7 @@
 
 ## Input Utilities
 
-In addition to various inputs, _nokss_ provides styling for some form utilities:
+_nokss_ provides styling for following form utilities as well:
 
 <br>
 
