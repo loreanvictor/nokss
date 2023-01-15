@@ -16,7 +16,7 @@
     <script src="./assets/index.js" type="module" defer></script>
   </head>
   <body>
-    <nav aria-hidden="true">
+    <aside aria-hidden="true" role="navigation">
       <p><br><br><br><br><br></p>
 <ul role="tree">
   <li role="treeitem"><a href="#">Home</a></li>
@@ -74,7 +74,7 @@
 
 <p><br><br><br><br><br></p>
 
-    </nav>
+    </aside>
     <main>
       <section id="intro">
 
@@ -93,7 +93,7 @@
       if (scrollY > window.innerHeight * 0.85) {
         if (initial) {
           initial = false
-          document.querySelector('body>nav:first-child').setAttribute('aria-hidden', false)
+          document.querySelector('body>aside:first-child').setAttribute('aria-hidden', false)
           document.querySelector('body>footer [role="switch"]').setAttribute('aria-checked', false)
           document.removeEventListener('scroll', listener)
         }
