@@ -72,7 +72,7 @@ Font size is based off of `rem` unit to support browser's default font size:
 #typopres .flex>small:first-child {
   width: 4rem;
   flex-shrink: 0;
-  opacity: calc(var(--border-expression) * 4);
+  opacity: calc(max(var(--border-expression) * 4, 0.2));
   text-align: right;
   margin-right: 1em;
 }

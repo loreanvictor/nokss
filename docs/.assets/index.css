@@ -23,3 +23,8 @@ pre code * { color: white; }
 body > nav:first-child {
   font-size: var(--small-font-size);
 }
+
+.hljs-name,
+.hljs-selector-pseudo {
+  color: #ffae6d;
+}
