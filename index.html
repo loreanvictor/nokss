@@ -45,7 +45,9 @@
       <li role="treeitem"><a href="#radio--checkboxes">Radio & Checkboxes</a></li>
       <li role="treeitem"><a href="#range-input">Range Input</a></li>
       <li role="treeitem"><a href="#other-input-types">Other Input Types</a></li>
-      <li role="treeitem"><a href="#input-utilities">Input Utilities</a></li>
+      <li role="treeitem"><a href="#field-sets--grouping">Field Sets & Grouping</a></li>
+      <li role="treeitem"><a href="#labels">Labels</a></li>
+      <li role="treeitem"><a href="#input-status">Input Status</a></li>
     </ul>
   </li>
 
@@ -447,7 +449,7 @@ to font size of root.</p>
 #typopres .flex>small:first-child {
   width: 4rem;
   flex-shrink: 0;
-  opacity: calc(var(--border-expression) * 4);
+  opacity: calc(max(var(--border-expression) * 4, 0.2));
   text-align: right;
   margin-right: 1em;
 }
@@ -830,7 +832,9 @@ alongside example usage and customization guidelines for each.</p>
 <li><a href="#radio--checkboxes">Radio &amp; Checkboxes</a></li>
 <li><a href="#range-input">Range Input</a></li>
 <li><a href="#other-input-types">Other Input Types</a></li>
-<li><a href="#input-utilities">Input Utilities</a></li>
+<li><a href="#field-sets--grouping">Field Sets &amp; Grouping</a></li>
+<li><a href="#labels">Labels</a></li>
+<li><a href="#input-status">Input Status</a></li>
 </ul>
 </section>
 
@@ -1195,11 +1199,7 @@ that the appearance of your range inputs will vary from browser to browser.</p>
 </section>
 <section>
 
-<h2 id="input-utilities">Input Utilities</h2>
-<p><em>nokss</em> provides styling for following form utilities as well:</p>
-<br>
-
-<h3 id="field-sets">Field Sets</h3>
+<h2 id="field-sets--grouping">Field Sets &amp; Grouping</h2>
 <p>Use field sets to group some form controls together:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Login<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
@@ -1223,9 +1223,10 @@ that the appearance of your range inputs will vary from browser to browser.</p>
   </fieldset>
 </div>
 
-<br>
+</section>
+<section>
 
-<h3 id="labels">Labels</h3>
+<h2 id="labels">Labels</h2>
 <p>Use inputs within labels to bind them together:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
   Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> /&gt;</span>
@@ -1302,9 +1303,10 @@ by linking them via <code>for</code> and <code>id</code> attributes, or by using
   </label>
 </div>
 
-<br>
+</section>
+<section>
 
-<h3 id="status-messages">Status Messages</h3>
+<h2 id="input-status">Input Status</h2>
 <p>Use alert or status roles, or <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">ARIA live regions</a>,
 to notify the user about the status of the input (or give them some hints on how to complete it properly):</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Type something ..."</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">minlength</span>=<span class="hljs-string">"10"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
