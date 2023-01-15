@@ -20,7 +20,7 @@ pre code * { color: white; }
   padding: 8px;
 }
 
-body > nav:first-child {
+body > aside:first-child {
   font-size: var(--small-font-size);
 }
 

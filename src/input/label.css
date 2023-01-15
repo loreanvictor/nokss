@@ -4,7 +4,13 @@
 
 @media (max-width: 1024px) {
   :root {
-    --labeled-input-width: 65%;
+    --labeled-input-width: 60%;
+  }
+}
+
+@media (max-width: 370px) {
+  :root {
+    --labeled-input-width: 100%;
   }
 }
 

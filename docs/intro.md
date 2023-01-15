@@ -15,7 +15,7 @@
       if (scrollY > window.innerHeight * 0.85) {
         if (initial) {
           initial = false
-          document.querySelector('body>nav:first-child').setAttribute('aria-hidden', false)
+          document.querySelector('body>aside:first-child').setAttribute('aria-hidden', false)
           document.querySelector('body>footer [role="switch"]').setAttribute('aria-checked', false)
           document.removeEventListener('scroll', listener)
         }
