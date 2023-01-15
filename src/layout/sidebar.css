@@ -32,9 +32,10 @@ body > aside:first-child {
     filter: brightness(calc(1/var(--sidebar-brightness)));
   }
 
-  transition: transform 0.3s;
+  transition: visibility 0.3s, transform 0.3s;
 
   &[aria-hidden='true'] {
+    visibility: hidden;
     transform: translateX(-100%);
   }
 
