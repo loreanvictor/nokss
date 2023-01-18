@@ -44,7 +44,7 @@ body > aside:first-child {
     z-index: 100;
     transform: translateX(-100%);
     box-shadow: 0 0 var(--sidebar-fullscreen-gap) calc(1.5 * var(--sidebar-fullscreen-gap)) rgba(0 0 0 / 0%);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: visibility 0.3s, transform 0.3s, box-shadow 0.3s;
   }
 
   &[aria-hidden='false'] {
