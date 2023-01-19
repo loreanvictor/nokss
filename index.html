@@ -57,17 +57,19 @@
       <li role="treeitem"><a href="#main-content-sections">Main Content & Sections</a></li>
       <li role="treeitem"><a href="#header-footer">Header & Footer</a></li>
       <li role="treeitem"><a href="#sidebar">Sidebar</a></li>
-      <li role="treeitem"><a href="#trees">Trees</a></li>
+      <li role="treeitem"><a href="#feed--cards">Feed & Cards</a></li>
+      <li role="treeitem"><a href="#modals">Modals</a></li>
     </ul>
   </li>
 
   <li role="treeitem" aria-expanded="false">
     <span>Content</span>
     <ul role="group">
-      <li role="treeitem"><a href="#typography">Typography</a></li>
       <li role="treeitem"><a href="#headings">Headings</a></li>
       <li role="treeitem"><a href="#code-snippets">Code Snippets</a></li>
       <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
+      <li role="treeitem"><a href="#trees">Trees</a></li>
+      <li role="treeitem"><a href="#trees">Tables</a></li>
     </ul>
   </li>
 </ul>
@@ -324,89 +326,123 @@ Change the main theme values in the code below and see their effects on the page
 <link rel="stylesheet" href="assets/theme.css" />
 <script type="module" defer src="assets/theme.js"></script>
 
-<p><br><br></p>
-<p>The following are the main CSS variables determining styling of various elements:</p>
-<ul>
-<li><p><strong>Primary Color</strong> <br>The primary color for highlighted text and actions. Also comes with <em>primary text color</em>,
-which is the color of the text that is to be used on backgrounds with primary color.</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--primary-color</span>: <span class="hljs-number">#1f6feb</span>;
-  <span class="hljs-attribute">--primary-text-color</span>: <span class="hljs-number">#fff</span>;
-}
-</code></pre>
-<br>
-</li>
-<li><p><strong>Background &amp; Text</strong> <br>Determine the background and text color of the content. Since these values are typically
-dependent on color scheme, make sure to use <code>prefers-color-scheme</code> media query to maintain dark mode support.</p>
-<pre><code class="language-css">@<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
-  <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#fffdf9</span>;
-    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#393e46</span>;
-  }
-}
+<div style="overflow-x: auto">
+  <table>
+    <caption>Theme's CSS Variables</caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--primary-color</code></td>
+        <td><code>#1f6feb</code></td>
+        <td>The primary color for highlighted text and actions.</td>
+      </tr>
+      <tr>
+        <td><code>--primary-text-color</code></td>
+        <td><code>#fff</code></td>
+        <td>The color of the text that is to be used on backgrounds with primary color.</td>
+      </tr>
+      <tr>
+        <td><code>--text-color</code></td>
+        <td><code>#393e46</code> <small>(light)</small><br><code>#fffcf3</code> <small>(dark)</small></td>
+        <td>Color of text.</td>
+      </tr>
+      <tr>
+        <td><code>--background-color</code></td>
+        <td><code>#fffdf9</code> <small>(light)</small><br><code>#0d1118</code> <small>(dark)</small></td>
+        <td>Color of background.</td>
+      </tr>
+      <tr>
+        <td><code>--danger-color</code></td>
+        <td><code>#ff2626</code></td>
+        <td>Denotes potentially harmful actions, or error states.</td>
+      </tr>
+      <tr>
+        <td><code>--danger-text-color</code></td>
+        <td><code>#fff</code></td>
+        <td>Denotes potentially harmful actions, or error states.</td>
+      </tr>
+      <tr>
+        <td><code>--roundness</code></td>
+        <td><code>5px</code></td>
+        <td>Determines how round various elements are (e.g. border radius).</td>
+      </tr>
+      <tr>
+        <td><code>--border-expression</code></td>
+        <td><code>0.05</code></td>
+        <td>Determines how visible borders are, <code>0</code> being invisible and <code>1</code> being fully visible.</td>
+      </tr>
+      <tr>
+        <td><code>--spacing</code></td>
+        <td><code>8px</code></td>
+        <td><p>Specifies the spacing between various elements. It is highly recommended to modify spacing per element instead of tweaking the global version.</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-@<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
-  <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--background-color</span>: <span class="hljs-number">#0d1118</span>;
-    <span class="hljs-attribute">--text-color</span>: <span class="hljs-number">#fffcf3</span>;
-  }
-}
-</code></pre>
-<br>
-</li>
-<li><p><strong>Danger Color</strong> <br>Danger color denotes elements that have potentially harmful (and irreversible) effects, or states of error. <em>Danger text color</em> is the  color of text that is to be used on backgrounds with danger color.</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--danger-color</span>: <span class="hljs-number">#ff2626</span>;
-  <span class="hljs-attribute">--danger-text-color</span>: <span class="hljs-number">#fff</span>;
-}
-</code></pre>
-<br>
-</li>
-<li><p><strong>Borders</strong> <br>Border expression determines how visible borders are, <code>0</code> being invisible and <code>1</code> being fully visible.
-Roundness determines roundness of corners of various elements. Different elements will calculate their border radius
-using this global variable.</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">5px</span>;
-  <span class="hljs-attribute">--border-expression</span>: <span class="hljs-number">0.05</span>;
-}
-</code></pre>
-<br>
-</li>
-<li><p><strong>Spacing</strong> <br>Spacing of various elements is generally determined by the spacing variable. This particular variable can be a bit tricky to modify, so I would recommend overriding specific spacing values of different elements instead of the global one.</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--spacing</span>: <span class="hljs-number">8px</span>;
-}
-</code></pre>
-<br></li>
-</ul>
 <p>Besides these global values, each element also relies on its own specific variables, which are by default calculated from these global values, and can be overriden for customizing the look of individual elements.</p>
 </section>
       <section>
 
 <h1 id="typography">Typography</h1>
-<p><em>nokss</em> defaults to a native font stack for performance, available in <code>--font-family</code> CSS variable:</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--font-family</span>:
-    -apple-system,
-    blinkmacsystemfont,
-    <span class="hljs-string">'Segoe UI'</span>,
-    <span class="hljs-string">'Noto Sans'</span>,
-    helvetica,
-    arial,
-    sans-serif,
-    <span class="hljs-string">'Apple Color Emoji'</span>,
-    <span class="hljs-string">'Segoe UI Emoji'</span>;
-}
-</code></pre>
-<br>
+<p><em>nokss</em> defaults to a native font stack for performance, available in <code>--font-family</code> CSS variable. Font size is based off of <code>rem</code> unit to support browser&#39;s default font size. Typography is controlled via the following
+CSS variables and can be tweaked accordingly:</p>
+<div style="overflow-x: auto">
+  <table>
+    <caption>
+      Typography CSS variables
+    </caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--font-family</code></td>
+        <td><p style="font-family: monospace; font-size: var(--small-font-size)">
+          -apple-system, <br> blinkmacsystemfont, <br>
+          'Segoe UI', <br> 'Noto Sans', <br>
+          helvetica, <br> arial, <br> sans-serif, <br>
+          'Apple Color Emoji', <br> 'Segoe UI Emoji'
+        </p></td>
+        <td>Base font family</td>
+      </tr>
+      <tr>
+        <td><code>--font-size</code></td>
+        <td><code>1rem</code></td>
+        <td>Base font size</td>
+      </tr>
+      <tr>
+        <td><code>--small-font-size</code></td>
+        <td><code>0.833rem</code></td>
+        <td>
+          Font size for smaller items.
+        </td>
+      </tr>
+      <tr>
+        <td><code>--font-weight</code></td>
+        <td><code>300</code></td>
+        <td>Base font weight</td>
+      </tr>
+      <tr>
+        <td><code>--line-height</code></td>
+        <td><code>calc(var(--font-size) * 1.5)</code></td>
+        <td>Base line height</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>Font size is based off of <code>rem</code> unit to support browser&#39;s default font size:</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--font-size</span>: <span class="hljs-number">1rem</span>;
-  <span class="hljs-attribute">--font-weight</span>: <span class="hljs-number">300</span>;
-  <span class="hljs-attribute">--line-height</span>: <span class="hljs-built_in">calc</span>(var(--font-size) * <span class="hljs-number">1.5</span>);
-}
-</code></pre>
+
 <br>
 
 <blockquote>
@@ -464,29 +500,52 @@ to font size of root.</p>
 
 <h1 id="interactions">Interactions</h1>
 <p>The following CSS variables generally determine various interactive aspects of the design:</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--interactable-size</span>: <span class="hljs-number">32px</span>;
-  <span class="hljs-attribute">--disabled-opacity</span>: <span class="hljs-number">0.35</span>;
-}
-</code></pre>
+<div style="overflow-x: auto">
+  <table>
+    <caption>Interactions' CSS Variables</caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--interactable-size</code></td>
+        <td><code>32px</code></td>
+        <td>Size of interactable elements.</td>
+      </tr>
+      <tr>
+        <td><code>--disabled-opacity</code></td>
+        <td><code>0.35</code></td>
+        <td>Opacity of disabled elements.</td>
+      </tr>
+      <tr>
+        <td><code>--active-opacity</code></td>
+        <td><code>0.85</code></td>
+        <td>Opacity of active elements.</td>
+      </tr>
+      <tr>
+        <td><code>--interactable-brightness</code></td>
+        <td><code>0.96</code> <small>(light)</small><br><code>2.25</code> <small>(dark)</small></td>
+        <td>Brightness of interactable elements.</td>
+      </tr>
+      <tr>
+        <td><code>--hover-brightness</code></td>
+        <td>
+          <code>calc(1 - (1 - <br>&emsp;var(--interactable-brightness))<br>&emsp; * 1/10)</code> <small>(light)</small><br>
+          <code>calc(<br>&emsp;var(--interactable-brightness)<br>&emsp; * 1.35)</code> <small>(dark)</small></td>
+        <td>Brightness of interactable elements on hover.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <p>On touch devices, a larger <code>--interactable-size</code> is used:</p>
 <pre><code class="language-css">@<span class="hljs-keyword">media</span> (hover: none) and (pointer: coarse) {
   <span class="hljs-selector-pseudo">:root</span> {
     <span class="hljs-attribute">--interactable-size</span>: <span class="hljs-number">40px</span>;
-  }
-}
-</code></pre>
-<p>Interactable elements are generally brighter than the background, with extra brightness for hover:</p>
-<pre><code class="language-css">@<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
-  <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--interactable-brightness</span>: <span class="hljs-number">0.96</span>;
-    <span class="hljs-attribute">--hover-brightness</span>: <span class="hljs-built_in">calc</span>(1 - (1 - var(--interactable-brightness)) * <span class="hljs-number">1</span>/<span class="hljs-number">10</span>);
-  }
-}
-@<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
-  <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--interactable-brightness</span>: <span class="hljs-number">2.25</span>;
-    <span class="hljs-attribute">--hover-brightness</span>: <span class="hljs-built_in">calc</span>(var(--interactable-brightness) * <span class="hljs-number">1.35</span>);
   }
 }
 </code></pre>
@@ -623,13 +682,51 @@ that falls back to characters browsers can display naturally even if the font is
 
 <h3 id="customization">Customization</h3>
 <p>Tweak <a href="#theming">global CSS variables</a> for customizing buttons. If you need further customization, you can use following CSS variables:</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--button-height</span>: <span class="hljs-built_in">var</span>(--interactable-size);
-  <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-built_in">calc</span>(var(--button-height) * <span class="hljs-number">3</span>);
-  <span class="hljs-attribute">--button-padding</span>: <span class="hljs-number">0px</span> <span class="hljs-built_in">var</span>(--spacing);
-}
-</code></pre>
-<br>
+<div style="overflow-x: auto">
+  <table>
+    <caption>Button Customization</caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--button-height</code></td>
+        <td><code>var(--interactable-size)</code></td>
+        <td>Height of the button</td>
+      </tr>
+      <tr>
+        <td><code>--button-min-width</code></td>
+        <td><code>calc(var(--button-height) * 3)</code></td>
+        <td>Minimum width of the button</td>
+      </tr>
+      <tr>
+        <td><code>--button-padding</code></td>
+        <td><code>0 var(--spacing)</code></td>
+        <td>Padding of the button</td>
+      </tr>
+      <tr>
+        <td><code>--primary-button<br>&emsp;-hover-brightness</code></td>
+        <td><code>1.2</code></td>
+        <td>Brightness of primary buttons when hovered.</td>
+      </tr>
+      <tr>
+        <td><code>--primary-button<br>&emsp;-border-brightness</code></td>
+        <td><code>0.9</code> <small>(light)</small><br><code>1.2</code> <small>(dark)</small></td>
+        <td><p>Brightness of border of primary buttons (relative to their background).</p></td>
+      </tr>
+      <tr>
+        <td><code>--secondary-button<br>&emsp;-active-opacity</code></td>
+        <td><code>calc(1 - (1 - <br>&emsp;var(--active-opacity))<br>&emsp; * 2)</code> <small>(light)</small>
+          <br><code>var(--active-opacity)</code> <small>(dark)</small></td>
+        <td>Opacity of secondary buttons when active.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <p>For example, you can create a slimmer rounded button by setting the following variables:</p>
 <pre><code class="language-css"><span class="hljs-selector-tag">button</span> {
@@ -697,11 +794,30 @@ that falls back to characters browsers can display naturally even if the font is
 
 <h3 id="customization">Customization</h3>
 <p>Tweak <a href="#theming">global CSS variables</a> for customizing toolbars. If you need further customization, you can use following CSS variables::</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--toolbar-spacer-gap</span>: <span class="hljs-built_in">calc</span>(var(--spacing) * <span class="hljs-number">4</span>);
-  <span class="hljs-attribute">--toolbar-spacer-margin</span>: <span class="hljs-built_in">calc</span>(var(--spacing) / <span class="hljs-number">2</span>);
-}
-</code></pre>
+<div style="overflow-x: auto">
+  <table>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--toolbar-spacer-gap</code></td>
+        <td><code>calc(var(--spacing) * 4)</code></td>
+        <td>Gap between toolbar buttons</td>
+      </tr>
+      <tr>
+        <td><code>--toolbar-spacer-margin</code></td>
+        <td><code>calc(var(--spacing) / 2)</code></td>
+        <td>Margin around toolbar spacers</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 </section>
 <section>
 
@@ -914,25 +1030,48 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 
 <h3 id="customization">Customization</h3>
 <p>Tweak <a href="#theming">global CSS variables</a> for customizing inputs. If you need further customization, you can use following CSS variables:</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--text-area-min-height</span>: <span class="hljs-built_in">calc</span>(2 * var(--spacing) + <span class="hljs-number">2</span> * <span class="hljs-built_in">var</span>(--interactable-size));
-  <span class="hljs-attribute">--input-idle-border-color</span>: <span class="hljs-built_in">var</span>(--background-color);
-}
-@<span class="hljs-keyword">media</span> (prefers-color-scheme: light) {
-  <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--input-placeholder-expression</span>: <span class="hljs-number">0.4</span>;
-    <span class="hljs-attribute">--input-background-brightness</span>: <span class="hljs-built_in">calc</span>(1 - (1 - var(--interactable-brightness)) * <span class="hljs-number">1.5</span>);
-    <span class="hljs-attribute">--input-background-brightness-focus-dropoff</span>: <span class="hljs-number">0.65</span>;
-  }
-}
-@<span class="hljs-keyword">media</span> (prefers-color-scheme: dark) {
-  <span class="hljs-selector-pseudo">:root</span> {
-    <span class="hljs-attribute">--input-placeholder-expression</span>: <span class="hljs-number">0.15</span>;
-    <span class="hljs-attribute">--input-background-brightness</span>: <span class="hljs-built_in">var</span>(--interactable-brightness);
-    <span class="hljs-attribute">--input-background-brightness-focus-dropoff</span>: <span class="hljs-number">0.25</span>;
-  }
-}
-</code></pre>
+<div style="overflow-x: auto">
+  <table>
+    <caption>
+      Input CSS Variables
+    </caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </head>
+    <tbody>
+      <tr>
+        <td><code>--text-area-<br>&emsp;-min-height</code></td>
+        <td><code>calc(2 *<br>&emsp;var(--spacing) +<br>&emsp;2 * var(--interactable-size))</code></td>
+        <td>Minimum height of text area</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-idle-border-<br>&emsp;-color</code></td>
+        <td><code>var(--background-color)</code></td>
+        <td>Border color of input when idle</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-placeholder-<br>&emsp;-expression</code></td>
+        <td><code>0.4</code> <small>(light)</small><br><code>0.15</code> <small>(dark)</small></td>
+        <td>Expression for calculating placeholder color</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-background-<br>&emsp;-brightness</code></td>
+        <td><code>calc(1 - (1 -<br>&emsp;var(--interactable-<br>&emsp;-brightness)) * 1.5)</code> <small>(light)</small><br><code>var(--interactable-<br>&emsp;-brightness)</code> <small>(dark)</small></td>
+        <td>Brightness of input background</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-background-<br>&emsp;-brightness-<br>&emsp;-focus-<br>&emsp;-dropoff</code></td>
+        <td><code>0.65</code> <small>(light)</small><br><code>0.25</code> <small>(dark)</small></td>
+        <td><p>Dropoff of input background brightness when focused</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 </section>
 <section>
 
@@ -1028,7 +1167,7 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 <section>
 
 <h2 id="range-input">Range Input</h2>
-<p>Use <code>&lt;input type=&quot;range&quot;&gt;</code>) to create ranges and sliders:</p>
+<p>Use <code>&lt;input type=&quot;range&quot;&gt;</code> to create ranges and sliders:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"some range"</span>/&gt;</span>
 </code></pre>
 <div role="presentation">
@@ -1100,14 +1239,46 @@ that the appearance of your range inputs will vary from browser to browser.</p>
 
 <h3 id="customization">Customization</h3>
 <p>Tweak <a href="#theming">global CSS variables</a> for customizing range inputs. If you need further customization, you can use following CSS variables:</p>
-<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> {
-  <span class="hljs-attribute">--range-input-track-height</span>: <span class="hljs-number">2px</span>;
-  <span class="hljs-attribute">--range-input-thumb-width</span>: <span class="hljs-built_in">var</span>(--button-height);
-  <span class="hljs-attribute">--range-input-thumb-height</span>: <span class="hljs-built_in">calc</span>(var(--button-height) * <span class="hljs-number">2</span> / <span class="hljs-number">3</span>);
-  <span class="hljs-attribute">--range-input-margin</span>: <span class="hljs-built_in">calc</span>(var(--range-input-thumb-height) + <span class="hljs-built_in">var</span>(--spacing)) <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">--range-input-empty-track-inversion</span>: <span class="hljs-number">0.12</span>;
-}
-</code></pre>
+<div style="overflow-x: auto">
+  <table>
+    <caption>Range Input CSS Variables</caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--range-input<br>&emsp;-track-height</code></td>
+        <td><code>4px</code></td>
+        <td>Height of the track</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-thumb-width</code></td>
+        <td><code>var(--button-height)</code></td>
+        <td>Width of the thumb</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-thumb-height</code></td>
+        <td><code>calc(<br>&emsp;var(--button-height)<br>&emsp; * 2 / 3)</code></td>
+        <td>Height of the thumb</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-margin</code></td>
+        <td><code>calc(<br>&emsp;var(--range-input<br>&emsp;&emsp;-thumb-height) +<br>&emsp; var(--spacing)) 0</code></td>
+        <td>Margin of the range input</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-empty-track-inversion</code></td>
+        <td><code>0.12</code></td>
+        <td>How much to invert the empty track color</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <br>
 
 <p>For example, you can create a range input with a smaller, round thumb by setting the following variables:</p>
