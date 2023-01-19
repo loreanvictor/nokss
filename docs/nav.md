@@ -54,7 +54,7 @@
       <li role="treeitem"><a href="#code-snippets">Code Snippets</a></li>
       <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
       <li role="treeitem"><a href="#trees">Trees</a></li>
-      <li role="treeitem"><a href="#trees">Tables</a></li>
+      <li role="treeitem"><a href="#tables">Tables</a></li>
     </ul>
   </li>
 </ul>
