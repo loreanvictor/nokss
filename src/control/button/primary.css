@@ -1,17 +1,16 @@
 :root {
-  --button-primary-hover-brightness: 1.2;
-  --button-primary-active-opacity: 0.85;
+  --primary-button-hover-brightness: 1.2;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --button-primary-border-brightness: 0.9;
+    --primary-button-border-brightness: 0.9;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --button-primary-border-brightness: 1.2;
+    --primary-button-border-brightness: 1.2;
   }
 }
 
@@ -45,7 +44,7 @@ button,
     content: '';
     border: 1px solid var(--primary-color);
     border-radius: var(--roundness);
-    filter: brightness(var(--button-primary-border-brightness));
+    filter: brightness(var(--primary-button-border-brightness));
     transition: background 0.1s, filter 0.15s;
   }
 
@@ -60,12 +59,12 @@ button,
 
   &:hover,
   &:focus {
-    filter: brightness(var(--button-primary-hover-brightness));
+    filter: brightness(var(--primary-button-hover-brightness));
     outline: none;
   }
 
   &:active {
-    opacity: var(--button-primary-active-opacity);
+    opacity: var(--active-opacity);
   }
 
   &[aria-label] {

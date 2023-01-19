@@ -56,11 +56,28 @@ Use `aria-orientation="vertical"` to display a vertical toolbar:
 
 Tweak [global CSS variables](#theming) for customizing toolbars. If you need further customization, you can use following CSS variables::
 
-```css
-:root {
-  --toolbar-spacer-gap: calc(var(--spacing) * 4);
-  --toolbar-spacer-margin: calc(var(--spacing) / 2);
-}
-```
+<div style="overflow-x: auto">
+  <table>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--toolbar-spacer-gap</code></td>
+        <td><code>calc(var(--spacing) * 4)</code></td>
+        <td>Gap between toolbar buttons</td>
+      </tr>
+      <tr>
+        <td><code>--toolbar-spacer-margin</code></td>
+        <td><code>calc(var(--spacing) / 2)</code></td>
+        <td>Margin around toolbar spacers</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 </section>

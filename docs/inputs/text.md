@@ -89,25 +89,46 @@ Use attributes and ARIA attributes to determine state of the input:
 
 Tweak [global CSS variables](#theming) for customizing inputs. If you need further customization, you can use following CSS variables:
 
-```css
-:root {
-  --text-area-min-height: calc(2 * var(--spacing) + 2 * var(--interactable-size));
-  --input-idle-border-color: var(--background-color);
-}
-@media (prefers-color-scheme: light) {
-  :root {
-    --input-placeholder-expression: 0.4;
-    --input-background-brightness: calc(1 - (1 - var(--interactable-brightness)) * 1.5);
-    --input-background-brightness-focus-dropoff: 0.65;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --input-placeholder-expression: 0.15;
-    --input-background-brightness: var(--interactable-brightness);
-    --input-background-brightness-focus-dropoff: 0.25;
-  }
-}
-```
+<div style="overflow-x: auto">
+  <table>
+    <caption>
+      Input CSS Variables
+    </caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </head>
+    <tbody>
+      <tr>
+        <td><code>--text-area-<br>&emsp;-min-height</code></td>
+        <td><code>calc(2 *<br>&emsp;var(--spacing) +<br>&emsp;2 * var(--interactable-size))</code></td>
+        <td>Minimum height of text area</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-idle-border-<br>&emsp;-color</code></td>
+        <td><code>var(--background-color)</code></td>
+        <td>Border color of input when idle</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-placeholder-<br>&emsp;-expression</code></td>
+        <td><code>0.4</code> <small>(light)</small><br><code>0.15</code> <small>(dark)</small></td>
+        <td>Expression for calculating placeholder color</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-background-<br>&emsp;-brightness</code></td>
+        <td><code>calc(1 - (1 -<br>&emsp;var(--interactable-<br>&emsp;-brightness)) * 1.5)</code> <small>(light)</small><br><code>var(--interactable-<br>&emsp;-brightness)</code> <small>(dark)</small></td>
+        <td>Brightness of input background</td>
+      </tr>
+      <tr>
+        <td><code>--input-<br>&emsp;-background-<br>&emsp;-brightness-<br>&emsp;-focus-<br>&emsp;-dropoff</code></td>
+        <td><code>0.65</code> <small>(light)</small><br><code>0.25</code> <small>(dark)</small></td>
+        <td><p>Dropoff of input background brightness when focused</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 </section>

@@ -1,12 +1,8 @@
-:root {
-  --button-disabled-opacity: var(--disabled-opacity);
-}
-
 button:disabled,
 [role='button']:disabled,
 [type='button']:disabled,
 [type='submit']:disabled {
-  opacity: var(--button-disabled-opacity);
+  opacity: var(--disabled-opacity);
   border: none;
   background: var(--background-color);
   color: var(--text-color);

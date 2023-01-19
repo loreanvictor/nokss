@@ -1,10 +1,12 @@
-:root {
-  --button-secondary-active-opacity: 0.85;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
-    --button-secondary-active-opacity: 0.65;
+    --secondary-button-active-opacity: calc(1 - (1 - var(--active-opacity)) * 2);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --secondary-button-active-opacity: var(--active-opacity);
   }
 }
 
@@ -43,7 +45,7 @@ menu[aria-orientation='horizontal'],
     }
 
     &:active {
-      opacity: var(--button-secondary-active-opacity);
+      opacity: var(--secondary-button-active-opacity);
     }
   }
 

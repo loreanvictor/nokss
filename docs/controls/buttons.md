@@ -144,15 +144,52 @@ Denote a dangerous action by starting `aria-description` of the button with `"da
 ### Customization
 
 Tweak [global CSS variables](#theming) for customizing buttons. If you need further customization, you can use following CSS variables:
-```css
-:root {
-  --button-height: var(--interactable-size);
-  --button-min-width: calc(var(--button-height) * 3);
-  --button-padding: 0px var(--spacing);
-}
-```
 
-<br>
+<div style="overflow-x: auto">
+  <table>
+    <caption>Button Customization</caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--button-height</code></td>
+        <td><code>var(--interactable-size)</code></td>
+        <td>Height of the button</td>
+      </tr>
+      <tr>
+        <td><code>--button-min-width</code></td>
+        <td><code>calc(var(--button-height) * 3)</code></td>
+        <td>Minimum width of the button</td>
+      </tr>
+      <tr>
+        <td><code>--button-padding</code></td>
+        <td><code>0 var(--spacing)</code></td>
+        <td>Padding of the button</td>
+      </tr>
+      <tr>
+        <td><code>--primary-button<br>&emsp;-hover-brightness</code></td>
+        <td><code>1.2</code></td>
+        <td>Brightness of primary buttons when hovered.</td>
+      </tr>
+      <tr>
+        <td><code>--primary-button<br>&emsp;-border-brightness</code></td>
+        <td><code>0.9</code> <small>(light)</small><br><code>1.2</code> <small>(dark)</small></td>
+        <td><p>Brightness of border of primary buttons (relative to their background).</p></td>
+      </tr>
+      <tr>
+        <td><code>--secondary-button<br>&emsp;-active-opacity</code></td>
+        <td><code>calc(1 - (1 - <br>&emsp;var(--active-opacity))<br>&emsp; * 2)</code> <small>(light)</small>
+          <br><code>var(--active-opacity)</code> <small>(dark)</small></td>
+        <td>Opacity of secondary buttons when active.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 For example, you can create a slimmer rounded button by setting the following variables:
 

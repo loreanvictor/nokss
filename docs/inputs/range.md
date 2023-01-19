@@ -2,7 +2,7 @@
 
 ## Range Input
 
-Use `<input type="range">`) to create ranges and sliders:
+Use `<input type="range">` to create ranges and sliders:
 
 ```html
 <input type="range" aria-label="some range"/>
@@ -88,15 +88,45 @@ The length of the track, in this case, is specified by `--track-length` CSS vari
 
 Tweak [global CSS variables](#theming) for customizing range inputs. If you need further customization, you can use following CSS variables:
 
-```css
-:root {
-  --range-input-track-height: 2px;
-  --range-input-thumb-width: var(--button-height);
-  --range-input-thumb-height: calc(var(--button-height) * 2 / 3);
-  --range-input-margin: calc(var(--range-input-thumb-height) + var(--spacing)) 0;
-  --range-input-empty-track-inversion: 0.12;
-}
-```
+<div style="overflow-x: auto">
+  <table>
+    <caption>Range Input CSS Variables</caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--range-input<br>&emsp;-track-height</code></td>
+        <td><code>4px</code></td>
+        <td>Height of the track</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-thumb-width</code></td>
+        <td><code>var(--button-height)</code></td>
+        <td>Width of the thumb</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-thumb-height</code></td>
+        <td><code>calc(<br>&emsp;var(--button-height)<br>&emsp; * 2 / 3)</code></td>
+        <td>Height of the thumb</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-margin</code></td>
+        <td><code>calc(<br>&emsp;var(--range-input<br>&emsp;&emsp;-thumb-height) +<br>&emsp; var(--spacing)) 0</code></td>
+        <td>Margin of the range input</td>
+      </tr>
+      <tr>
+        <td><code>--range-input<br>&emsp;-empty-track-inversion</code></td>
+        <td><code>0.12</code></td>
+        <td>How much to invert the empty track color</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <br>
 

@@ -21,8 +21,8 @@ pre {
 
 pre [role='toolbar'] {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: var(--code-padding);
+  right: var(--code-padding);
   opacity: 0;
   transition: opacity 0.15s;
 }

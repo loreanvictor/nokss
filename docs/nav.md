@@ -42,17 +42,19 @@
       <li role="treeitem"><a href="#main-content-sections">Main Content & Sections</a></li>
       <li role="treeitem"><a href="#header-footer">Header & Footer</a></li>
       <li role="treeitem"><a href="#sidebar">Sidebar</a></li>
-      <li role="treeitem"><a href="#trees">Trees</a></li>
+      <li role="treeitem"><a href="#feed--cards">Feed & Cards</a></li>
+      <li role="treeitem"><a href="#modals">Modals</a></li>
     </ul>
   </li>
 
   <li role="treeitem" aria-expanded="false">
     <span>Content</span>
     <ul role="group">
-      <li role="treeitem"><a href="#typography">Typography</a></li>
       <li role="treeitem"><a href="#headings">Headings</a></li>
       <li role="treeitem"><a href="#code-snippets">Code Snippets</a></li>
       <li role="treeitem"><a href="#blockquote">Blockquotes</a></li>
+      <li role="treeitem"><a href="#trees">Trees</a></li>
+      <li role="treeitem"><a href="#trees">Tables</a></li>
     </ul>
   </li>
 </ul>

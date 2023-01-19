@@ -1,6 +1,7 @@
 :root {
   --interactable-size: 32px;
   --disabled-opacity: 0.35;
+  --active-opacity: 0.85;
 }
 
 @media (hover: none) and (pointer: coarse) {

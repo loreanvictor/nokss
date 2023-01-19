@@ -103,71 +103,65 @@ Change the main theme values in the code below and see their effects on the page
 <link rel="stylesheet" href="assets/theme.css" />
 <script type="module" defer src="assets/theme.js"></script>
 
-<br><br>
-
-The following are the main CSS variables determining styling of various elements:
-
-- **Primary Color** \
-  The primary color for highlighted text and actions. Also comes with _primary text color_,
-  which is the color of the text that is to be used on backgrounds with primary color.
-  ```css
-  :root {
-    --primary-color: #1f6feb;
-    --primary-text-color: #fff;
-  }
-  ```
-  <br>
-
-- **Background & Text** \
-  Determine the background and text color of the content. Since these values are typically
-  dependent on color scheme, make sure to use `prefers-color-scheme` media query to maintain dark mode support.
-  ```css
-  @media (prefers-color-scheme: light) {
-    :root {
-      --background-color: #fffdf9;
-      --text-color: #393e46;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background-color: #0d1118;
-      --text-color: #fffcf3;
-    }
-  }
-  ```
-  <br>
-
-- **Danger Color** \
-  Danger color denotes elements that have potentially harmful (and irreversible) effects, or states of error. _Danger text color_ is the  color of text that is to be used on backgrounds with danger color.
-  ```css
-  :root {
-    --danger-color: #ff2626;
-    --danger-text-color: #fff;
-  }
-  ```
-  <br>
-
-- **Borders** \
-  Border expression determines how visible borders are, `0` being invisible and `1` being fully visible.
-  Roundness determines roundness of corners of various elements. Different elements will calculate their border radius
-  using this global variable.
-  ```css
-  :root {
-    --roundness: 5px;
-    --border-expression: 0.05;
-  }
-  ```
-  <br>
-
-- **Spacing** \
-  Spacing of various elements is generally determined by the spacing variable. This particular variable can be a bit tricky to modify, so I would recommend overriding specific spacing values of different elements instead of the global one.
-  ```css
-  :root {
-    --spacing: 8px;
-  }
-  ```
-  <br>
+<div style="overflow-x: auto">
+  <table>
+    <caption>Theme's CSS Variables</caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--primary-color</code></td>
+        <td><code>#1f6feb</code></td>
+        <td>The primary color for highlighted text and actions.</td>
+      </tr>
+      <tr>
+        <td><code>--primary-text-color</code></td>
+        <td><code>#fff</code></td>
+        <td>The color of the text that is to be used on backgrounds with primary color.</td>
+      </tr>
+      <tr>
+        <td><code>--text-color</code></td>
+        <td><code>#393e46</code> <small>(light)</small><br><code>#fffcf3</code> <small>(dark)</small></td>
+        <td>Color of text.</td>
+      </tr>
+      <tr>
+        <td><code>--background-color</code></td>
+        <td><code>#fffdf9</code> <small>(light)</small><br><code>#0d1118</code> <small>(dark)</small></td>
+        <td>Color of background.</td>
+      </tr>
+      <tr>
+        <td><code>--danger-color</code></td>
+        <td><code>#ff2626</code></td>
+        <td>Denotes potentially harmful actions, or error states.</td>
+      </tr>
+      <tr>
+        <td><code>--danger-text-color</code></td>
+        <td><code>#fff</code></td>
+        <td>Denotes potentially harmful actions, or error states.</td>
+      </tr>
+      <tr>
+        <td><code>--roundness</code></td>
+        <td><code>5px</code></td>
+        <td>Determines how round various elements are (e.g. border radius).</td>
+      </tr>
+      <tr>
+        <td><code>--border-expression</code></td>
+        <td><code>0.05</code></td>
+        <td>Determines how visible borders are, <code>0</code> being invisible and <code>1</code> being fully visible.</td>
+      </tr>
+      <tr>
+        <td><code>--spacing</code></td>
+        <td><code>8px</code></td>
+        <td><p>Specifies the spacing between various elements. It is highly recommended to modify spacing per element instead of tweaking the global version.</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 Besides these global values, each element also relies on its own specific variables, which are by default calculated from these global values, and can be overriden for customizing the look of individual elements.
 

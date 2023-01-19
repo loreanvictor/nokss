@@ -1,0 +1,131 @@
+:root {
+  --table-spacing: calc(var(--spacing) * 4);
+  --table-even-row-brightness: calc(1 - (1 - var(--table-hover-brightness)) / 2);
+  --table-cell-padding: var(--spacing) calc(4 * var(--spacing)) var(--spacing) 0;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --table-caption-expression: 0.75;
+    --table-border-expression: var(--border-expression);
+    --table-header-border-expression: calc(1 - (1 - var(--border-expression)) * 0.98);
+    --table-hover-brightness: 0.94;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --table-caption-expression: 0.45;
+    --table-border-expression: calc(1 - (1 - var(--border-expression)) * 0.95);
+    --table-header-border-expression: calc(1 - (1 - var(--border-expression)) * 0.9);
+    --table-hover-brightness: 1.6;
+  }
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  border-spacing: 0;
+  margin: var(--table-spacing) 0;
+
+  caption {
+    font-size: var(--small-font-size);
+    opacity: var(--table-caption-expression);
+    text-align: left;
+  }
+}
+
+th,
+td {
+  padding: var(--table-cell-padding);
+  position: relative;
+
+  & > p {
+    margin: 0;
+    max-width: 50vw;
+    white-space: normal;
+  }
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px inset var(--text-color);
+    opacity: var(--table-border-expression);
+  }
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+
+  thead & {
+    position: sticky;
+    background: var(--background-color);
+    top: 0;
+    z-index: 1;
+
+    &::before {
+      opacity: var(--table-header-border-expression);
+    }
+  }
+}
+
+tbody {
+  white-space: nowrap;
+
+  :is(th, td) {
+    transition: color 0.15s;
+
+    & > * {
+      transition: color 0.15s;
+    }
+
+    &:hover {
+      color: var(--primary-color);
+
+      & > * {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  tr {
+    transition: filter 0.15s;
+    background: var(--background-color);
+
+    &:nth-child(2n-1) {
+      filter: brightness(var(--table-even-row-brightness));
+    }
+
+    &:hover {
+      filter: brightness(var(--table-hover-brightness));
+    }
+  }
+
+  tr:last-child :is(th, td) {
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+tfoot {
+  :is(td, th) {
+    color: var(--primary-color);
+    font-weight: bold;
+
+    &::before {
+      border-bottom: none;
+      border-top: 1px inset var(--text-color);
+    }
+
+    tr:first-child &::before {
+      opacity: var(--table-header-border-expression);
+    }
+  }
+}

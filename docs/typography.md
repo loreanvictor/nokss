@@ -2,34 +2,60 @@
 
 # Typography
 
-_nokss_ defaults to a native font stack for performance, available in `--font-family` CSS variable:
+_nokss_ defaults to a native font stack for performance, available in `--font-family` CSS variable. Font size is based off of `rem` unit to support browser's default font size. Typography is controlled via the following
+CSS variables and can be tweaked accordingly:
 
-```css
-:root {
-  --font-family:
-    -apple-system,
-    blinkmacsystemfont,
-    'Segoe UI',
-    'Noto Sans',
-    helvetica,
-    arial,
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji';
-}
-```
 
-<br>
 
-Font size is based off of `rem` unit to support browser's default font size:
+<div style="overflow-x: auto">
+  <table>
+    <caption>
+      Typography CSS variables
+    </caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--font-family</code></td>
+        <td><p style="font-family: monospace; font-size: var(--small-font-size)">
+          -apple-system, <br> blinkmacsystemfont, <br>
+          'Segoe UI', <br> 'Noto Sans', <br>
+          helvetica, <br> arial, <br> sans-serif, <br>
+          'Apple Color Emoji', <br> 'Segoe UI Emoji'
+        </p></td>
+        <td>Base font family</td>
+      </tr>
+      <tr>
+        <td><code>--font-size</code></td>
+        <td><code>1rem</code></td>
+        <td>Base font size</td>
+      </tr>
+      <tr>
+        <td><code>--small-font-size</code></td>
+        <td><code>0.833rem</code></td>
+        <td>
+          Font size for smaller items.
+        </td>
+      </tr>
+      <tr>
+        <td><code>--font-weight</code></td>
+        <td><code>300</code></td>
+        <td>Base font weight</td>
+      </tr>
+      <tr>
+        <td><code>--line-height</code></td>
+        <td><code>calc(var(--font-size) * 1.5)</code></td>
+        <td>Base line height</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-```css
-:root {
-  --font-size: 1rem;
-  --font-weight: 300;
-  --line-height: calc(var(--font-size) * 1.5);
-}
-```
 
 <br>
 

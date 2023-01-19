@@ -4,6 +4,7 @@
   --footer-background: var(--background-color);
   --footer-background-opacity: 0.65;
   --footer-padding: var(--spacing) calc(2 * var(--spacing));
+  --footer-z: calc(var(--sticky-z) + 1);
 }
 
 body > footer {
@@ -13,7 +14,7 @@ body > footer {
   bottom: 0;
   backdrop-filter: blur(var(--footer-blur));
   padding: var(--footer-padding);
-  z-index: 101;
+  z-index: var(--footer-z);
 
   &::before {
     content: '';
