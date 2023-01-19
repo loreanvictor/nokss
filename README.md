@@ -42,7 +42,7 @@ You need [node](https://nodejs.org/en/), [NPM](https://www.npmjs.com) to start a
 
 ```bash
 # clone the code
-git clone git@github.com:loreanvictor/minicomp.git
+git clone git@github.com:loreanvictor/nokss.git
 ```
 ```bash
 # install stuff
