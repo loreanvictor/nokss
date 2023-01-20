@@ -1736,6 +1736,16 @@ radio.addEventListener('click', () => {
   </table>
 </div>
 
+<blockquote>
+<p><strong>IMPORTANT</strong></p>
+<p>Dialog backdrop DOES NOT inherit root scope variables. Override modal related variables for <code>:root</code> AND <code>::backdrop</code>:</p>
+<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span>,
+<span class="hljs-selector-pseudo">::backdrop</span> {
+  <span class="hljs-attribute">--modal-backdrop-background</span>: <span class="hljs-built_in">rgba</span>(128 128 128 / 25%);
+  <span class="hljs-attribute">--modal-backdrop-blur</span>: <span class="hljs-number">32px</span>;
+}
+</code></pre>
+</blockquote>
 </section>
       <br><br>
     </main>
