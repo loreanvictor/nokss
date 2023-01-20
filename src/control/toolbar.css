@@ -12,6 +12,7 @@
   max-width: 100%;
   overflow: auto;
 
+  &[align='end'],
   &[align='right'],
   &[align='bottom'] {
     justify-content: flex-end;

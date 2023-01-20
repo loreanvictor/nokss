@@ -81,16 +81,12 @@ tbody {
   :is(th, td) {
     transition: color 0.15s;
 
-    & > * {
-      transition: color 0.15s;
+    & *:not(button, [role='button'], [role='submit'], [role='radiogroup'], pre, a) {
+      color: inherit;
     }
 
     &:hover {
       color: var(--primary-color);
-
-      & > * {
-        color: var(--primary-color);
-      }
     }
   }
 

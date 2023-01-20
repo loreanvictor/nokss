@@ -19,7 +19,7 @@ menu {
   }
 }
 
-menu[role='group'],
+[role='group'],
 menu[aria-orientation='horizontal'],
 [role='menu'][aria-oriented='horizontal'] {
   & > button:not(:last-child),

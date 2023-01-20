@@ -147,7 +147,7 @@ Tweak [global CSS variables](#theming) for customizing buttons. If you need furt
 
 <div style="overflow-x: auto">
   <table>
-    <caption>Button Customization</caption>
+    <caption>Button CSS Variables</caption>
     <thead>
       <tr>
         <th>Variable</th>

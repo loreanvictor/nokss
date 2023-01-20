@@ -1,12 +1,24 @@
 :root,
 ::backdrop {
   --modal-width: 512px;
-  --modal-min-height: 256px;
   --modal-backdrop-blur: 8px;
-  --modal-backdrop-brightness: 2;
-  --modal-background-opacity: 0.25;
-  --modal-backdrop-background: rgba(0  0  0  / 25%);
-  --modal-animation: show-dialog-grow-in;
+  --modal-backdrop-background: rgba(0  0  0  / 50%);
+  --modal-background-brightness: 2;
+  --modal-animation: grow-modal-in;
+}
+
+@media (prefers-color-scheme: light) {
+  :root,
+  ::backdrop {
+    --modal-background-opacity: 0.9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root,
+  ::backdrop {
+    --modal-background-opacity: 0.35;
+  }
 }
 
 dialog {
@@ -15,7 +27,7 @@ dialog {
   border: none;
   width: var(--modal-width);
   overflow: auto;
-  padding: var(--spacing);
+  padding: calc(2 * var(--spacing));
   backdrop-filter: blur(calc(4 * var(--modal-backdrop-blur)));
   animation: var(--modal-animation) 0.3s;
 
@@ -30,7 +42,7 @@ dialog {
     border-radius: var(--roundness);
     opacity: var(--modal-background-opacity);
     z-index: -1;
-    filter: brightness(var(--modal-backdrop-brightness));
+    filter: brightness(var(--modal-background-brightness));
   }
 
   &::after {
@@ -49,13 +61,37 @@ dialog {
   &::backdrop {
     background: var(--modal-backdrop-background);
     backdrop-filter: blur(var(--modal-backdrop-blur));
-    animation: show-dialog-backdrop 0.15s;
+    animation: show-dialog-backdrop 0.45s;
+  }
+
+  & > :is(h1, h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
+  }
+
+  & > header {
+    position: relative;
+    margin-bottom: calc(2 * var(--spacing));
+    padding-bottom: calc(2 * var(--spacing));
+
+    & :is(h1, h2, h3, h4, h5, h6) {
+      margin: 0;
+    }
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid var(--text-color);
+      opacity: var(--border-expression);
+    }
   }
 
   & > footer {
     position: relative;
-    margin-top: var(--spacing);
-    padding-top: var(--spacing);
+    margin-top: calc(2 * var(--spacing));
+    padding-top: calc(2 * var(--spacing));
 
     &::before {
       content: ' ';
@@ -73,7 +109,7 @@ dialog {
   }
 }
 
-@keyframes show-dialog-fade-in {
+@keyframes fade-modal-in {
   from {
     opacity: 0;
   }
@@ -83,7 +119,7 @@ dialog {
   }
 }
 
-@keyframes show-dialog-grow-in {
+@keyframes grow-modal-in {
   from {
     opacity: 0;
     transform: scale(0.8);
@@ -95,7 +131,7 @@ dialog {
   }
 }
 
-@keyframes show-dialog-drop-in {
+@keyframes drop-modal-in {
   from {
     opacity: 0;
     transform: translateY(-10vh);
