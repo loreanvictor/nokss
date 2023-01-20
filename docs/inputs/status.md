@@ -47,6 +47,18 @@ input is not focused and is invalid:
   <br>
 </div>
 
+```html
+<!-- Using alert: -->
+<label>Using alert:</label>
+<input type="email" placeholder="Enter an email address" value="invalid@email."/>
+<span role="alert">Enter a valid email address.</span>
+
+<!-- Using status: -->
+<label>Using status:</label>
+<input type="email" placeholder="Enter an email address" value="invalid@email."/>
+<span role="status">Enter a valid email address.</span>
+```
+
 <br>
 
 You can also use status messages within labels:

@@ -20,7 +20,7 @@ pre code * { color: white; }
   padding: 8px;
 }
 
-body > aside:first-child {
+body > aside:first-of-type {
   font-size: var(--small-font-size);
 }
 

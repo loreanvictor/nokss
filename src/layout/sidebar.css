@@ -18,7 +18,7 @@
   }
 }
 
-body > aside:first-child {
+body > aside:first-of-type {
   position: fixed;
   top: 0;
   left: 0;
@@ -55,5 +55,19 @@ body > aside:first-child {
       transform: translateX(0);
       box-shadow: 0 0 var(--sidebar-fullscreen-gap) calc(1.5 * var(--sidebar-fullscreen-gap)) rgba(0 0 0 / 60%);
     }
+  }
+}
+
+body > main + aside,
+body > main + aside:first-of-type {
+  left: auto;
+  right: 0;
+
+  &[aria-hidden='true'] {
+    transform: translateX(100%);
+  }
+
+  @media (max-width: 1024px) {
+    transform: translateX(100%);
   }
 }

@@ -7,14 +7,22 @@
   --footer-z: calc(var(--sticky-z) + 1);
 }
 
+body > header,
 body > footer {
   position: fixed;
   width: 100%;
   left: 0;
-  bottom: 0;
   backdrop-filter: blur(var(--footer-blur));
   padding: var(--footer-padding);
   z-index: var(--footer-z);
+
+  &:is(header) {
+    top: 0;
+  }
+
+  &:is(footer) {
+    bottom: 0;
+  }
 
   &::before {
     content: '';
