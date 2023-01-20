@@ -52,10 +52,10 @@
   </li>
 
   <li role="treeitem" aria-expanded="false">
-    <span>Layout</span>
+    <a href="#layout">Layout</a>
     <ul role="group">
-      <li role="treeitem"><a href="#main-content-sections">Main Content & Sections</a></li>
-      <li role="treeitem"><a href="#header-footer">Header & Footer</a></li>
+      <li role="treeitem"><a href="#main-content--sections">Main Content & Sections</a></li>
+      <li role="treeitem"><a href="#header--footer">Header & Footer</a></li>
       <li role="treeitem"><a href="#sidebar">Sidebar</a></li>
       <li role="treeitem"><a href="#feed--cards">Feed & Cards</a></li>
       <li role="treeitem"><a href="#modals">Modals</a></li>
@@ -1538,6 +1538,50 @@ input is not focused and is invalid:</p>
     <input type="email" placeholder="Enter an email address" />
     <span role="status">Enter a valid email address.</span>
   </label>
+</div>
+
+</section>
+      <section>
+
+<h1 id="layout">Layout</h1>
+<p>In following sections you can find details on layout elements (containers, grids, etc.) that <em>nokss</em> supports,
+alongside example usage and customization guidelines for each.</p>
+<ul>
+<li><a href="#main-content--sections">Main Content &amp; Sections</a></li>
+<li><a href="#header--footer">Header &amp; Footer</a></li>
+<li><a href="#sidebar">Sidebar</a></li>
+<li><a href="#feed--cards">Feed &amp; Cards</a></li>
+<li><a href="#modals">Modals</a></li>
+</ul>
+</section>
+
+<section>
+
+<h1 id="modals">Modals</h1>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"document.querySelector('#modal-1').showModal()"</span>&gt;</span>Show Modal<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"modal-1"</span>&gt;</span>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"dialog"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"end"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dialog</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <button onclick="document.querySelector('#modal-1').showModal()">Show Modal</button>
+  <dialog id="modal-1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <footer>
+      <form method="dialog">
+        <menu role="group" align="end">
+          <button>Close</button>
+        </menu>
+      </form>
+    </footer>
+  </dialog>
 </div>
 
 </section>
