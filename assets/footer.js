@@ -1,5 +1,5 @@
 const control = document.querySelector('footer button[role="switch"]')
-const sidebar = document.querySelector('body>aside:first-child')
+const sidebar = document.querySelector('body>aside:first-of-type')
 
 control.addEventListener('click', () => {
   sidebar.setAttribute('aria-hidden',control.getAttribute('aria-checked'))

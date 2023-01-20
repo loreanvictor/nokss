@@ -95,7 +95,7 @@
       if (scrollY > window.innerHeight * 0.85) {
         if (initial) {
           initial = false
-          document.querySelector('body>aside:first-child').setAttribute('aria-hidden', false)
+          document.querySelector('body>aside:first-of-type').setAttribute('aria-hidden', false)
           document.querySelector('body>footer [role="switch"]').setAttribute('aria-checked', false)
           document.removeEventListener('scroll', listener)
         }
@@ -1519,6 +1519,16 @@ input is not focused and is invalid:</p>
   <br>
 </div>
 
+<pre><code class="language-html"><span class="hljs-comment">&lt;!-- Using alert: --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Using alert:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Enter an email address"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"invalid@email."</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span>&gt;</span>Enter a valid email address.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Using status: --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Using status:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Enter an email address"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"invalid@email."</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>Enter a valid email address.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</code></pre>
 <br>
 
 <p>You can also use status messages within labels:</p>
