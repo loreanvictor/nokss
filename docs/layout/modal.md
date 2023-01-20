@@ -192,4 +192,15 @@ Tweak [global CSS variables](#theming) for customizing modals. If you need furth
   </table>
 </div>
 
+> **IMPORTANT**
+>
+> Dialog backdrop DOES NOT inherit root scope variables. Override modal related variables for `:root` AND `::backdrop`:
+>
+> ```css
+> :root,
+> ::backdrop {
+>   --modal-backdrop-background: rgba(128 128 128 / 25%);
+>   --modal-backdrop-blur: 32px;
+> }
+
 </section>
