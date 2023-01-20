@@ -1,0 +1,120 @@
+:root,
+::backdrop {
+  --modal-width: 512px;
+  --modal-min-height: 256px;
+  --modal-backdrop-blur: 8px;
+  --modal-backdrop-brightness: 2;
+  --modal-background-opacity: 0.25;
+  --modal-backdrop-background: rgba(0  0  0  / 25%);
+  --modal-animation: show-dialog-grow-in;
+}
+
+dialog {
+  background: transparent;
+  border-radius: var(--roundness);
+  border: none;
+  width: var(--modal-width);
+  overflow: auto;
+  padding: var(--spacing);
+  backdrop-filter: blur(calc(4 * var(--modal-backdrop-blur)));
+  animation: var(--modal-animation) 0.3s;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--background-color);
+    border-radius: var(--roundness);
+    opacity: var(--modal-background-opacity);
+    z-index: -1;
+    filter: brightness(var(--modal-backdrop-brightness));
+  }
+
+  &::after {
+    content: ' ';
+    border-radius: var(--roundness);
+    position: absolute;
+    border: 1px solid var(--text-color);
+    opacity: var(--border-expression);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  &::backdrop {
+    background: var(--modal-backdrop-background);
+    backdrop-filter: blur(var(--modal-backdrop-blur));
+    animation: show-dialog-backdrop 0.15s;
+  }
+
+  & > footer {
+    position: relative;
+    margin-top: var(--spacing);
+    padding-top: var(--spacing);
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-top: 1px solid var(--text-color);
+      opacity: var(--border-expression);
+    }
+
+    & [role='group'] {
+      margin: 0;
+    }
+  }
+}
+
+@keyframes show-dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show-dialog-grow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes show-dialog-drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes show-dialog-backdrop {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(var(--modal-backdrop-blur));
+  }
+}

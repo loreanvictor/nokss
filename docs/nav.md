@@ -37,10 +37,10 @@
   </li>
 
   <li role="treeitem" aria-expanded="false">
-    <span>Layout</span>
+    <a href="#layout">Layout</a>
     <ul role="group">
-      <li role="treeitem"><a href="#main-content-sections">Main Content & Sections</a></li>
-      <li role="treeitem"><a href="#header-footer">Header & Footer</a></li>
+      <li role="treeitem"><a href="#main-content--sections">Main Content & Sections</a></li>
+      <li role="treeitem"><a href="#header--footer">Header & Footer</a></li>
       <li role="treeitem"><a href="#sidebar">Sidebar</a></li>
       <li role="treeitem"><a href="#feed--cards">Feed & Cards</a></li>
       <li role="treeitem"><a href="#modals">Modals</a></li>
