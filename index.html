@@ -231,60 +231,62 @@ The more semantic and accessible your markup is, the more <em>nokss</em> will be
 <h1 id="theming">Theming</h1>
 <p><em>nokss</em> exposes CSS variables for customizing the look and feel of your pages. 
 Change the main theme values in the code below and see their effects on the page:</p>
-<menu role="toolbar">
-  <menu role="radiogroup" data-key="--roundness">
-    <button role="radio" value="1px" aria-label="sharp corners">
-      <span class="corner-mark sharp"></span>
-    </button>
-    <button role="radio" value="5px" aria-label="round corners">
-      <span class="corner-mark round"></span>
-    </button>
-    <button role="radio" value="24px" aria-label="circular corners">
-      <span class="corner-mark circle"></span>
-    </button>
+<div style="overflow-x: auto">
+  <menu role="toolbar">
+    <menu role="radiogroup" data-key="--roundness">
+      <button role="radio" value="1px" aria-label="sharp corners">
+        <span class="corner-mark sharp"></span>
+      </button>
+      <button role="radio" value="5px" aria-label="round corners">
+        <span class="corner-mark round"></span>
+      </button>
+      <button role="radio" value="24px" aria-label="circular corners">
+        <span class="corner-mark circle"></span>
+      </button>
+    </menu>
+    <hr/>
+    <menu role="radiogroup" data-key="--primary-color;--primary-text-color;light:--primary-color;light:--primary-text-color;dark:--primary-color;dark:--primary-text-color">
+      <button role="radio" value="var(--text-color);var(--background-color)" aria-label="monochrome">
+        <span class="color-mark" style="background: var(--text-color)"></span>
+      </button>
+      <button role="radio" value="#1f6feb;#fff" aria-label="github blue">
+        <span class="color-mark" style="background: #1f6feb"></span>
+      </button>
+      <button role="radio" value="#1dB954;#000" aria-label="spotify green">
+        <span class="color-mark" style="background: #1dB954"></span>
+      </button>
+      <button role="radio" value="#ff9900;#000" aria-label="amazon orange">
+        <span class="color-mark" style="background: #ff9900"></span>
+      </button>
+      <button role="radio" value="#ff5a5f;#fff" aria-label="airbnb red">
+        <span class="color-mark" style="background: #ff5a5f"></span>
+      </button>
+      <button role="radio" value=";;#833ab4;#fff;#e1306c;#fff" aria-label="lyft pink">
+        <span class="color-mark light" style="background: #833ab4"></span>
+        <span class="color-mark dark" style="background: #e1306c"></span>
+      </button>
+    </menu>
+    <hr/>
+    <menu role="radiogroup" data-key="light:--background-color;light:--text-color;dark:--background-color;dark:--text-color;light:--interactable-brightness;light:--border-expression;dark:--interactable-brightness;dark:--border-expression;--input-idle-border-color">
+      <button role="radio" value="#fffdf9;#393e46;#0d1118;#fffcf3" aria-label="midnight">
+        <span class="color-mark light bg" style="background: #fffdf9"></span>
+        <span class="color-mark dark bg" style="background: #0d1118"></span>
+      </button>
+      <button role="radio" value="#f3efe0;#222222;#222222;#f3efe0;;;1.25;.05" aria-label="printish">
+        <span class="color-mark light bg" style="background: #f3efe0"></span>
+        <span class="color-mark dark bg" style="background: #222222"></span>
+      </button>
+      <button role="radio" value="#f5f5f5;#000;#111;#fff;0.97;0;1.35;0" aria-label="classic">
+        <span class="color-mark light bg" style="background: #f5f5f5"></span>
+        <span class="color-mark dark bg" style="background: #111"></span>
+      </button>
+      <button role="radio" value="#000;var(--primary-color);#000;var(--primary-color);1;1;1;1;var(--text-color)" aria-label="terminal">
+        <span class="color-mark light bg" style="background: #000"></span>
+        <span class="color-mark dark bg" style="background: #000"></span>
+      </button>
+    </menu>
   </menu>
-  <hr/>
-  <menu role="radiogroup" data-key="--primary-color;--primary-text-color;light:--primary-color;light:--primary-text-color;dark:--primary-color;dark:--primary-text-color">
-    <button role="radio" value="var(--text-color);var(--background-color)" aria-label="monochrome">
-      <span class="color-mark" style="background: var(--text-color)"></span>
-    </button>
-    <button role="radio" value="#1f6feb;#fff" aria-label="github blue">
-      <span class="color-mark" style="background: #1f6feb"></span>
-    </button>
-    <button role="radio" value="#1dB954;#000" aria-label="spotify green">
-      <span class="color-mark" style="background: #1dB954"></span>
-    </button>
-    <button role="radio" value="#ff9900;#000" aria-label="amazon orange">
-      <span class="color-mark" style="background: #ff9900"></span>
-    </button>
-    <button role="radio" value="#ff5a5f;#fff" aria-label="airbnb red">
-      <span class="color-mark" style="background: #ff5a5f"></span>
-    </button>
-    <button role="radio" value=";;#833ab4;#fff;#e1306c;#fff" aria-label="lyft pink">
-      <span class="color-mark light" style="background: #833ab4"></span>
-      <span class="color-mark dark" style="background: #e1306c"></span>
-    </button>
-  </menu>
-  <hr/>
-  <menu role="radiogroup" data-key="light:--background-color;light:--text-color;dark:--background-color;dark:--text-color;light:--interactable-brightness;light:--border-expression;dark:--interactable-brightness;dark:--border-expression;--input-idle-border-color">
-    <button role="radio" value="#fffdf9;#393e46;#0d1118;#fffcf3" aria-label="midnight">
-      <span class="color-mark light bg" style="background: #fffdf9"></span>
-      <span class="color-mark dark bg" style="background: #0d1118"></span>
-    </button>
-    <button role="radio" value="#f3efe0;#222222;#222222;#f3efe0;;;1.25;.05" aria-label="printish">
-      <span class="color-mark light bg" style="background: #f3efe0"></span>
-      <span class="color-mark dark bg" style="background: #222222"></span>
-    </button>
-    <button role="radio" value="#f5f5f5;#000;#111;#fff;0.97;0;1.35;0" aria-label="classic">
-      <span class="color-mark light bg" style="background: #f5f5f5"></span>
-      <span class="color-mark dark bg" style="background: #111"></span>
-    </button>
-    <button role="radio" value="#000;var(--primary-color);#000;var(--primary-color);1;1;1;1;var(--text-color)" aria-label="terminal">
-      <span class="color-mark light bg" style="background: #000"></span>
-      <span class="color-mark dark bg" style="background: #000"></span>
-    </button>
-  </menu>
-</menu>
+</div>
 
 <div class="theme-preview">
 
@@ -680,6 +682,46 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
+<h3 id="status-badges-in-buttons">Status Badges in Buttons</h3>
+<p>Use <code>role=&quot;status&quot;</code> to add a status badge (such as a counter) to a button:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+  Star <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <button>
+    Star <span role="status">3</span>
+  </button>
+</div>
+
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+    Watch <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>450k+<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+    Fork <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>32<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">aria-description</span>=<span class="hljs-string">"danger"</span>&gt;</span>
+    Delete <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>∞<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="group">
+    <button>
+      Watch <span role="status">450k+</span>
+    </button>
+    <button>
+      Fork <span role="status">32</span>
+    </button>
+    <button aria-description="danger">
+      Delete <span role="status">∞</span>
+    </button>
+  </menu>
+</div>
+
+<br>
+
 <h3 id="customization">Customization</h3>
 <p>Tweak <a href="#theming">global CSS variables</a> for customizing buttons. If you need further customization, you can use following CSS variables:</p>
 <div style="overflow-x: auto">
@@ -792,8 +834,76 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
+<p>You can combine vertical toolbars with <code>&lt;details&gt;</code> element to create
+drop-in menus:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">summary</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span>&gt;</span>
+    Options ▾
+  <span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Do this<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Or do that<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <details>
+    <summary role="button">
+      Options ▾
+    </summary>
+    <div>
+      <menu role="toolbar" aria-orientation="vertical">
+        <button>Do this</button>
+        <button>Or do that</button>
+      </menu>
+    </div>
+  </details>
+</div>
+
+<p>Or even as part of a composite button:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Something<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">summary</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"more"</span>&gt;</span>
+      ⋮
+    <span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Hellow<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>World<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Goodbye Blue Sky<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="toolbar">
+    <button>Something</button>
+    <details>
+      <summary role="button" aria-label="more" class="icon">
+        ⋮
+      </summary>
+      <div>
+        <menu role="toolbar" aria-orientation="vertical">
+          <button>Hellow</button>
+          <button>World</button>
+          <button>Goodbye Blue Sky</button>
+        </menu>
+      </div>
+    </details>
+  </menu>
+</div>
+
+<blockquote>
+<p><strong>Usage Note</strong></p>
+<p>Make sure to use <code>role=&quot;button&quot;</code> on the <code>&lt;summary&gt;</code> element. Also make sure to
+wrap the toolbar in a <code>&lt;div&gt;</code> element so that it can be positioned correctly.</p>
+</blockquote>
 <h3 id="customization">Customization</h3>
-<p>Tweak <a href="#theming">global CSS variables</a> for customizing toolbars. If you need further customization, you can use following CSS variables::</p>
+<p>Tweak <a href="#theming">global CSS variables</a> for customizing toolbars. If you need further customization, you can use following CSS variables:</p>
 <div style="overflow-x: auto">
   <table>
     <thead>
@@ -1630,7 +1740,7 @@ alongside example usage and customization guidelines for each.</p>
 </menu>
 
 <pre><code class="language-css"><span class="hljs-selector-id">#my-modal</span> {
-  <span class="hljs-attribute">--modal-animation</span>: grow-modal-in;
+  <span class="hljs-attribute">--modal-animation</span>: grow-in;
 }
 </code></pre>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">dialog</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"my-modal"</span>&gt;</span>
@@ -1672,9 +1782,9 @@ const css = host.querySelector('pre:first-of-type code')
 const style = host.querySelector('style')
 
 const animations = {
-  'Grow In': 'grow-modal-in',
-  'Drop In': 'drop-modal-in',
-  'Fade In': 'fade-modal-in',
+  'Grow In': 'grow-in',
+  'Drop In': 'drop-in',
+  'Fade In': 'fade-in',
 }
 
 const template = anim => `#my-modal {
@@ -1727,7 +1837,7 @@ radio.addEventListener('click', () => {
       </tr>
       <tr>
         <td><code>--modal<br>&emsp;-animation</code></td>
-        <td><code>grow-modal-in</code></td>
+        <td><code>grow-in</code></td>
         <td><p>
           The animation to display when a modal is opened. Can be the name of any custom defined animation. See <a href="#modal-animations">animations</a> section for mor edetails.
         </p></td>
@@ -1737,7 +1847,7 @@ radio.addEventListener('click', () => {
 </div>
 
 <blockquote>
-<p><strong>IMPORTANT</strong></p>
+<p><strong>Customization Note</strong></p>
 <p>Dialog backdrop DOES NOT inherit root scope variables. Override modal related variables for <code>:root</code> AND <code>::backdrop</code>:</p>
 <pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span>,
 <span class="hljs-selector-pseudo">::backdrop</span> {
