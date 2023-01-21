@@ -82,7 +82,7 @@ Set `--modal-animation` property to change the animation of the modal. This need
 
 ```css
 #my-modal {
-  --modal-animation: grow-modal-in;
+  --modal-animation: grow-in;
 }
 ```
 ```html
@@ -126,9 +126,9 @@ const css = host.querySelector('pre:first-of-type code')
 const style = host.querySelector('style')
 
 const animations = {
-  'Grow In': 'grow-modal-in',
-  'Drop In': 'drop-modal-in',
-  'Fade In': 'fade-modal-in',
+  'Grow In': 'grow-in',
+  'Drop In': 'drop-in',
+  'Fade In': 'fade-in',
 }
 
 const template = anim => `#my-modal {
@@ -183,7 +183,7 @@ Tweak [global CSS variables](#theming) for customizing modals. If you need furth
       </tr>
       <tr>
         <td><code>--modal<br>&emsp;-animation</code></td>
-        <td><code>grow-modal-in</code></td>
+        <td><code>grow-in</code></td>
         <td><p>
           The animation to display when a modal is opened. Can be the name of any custom defined animation. See <a href="#modal-animations">animations</a> section for mor edetails.
         </p></td>
@@ -192,7 +192,7 @@ Tweak [global CSS variables](#theming) for customizing modals. If you need furth
   </table>
 </div>
 
-> **IMPORTANT**
+> **Customization Note**
 >
 > Dialog backdrop DOES NOT inherit root scope variables. Override modal related variables for `:root` AND `::backdrop`:
 >

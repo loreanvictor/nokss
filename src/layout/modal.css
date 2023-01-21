@@ -4,7 +4,7 @@
   --modal-backdrop-blur: 8px;
   --modal-backdrop-background: rgba(0  0  0  / 50%);
   --modal-background-brightness: 2;
-  --modal-animation: grow-modal-in;
+  --modal-animation: grow-in;
 }
 
 @media (prefers-color-scheme: light) {
@@ -106,40 +106,6 @@ dialog {
     & [role='group'] {
       margin: 0;
     }
-  }
-}
-
-@keyframes fade-modal-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes grow-modal-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes drop-modal-in {
-  from {
-    opacity: 0;
-    transform: translateY(-5vh);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 

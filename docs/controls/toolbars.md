@@ -52,9 +52,83 @@ Use `aria-orientation="vertical"` to display a vertical toolbar:
 
 <br>
 
+You can combine vertical toolbars with `<details>` element to create
+drop-in menus:
+
+```html
+<details>
+  <summary role="button">
+    Options ▾
+  </summary>
+  <div>
+    <menu role="toolbar" aria-orientation="vertical">
+      <button>Do this</button>
+      <button>Or do that</button>
+    </menu>
+  </div>
+</details>
+```
+
+<div role="presentation">
+  <details>
+    <summary role="button">
+      Options ▾
+    </summary>
+    <div>
+      <menu role="toolbar" aria-orientation="vertical">
+        <button>Do this</button>
+        <button>Or do that</button>
+      </menu>
+    </div>
+  </details>
+</div>
+
+Or even as part of a composite button:
+
+```html
+<menu role="toolbar">
+  <button>Something</button>
+  <details>
+    <summary role="button" aria-label="more">
+      ⋮
+    </summary>
+    <div>
+      <menu role="toolbar" aria-orientation="vertical">
+        <button>Hellow</button>
+        <button>World</button>
+        <button>Goodbye Blue Sky</button>
+      </menu>
+    </div>
+  </details>
+</menu>
+```
+
+<div role="presentation">
+  <menu role="toolbar">
+    <button>Something</button>
+    <details>
+      <summary role="button" aria-label="more" class="icon">
+        ⋮
+      </summary>
+      <div>
+        <menu role="toolbar" aria-orientation="vertical">
+          <button>Hellow</button>
+          <button>World</button>
+          <button>Goodbye Blue Sky</button>
+        </menu>
+      </div>
+    </details>
+  </menu>
+</div>
+
+> **Usage Note**
+>
+> Make sure to use `role="button"` on the `<summary>` element. Also make sure to
+> wrap the toolbar in a `<div>` element so that it can be positioned correctly.
+
 ### Customization
 
-Tweak [global CSS variables](#theming) for customizing toolbars. If you need further customization, you can use following CSS variables::
+Tweak [global CSS variables](#theming) for customizing toolbars. If you need further customization, you can use following CSS variables:
 
 <div style="overflow-x: auto">
   <table>

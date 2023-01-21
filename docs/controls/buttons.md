@@ -141,6 +141,52 @@ Denote a dangerous action by starting `aria-description` of the button with `"da
 
 <br>
 
+### Status Badges in Buttons
+
+Use `role="status"` to add a status badge (such as a counter) to a button:
+
+```html
+<button>
+  Star <span role="status">3</span>
+</button>
+```
+
+<div role="presentation">
+  <button>
+    Star <span role="status">3</span>
+  </button>
+</div>
+
+```html
+<menu role="group">
+  <button>
+    Watch <span role="status">450k+</span>
+  </button>
+  <button>
+    Fork <span role="status">32</span>
+  </button>
+  <button aria-description="danger">
+    Delete <span role="status">∞</span>
+  </button>
+</menu>
+```
+
+<div role="presentation">
+  <menu role="group">
+    <button>
+      Watch <span role="status">450k+</span>
+    </button>
+    <button>
+      Fork <span role="status">32</span>
+    </button>
+    <button aria-description="danger">
+      Delete <span role="status">∞</span>
+    </button>
+  </menu>
+</div>
+
+<br>
+
 ### Customization
 
 Tweak [global CSS variables](#theming) for customizing buttons. If you need further customization, you can use following CSS variables:
