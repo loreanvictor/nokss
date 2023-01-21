@@ -112,7 +112,7 @@ Set `--modal-animation` property to change the animation of the modal. This need
 
 <style>
 #my-modal {
-  --modal-animation: grow-modal-in;
+  --modal-animation: grow-in;
 }
 </style>
 
