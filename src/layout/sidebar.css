@@ -40,7 +40,7 @@ body > aside:first-of-type {
     transform: translateX(-100%);
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     width: calc(100% - var(--sidebar-fullscreen-gap));
     z-index: var(--sidebar-z);
     transform: translateX(-100%);
@@ -51,7 +51,7 @@ body > aside:first-of-type {
   &[aria-hidden='false'] {
     transform: translateX(0);
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1023px) {
       transform: translateX(0);
       box-shadow: 0 0 var(--sidebar-fullscreen-gap) calc(1.5 * var(--sidebar-fullscreen-gap)) rgba(0 0 0 / 60%);
     }
@@ -67,7 +67,7 @@ body > main + aside:first-of-type {
     transform: translateX(100%);
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     transform: translateX(100%);
   }
 }

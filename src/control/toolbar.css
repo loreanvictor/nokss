@@ -118,7 +118,7 @@
   flex-direction: column;
   gap: 0;
 
-  & > :is(button, [role='button']) {
+  & > :is(button, [role='button']):not([aria-label]) {
     justify-content: flex-start;
   }
 

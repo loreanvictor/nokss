@@ -20,9 +20,11 @@ pre {
 }
 
 pre [role='toolbar'] {
+  --code-toolbar-padding: calc(var(--code-padding) - (var(--button-height) / 2 - var(--code-font-size)));
+
   position: absolute;
-  top: var(--code-padding);
-  right: var(--code-padding);
+  top: var(--code-toolbar-padding);
+  right: var(--code-toolbar-padding);
   opacity: 0;
   transition: opacity 0.15s;
 }

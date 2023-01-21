@@ -23,3 +23,15 @@
     --hover-brightness: calc(var(--interactable-brightness) * 1.35);
   }
 }
+
+@media (min-width: 1560px) {
+  :root {
+    --interactable-size: 40px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --interactable-size: 48px;
+  }
+}

@@ -13,4 +13,5 @@ alongside example usage and customization guidelines for each.
 
 </section>
 
-{% markdown 'layout/modal.md' %}
+{% include './main.md' %}
+{% include './modal.md' %}

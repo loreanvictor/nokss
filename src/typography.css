@@ -16,6 +16,20 @@
   --font-weight: 300;
 }
 
+@media (min-width: 1560px) {
+  :root {
+    --font-size: 1.125rem;
+    --small-font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --font-size: 1.25rem;
+    --small-font-size: 0.9375rem;
+  }
+}
+
 html,
 body {
   font-family: var(--font-family);

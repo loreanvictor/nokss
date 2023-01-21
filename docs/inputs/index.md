@@ -15,10 +15,10 @@ alongside example usage and customization guidelines for each.
 
 </section>
 
-{% markdown 'inputs/text.md' %}
-{% markdown 'inputs/radio.md' %}
-{% markdown 'inputs/range.md' %}
-{% markdown 'inputs/other.md' %}
-{% markdown 'inputs/fieldset.md' %}
-{% markdown 'inputs/label.md' %}
-{% markdown 'inputs/status.md' %}
+{% include './text.md' %}
+{% include './radio.md' %}
+{% include './range.md' %}
+{% include './other.md' %}
+{% include './fieldset.md' %}
+{% include './label.md' %}
+{% include './status.md' %}

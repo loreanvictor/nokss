@@ -1,12 +1,6 @@
 :root {
-  --main-content-max-width: 896px;
+  --main-content-max-width: 60vw;
   --main-content-margin: calc(var(--spacing) * 4) auto;
-}
-
-@media (max-width: 1400px) {
-  :root {
-    --main-content-max-width: 60vw;
-  }
 }
 
 @media (max-width: 768px) {

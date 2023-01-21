@@ -12,7 +12,7 @@ alongside example usage and customization guidelines for each.
 
 </section>
 
-{% markdown "controls/buttons.md" %}
-{% markdown "controls/toolbars.md" %}
-{% markdown "controls/tablists.md" %}
-{% markdown "controls/switch.md" %}
+{% include "./buttons.md" %}
+{% include "./toolbars.md" %}
+{% include "./tablists.md" %}
+{% include "./switch.md" %}
