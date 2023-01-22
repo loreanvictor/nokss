@@ -256,4 +256,30 @@ button {
   <button class="slim-round-btn">Click ME!</button>
 </div>
 
+<br>
+
+Or you can create a `.fab` class for floating action buttons:
+
+```css
+.fab {
+  --button-height: calc(var(--interactable-size) * 1.5);
+  --button-min-width: var(--button-height);
+  --roundness: 50%;
+}
+```
+```html
+<button class="fab">🚀</button>
+```
+
+<div role="presentation">
+  <style>
+  .fab {
+    --button-height: calc(var(--interactable-size) * 1.5);
+    --button-min-width: var(--button-height);
+    --roundness: 50%;
+  }
+  </style>
+  <button class="fab icon">🚀</button>
+</div>
+
 </section>

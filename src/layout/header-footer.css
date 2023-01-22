@@ -5,6 +5,12 @@
   --footer-background-opacity: 0.65;
   --footer-padding: var(--spacing) calc(2 * var(--spacing));
   --footer-z: calc(var(--sticky-z) + 1);
+  --header-blur: var(--footer-blur);
+  --header-brightness: var(--footer-brightness);
+  --header-background: var(--footer-background);
+  --header-background-opacity: var(--footer-background-opacity);
+  --header-padding: var(--footer-padding);
+  --header-z: var(--footer-z);
 }
 
 body > header,
@@ -12,9 +18,6 @@ body > footer {
   position: fixed;
   width: 100%;
   left: 0;
-  backdrop-filter: blur(var(--footer-blur));
-  padding: var(--footer-padding);
-  z-index: var(--footer-z);
 
   &:is(header) {
     top: 0;
@@ -31,9 +34,6 @@ body > footer {
     height: 100%;
     left: 0;
     top: 0;
-    background: var(--footer-background);
-    filter: brightness(var(--footer-brightness));
-    opacity: var(--footer-background-opacity);
     z-index: -1;
   }
 
@@ -47,5 +47,29 @@ body > footer {
     border-top: 1px solid var(--text-color);
     opacity: var(--border-expression);
     z-index: -1;
+  }
+}
+
+body > header {
+  backdrop-filter: blur(var(--header-blur));
+  padding: var(--header-padding);
+  z-index: var(--header-z);
+
+  &::before {
+    background: var(--header-background);
+    filter: brightness(var(--header-brightness));
+    opacity: var(--header-background-opacity);
+  }
+}
+
+body > footer {
+  backdrop-filter: blur(var(--footer-blur));
+  padding: var(--footer-padding);
+  z-index: var(--footer-z);
+
+  &::before {
+    background: var(--footer-background);
+    filter: brightness(var(--footer-brightness));
+    opacity: var(--footer-background-opacity);
   }
 }

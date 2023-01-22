@@ -14,4 +14,5 @@ alongside example usage and customization guidelines for each.
 </section>
 
 {% include './main.md' %}
+{% include './header-footer.md' %}
 {% include './modal.md' %}
