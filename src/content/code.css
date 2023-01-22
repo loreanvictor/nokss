@@ -20,7 +20,7 @@ pre {
 }
 
 pre [role='toolbar'] {
-  --code-toolbar-padding: calc(var(--code-padding) - (var(--button-height) / 2 - var(--code-font-size)));
+  --code-toolbar-padding: calc(var(--code-padding) - (var(--button-height) - var(--font-size) * 1.5) / 2);
 
   position: absolute;
   top: var(--code-toolbar-padding);
