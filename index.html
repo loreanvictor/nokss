@@ -786,6 +786,28 @@ that falls back to characters browsers can display naturally even if the font is
   <button class="slim-round-btn">Click ME!</button>
 </div>
 
+<br>
+
+<p>Or you can create a <code>.fab</code> class for floating action buttons:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.fab</span> {
+  <span class="hljs-attribute">--button-height</span>: <span class="hljs-built_in">calc</span>(var(--interactable-size) * <span class="hljs-number">1.5</span>);
+  <span class="hljs-attribute">--button-min-width</span>: <span class="hljs-built_in">var</span>(--button-height);
+  <span class="hljs-attribute">--roundness</span>: <span class="hljs-number">50%</span>;
+}
+</code></pre>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fab"</span>&gt;</span>🚀<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <style>
+  .fab {
+    --button-height: calc(var(--interactable-size) * 1.5);
+    --button-min-width: var(--button-height);
+    --roundness: 50%;
+  }
+  </style>
+  <button class="fab icon">🚀</button>
+</div>
+
 </section>
 <section>
 
@@ -1745,6 +1767,118 @@ the top of the screen (this is set to half the distance to previous section).</p
     </tbody>
   </table>
 </div>
+
+</section>
+<section>
+
+<h2 id="header--footer">Header &amp; Footer</h2>
+<p>Use <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> elements directly in the <code>&lt;body&gt;</code> element to create a header and footer for the entire page:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">header</span>&gt;</span>
+    Header stuff
+  <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+    ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>
+    Footer stuff
+  <span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+<br>
+
+<p>Main header and footer are sticky by default, which can be overriden using CSS:</p>
+<pre><code class="language-css"><span class="hljs-selector-tag">body</span> &gt; <span class="hljs-selector-tag">footer</span> {
+  <span class="hljs-attribute">position</span>: initial;
+}
+</code></pre>
+<br>
+
+<p>You can customize main header and footer using the following CSS variables:</p>
+<div style="overflow-x: auto">
+  <table>
+    <caption>
+      Footer CSS Variables
+    </caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--footer-blur</code></td>
+        <td><code>16px</code></td>
+        <td>Backdrop blur of the footer</td>
+      </tr>
+      <tr>
+        <td><code>--footer-brightness</code></td>
+        <td><code>var(--sidebar-brightness)</code></td>
+        <td>Brightness of the footer (relative to the background)</td>
+      </tr>
+      <tr>
+        <td><code>--footer-background</code></td>
+        <td><code>var(--background-color)</code></td>
+        <td>Background of the footer</td>
+      </tr>
+      <tr>
+        <td><code>--footer-background<br>&emsp;-opacity</code></td>
+        <td><code>0.65</code></td>
+        <td>Background opacity of the footer</td>
+      </tr>
+      <tr>
+        <td><code>--footer-padding</code></td>
+        <td><code>var(--spacing)<br>calc(2 * var(--spacing))</code></td>
+        <td>Padding of footer content</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="overflow-x: auto">
+  <table>
+    <caption>
+      Header CSS Variables
+    </caption>
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--header-blur</code></td>
+        <td><code>var(--footer-blur)</code></td>
+        <td>Backdrop blur of the header</td>
+      </tr>
+      <tr>
+        <td><code>--header-brightness</code></td>
+        <td><code>var(--footer-brightness)</code></td>
+        <td>Brightness of the header (relative to the background)</td>
+      </tr>
+      <tr>
+        <td><code>--header-background</code></td>
+        <td><code>var(--footer-background)</code></td>
+        <td>Background of the header</td>
+      </tr>
+      <tr>
+        <td><code>--header-background<br>&emsp;-opacity</code></td>
+        <td><code>var(--footer-background<br>&emsp;-opacity)</code></td>
+        <td>Background opacity of the header</td>
+      </tr>
+      <tr>
+        <td><code>--header-padding</code></td>
+        <td><code>var(--footer-padding)</code></td>
+        <td>Padding of header content</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 
 </section>
 <section>
