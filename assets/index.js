@@ -114,9 +114,43 @@ const addSwitchBehavior = () => {
 }
 
 
+const highlightSidebarOnScroll = () => {
+  const sidebar = document.querySelector('body > aside:first-of-type')
+  const update = () => {
+    let target = sidebar.querySelector('a[href]').parentElement
+    document.querySelectorAll(':is(h1, h2, h3, h4, h5, h6)[id]').forEach(h => {
+      const { top, bottom } = h.getBoundingClientRect()
+      if (top <= window.innerHeight / 2) {
+        const candidate = sidebar.querySelector(`a[href="#${h.id}"]`)
+        candidate && (target = candidate.parentElement)
+      }
+    })
+
+    if (target) {
+      sidebar.querySelectorAll('[aria-selected="true"]').forEach(el => el.setAttribute('aria-selected', false))
+      target.setAttribute('aria-selected', true)
+      let parent = target.parentElement
+      sidebar.querySelectorAll('[aria-expanded="true"]').forEach(
+        el => el !== target && el.setAttribute('aria-expanded', false)
+      )
+      while (parent && parent !== sidebar) {
+        if (parent.getAttribute('role') == 'treeitem') {
+          parent.setAttribute('aria-expanded', true)
+        }
+        parent = parent.parentElement
+      }
+    }
+  }
+
+  document.addEventListener('scroll', update)
+  update()
+}
+
+
 addCopyButtons()
 addHeaderLinks()
 addTablistBehavior()
 addRadioGroupBehavior()
 addTreeBehavior()
 addSwitchBehavior()
+highlightSidebarOnScroll()
