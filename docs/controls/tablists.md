@@ -50,9 +50,8 @@ Use anchors (`<a role="tab">`) instead of buttons for more link-like tab lists:
 > ).forEach(button => {
 >   button.addEventListener('click', () => {
 >     /* Make sure only one item is selected at a time */
->     button.parentNode.querySelectorAll('button').forEach
->       (btn => btn.setAttribute('aria-selected', false)
->     )
+>     button.parentNode.querySelectorAll(':is(button, [role="tab"])')
+>       .forEach(btn => btn.setAttribute('aria-selected', false))
 >     button.setAttribute('aria-selected', true)
 >   })
 > })
