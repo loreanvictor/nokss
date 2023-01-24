@@ -982,9 +982,8 @@ wrap the toolbar in a <code>&lt;div&gt;</code> element so that it can be positio
 ).forEach(<span class="hljs-function"><span class="hljs-params">button</span> =&gt;</span> {
   button.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
     <span class="hljs-comment">/* Make sure only one item is selected at a time */</span>
-    button.parentNode.querySelectorAll(<span class="hljs-string">'button'</span>).forEach
-      (<span class="hljs-function"><span class="hljs-params">btn</span> =&gt;</span> btn.setAttribute(<span class="hljs-string">'aria-selected'</span>, <span class="hljs-literal">false</span>)
-    )
+    button.parentNode.querySelectorAll(<span class="hljs-string">':is(button, [role="tab"])'</span>)
+      .forEach(<span class="hljs-function"><span class="hljs-params">btn</span> =&gt;</span> btn.setAttribute(<span class="hljs-string">'aria-selected'</span>, <span class="hljs-literal">false</span>))
     button.setAttribute(<span class="hljs-string">'aria-selected'</span>, <span class="hljs-literal">true</span>)
   })
 })
