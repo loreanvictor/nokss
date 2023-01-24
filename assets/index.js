@@ -59,7 +59,8 @@ const addTablistBehavior = () => {
   ).forEach(button => {
     const prop = button.getAttribute('role') === 'radio' ? 'aria-checked' : 'aria-selected'
     button.addEventListener('click', () => {
-      button.parentNode.querySelectorAll('button').forEach(btn => btn.setAttribute(prop, false))
+      button.parentNode.querySelectorAll(':is(button, [role="tab"], [role="radio"]')
+        .forEach(btn => btn.setAttribute(prop, false))
       button.setAttribute(prop, true)
     })
   })

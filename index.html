@@ -88,23 +88,7 @@
     justify-content: center;
   }
 </style>
-<script>
-  if (window.innerWidth > 1024) {
-    let initial = true
-    const listener = () => {
-      if (scrollY > window.innerHeight * 0.85) {
-        if (initial) {
-          initial = false
-          document.querySelector('body>aside:first-of-type').setAttribute('aria-hidden', false)
-          document.querySelector('body>footer [role="switch"]').setAttribute('aria-checked', false)
-          document.removeEventListener('scroll', listener)
-        }
-      }
-    }
-
-    document.addEventListener('scroll', listener)
-  }
-</script>
+<script src="assets/sidebar-ctrl.js" defer></script>
 
 <div>
 
@@ -970,6 +954,26 @@ wrap the toolbar in a <code>&lt;div&gt;</code> element so that it can be positio
     <button role="tab">Third</button>
   </nav>
 </div>
+
+<br>
+
+<p>Use anchors (<code>&lt;a role=&quot;tab&quot;&gt;</code>) instead of buttons for more link-like tab lists:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"true"</span>&gt;</span>First<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span>&gt;</span>Second<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span>&gt;</span>Third<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <nav role="tablist">
+    <a role="tab" aria-selected="true">First</a>
+    <a role="tab">Second</a>
+    <a role="tab">Third</a>
+  </nav>
+  <br>
+</div>
+
+<br>
 
 <blockquote>
 <p>The behavior for tab lists needs to be added with JavaScript. Use <code>aria-selected=&quot;true&quot;</code> to mark a selected element:</p>
