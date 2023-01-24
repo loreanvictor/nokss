@@ -116,11 +116,13 @@ const addSwitchBehavior = () => {
 
 const highlightSidebarOnScroll = () => {
   const sidebar = document.querySelector('body > aside:first-of-type')
-  const update = () => {
+  const update = (initial) => {
     let target = sidebar.querySelector('a[href]').parentElement
+    let hash = ''
     document.querySelectorAll(':is(h1, h2, h3, h4, h5, h6)[id]').forEach(h => {
-      const { top, bottom } = h.getBoundingClientRect()
+      const { top } = h.getBoundingClientRect()
       if (top <= window.innerHeight / 2) {
+        hash = h.id
         const candidate = sidebar.querySelector(`a[href="#${h.id}"]`)
         candidate && (target = candidate.parentElement)
       }
@@ -139,11 +141,15 @@ const highlightSidebarOnScroll = () => {
         }
         parent = parent.parentElement
       }
+
+      if (!initial && window.location.hash !== '#' + hash) {
+        history.pushState(null, null, '#' + hash)
+      }
     }
   }
 
-  document.addEventListener('scroll', update)
-  update()
+  document.addEventListener('scroll', () => update(false))
+  update(true)
 }
 
 
