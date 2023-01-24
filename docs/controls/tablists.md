@@ -20,6 +20,29 @@ Use `role="tablist"` to create tab lists:
   </nav>
 </div>
 
+<br>
+
+Use anchors (`<a role="tab">`) instead of buttons for more link-like tab lists:
+
+```html
+<nav role="tablist">
+  <a role="tab" aria-selected="true">First</a>
+  <a role="tab">Second</a>
+  <a role="tab">Third</a>
+</nav>
+```
+
+<div role="presentation">
+  <nav role="tablist">
+    <a role="tab" aria-selected="true">First</a>
+    <a role="tab">Second</a>
+    <a role="tab">Third</a>
+  </nav>
+  <br>
+</div>
+
+<br>
+
 > The behavior for tab lists needs to be added with JavaScript. Use `aria-selected="true"` to mark a selected element:
 > ```js
 > document.querySelectorAll(
