@@ -187,7 +187,7 @@ Use `role="status"` to add a status badge (such as a counter) to a button:
 
 <br>
 
-### Customization
+<h3 id="button-customization">Customization</h3>
 
 Tweak [global CSS variables](#theming) for customizing buttons. If you need further customization, you can use following CSS variables:
 

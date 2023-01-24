@@ -126,7 +126,7 @@ Or even as part of a composite button:
 > Make sure to use `role="button"` on the `<summary>` element. Also make sure to
 > wrap the toolbar in a `<div>` element so that it can be positioned correctly.
 
-### Customization
+<h3 id="toolbar-customization">Customization</h3>
 
 Tweak [global CSS variables](#theming) for customizing toolbars. If you need further customization, you can use following CSS variables:
 

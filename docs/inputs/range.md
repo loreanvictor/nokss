@@ -84,7 +84,7 @@ The length of the track, in this case, is specified by `--track-length` CSS vari
 
 <br>
 
-### Customization
+<h3 id="range-input-customization">Customization</h3>
 
 Tweak [global CSS variables](#theming) for customizing range inputs. If you need further customization, you can use following CSS variables:
 

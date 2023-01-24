@@ -146,7 +146,7 @@ radio.addEventListener('click', () => {
 
 <br>
 
-### Customization
+<h3 id="modal-customization">Customization</h3>
 
 Tweak [global CSS variables](#theming) for customizing modals. If you need further customization, you can use following CSS variables:
 

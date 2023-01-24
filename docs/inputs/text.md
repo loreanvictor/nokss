@@ -85,7 +85,7 @@ Use attributes and ARIA attributes to determine state of the input:
 
 <br>
 
-### Customization
+<h3 id="text-input-customization">Customization</h3>
 
 Tweak [global CSS variables](#theming) for customizing inputs. If you need further customization, you can use following CSS variables:
 
