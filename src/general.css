@@ -1,5 +1,6 @@
 body {
   background-color: var(--background-color);
+  accent-color: var(--primary-color);
 }
 
 body,
