@@ -159,7 +159,7 @@ If you need smaller stylesheets, use one of the following, smaller, partial bund
   </table>
 </div>
 <div align="end" style="opacity: 0.5">
-  <small>Zipped using <a href="https://github.com/google/brotli">Brotli</a></small>
+  <small>Size calculated by zipping with <a href="https://github.com/google/brotli">Brotli</a></small>
 </div>
 
 <br>
