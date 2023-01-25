@@ -125,3 +125,7 @@ tfoot {
     }
   }
 }
+
+table :is(td, th) pre {
+  margin: 0;
+}
