@@ -155,19 +155,131 @@ the library from NPM and then load the locally installed version:</p>
   const [css, html] = Array.from(parent.querySelectorAll('code'))
 
   const cdns = {
-    unpkg: 'https://unpkg.com/nokss',
-    jsdelivr: 'https://cdn.jsdelivr.net/npm/nokss/dist/nokss.css',
-    esm: 'https://esm.sh/nokss/dist/nokss.css',
+    unpkg: { host: 'https://unpkg.com/nokss', path: '' },
+    jsdelivr: { host: 'https://cdn.jsdelivr.net/npm/nokss', path:'/dist/nokss.css' },
+    esm: { host: 'https://esm.sh/nokss', path: '/dist/nokss.css' },
   }
 
   const menu = parent.querySelectorAll('[role="radiogroup"] button').forEach(btn => {
     btn.addEventListener('click', () => {
-      css.innerHTML = hljs.highlight(`@import '${cdns[btn.dataset.cdn]}';`, {language: 'css'}).value
-      html.innerHTML = hljs.highlight(`<link rel="stylesheet"\n\thref="${cdns[btn.dataset.cdn]}" />`, {language: 'html'}).value
+      const cdn = cdns[btn.dataset.cdn]
+      const url = cdn.host + cdn.path
+      css.innerHTML = hljs.highlight(`@import '${url}';`, {language: 'css'}).value
+      html.innerHTML = hljs.highlight(`<link rel="stylesheet"\n\thref="${url}" />`, {language: 'html'}).value
+
+      document.querySelectorAll('code[data-bundle-path]').forEach(code => {
+        code.textContent = cdn.host + code.dataset.bundlePath
+      })
     })
   })
 </script>
 
+<style>
+  table code[data-bundle-path] {
+    color: #fff;
+  }
+</style>
+
+<br>
+
+<h2 id="bundles">Bundles</h2>
+<p>If you need smaller stylesheets, use one of the following, smaller, partial bundles:</p>
+<div style="overflow-x: auto">
+  <table>
+    <caption>
+      Partial Bundles <br>
+      minified and zipped using <a href="https://github.com/google/brotli">Brotli</a>.
+    </caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>URL</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Markdown</td>
+        <td>
+          <img
+            src="https://img.shields.io/github/size/loreanvictor/nokss/bundles/md.css.br?branch=gh-pages&color=black&label=%20&style=flat-square"
+            alt="md bundle size">
+        </td>
+        <td>
+          <pre><code data-bundle-path="/dist/bundles/md.css">https://unpkg.com/nokss/dist/bundles/md.css</code></pre>
+        </td>
+        <td>
+          Styles standard markdown elements.
+        </td>
+      </tr>
+      <tr>
+        <td>Basic</td>
+        <td>
+          <img
+            src="https://img.shields.io/github/size/loreanvictor/nokss/bundles/basic.css.br?branch=gh-pages&color=black&label=%20&style=flat-square"
+            alt="basic bundle size">
+        </td>
+        <td>
+          <pre><code data-bundle-path="/dist/bundles/basic.css">https://unpkg.com/nokss/dist/bundles/basic.css</code></pre>
+        </td>
+        <td>
+          Markdown plus buttons.
+        </td>
+      </tr>
+      <tr>
+        <td>Slick</td>
+        <td>
+          <img
+            src="https://img.shields.io/github/size/loreanvictor/nokss/bundles/slick.css.br?branch=gh-pages&color=black&label=%20&style=flat-square"
+            alt="slick bundle size">
+        </td>
+        <td>
+          <pre><code data-bundle-path="/dist/bundles/slick.css">https://unpkg.com/nokss/dist/bundles/slick.css</code></pre>
+        </td>
+        <td>
+          Basic plus general layouts.
+        </td>
+      </tr>
+      <tr>
+        <td>Formal</td>
+        <td>
+          <img
+            src="https://img.shields.io/github/size/loreanvictor/nokss/bundles/formal.css.br?branch=gh-pages&color=black&label=%20&style=flat-square"
+            alt="formal bundle size">
+        </td>
+        <td>
+          <pre><code data-bundle-path="/dist/bundles/formal.css">https://unpkg.com/nokss/dist/bundles/formal.css</code></pre>
+        </td>
+        <td>
+          Basic plus form elements.
+        </td>
+      </tr>
+      <tr>
+        <td>Slick Formal</td>
+        <td>
+          <img
+            src="https://img.shields.io/github/size/loreanvictor/nokss/bundles/slick-formal.css.br?branch=gh-pages&color=black&label=%20&style=flat-square"
+            alt="slick formal bundle size">
+        </td>
+        <td>
+          <pre><code data-bundle-path="/dist/bundles/slick-formal.css">https://unpkg.com/nokss/dist/bundles/slick-formal.css</code></pre>
+        </td>
+        <td>
+          Slick plus form elements.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<blockquote>
+<p><strong>About Bundles</strong></p>
+<p>Toolbars, modals, feeds and cards are not included in any of the partial bundles. They are only available in the full bundle. Also make sure
+to use one bundle at a time, otherwise you&#39;ll end up with duplicate styles.</p>
+</blockquote>
 </section>
       <section>
 
