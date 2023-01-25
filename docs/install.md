@@ -75,7 +75,6 @@ If you need smaller stylesheets, use one of the following, smaller, partial bund
   <table>
     <caption>
       Partial Bundles <br>
-      zipped using <a href="https://github.com/google/brotli">Brotli</a>
     </caption>
     <thead>
       <tr>
@@ -158,6 +157,9 @@ If you need smaller stylesheets, use one of the following, smaller, partial bund
       </tr>
     </tbody>
   </table>
+</div>
+<div align="end" style="opacity: 0.5">
+  <small>Zipped using <a href="https://github.com/google/brotli">Brotli</a></small>
 </div>
 
 <br>
