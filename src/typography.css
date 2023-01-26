@@ -12,6 +12,7 @@
   --font-size: 1rem;
   --small-font-size: 0.833rem;
   --font-weight: 300;
+  --line-height: calc(var(--font-size) * 1.5);
 }
 
 @media (min-width: 1560px) {
@@ -31,7 +32,7 @@
 html,
 body {
   font-family: var(--font-family);
-  line-height: calc(var(--font-size) * 1.5);
+  line-height: var(--line-height);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
 }

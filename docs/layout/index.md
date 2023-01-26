@@ -15,4 +15,5 @@ alongside example usage and customization guidelines for each.
 
 {% include './main.md' %}
 {% include './header-footer.md' %}
+{% include './feed.md' %}
 {% include './modal.md' %}

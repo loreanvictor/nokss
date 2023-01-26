@@ -1,0 +1,27 @@
+address {
+  font-style: normal;
+  font-size: calc(var(--font-size) * 1.2);
+  font-weight: calc(var(--font-weight) * 1.2);
+  margin: var(--spacing) 0;
+
+  & small {
+    font-weight: var(--font-weight);
+  }
+
+  & > img:first-child {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: cover;
+    margin-right: calc(var(--spacing) / 2);
+  }
+
+  & > img:first-child + div {
+    margin-top: calc(var(--spacing) / 2);
+    display: inline-block;
+    vertical-align: top;
+    line-height: calc(var(--line-height) * 0.8);
+  }
+}
