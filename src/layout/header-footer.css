@@ -73,3 +73,7 @@ body > footer {
     opacity: var(--footer-background-opacity);
   }
 }
+
+:is(header, footer):is([align='end'], [align='right']) {
+  text-align: right;
+}

@@ -435,7 +435,7 @@ Use `aria-busy` attribute to indicate that the feed is loading:
     </article>
   </section>
   <br>
-  <div align="end">
+  <div align="right">
     <button id="load-more">Load More</button>
   </div>
 </div>
