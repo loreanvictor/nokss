@@ -28,3 +28,13 @@ body > aside:first-of-type {
 .hljs-selector-pseudo {
   color: #ffae6d;
 }
+
+.card-show {
+  padding: var(--spacing) 10vw;
+}
+
+@media (max-width: 600px) {
+  .card-show {
+    padding: var(--spacing);
+  }
+}
