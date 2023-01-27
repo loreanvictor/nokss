@@ -2424,6 +2424,7 @@ You can also just give the footer element the toolbar role:</p>
     btn.setAttribute('disabled', true)
     btn.textContent = 'Loading...'
     setTimeout(() => {
+      feed.insertBefore(feed.querySelector('article:last-child'), feed.querySelector('article:first-child'))
       feed.removeAttribute('aria-busy')
       btn.removeAttribute('disabled')
       btn.textContent = 'Load More'
