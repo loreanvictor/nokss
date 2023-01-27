@@ -196,6 +196,13 @@ details {
   }
 }
 
+[role='toolbar']:is([align='right'], [align='end']) > details {
+  & > summary[role='button'] + div {
+    left: auto;
+    right: 0;
+  }
+}
+
 [role='toolbar']:not([aria-orientation='vertical']) > details {
   &:not(:first-child) {
     & > summary[role='button'] {

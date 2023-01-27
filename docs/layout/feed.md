@@ -166,6 +166,55 @@ Use `<address>` for attributing the card to some author:
 
 <br>
 
+Note how in the above example, the `<footer>` is used, with a toolbar within it, to provide a set of actions for the card.
+You can also just give the footer element the toolbar role:
+
+```html
+<section role="feed">
+  <article role="comment">
+    <header>
+      <address>
+        <img src="https://randomuser.me/api/portraits/women/95.jpg" loading="lazy" alt="random avatar"/>
+        Jeanette Martin
+      </address>
+    </header>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+    <footer role="toolbar">
+      <button aria-label="like" >❤ 33k</button>
+      <button aria-label="comment">💬 1.2k</button>
+      <button aria-label="repost">🔁 1,024</button>
+      <button aria-label="share">↥</button>
+    </footer>
+  </article>
+</section>
+```
+
+<div role="presentation" class="card-show">
+  <section role="feed">
+    <article role="comment">
+      <header>
+        <address>
+          <img src="https://randomuser.me/api/portraits/women/95.jpg" loading="lazy" alt="random avatar"/>
+          Jeanette Martin
+        </address>
+      </header>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <footer role="toolbar">
+        <button aria-label="like" ><span class="icon">❤</span>&ensp;33k</button>
+        <button aria-label="comment"><span class="icon">💬</span>&ensp;1.2k</button>
+        <button aria-label="repost"><span class="icon">🔁</span>&ensp;1,024</button>
+        <button aria-label="share" class="icon">↥</button>
+      </footer>
+    </article>
+  </section>
+</div>
+
+<br>
+
 Put a toolbar at the beginning of the card to provide top-side actions:
 
 ```html
@@ -257,7 +306,7 @@ Alternatively, you can put the toolbar in the header:
         </address>
         <menu role="toolbar">
           <details>
-            <summary role="button" aria-label="more">⋮</summary>
+            <summary role="button" aria-label="more" class="icon">⋮</summary>
             <div>
               <menu role="toolbar" aria-orientation="vertical">
                 <button>Share</button>
@@ -351,33 +400,33 @@ Use `aria-busy` attribute to indicate that the feed is loading:
 
 <div role="presentation">
   <section role="feed" id="feed-1">
-    <article>
+    <article role="comment">
       <header>
         <address>
-          <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=932&q=80" loading="lazy" alt="random avatar"/>
-          John Doe
+          <img src="https://randomuser.me/api/portraits/women/20.jpg" loading="lazy" alt="random avatar"/>
+          <div>Erica Parker<br><small>W 6th St</small></div>
         </address>
       </header>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
     </article>
-    <article>
+    <article role="comment">
       <header>
         <address>
-          <img src="https://randomuser.me/api/portraits/women/12.jpg" loading="lazy" alt="random avatar"/>
-          Jane Doe
+          <img src="https://randomuser.me/api/portraits/men/37.jpg" loading="lazy" alt="random avatar"/>
+          <div>Kelly Davis<br><small>Belt Line Rd</small></div>
         </address>
       </header>
       <p>
         Ut enim ad minim veniam, quis nostrud exercitation ullamco ...
       </p>
     </article>
-    <article>
+    <article  role="comment">
       <header>
         <address>
-          <img src="https://randomuser.me/api/portraits/women/33.jpg" loading="lazy" alt="random avatar"/>
-          Erika Mustermann
+          <img src="https://randomuser.me/api/portraits/men/66.jpg" loading="lazy" alt="random avatar"/>
+          <div>Aaron Lambert<br><small>Groveland Terrace</small></div>
         </address>
       </header>
       <p>
@@ -396,8 +445,12 @@ Use `aria-busy` attribute to indicate that the feed is loading:
   const feed = document.querySelector('#feed-1')
   btn.addEventListener('click', () => {
     feed.setAttribute('aria-busy', true)
+    btn.setAttribute('disabled', true)
+    btn.textContent = 'Loading...'
     setTimeout(() => {
       feed.removeAttribute('aria-busy')
+      btn.removeAttribute('disabled')
+      btn.textContent = 'Load More'
     }, 2000)
   })
 </script>

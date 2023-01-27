@@ -34,10 +34,6 @@
   transition: filter 0.15s, box-shadow 0.15s, transform 0.15s;
   cursor: pointer;
 
-  &:not(:last-child) {
-    margin-bottom: var(--spacing);
-  }
-
   &::before {
     z-index: -1;
     content: ' ';
@@ -109,6 +105,10 @@
     margin: var(--spacing) 0;
   }
 
+  &[role='comment'] > *:not(header) {
+    margin-left: calc(var(--spacing) + 2.5rem);
+  }
+
   & > footer {
     flex-grow: 1;
     display: flex;
@@ -129,6 +129,25 @@
         opacity: var(--border-expression);
       }
     }
+
+    &[role='toolbar'] {
+      flex-direction: row;
+      margin-top: var(--spacing);
+
+      & > :is(button, [role='button'], [type='submit'], [type='button']) {
+        flex-grow: 1;
+        justify-content: flex-start;
+        min-width: auto;
+
+        &:last-child {
+          justify-content: flex-end;
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+    }
   }
 
   & > header > [role='toolbar'],
@@ -141,26 +160,33 @@
     &[aria-orientation='vertical'] {
       margin-top: -24px;
     }
+
+    & > details > summary[role='button'] + div {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+[role='feed'] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  transition: filter 0.15s;
+
+  &[aria-busy='true'] {
+    filter: blur(2px);
+    transition: filter 0.6s;
   }
 }
 
 [role='feed'][aria-orientation='horizontal'] {
-  display: flex;
-  gap: var(--spacing);
+  flex-direction: row;
   overflow: auto;
   padding: var(--spacing) 0;
 
   & > article {
     width: var(--horizontal-feed-card-width);
     flex-shrink: 0;
-  }
-}
-
-[role='feed'] {
-  transition: filter 0.15s;
-
-  &[aria-busy='true'] {
-    filter: blur(2px);
-    transition: filter 0.6s;
   }
 }
