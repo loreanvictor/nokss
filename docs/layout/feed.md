@@ -448,6 +448,7 @@ Use `aria-busy` attribute to indicate that the feed is loading:
     btn.setAttribute('disabled', true)
     btn.textContent = 'Loading...'
     setTimeout(() => {
+      feed.insertBefore(feed.querySelector('article:last-child'), feed.querySelector('article:first-child'))
       feed.removeAttribute('aria-busy')
       btn.removeAttribute('disabled')
       btn.textContent = 'Load More'
