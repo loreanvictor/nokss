@@ -3,7 +3,7 @@
   --section-header-offset: calc(var(--section-spacing) / 2);
 }
 
-section {
+section:not([role]) {
   margin: var(--section-spacing) 0;
 
   &:first-child {

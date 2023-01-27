@@ -34,6 +34,10 @@
   transition: filter 0.15s, box-shadow 0.15s, transform 0.15s;
   cursor: pointer;
 
+  &:not(:last-child) {
+    margin-bottom: var(--spacing);
+  }
+
   &::before {
     z-index: -1;
     content: ' ';
@@ -149,5 +153,14 @@
   & > article {
     width: var(--horizontal-feed-card-width);
     flex-shrink: 0;
+  }
+}
+
+[role='feed'] {
+  transition: filter 0.15s;
+
+  &[aria-busy='true'] {
+    filter: blur(2px);
+    transition: filter 0.6s;
   }
 }
