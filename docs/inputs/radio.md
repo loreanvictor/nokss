@@ -66,6 +66,24 @@ Use `<input type="checkbox">` when users can independently select and deselect s
 
 <br>
 
+Use `role="switch"` on an `<input type="checkbox" />` to get a switch-style checkbox:
+
+```html
+<label>
+  <input type="checkbox" role="switch"/>
+  <span>Enable Stuff</span>
+</label>
+```
+
+<div role="presentation">
+  <label>
+    <input type="checkbox" role="switch"/>
+    <span>Enable Stuff</span>
+  </label>
+</div>
+
+<br>
+
 Use `role="radiogroup"` instead of radio inputs for a different style:
 
 ```html

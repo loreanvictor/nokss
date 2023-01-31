@@ -5,6 +5,8 @@
 
 input[type='radio'],
 input[type='checkbox'] {
+  --brightness: calc(1 - (1 - var(--interactable-brightness)) * 1.5);
+
   display: inline-block;
   cursor: pointer;
   appearance: none;
@@ -16,11 +18,11 @@ input[type='checkbox'] {
   margin-left: 0;
   border-radius: var(--roundness);
   position: relative;
-  filter: brightness(var(--interactable-brightness));
+  filter: brightness(var(--brightness));
   transition: filter 0.15s;
 
   &:hover {
-    filter: brightness(var(--hover-brightness));
+    filter: brightness(calc(1 - (1 - var(--brightness)) * 1.5));
   }
 
   &::before {
@@ -31,13 +33,13 @@ input[type='checkbox'] {
     border: 1px solid var(--text-color);
     border-radius: var(--roundness);
     opacity: var(--border-expression);
+    filter: brightness(calc(1 / var(--brightness)));
     transition: border 0.15s, filter 0.15s, opacity 0.15s;
   }
 
   &:focus::before {
     border-color: var(--primary-color);
     opacity: 1;
-    filter: brightness(calc(1 / var(--interactable-brightness)));
   }
 
   &::after {
@@ -49,7 +51,7 @@ input[type='checkbox'] {
     height: var(--radio-check-size);
     background: transparent;
     border-radius: var(--roundness);
-    filter: brightness(calc(1 / var(--interactable-brightness)));
+    filter: brightness(calc(1 / var(--brightness)));
     transform: scale(0);
     transition: background 0.15s, transform 0.15s, clip-path 0.15s;
   }
@@ -93,6 +95,34 @@ input[type='checkbox'] {
     &:indeterminate::after {
       background: var(--primary-color);
       clip-path: polygon(0 36.45%, 0 60.45%, 50% 60.45%, 100% 60.45%, 100% 36.45%, 50% 36.45%);
+    }
+
+    &[role='switch'] {
+      --br: calc(min(var(--radio-size), var(--roundness) * 3));
+      --w: calc(var(--radio-size) * 1.75);
+
+      width: var(--w);
+      border-radius: var(--br);
+
+      &::before {
+        border-radius: var(--br);
+      }
+
+      &::after {
+        clip-path: initial;
+        opacity: calc(1 - (1 - var(--border-expression)) * 0.75);
+        transform: none;
+        background: var(--text-color);
+        border-radius: var(--br);
+        transition: transform 0.15s, opacity 0.15s, background 0.15s;
+      }
+
+      &:checked::after,
+      &[aria-checked='true']::after {
+        background: var(--primary-color);
+        opacity: 1;
+        transform: translateX(calc(var(--w) - var(--radio-size)));
+      }
     }
   }
 
