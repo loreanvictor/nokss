@@ -1386,6 +1386,21 @@ which are not automatically styled as invalid when empty (since CSS cannot track
 
 <br>
 
+<p>Use <code>role=&quot;switch&quot;</code> on an <code>&lt;input type=&quot;checkbox&quot; /&gt;</code> to get a switch-style checkbox:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"switch"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Enable Stuff<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <label>
+    <input type="checkbox" role="switch"/>
+    <span>Enable Stuff</span>
+  </label>
+</div>
+
+<br>
+
 <p>Use <code>role=&quot;radiogroup&quot;</code> instead of radio inputs for a different style:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radiogroup"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"radio"</span>&gt;</span>Alliance<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
