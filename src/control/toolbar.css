@@ -281,4 +281,24 @@ details {
     transform: scaleY(3);
     background: var(--primary-color);
   }
+
+  & > [role='status'] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    padding: calc(var(--spacing) / 3);
+    font-size: var(--small-font-size);
+    margin: 0 calc(var(--spacing) / 2);
+    border-radius: calc(var(--roundness) * 4);
+    min-width: 1.5em;
+    height: 1.5em;
+    background: inherit;
+    color: inherit;
+    filter: brightness(calc(1 - (1 - var(--interactable-brightness)) * var(--status-brightness-diff)));
+
+    &:last-child {
+      margin-right: calc(-0.5 * var(--spacing));
+    }
+  }
 }

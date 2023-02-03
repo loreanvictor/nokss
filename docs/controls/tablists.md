@@ -57,4 +57,22 @@ Use anchors (`<a role="tab">`) instead of buttons for more link-like tab lists:
 > })
 > ```
 
+<br>
+
+You can also use `role="status"` within tab panels:
+
+```html
+<nav role="tablist">
+  <a role="tab" aria-selected="true">Friends <span role="status">17</span></a>
+  <a role="tab">Follwers <span role="status">32</span></a>
+</nav>
+```
+
+<div role="presentation">
+  <nav role="tablist">
+    <a role="tab" aria-selected="true">Friends <span role="status">17</span></a>
+    <a role="tab">Follwers <span role="status">32</span></a>
+  </nav>
+</div>
+
 </section>
