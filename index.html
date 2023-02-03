@@ -1103,6 +1103,21 @@ wrap the toolbar in a <code>&lt;div&gt;</code> element so that it can be positio
 })
 </code></pre>
 </blockquote>
+<br>
+
+<p>You can also use <code>role=&quot;status&quot;</code> within tab panels:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"true"</span>&gt;</span>Friends <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>17<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span>&gt;</span>Follwers <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"status"</span>&gt;</span>32<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <nav role="tablist">
+    <a role="tab" aria-selected="true">Friends <span role="status">17</span></a>
+    <a role="tab">Follwers <span role="status">32</span></a>
+  </nav>
+</div>
+
 </section>
 <section>
 
