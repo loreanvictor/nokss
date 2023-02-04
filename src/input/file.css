@@ -27,7 +27,7 @@ input[type='file'] {
     filter: brightness(calc(1 / var(--brightness)));
 
     &:hover {
-      filter: brightness(calc(var(--button-primary-hover-brightness) / var(--brightness)));
+      filter: brightness(calc(var(--primary-button-hover-brightness) / var(--brightness)));
     }
   }
 }

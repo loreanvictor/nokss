@@ -71,6 +71,7 @@ button,
 
   &[aria-label] {
     min-width: var(--button-height);
+    padding: var(--spacing);
   }
 
   & > [role='status'] {

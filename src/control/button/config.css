@@ -1,5 +1,5 @@
 :root {
   --button-height: var(--interactable-size);
   --button-min-width: calc(var(--interactable-size) * 3);
-  --button-padding: 0 var(--spacing);
+  --button-padding: var(--spacing) calc(2 * var(--spacing));
 }
