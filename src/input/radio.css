@@ -110,7 +110,7 @@ input[type='checkbox'] {
 
       &::after {
         clip-path: initial;
-        opacity: calc(1 - (1 - var(--border-expression)) * 0.75);
+        opacity: calc(1 - (1 - var(--border-expression)) * 0.5);
         transform: none;
         background: var(--text-color);
         border-radius: var(--br);
