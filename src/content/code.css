@@ -5,12 +5,16 @@
 }
 
 pre code {
+  color: white;
+}
+
+pre code,
+pre code.hljs {
   display: block;
   padding: var(--code-padding);
   border-radius: var(--code-border-radius);
   position: relative;
   font-size: var(--code-font-size);
-  color: white;
   overflow-x: auto;
   outline: none;
 }

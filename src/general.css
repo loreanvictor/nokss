@@ -4,6 +4,6 @@ body {
 }
 
 body,
-* {
+:not(pre code *, button) {
   color: var(--text-color);
 }
