@@ -2,12 +2,12 @@
   --section-spacing: 40vh;
 }
 
-pre code {
+pre code,
+pre code.hljs {
   background: #000;
-  color: white;
 }
 
-pre code * { color: white; }
+/* pre code * { color: white; } */
 
 .icon {
   font-family: graphis, sans-serif;
