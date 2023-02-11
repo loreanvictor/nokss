@@ -1,9 +1,5 @@
 body {
+  color: var(--text-color);
   background-color: var(--background-color);
   accent-color: var(--primary-color);
-}
-
-body,
-:not(pre code *, button) {
-  color: var(--text-color);
 }

@@ -24,6 +24,7 @@ button,
   align-items: center;
   justify-content: center;
   min-width: var(--button-min-width);
+  text-decoration: none;
   height: var(--button-height);
   position: relative;
   font-size: 0.9em;
