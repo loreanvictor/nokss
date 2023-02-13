@@ -43,8 +43,9 @@ strong {
 }
 
 mark {
-  background: none;
-  border-bottom: 0.25rem solid var(--primary-color);
+  background: var(--primary-color);
+  color: var(--primary-text-color);
+  border-bottom: 0.15rem solid var(--primary-color);
 }
 
 small {
