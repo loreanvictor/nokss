@@ -1,6 +1,8 @@
 :root {
   --radio-size: calc(var(--input-height) * 0.65);
   --radio-check-size: calc(var(--radio-size) - var(--spacing));
+  --toggle-size: calc(var(--input-height) * 0.8);
+  --toggle-check-size: calc(var(--toggle-size) - var(--spacing));
 }
 
 input[type='radio'],
@@ -98,29 +100,40 @@ input[type='checkbox'] {
     }
 
     &[role='switch'] {
-      --br: calc(min(var(--radio-size), var(--roundness) * 3));
-      --w: calc(var(--radio-size) * 1.75);
+      --br: calc(min(var(--toggle-size), var(--roundness) * 3));
+      --radio-size: var(--toggle-size);
+      --radio-check-size: var(--toggle-check-size);
+      --w: calc(var(--radio-size) * 1.55);
 
       width: var(--w);
       border-radius: var(--br);
+      filter: brightness(1);
 
       &::before {
+        filter: brightness(1);
         border-radius: var(--br);
+        background: var(--text-color);
+        opacity: calc(1 - (1 - var(--border-expression)) * 0.75);
+        transition: background 0.15s, opacity 0.15s, border-color 0.15s;
       }
 
       &::after {
+        filter: brightness(1);
         clip-path: initial;
-        opacity: calc(1 - (1 - var(--border-expression)) * 0.5);
-        transform: none;
-        background: var(--text-color);
+        background: var(--primary-text-color);
         border-radius: var(--br);
-        transition: transform 0.15s, opacity 0.15s, background 0.15s;
+        opacity: 1;
+      }
+
+      &:checked::before,
+      &[aria-checked='true']::before {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+        opacity: 1;
       }
 
       &:checked::after,
       &[aria-checked='true']::after {
-        background: var(--primary-color);
-        opacity: 1;
         transform: translateX(calc(var(--w) - var(--radio-size)));
       }
     }
