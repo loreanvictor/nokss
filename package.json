@@ -1,6 +1,6 @@
 {
   "name": "nokss",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "description": "enough css",
   "unpkg": "/dist/nokss.css",
   "main": "/dist/nokss.css",
