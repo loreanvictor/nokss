@@ -187,6 +187,36 @@ Use `role="status"` to add a status badge (such as a counter) to a button:
 
 <br>
 
+### Keyboard Shortcuts
+
+Use `<kbd>` elements inside a button to show keyboard shortcuts:
+
+```html
+<menu role="group">
+  <button>
+    <kbd>Esc</kbd><span>Cancel</span>
+  </button>
+  <button>
+    <span>Accept</span><kbd>↵</kbd>
+  </button>
+</menu>
+```
+
+<div role="presentation">
+  <menu role="group">
+    <button>
+      <kbd>Esc</kbd><span>Cancel</span>
+    </button>
+    <button>
+      <span>Accept</span><kbd>↵</kbd>
+    </button>
+  </menu>
+</div>
+
+> Make sure you wrap the label of your button in a separate element so it can be properly spaced.
+
+<br>
+
 <h3 id="button-customization">Customization</h3>
 
 Tweak [global CSS variables](#theming) for customizing buttons. If you need further customization, you can use following CSS variables:

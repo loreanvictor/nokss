@@ -36,4 +36,29 @@ kbd {
     background: var(--background-color);
     z-index: -1;
   }
+
+  :is(button, [role='button'], [type='button'], [type='submit']) & {
+    height: calc(var(--interactable-size) - var(--spacing));
+    padding-bottom: 2px;
+    font-size: 0.9em;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      opacity: 0.35;
+      border-bottom: 2px solid black;
+    }
+
+    &:last-child {
+      margin-right: -12px;
+      margin-left: 8px;
+    }
+
+    &:first-child {
+      margin-left: -12px;
+      margin-right: 8px;
+    }
+  }
 }
