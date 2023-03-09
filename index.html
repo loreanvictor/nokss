@@ -820,6 +820,33 @@ that falls back to characters browsers can display naturally even if the font is
 
 <br>
 
+<h3 id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+<p>Use <code>&lt;kbd&gt;</code> elements inside a button to show keyboard shortcuts:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">menu</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span>Esc<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Cancel<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Accept<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">kbd</span>&gt;</span>↵<span class="hljs-tag">&lt;/<span class="hljs-name">kbd</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">menu</span>&gt;</span>
+</code></pre>
+<div role="presentation">
+  <menu role="group">
+    <button>
+      <kbd>Esc</kbd><span>Cancel</span>
+    </button>
+    <button>
+      <span>Accept</span><kbd>↵</kbd>
+    </button>
+  </menu>
+</div>
+
+<blockquote>
+<p>Make sure you wrap the label of your button in a separate element so it can be properly spaced.</p>
+</blockquote>
+<br>
+
 <h3 id="button-customization">Customization</h3>
 
 <p>Tweak <a href="#theming">global CSS variables</a> for customizing buttons. If you need further customization, you can use following CSS variables:</p>
