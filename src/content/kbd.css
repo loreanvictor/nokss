@@ -39,16 +39,16 @@ kbd {
 
   :is(button, [role='button'], [type='button'], [type='submit']) & {
     height: calc(var(--interactable-size) - var(--spacing));
-    padding-bottom: 2px;
     font-size: 0.9em;
+    box-shadow: 0 1px 1px rgba(0 0 0 / 35%);
 
     &::before {
       display: none;
     }
 
     &::after {
-      opacity: 0.35;
-      border-bottom: 2px solid black;
+      background: var(--text-color);
+      opacity: 0.1;
     }
 
     &:last-child {

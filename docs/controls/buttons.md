@@ -16,7 +16,7 @@ Use `<button>`, `<a role="button">` or `<input type="submit">` to create buttons
 <a role="button">Anchor</a>
 ```
 <div role="presentation">
-  <a role="button" href="https://google.com"><b>A</b>nchor</a>
+  <a role="button" href="https://google.com">Anchor</a>
 </div>
 
 ```html
