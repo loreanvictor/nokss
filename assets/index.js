@@ -144,7 +144,7 @@ const highlightSidebarOnScroll = () => {
       }
 
       if (!initial && window.location.hash !== '#' + hash) {
-        history.pushState(null, null, '#' + hash)
+        history.replaceState(null, null, '#' + hash)
       }
     }
   }
